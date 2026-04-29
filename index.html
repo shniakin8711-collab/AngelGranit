@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Гранитные памятники под ключ | Angel Granit · ИП Шнякина Н · Алматы</title>
+  <meta name="description" content="Гранитные памятники из чёрного габбро и курдайского гранита: стелы, комплексы, гравировка, установка. Angel Granit, ИП Шнякина Н, агент Александр. ул. Осетинская, 5а. +7 701 056 7667. Стрим ежедневно 22:00 — Angel Granit на YouTube. 2ГИС, Kaspi.kz, OLX, Instagram." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="./" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_KZ" />
+  <meta property="og:title" content="Гранитные памятники под ключ | Angel Granit · ИП Шнякина Н" />
+  <meta property="og:description" content="Агент Александр. ул. Осетинская, 5а, Алматы. +7 701 056 7667. Стрим 22:00 — Angel Granit на YouTube." />
+  <meta property="og:url" content="./" />
+  <meta property="og:image" content="images/hero-monument-black-angel.png" />
+  <!-- После публикации на домене: укажите в og:url и og:image полные https://… URL для превью в мессенджерах. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230c0c0e'/%3E%3Cpath fill='%23c4a574' d='M10 6h12v20H10V6zm3 3v14h6V9h-6z'/%3E%3C/svg%3E" type="image/svg+xml" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Angel Granit — гранитные памятники",
+    "legalName": "ИП Шнякина Н",
+    "description": "Памятники из чёрного габбро: изготовление, гравировка, установка.",
+    "telephone": "+7-701-056-7667",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Осетинская, 5а",
+      "addressLocality": "Алматы",
+      "addressCountry": "KZ"
+    },
+    "areaServed": { "@type": "City", "name": "Алматы" }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-elevated: #0c0c0f;
+      --surface: #101014;
+      --surface2: #16161c;
+      --border: rgba(196, 165, 116, 0.22);
+      --gold: #c4a574;
+      --gold-bright: #f0d9a8;
+      --gold-dim: #6e6144;
+      --text: #f4f2ec;
+      --muted: #9a9588;
+      --yt: #ff0033;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-body: "Source Sans 3", system-ui, sans-serif;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --pad-x: clamp(1.25rem, 4vw, 2.75rem);
+      --reveal-duration: 0.85s;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero__bg img { transform: none !important; }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Глубина фона */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(ellipse 100% 80% at 10% -20%, rgba(196, 165, 116, 0.09) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 100% 50%, rgba(80, 90, 120, 0.08) 0%, transparent 45%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(196, 165, 116, 0.05) 0%, transparent 40%),
+        var(--bg);
+      pointer-events: none;
+    }
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.035;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(72rem, 100% - 2 * var(--pad-x));
+      margin-inline: auto;
+    }
+
+    /* Появление по скроллу */
+    .reveal {
+      opacity: 0;
+      transform: translateY(2rem);
+      transition: opacity var(--reveal-duration) var(--ease), transform var(--reveal-duration) var(--ease);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger > *:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger > *:nth-child(3) { transition-delay: 0.15s; }
+    .reveal-stagger > *:nth-child(4) { transition-delay: 0.2s; }
+    .reveal-stagger > *:nth-child(5) { transition-delay: 0.25s; }
+    .reveal-stagger > *:nth-child(6) { transition-delay: 0.3s; }
+
+    /* Header */
+    .top {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      padding: 0.75rem var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: linear-gradient(180deg, rgba(5,5,6,0.92) 0%, rgba(5,5,6,0.75) 70%, transparent 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    .top--solid {
+      background: rgba(8, 8, 10, 0.88);
+      border-bottom-color: rgba(196, 165, 116, 0.12);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .top__left {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      min-width: 0;
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .top__nav {
+      display: none;
+      align-items: center;
+      gap: 1.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    @media (min-width: 880px) {
+      .top__nav { display: flex; }
+    }
+    .top__nav a {
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color 0.25s;
+    }
+    .top__nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease);
+    }
+    .top__nav a:hover { color: var(--text); }
+    .top__nav a:hover::after { width: 100%; }
+
+    .top__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+    .top__tel {
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(196, 165, 116, 0.14), rgba(196, 165, 116, 0.04));
+      box-shadow: 0 0 24px rgba(196, 165, 116, 0.08);
+      transition: background 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .top__tel:hover {
+      border-color: rgba(196, 165, 116, 0.45);
+      box-shadow: 0 0 32px rgba(196, 165, 116, 0.15);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.85rem 1.35rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn--gold {
+      position: relative;
+      background: linear-gradient(165deg, var(--gold-bright) 0%, var(--gold) 42%, #9a7d45 100%);
+      color: #120e08;
+      box-shadow: 0 4px 28px rgba(196, 165, 116, 0.35);
+      overflow: hidden;
+    }
+    .btn--gold::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.6s var(--ease);
+    }
+    .btn--gold:hover::before { transform: translateX(100%); }
+    .btn--gold:hover {
+      box-shadow: 0 8px 40px rgba(196, 165, 116, 0.45);
+    }
+    .btn--outline {
+      border-color: var(--border);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+    }
+    .btn--outline:hover {
+      border-color: rgba(196, 165, 116, 0.45);
+      background: rgba(196, 165, 116, 0.07);
+    }
+    .btn--wa {
+      background: linear-gradient(180deg, #1a8f5c, #146b45);
+      border-color: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .btn--wa:hover { filter: brightness(1.1); }
+    .btn--yt {
+      border-color: rgba(255, 0, 51, 0.35);
+      background: rgba(255, 0, 51, 0.08);
+      color: #ff6b81;
+    }
+    .btn--yt:hover {
+      background: rgba(255, 0, 51, 0.15);
+      border-color: var(--yt);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      align-items: end;
+      padding: 5.25rem var(--pad-x) 2.5rem;
+      overflow: hidden;
+    }
+    .hero__orb {
+      position: absolute;
+      width: min(90vw, 520px);
+      height: min(90vw, 520px);
+      border-radius: 50%;
+      top: 10%;
+      right: -8%;
+      background: radial-gradient(circle, rgba(196, 165, 116, 0.12) 0%, transparent 70%);
+      filter: blur(4px);
+      pointer-events: none;
+      z-index: 0;
+      animation: orbFloat 12s ease-in-out infinite;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; }
+      50% { transform: translate(-20px, 24px) scale(1.05); opacity: 1; }
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      opacity: 0.88;
+      transform: scale(1.04);
+      animation: heroKen 22s ease-in-out infinite alternate;
+    }
+    @keyframes heroKen {
+      to { transform: scale(1.12); }
+    }
+    .hero__bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5,5,6,0.96) 0%, rgba(5,5,6,0.78) 38%, rgba(5,5,6,0.28) 100%),
+        linear-gradient(180deg, rgba(5,5,6,0.4) 0%, transparent 35%, transparent 55%, rgba(5,5,6,0.98) 100%);
+      pointer-events: none;
+    }
+    .hero__frame {
+      position: absolute;
+      inset: 1.25rem;
+      border: 1px solid rgba(196, 165, 116, 0.12);
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+    @media (max-width: 640px) {
+      .hero__frame { inset: 0.65rem; }
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      width: min(72rem, 100% - 2 * var(--pad-x));
+      margin-inline: auto;
+      padding-bottom: 1.5rem;
+    }
+    .hero__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .hero__tag::before {
+      content: "";
+      width: 2.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-bright), transparent);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.75rem, 7.5vw, 4.5rem);
+      line-height: 1.02;
+      margin: 0 0 1rem;
+      max-width: 13ch;
+      color: var(--text);
+      text-wrap: balance;
+    }
+    .hero h1 span {
+      color: var(--gold-bright);
+      font-style: italic;
+      font-weight: 500;
+    }
+    .hero__lead {
+      font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+      color: var(--muted);
+      max-width: 34rem;
+      margin: 0 0 1.5rem;
+      line-height: 1.55;
+    }
+    .hero__contact {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1.25rem;
+      margin-bottom: 1.65rem;
+    }
+    .hero__contact strong {
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.03em;
+    }
+    .hero__contact strong a {
+      border-bottom: 1px solid rgba(196, 165, 116, 0.4);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero__contact strong a:hover {
+      color: var(--gold-bright);
+      border-color: var(--gold-bright);
+    }
+    .hero__agent {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    /* Live strip */
+    .live {
+      position: relative;
+      background: linear-gradient(90deg, #120a0c 0%, #1f1215 40%, #1a1018 100%);
+      border-block: 1px solid rgba(255, 0, 51, 0.2);
+      padding: 1rem var(--pad-x);
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+      overflow: hidden;
+    }
+    .live::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 0, 51, 0.06), transparent);
+      animation: liveShine 4s ease-in-out infinite;
+    }
+    @keyframes liveShine {
+      0%, 100% { opacity: 0.3; transform: translateX(-30%); }
+      50% { opacity: 0.8; transform: translateX(30%); }
+    }
+    .live__inner {
+      position: relative;
+      z-index: 1;
+    }
+    .live__dot {
+      display: inline-block;
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--yt);
+      margin-right: 0.45rem;
+      vertical-align: middle;
+      box-shadow: 0 0 12px var(--yt);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(0.9); }
+    }
+    .live a {
+      color: #ff8a9a;
+      border-bottom: 1px solid rgba(255, 0, 51, 0.45);
+      margin-left: 0.25rem;
+    }
+    .live a:hover { color: #fff; border-color: #fff; }
+
+    /* Section chrome */
+    .section-head {
+      margin-bottom: 2.25rem;
+    }
+    .section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin: 0 0 0.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 2.85rem);
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+    .section-title span { color: var(--gold-bright); font-style: italic; font-weight: 500; }
+    .section-sub {
+      color: var(--muted);
+      max-width: 38rem;
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    section {
+      padding: clamp(3.25rem, 9vw, 5.5rem) var(--pad-x);
+    }
+
+    /* Bento */
+    .bento {
+      display: grid;
+      gap: 1.1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px) { .bento { grid-template-columns: repeat(4, 1fr); } }
+
+    .bento__item {
+      position: relative;
+      padding: 1.6rem 1.4rem 1.5rem;
+      background: linear-gradient(160deg, var(--surface2) 0%, var(--bg-elevated) 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    }
+    .bento__item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(145deg, rgba(196, 165, 116, 0.35), transparent 45%, transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s var(--ease);
+      pointer-events: none;
+    }
+    .bento__item:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 165, 116, 0.2);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(196, 165, 116, 0.08);
+    }
+    .bento__item:hover::before { opacity: 1; }
+
+    .bento__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+    .bento__icon svg { width: 100%; height: 100%; }
+    .bento__num {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: rgba(196, 165, 116, 0.25);
+      line-height: 1;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .bento__item h3 {
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+    .bento__item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* Quote */
+    .band {
+      background: linear-gradient(180deg, var(--surface) 0%, #0a0a0c 100%);
+      border-block: 1px solid rgba(196, 165, 116, 0.1);
+    }
+    .quote {
+      max-width: 46rem;
+      margin: 0 auto;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .quote footer {
+      margin-top: 1.35rem;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, minmax(200px, 28vw));
+      }
+      .gallery-grid .gallery__cell:first-child { grid-row: span 2; }
+    }
+    .gallery__cell {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      min-height: 200px;
+      background: #0a0a0c;
+    }
+    .gallery__cell img {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    @media (min-width: 600px) {
+      .gallery-grid .gallery__cell:first-child img { min-height: 100%; }
+    }
+    @media (hover: hover) {
+      .gallery__cell:hover img { transform: scale(1.04); }
+    }
+    .gallery__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1rem 1.1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ece8df;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+      background: linear-gradient(transparent, rgba(0,0,0,0.88));
+    }
+
+    /* Platforms */
+    .platforms-visual {
+      margin: 0 0 clamp(1.5rem, 4vw, 2rem);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(196, 165, 116, 0.15);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+    }
+    .platforms-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .platforms-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 720px) {
+      .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+      /* Второй ряд: одна карточка по центру */
+      .platforms-grid .plat--olx { grid-column: 2; }
+    }
+    .plat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 7.5rem;
+      padding: 1.35rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), filter 0.35s;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .plat:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+    .plat small {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      opacity: 0.88;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .plat--gis { background: linear-gradient(180deg, #2dcc70, #0a7a45); color: #fff; }
+    .plat--kaspi { background: linear-gradient(180deg, #ff1a3d, #c40024); color: #fff; }
+    .plat--olx { background: linear-gradient(180deg, #7c3aed, #4c1d95); color: #fff; }
+    .plat--ig {
+      background: linear-gradient(145deg, #f58529, #dd2a7b, #8134af);
+      color: #fff;
+    }
+
+    /* Map */
+    .split {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 900px) { .split { grid-template-columns: 1.15fr 1fr; align-items: stretch; } }
+    .map-box {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(196, 165, 116, 0.15);
+      min-height: 320px;
+      background: var(--surface2);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 24px 48px rgba(0,0,0,0.35);
+    }
+    .map-box::before,
+    .map-box::after {
+      content: "";
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      border-color: var(--gold);
+      border-style: solid;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .map-box::before { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+    .map-box::after { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: 0;
+      display: block;
+    }
+
+    .card-contact {
+      padding: 1.85rem;
+      background: linear-gradient(165deg, var(--surface2), var(--bg-elevated));
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+    .card-contact h2 {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      margin: 0 0 1.35rem;
+    }
+    .dl { display: grid; gap: 1.1rem; margin-bottom: 1.5rem; }
+    .dl__row dt {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.2rem;
+    }
+    .dl__row dd { margin: 0; font-size: 1.05rem; }
+    .card-contact .btn-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+    /* Form */
+    .form-section {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    }
+    .form-card {
+      max-width: 29rem;
+      margin: 0 auto;
+      padding: 2.1rem;
+      background: linear-gradient(165deg, var(--surface2), #0d0d10);
+      border-radius: 10px;
+      border: 1px solid rgba(196, 165, 116, 0.12);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+    .form-card label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .form-card input,
+    .form-card textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      font: inherit;
+      color: var(--text);
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .form-card input:focus,
+    .form-card textarea:focus {
+      outline: none;
+      border-color: rgba(196, 165, 116, 0.45);
+      box-shadow: 0 0 0 3px rgba(196, 165, 116, 0.12);
+    }
+    .form-card textarea { min-height: 5.5rem; resize: vertical; }
+    .form-actions { display: flex; flex-direction: column; gap: 0.65rem; }
+    #form-status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      min-height: 1.25rem;
+    }
+
+    footer {
+      padding: 2.25rem var(--pad-x) 5.75rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(196, 165, 116, 0.08);
+    }
+    footer strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .fab-call, .fab-wa {
+      position: fixed;
+      bottom: 1.1rem;
+      z-index: 60;
+      width: 3.45rem;
+      height: 3.45rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s;
+    }
+    .fab-call:hover, .fab-wa:hover { transform: scale(1.08); }
+    .fab-call {
+      left: 1rem;
+      background: linear-gradient(145deg, #4a4234, #1c1915);
+      border: 1px solid var(--border);
+      color: var(--gold-bright);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+    }
+    .fab-wa {
+      right: 1rem;
+      background: linear-gradient(180deg, #1ebd6b, #128c7e);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(18, 140, 126, 0.45);
+    }
+    .fab-call svg, .fab-wa svg { width: 1.45rem; height: 1.45rem; fill: currentColor; }
+
+    .to-top {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1rem;
+      z-index: 55;
+      width: 2.65rem;
+      height: 2.65rem;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(12, 12, 15, 0.9);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.35s var(--ease), visibility 0.35s, transform 0.35s var(--ease), border-color 0.25s;
+    }
+    .to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .to-top:hover { border-color: var(--gold); color: var(--gold-bright); }
+    .to-top svg { width: 1.15rem; height: 1.15rem; }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="top" id="site-top">
+    <div class="top__left">
+      <a class="brand" href="#top">Angel Granit</a>
+      <nav class="top__nav" aria-label="По странице">
+        <a href="#services">Услуги</a>
+        <a href="#hearse">Видео 360°</a>
+        <a href="#works">Объекты</a>
+        <a href="#platforms">Площадки</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+    <div class="top__actions">
+      <a class="top__tel" href="tel:+77010567667">+7 701 056 7667</a>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Главный экран">
+    <div class="hero__orb" aria-hidden="true"></div>
+    <div class="hero__bg" aria-hidden="true">
+      <img src="images/hero-monument-black-angel.png" alt="Чёрный гранитный памятник со скульптурой ангела" width="1920" height="1080" decoding="async" fetchpriority="high" />
+    </div>
+    <div class="hero__frame" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__tag">Angel Granit · ИП Шнякина Н · Алматы · гранитные памятники</p>
+      <h1>Гранитные памятники <span>под ключ</span></h1>
+      <p class="hero__lead">Стелы и комплексы, гравировка, монтаж. Звоните — пришлём фото работ и сориентируем по срокам и бюджету.</p>
+      <div class="hero__contact">
+        <strong><a href="tel:+77010567667">+7 701 056 7667</a></strong>
+        <span class="hero__agent">Агент Александр · ул. Осетинская, 5а</span>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="tel:+77010567667">Позвонить</a>
+        <a class="btn btn--wa" id="link-wa-hero" href="https://wa.me/77010567667" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="btn btn--yt" id="link-yt-hero" href="https://www.youtube.com/channel/UCNsY8Ghvcd0kUdReynnkr8A" target="_blank" rel="noopener noreferrer">YouTube — Angel Granit</a>
+        <a class="btn btn--outline" id="link-ig-hero" href="https://www.instagram.com/alexandr_funeral_days?igsh=cjJ3OHRkZ3Zua2dk" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="live" role="status">
+    <div class="live__inner">
+      <span class="live__dot" aria-hidden="true"></span>
+      Видео с дрона <strong>360 готовых работ</strong> — канал
+      <a id="link-yt-live" href="https://www.youtube.com/channel/UCNsY8Ghvcd0kUdReynnkr8A" target="_blank" rel="noopener noreferrer">Angel Granit</a>
+      на YouTube
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="section-eyebrow">Производство</p>
+        <h2 class="section-title">Что делаем <span>под ключ</span></h2>
+        <p class="section-sub">Чёрный габбро — плотный, с глубоким блеском после полировки. От стелы до полного благоустройства участка.</p>
+      </header>
+      <div class="bento reveal-stagger">
+        <article class="bento__item reveal">
+          <span class="bento__num" aria-hidden="true">01</span>
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 4h12v24H10V4z"/><path d="M13 8h6v16h-6V8z"/></svg>
+          </div>
+          <h3>Памятники</h3>
+          <p>Стелы, двойные комплексы и плиты — по образцу или под ваш размер.</p>
+        </article>
+        <article class="bento__item reveal">
+          <span class="bento__num" aria-hidden="true">02</span>
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="16" cy="12" r="5"/><path d="M8 26c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <h3>Гравировка</h3>
+          <p>Текст, орнамент, портреты и фотокерамика — макет согласуем до старта.</p>
+        </article>
+        <article class="bento__item reveal">
+          <span class="bento__num" aria-hidden="true">03</span>
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 26h20"/><path d="M10 26V14l6-4 6 4v12"/><path d="M13 18h6"/></svg>
+          </div>
+          <h3>Монтаж</h3>
+          <p>Установка на участке: уровень, надёжное крепление, аккуратная сдача.</p>
+        </article>
+        <article class="bento__item reveal">
+          <span class="bento__num" aria-hidden="true">04</span>
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 22h20v4H6z"/><path d="M9 22V12h14v10"/><path d="M12 16h8"/></svg>
+          </div>
+          <h3>Участок целиком</h3>
+          <p>Цоколь, ограда, площадка — комплексно или отдельными позициями.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="hearse" aria-labelledby="hearse-heading">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="section-eyebrow">Видеообзор</p>
+        <h2 class="section-title" id="hearse-heading">Обзор готовых мемориальных комплексов <span>360° с дрона</span></h2>
+        <p class="section-sub">Показываем реальные выполненные работы: качество гранита, благоустройство участка и детали установки с полным эффектом присутствия. Вы можете увидеть объект со всех сторон, оценить результат и дистанцию.</p>
+      </header>
+      <figure class="platforms-visual reveal">
+        <img src="images/drone-cemetery-360.png" alt="Обзор готовых мемориальных комплексов с дрона в формате 360 градусов" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <div class="band">
+    <section>
+      <blockquote class="quote reveal">
+        «Камень не про картинку в интернете — он про то, как стоит через годы. Показываем образцы, называем цену прозрачно, без навязанных допов.»
+        <footer>Angel Granit · ИП Шнякина Н · Александр</footer>
+      </blockquote>
+    </section>
+  </div>
+
+  <section id="works">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="section-eyebrow">Портфолио</p>
+        <h2 class="section-title">Как это <span>выглядит</span></h2>
+        <p class="section-sub">Иллюстрации камня: чёрный габбро, светло-коричневый и красный курдайский гранит — типовые оттенки и фактура.</p>
+      </header>
+      <div class="gallery-grid reveal-stagger">
+        <div class="gallery__cell reveal">
+          <img src="images/gallery-gabbro.png" alt="Памятник из полированного чёрного габбро" width="1200" height="750" loading="lazy" decoding="async" />
+          <span class="gallery__label">Чёрный габбро</span>
+        </div>
+        <div class="gallery__cell reveal">
+          <img src="images/gallery-kurtinskij.png" alt="Памятник из светло-коричневого гранита" width="1200" height="900" loading="lazy" decoding="async" />
+          <span class="gallery__label">Светло-коричневый гранит</span>
+        </div>
+        <div class="gallery__cell reveal">
+          <img src="images/gallery-kurdaiskij.png" alt="Памятник из красного курдайского гранита" width="1200" height="900" loading="lazy" decoding="async" />
+          <span class="gallery__label">Курдайский — красный гранит</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platforms">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="section-eyebrow">Онлайн</p>
+        <h2 class="section-title">Где нас <span>искать</span></h2>
+        <p class="section-sub">2ГИС, Kaspi.kz, OLX (объявления на площадках) и Instagram — или звоните в WhatsApp.</p>
+      </header>
+      <figure class="platforms-visual reveal">
+        <img src="images/platforms-find-us.png" alt="Онлайн-площадки: карта и приложения, через которые можно нас найти" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
+      <div class="platforms-grid reveal-stagger">
+        <a class="plat plat--gis reveal" id="link-2gis" href="https://2gis.kz/almaty/firm/70000001084133310" target="_blank" rel="noopener noreferrer">2ГИС<small>Ритуальное агентство, Осетинская 5а</small></a>
+        <a class="plat plat--ig reveal" id="link-ig-platform" href="https://www.instagram.com/alexandr_funeral_days?igsh=cjJ3OHRkZ3Zua2dk" target="_blank" rel="noopener noreferrer">Instagram<small>@alexandr_funeral_days</small></a>
+        <a class="plat plat--kaspi reveal" id="link-kaspi" href="https://obyavleniya.kaspi.kz/a/izgotovlenie-pamyatnikov-ogradok-memorialnyih-kompleksov-110652606/" target="_blank" rel="noopener noreferrer">Kaspi.kz<small>Памятники, оградки, комплексы</small></a>
+        <a class="plat plat--olx reveal" id="link-olx" href="https://www.olx.kz/d/obyavlenie/pamyatniki-iz-granita-pod-klyuch-izgotovlenie-i-ustanovka-IDqKv8E.html" target="_blank" rel="noopener noreferrer">OLX.kz<small>Памятники из гранита под ключ</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="form-section" style="padding-top:0;">
+    <div class="wrap" style="padding-top: clamp(3.25rem, 9vw, 5.5rem);">
+      <header class="section-head reveal">
+        <p class="section-eyebrow">Локация</p>
+        <h2 class="section-title">Офис и <span>карта</span></h2>
+        <p class="section-sub">Лучше позвонить заранее — договоримся о встрече на Осетинской 5а.</p>
+      </header>
+      <div class="split">
+        <div class="map-box reveal" id="map-wrap"></div>
+        <div class="card-contact reveal">
+          <h2>Контакты</h2>
+          <dl class="dl">
+            <div class="dl__row">
+              <dt>Адрес</dt>
+              <dd>ул. Осетинская, 5а · Алматы</dd>
+            </div>
+            <div class="dl__row">
+              <dt>Телефон</dt>
+              <dd><a href="tel:+77010567667" style="font-weight:700;font-size:1.25rem;">+7 701 056 7667</a></dd>
+            </div>
+            <div class="dl__row">
+              <dt>Агент</dt>
+              <dd>Александр</dd>
+            </div>
+          </dl>
+          <div class="btn-row">
+            <a class="btn btn--wa" id="link-wa-contact" href="https://wa.me/77010567667" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn--yt" id="link-yt-contact" href="https://www.youtube.com/channel/UCNsY8Ghvcd0kUdReynnkr8A" target="_blank" rel="noopener noreferrer">YouTube — Angel Granit</a>
+            <a class="btn btn--outline" id="link-ig-contact" href="https://www.instagram.com/alexandr_funeral_days?igsh=cjJ3OHRkZ3Zua2dk" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="form">
+    <div class="wrap">
+      <header class="section-head reveal" style="text-align:center; max-width:32rem; margin-inline:auto;">
+        <p class="section-eyebrow">Связь</p>
+        <h2 class="section-title">Заявка <span>в один клик</span></h2>
+        <p class="section-sub" style="margin-inline:auto;">Заполните поля и откройте WhatsApp — текст подставится сам.</p>
+      </header>
+      <form class="form-card reveal" id="request-form" novalidate>
+        <label for="f-name">Имя</label>
+        <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="Как к вам обращаться" />
+        <label for="f-phone">Телефон</label>
+        <input type="tel" id="f-phone" name="phone" autocomplete="tel" required placeholder="+7 …" />
+        <label for="f-msg">Запрос</label>
+        <textarea id="f-msg" name="message" placeholder="Стела / комплекс / гравировка / бюджет"></textarea>
+        <div class="form-actions">
+          <button type="button" class="btn btn--wa" id="btn-wa-prefill">Открыть WhatsApp с текстом</button>
+          <button type="submit" class="btn btn--gold">Сохранить номер на экране</button>
+        </div>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <strong>Angel Granit</strong>
+    ИП Шнякина Н · Памятники из чёрного габбро · Алматы<br />
+    Осетинская 5а · <a href="tel:+77010567667">+7 701 056 7667</a>
+  </footer>
+
+  <a class="fab-call" href="tel:+77010567667" aria-label="Позвонить">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+  <a class="fab-wa" id="fab-wa" href="https://wa.me/77010567667" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Наверх">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5L12 4z"/></svg>
+  </button>
+
+  <script>
+    (function () {
+      'use strict';
+      var CONFIG = {
+        phoneTel: '+77010567667',
+        phoneDisplay: '+7 701 056 7667',
+        waPhone: '77010567667',
+        whatsapp: 'https://wa.me/77010567667',
+        instagram: 'https://www.instagram.com/alexandr_funeral_days?igsh=cjJ3OHRkZ3Zua2dk',
+        youtube: 'https://www.youtube.com/channel/UCNsY8Ghvcd0kUdReynnkr8A',
+        kaspi: 'https://obyavleniya.kaspi.kz/a/izgotovlenie-pamyatnikov-ogradok-memorialnyih-kompleksov-110652606/',
+        olx: 'https://www.olx.kz/d/obyavlenie/pamyatniki-iz-granita-pod-klyuch-izgotovlenie-i-ustanovka-IDqKv8E.html',
+        gis2: 'https://2gis.kz/almaty/firm/70000001084133310',
+        /* Координаты: ул. Осетинская, 5а, Алматы (карточка 2ГИС) */
+        mapEmbedSrc: 'https://www.google.com/maps?q=43.289912,76.961113&hl=ru&z=18&output=embed'
+      };
+
+      function setHref(id, url) {
+        var el = document.getElementById(id);
+        if (el && url) el.href = url;
+      }
+
+      setHref('link-wa-hero', CONFIG.whatsapp);
+      setHref('link-yt-hero', CONFIG.youtube);
+      setHref('link-yt-live', CONFIG.youtube);
+      setHref('link-ig-hero', CONFIG.instagram);
+      setHref('link-kaspi', CONFIG.kaspi);
+      setHref('link-olx', CONFIG.olx);
+      setHref('link-ig-platform', CONFIG.instagram);
+      setHref('link-2gis', CONFIG.gis2);
+      setHref('link-wa-contact', CONFIG.whatsapp);
+      setHref('link-yt-contact', CONFIG.youtube);
+      setHref('link-ig-contact', CONFIG.instagram);
+      setHref('fab-wa', CONFIG.whatsapp);
+
+      var mapWrap = document.getElementById('map-wrap');
+      if (mapWrap && CONFIG.mapEmbedSrc) {
+        var iframe = document.createElement('iframe');
+        iframe.title = 'Карта: ул. Осетинская, 5а, Алматы';
+        iframe.loading = 'lazy';
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        iframe.src = CONFIG.mapEmbedSrc;
+        mapWrap.appendChild(iframe);
+      }
+
+      var header = document.getElementById('site-top');
+      function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 48) header.classList.add('top--solid');
+        else header.classList.remove('top--solid');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      var toTop = document.getElementById('to-top');
+      if (toTop) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 400) toTop.classList.add('is-visible');
+          else toTop.classList.remove('is-visible');
+        }, { passive: true });
+        toTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      var form = document.getElementById('request-form');
+      var statusEl = document.getElementById('form-status');
+
+      var btnWaPrefill = document.getElementById('btn-wa-prefill');
+      if (btnWaPrefill) {
+        btnWaPrefill.addEventListener('click', function () {
+          var name = document.getElementById('f-name').value.trim();
+          var phone = document.getElementById('f-phone').value.trim();
+          var msg = document.getElementById('f-msg').value.trim();
+          var lines = ['Здравствуйте! Заявка с сайта (габбро).'];
+          if (name) lines.push('Имя: ' + name);
+          if (phone) lines.push('Телефон: ' + phone);
+          if (msg) lines.push('Запрос: ' + msg);
+          else lines.push('Прошу перезвонить по памятнику из габбро.');
+          var text = encodeURIComponent(lines.join('\n'));
+          window.open('https://wa.me/' + CONFIG.waPhone + '?text=' + text, '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name = document.getElementById('f-name').value.trim();
+          var phone = document.getElementById('f-phone').value.trim();
+          if (!name || !phone) {
+            if (statusEl) statusEl.textContent = 'Укажите имя и телефон или сразу WhatsApp.';
+            return;
+          }
+          if (statusEl) {
+            statusEl.innerHTML = 'Звоните: <a href="tel:' + CONFIG.phoneTel + '" style="color:var(--gold)">' + CONFIG.phoneDisplay + '</a> или отправьте заявку в WhatsApp.';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
