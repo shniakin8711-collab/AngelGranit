@@ -904,14 +904,21 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
 
-    /* Cemeteries map */
-    .cemeteries {
+    /* Place maps: cemeteries & morgues */
+    .cemeteries,
+    .morgues {
       background:
         radial-gradient(ellipse 50% 45% at 10% 0%, rgba(196,18,24,0.08), transparent 55%),
         var(--bg-soft);
       border-block: 1px solid var(--line);
     }
-    .cemeteries .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
+    .morgues {
+      background:
+        radial-gradient(ellipse 45% 40% at 90% 10%, rgba(196,18,24,0.07), transparent 55%),
+        var(--bg);
+    }
+    .cemeteries .wrap,
+    .morgues .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
     .cem-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -1747,6 +1754,7 @@
       <a href="#showcase">портфолио</a>
       <a href="#youtube">YouTube</a>
       <a href="#cemeteries">кладбища</a>
+      <a href="#morgues">морги</a>
       <a href="#map">карта</a>
       <a href="#share">поделиться</a>
       <a href="#contact">контакты</a>
@@ -2193,6 +2201,24 @@
     </div>
   </section>
 
+  <section class="morgues" id="morgues" aria-label="Морги Алматы">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">// морги</p>
+        <h2>Карта моргов Алматы</h2>
+        <p class="sub">Патологоанатомические отделения и судебно-медицинская экспертиза — адреса и телефоны. Выберите пункт на карте. Транспорт и организация: Александр 24/7.</p>
+      </header>
+      <div class="cem-layout reveal">
+        <div class="cem-map" id="morgue-map" role="img" aria-label="Интерактивная карта моргов Алматы"></div>
+        <div class="cem-list" id="morgue-list" role="list"></div>
+      </div>
+      <p class="cem-note">
+        Источники: справочники и сайт ГПАБ (almaty-pab.kz). Телефоны могут меняться — уточняйте в регистратуре.
+        Вывоз, оформление и похороны под ключ: <a href="tel:+77010567667">+7 701 056 7667</a>.
+      </p>
+    </div>
+  </section>
+
   <section class="share" id="share" aria-label="Поделиться сайтом">
     <div class="wrap">
       <div class="share__box reveal">
@@ -2258,7 +2284,7 @@
     </div>
     <div class="ai-chat__body" id="ai-body"></div>
     <form class="ai-chat__form" id="ai-form">
-      <input type="text" id="ai-input" autocomplete="off" placeholder="Спросите про кладбища, пакеты, документы..." />
+      <input type="text" id="ai-input" autocomplete="off" placeholder="Спросите про морги, кладбища, пакеты..." />
       <button type="submit" class="btn btn--red">Спросить</button>
     </form>
   </div>
@@ -2816,35 +2842,125 @@
         }
       ];
 
-      function cemeteryCard(c) {
+      var MORGUES = [
+        {
+          id: 'gpab1',
+          name: 'ГПАБ · отделение №1 (Калкаман)',
+          status: 'патологоанатомия',
+          address: 'мкр. Калкаман / ул. Проектировочная, 4а',
+          phone: '+7 (727) 383-56-11',
+          phoneHref: 'tel:+77273835611',
+          note: 'Регистратура ГПАБ · также +7 (727) 246-61-70 · пн–пт 08:00–17:00',
+          lat: 43.2055,
+          lon: 76.8128,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B0%D0%BB%D0%BA%D0%B0%D0%BC%D0%B0%D0%BD%20%D0%BC%D0%BE%D1%80%D0%B3',
+          keys: ['калкаман', 'проектировочн', 'гпаб 1', 'отделение 1', 'отделение №1', 'отделение no1']
+        },
+        {
+          id: 'gpab3',
+          name: 'ГПАБ · отделение №3 (Алгабас)',
+          status: 'патологоанатомия',
+          address: 'мкр. Алгабас, 7-я ул., 131',
+          phone: '+7 (727) 344-27-53',
+          phoneHref: 'tel:+77273442753',
+          note: 'Администрация · регистратура +7 (727) 383-56-11 · almaty-pab.kz',
+          lat: 43.1785,
+          lon: 76.7985,
+          gis: 'https://2gis.kz/almaty/search/%D0%90%D0%BB%D0%B3%D0%B0%D0%B1%D0%B0%D1%81%20%D0%BC%D0%BE%D1%80%D0%B3',
+          keys: ['алгабас', 'гпаб 3', 'отделение 3', 'отделение №3', '7-я ул']
+        },
+        {
+          id: 'gpab4',
+          name: 'ГПАБ · отделение №4',
+          status: 'патологоанатомия',
+          address: 'ул. Акан Серы, 36',
+          phone: '+7 (727) 235-03-40',
+          phoneHref: 'tel:+77272350340',
+          note: 'пн–пт примерно 08:00–16:45 · также регистратура 383-56-11',
+          lat: 43.3274459,
+          lon: 76.9505191,
+          gis: 'https://2gis.kz/almaty/search/%D0%90%D0%BA%D0%B0%D0%BD%20%D0%A1%D0%B5%D1%80%D1%8B%2036',
+          keys: ['акан сер', 'акансеры', 'гпаб 4', 'отделение 4', 'отделение №4']
+        },
+        {
+          id: 'gpab5',
+          name: 'ГПАБ · отделение №5',
+          status: 'патологоанатомия',
+          address: 'бул. Бухар Жырау, 45',
+          phone: '+7 (727) 274-87-52',
+          phoneHref: 'tel:+77272748752',
+          note: 'пн–пт примерно 08:00–16:45',
+          lat: 43.2319230,
+          lon: 76.9146161,
+          gis: 'https://2gis.kz/almaty/search/%D0%91%D1%83%D1%85%D0%B0%D1%80%20%D0%96%D1%8B%D1%80%D0%B0%D1%83%2045',
+          keys: ['бухар', 'жырау', 'гпаб 5', 'отделение 5', 'отделение №5']
+        },
+        {
+          id: 'gpab6',
+          name: 'ГПАБ · отделение №6',
+          status: 'патологоанатомия',
+          address: 'ул. Жандосова, 6',
+          phone: '+7 (727) 274-76-06',
+          phoneHref: 'tel:+77272747606',
+          note: 'пн–пт примерно 08:00–17:00',
+          lat: 43.2346098,
+          lon: 76.9114232,
+          gis: 'https://2gis.kz/almaty/search/%D0%96%D0%B0%D0%BD%D0%B4%D0%BE%D1%81%D0%BE%D0%B2%D0%B0%206%20%D0%BC%D0%BE%D1%80%D0%B3',
+          keys: ['жандосов', 'гпаб 6', 'отделение 6', 'отделение №6']
+        },
+        {
+          id: 'amkb',
+          name: 'Морг АМКБ (Демченко)',
+          status: 'при больнице',
+          address: 'ул. Демченко, 83б',
+          phone: '+7 (727) 231-20-98',
+          phoneHref: 'tel:+77272312098',
+          note: 'Морг при Алматинской многопрофильной клинической больнице',
+          lat: 43.2830606,
+          lon: 76.9907896,
+          gis: 'https://2gis.kz/almaty/search/%D0%94%D0%B5%D0%BC%D1%87%D0%B5%D0%BD%D0%BA%D0%BE%2083',
+          keys: ['демченко', 'амкб', 'многопрофильн']
+        },
+        {
+          id: 'sme',
+          name: 'Судебно-медицинская экспертиза',
+          status: 'судебный морг',
+          address: 'ул. Казыбек би, 117В',
+          phone: '+7 (727) 233-89-20',
+          phoneHref: 'tel:+77272338920',
+          note: 'Институт / бюро СМЭ · также указывают +7 (727) 273-45-59',
+          lat: 43.2488,
+          lon: 76.9355,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B0%D0%B7%D1%8B%D0%B1%D0%B5%D0%BA%20%D0%B1%D0%B8%20117',
+          keys: ['судебн', 'смэ', 'казыбек', 'экспертиз']
+        }
+      ];
+
+      function placeCard(c) {
         return c.name + '\nАдрес: ' + c.address + '\nТелефон: ' + c.phone + '\nСтатус: ' + c.status + '\n' + c.note + '\n2ГИС: ' + c.gis;
       }
 
-      function cemeteryOverview() {
-        return CEMETERIES.map(function (c) {
+      function placeOverview(list) {
+        return list.map(function (c) {
           return '• ' + c.name + ' — ' + c.address + ' · ' + c.phone;
         }).join('\n');
       }
 
-      function findCemeteryByQuestion(q) {
+      function cemeteryCard(c) { return placeCard(c); }
+      function cemeteryOverview() { return placeOverview(CEMETERIES); }
+      function morgueOverview() { return placeOverview(MORGUES); }
+
+      function findPlaceByQuestion(q, list, extraScorer) {
         var best = null;
         var bestScore = 0;
-        CEMETERIES.forEach(function (c) {
+        list.forEach(function (c) {
           var score = 0;
           var nameKey = c.name.toLowerCase().replace(/ё/g, 'е');
           if (q.indexOf(nameKey) !== -1) score += 40;
           (c.keys || []).forEach(function (k) {
             if (q.indexOf(k) !== -1) score += k.length + 12;
           });
-          if (c.id.indexOf('kensai') === 0 && /кен\s?сай|кенсай/.test(q)) {
-            if (/кенсай-?2|кенсай 2|кен сай 2/.test(q)) {
-              if (c.id === 'kensai2') score += 30;
-            } else if (/кенсай-?1|кенсай 1|кен сай 1/.test(q)) {
-              if (c.id === 'kensai1') score += 30;
-            } else {
-              score += 22;
-            }
-          }
+          if (typeof extraScorer === 'function') score += extraScorer(c, q) || 0;
           if (score > bestScore) {
             bestScore = score;
             best = c;
@@ -2853,10 +2969,34 @@
         return bestScore > 0 ? { item: best, score: bestScore } : null;
       }
 
+      function findCemeteryByQuestion(q) {
+        return findPlaceByQuestion(q, CEMETERIES, function (c, query) {
+          var score = 0;
+          if (c.id.indexOf('kensai') === 0 && /кен\s?сай|кенсай/.test(query)) {
+            if (/кенсай-?2|кенсай 2|кен сай 2/.test(query)) {
+              if (c.id === 'kensai2') score += 30;
+            } else if (/кенсай-?1|кенсай 1|кен сай 1/.test(query)) {
+              if (c.id === 'kensai1') score += 30;
+            } else {
+              score += 22;
+            }
+          }
+          return score;
+        });
+      }
+
+      function findMorgueByQuestion(q) {
+        return findPlaceByQuestion(q, MORGUES, function (c, query) {
+          if (/гпаб|патолого|патологоанатом/.test(query) && c.id.indexOf('gpab') === 0) return 10;
+          if (/морг/.test(query) && c.id === 'amkb') return 6;
+          return 0;
+        });
+      }
+
       var AI_KB = [
         {
           keys: ['привет', 'здравств', 'добрый', 'добро пожаловать', 'hello', 'hi'],
-          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища Алматы — и помочь поделиться сайтом с близкими.\n\nАгент Александр 24/7: ' + PHONE
+          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища и морги Алматы.\n\nАгент Александр 24/7: ' + PHONE
         },
         {
           keys: ['поделить', 'репост', 'близк', 'статус', 'ссылк', 'отправ', 'share', 'рассказать друз'],
@@ -2913,21 +3053,26 @@
           answer: 'Карта кладбищ Алматы — в разделе «Кладбища» на сайте (#cemeteries).\n\nОсновные адреса и телефоны:\n' + cemeteryOverview() + '\n\nСпросите конкретно, например: «Кенсай телефон» или «адрес Центрального».\nПомощь с захоронением и памятником: ' + PHONE
         },
         {
+          topic: 'morgue',
+          keys: ['морг', 'морги', 'патолого', 'патологоанатом', 'гпаб', 'судебн-медицин', 'смэ', 'куда везут тело', 'холодильник морг'],
+          answer: 'Карта моргов Алматы — в разделе «Морги» (#morgues).\n\nОсновные адреса и телефоны:\n' + morgueOverview() + '\n\nРегистратура ГПАБ часто: +7 (727) 383-56-11\nВывоз и организация похорон 24/7: ' + PHONE
+        },
+        {
           topic: 'cemetery',
           keys: ['открыто ли', 'закрыто ли', 'можно ли хоронить', 'новое захоронен', 'подзахоронен', 'родственн'],
           answer: 'По статусу захоронений:\n\n• Центральное — в основном родственные подзахоронения\n• Кенсай-1 — с 2011 закрыто для новых, родственные возможны\n• Кенсай-2, Северное, Батыс, Баганашыл — действующие\n• Еврейское — по правилам общины\n\nТочные условия всегда уточняйте в администрации кладбища или у агента Александра: ' + PHONE + '\nКарта: #cemeteries'
         },
         {
           keys: ['адрес', 'где находит', 'как добрат', 'осетинс', 'карта офис', '2гис офис'],
-          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарта офиса — раздел «Карта». Карта кладбищ — раздел «Кладбища».\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
+          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарта офиса — «Карта». Кладбища — «Кладбища». Морги — «Морги».\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
         },
         {
           keys: ['телефон', 'номер', 'связать', 'контакт', 'whatsapp', 'ватсап', 'вацап', 'написать'],
-          answer: 'Контакты агентства:\n\n• Телефон 24/7: ' + PHONE + '\n• Агент: Александр\n• WhatsApp: ' + WA_LINK + '\n• Адрес: ул. Осетинская, 5а, Алматы\n\nТелефоны администраций кладбищ — в разделе «Кладбища» или спросите: «телефон Кенсай».'
+          answer: 'Контакты агентства:\n\n• Телефон 24/7: ' + PHONE + '\n• Агент: Александр\n• WhatsApp: ' + WA_LINK + '\n• Адрес: ул. Осетинская, 5а, Алматы\n\nТелефоны кладбищ и моргов — на сайте или спросите: «телефон Кенсай», «морг Калкаман».'
         },
         {
           keys: ['время', 'график', 'часов', 'круглосуточ', '24', 'ночью', 'сейчас'],
-          answer: 'Мы работаем круглосуточно — 24/7, без выходных.\n\nАдминистрации кладбищ обычно принимают в дневное время (часто пн–пт 08:00–17:00). Точный график уточняйте по телефону кладбища.\nАлександр: ' + PHONE
+          answer: 'Мы работаем круглосуточно — 24/7, без выходных.\n\nАдминистрации кладбищ и моргов обычно принимают днём (часто пн–пт 08:00–17:00). Уточняйте по телефону объекта.\nАлександр: ' + PHONE
         },
         {
           keys: ['fpv', 'дрон', 'видео', 'youtube', 'съёмк', 'синематик'],
@@ -2958,6 +3103,7 @@
           .replace(/>/g, '&gt;')
           .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
           .replace(/#cemeteries/g, '<a href="#cemeteries">#cemeteries</a>')
+          .replace(/#morgues/g, '<a href="#morgues">#morgues</a>')
           .replace(/#calc/g, '<a href="#calc">#calc</a>')
           .replace(/(\+7\s*\(?727\)?\s*[\d\-\s]{7,})/g, function (m) {
             var digits = m.replace(/\D/g, '');
@@ -3012,10 +3158,10 @@
           q.className = 'ai-quick';
           [
             'Кладбища Алматы',
+            'Морги Алматы',
             'Телефон Кенсай',
             'Сколько стоят пакеты?',
-            'Что делать сначала?',
-            'Поделиться с близкими'
+            'Что делать сначала?'
           ].forEach(function (label) {
             var b = document.createElement('button');
             b.type = 'button';
@@ -3031,9 +3177,18 @@
       function answerAi(question) {
         var q = (question || '').toLowerCase().replace(/ё/g, 'е');
         var cemHit = findCemeteryByQuestion(q);
+        var morgueHit = findMorgueByQuestion(q);
         var cemAsk = /кладбищ|некропол|захоронен|похоронить|где хоронят|участок|подзахоронен|могил на|на клад/.test(q);
+        var morgueAsk = /морг|патолого|патологоанатом|гпаб|судебн|смэ|калкаман|алгабас|демченко|казыбек|куда везут|тело забрали/.test(q);
 
-        /* Specific cemetery: name mentioned, or cemetery-context + name */
+        if (morgueHit && (morgueHit.score >= 18 || morgueAsk) && (!cemAsk || morgueAsk)) {
+          return {
+            answer: placeCard(morgueHit.item) +
+              '\n\nКарта моргов: #morgues\nВывоз и организация похорон 24/7: ' + PHONE +
+              '\nWhatsApp: ' + WA_LINK
+          };
+        }
+
         if (cemHit && (cemHit.score >= 18 || cemAsk)) {
           var cem = cemHit.item;
           var detail;
@@ -3056,12 +3211,14 @@
         var best = null;
         var bestScore = 0;
         var wantsCemetery = cemAsk || /кенсай|батыс|бурундай|баганашыл|рыскулов|северн|еврейск|центральн клад|раимбек|райымбек/.test(q);
+        var wantsMorgue = morgueAsk;
         AI_KB.forEach(function (item) {
           var score = 0;
           item.keys.forEach(function (k) {
             if (q.indexOf(k) !== -1) score += k.length;
           });
           if (item.topic === 'cemetery' && wantsCemetery) score += 25;
+          if (item.topic === 'morgue' && wantsMorgue) score += 25;
           if (score > bestScore) {
             bestScore = score;
             best = item;
@@ -3070,7 +3227,7 @@
         if (best && bestScore > 0) return best;
 
         return {
-          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках и кладбищах Алматы.\n\nПримеры: «Кладбища Алматы», «Адрес Кенсай», «Телефон Центрального».\n\nИли свяжитесь с агентом Александром:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
+          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках, кладбищах и моргах Алматы.\n\nПримеры: «Морги Алматы», «Морг Калкаман», «Кладбища Алматы», «Телефон Кенсай».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
         };
       }
 
@@ -3099,7 +3256,7 @@
           aiStarted = true;
           if (!prompt) {
             addAiMsg(
-              'Здравствуйте. Я ИИ-помощник по ритуальным услугам и кладбищам Алматы.\n\nСпрашивайте про адреса и телефоны кладбищ, пакеты, документы — или нажмите быстрый вопрос ниже.\n\nАлександр: ' + PHONE,
+              'Здравствуйте. Я ИИ-помощник по ритуальным услугам, кладбищам и моргам Алматы.\n\nСпрашивайте про адреса и телефоны, пакеты, документы — или нажмите быстрый вопрос ниже.\n\nАлександр: ' + PHONE,
               'bot',
               true
             );
@@ -3139,16 +3296,16 @@
         });
       }
 
-      /* ---- Cemetery map ---- */
-      function initCemeteryMap() {
-        var mapEl = document.getElementById('cem-map');
-        var listEl = document.getElementById('cem-list');
+      /* ---- Place maps (cemeteries + morgues) ---- */
+      function initPlaceMap(mapId, listId, places) {
+        var mapEl = document.getElementById(mapId);
+        var listEl = document.getElementById(listId);
         if (!mapEl || !listEl || typeof L === 'undefined') return;
 
         var map = L.map(mapEl, {
           scrollWheelZoom: false,
           zoomControl: true
-        }).setView([43.27, 76.94], 11);
+        }).setView([43.25, 76.92], 11);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 18,
@@ -3160,7 +3317,6 @@
 
         var markers = {};
         var buttons = {};
-        var activeId = null;
 
         var pinIcon = function (active) {
           return L.divIcon({
@@ -3170,15 +3326,14 @@
           });
         };
 
-        function selectCemetery(id, openPopup) {
-          activeId = id;
+        function selectPlace(id, openPopup) {
           Object.keys(buttons).forEach(function (key) {
             buttons[key].classList.toggle('is-active', key === id);
           });
           Object.keys(markers).forEach(function (key) {
             markers[key].setIcon(pinIcon(key === id));
           });
-          var item = CEMETERIES.find(function (c) { return c.id === id; });
+          var item = places.find(function (c) { return c.id === id; });
           if (!item) return;
           map.setView([item.lat, item.lon], 14, { animate: true });
           if (openPopup !== false) markers[id].openPopup();
@@ -3188,7 +3343,7 @@
         }
 
         var bounds = [];
-        CEMETERIES.forEach(function (c) {
+        places.forEach(function (c) {
           var marker = L.marker([c.lat, c.lon], { icon: pinIcon(false), title: c.name })
             .addTo(map)
             .bindPopup(
@@ -3197,7 +3352,7 @@
               '<a href="' + c.phoneHref + '">' + c.phone + '</a>',
               { className: 'cem-popup' }
             );
-          marker.on('click', function () { selectCemetery(c.id, true); });
+          marker.on('click', function () { selectPlace(c.id, true); });
           markers[c.id] = marker;
           bounds.push([c.lat, c.lon]);
 
@@ -3224,7 +3379,7 @@
               e.stopPropagation();
               return;
             }
-            selectCemetery(c.id, true);
+            selectPlace(c.id, true);
           });
           btn.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function (e) { e.stopPropagation(); });
@@ -3239,10 +3394,15 @@
         window.addEventListener('resize', function () { map.invalidateSize(); });
       }
 
+      function initPlaceMaps() {
+        initPlaceMap('cem-map', 'cem-list', CEMETERIES);
+        initPlaceMap('morgue-map', 'morgue-list', MORGUES);
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCemeteryMap);
+        document.addEventListener('DOMContentLoaded', initPlaceMaps);
       } else {
-        initCemeteryMap();
+        initPlaceMaps();
       }
     })();
   </script>
