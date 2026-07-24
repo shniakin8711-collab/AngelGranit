@@ -615,16 +615,21 @@
       box-shadow: 0 0 0 1px rgba(196,18,24,0.12);
     }
     .package__frame {
-      background: #000;
+      background: #050505;
       border-right: 1px solid var(--line);
       min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .package__frame img {
       width: 100%;
-      height: 100%;
-      min-height: 280px;
-      object-fit: cover;
+      height: auto;
+      max-height: min(720px, 85vh);
+      display: block;
+      object-fit: contain;
       object-position: center top;
+      background: #050505;
     }
     .package__body {
       display: flex;
@@ -679,8 +684,26 @@
     .package__body .btn { margin-top: auto; align-self: flex-start; }
     @media (max-width: 860px) {
       .package { grid-template-columns: 1fr; }
-      .package__frame { border-right: 0; border-bottom: 1px solid var(--line); }
-      .package__frame img { min-height: 240px; aspect-ratio: 16 / 11; }
+      .package__frame {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        min-height: 0;
+      }
+      .package__frame img {
+        max-height: none;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .package__body {
+        padding: 1.05rem 1rem 1.2rem;
+      }
+    }
+    @media (max-width: 520px) {
+      .packages-stack { gap: 0.85rem; }
+      .package__name { font-size: 1.05rem; }
+      .package__price { font-size: 1.1rem; }
+      .package__list { font-size: 0.74rem; }
     }
 
     /* Showcase */
@@ -1670,7 +1693,7 @@
       <div class="packages-stack">
         <article class="package reveal">
           <div class="package__frame">
-            <img src="images/package-minimal.png" alt="Минимальный комплекс — 150 000 ₸" width="800" height="1000" loading="lazy" decoding="async" />
+            <img src="images/package-minimal.png" alt="Минимальный комплекс — 150 000 ₸" width="682" height="1024" loading="lazy" decoding="async" />
           </div>
           <div class="package__body">
             <div class="package__meta"><span>пакет 01</span><b>базовый</b></div>
@@ -1689,7 +1712,7 @@
 
         <article class="package reveal">
           <div class="package__frame">
-            <img src="images/package-hall.png" alt="Прощальный зал — 150 000 ₸" width="800" height="1000" loading="lazy" decoding="async" />
+            <img src="images/package-hall.png" alt="Прощальный зал — 150 000 ₸" width="682" height="1024" loading="lazy" decoding="async" />
           </div>
           <div class="package__body">
             <div class="package__meta"><span>пакет 02</span><b>зал</b></div>
@@ -1708,7 +1731,7 @@
 
         <article class="package reveal">
           <div class="package__frame">
-            <img src="images/package-standard.png" alt="Стандарт комплекс — 400 000 ₸" width="800" height="1000" loading="lazy" decoding="async" />
+            <img src="images/package-standard.png" alt="Стандарт комплекс — 400 000 ₸" width="768" height="1024" loading="lazy" decoding="async" />
           </div>
           <div class="package__body">
             <div class="package__meta"><span>пакет 03</span><b>полный</b></div>
@@ -1727,7 +1750,7 @@
 
         <article class="package reveal">
           <div class="package__frame">
-            <img src="images/package-elite.png" alt="Комплекс элит — 800 000 ₸" width="800" height="1000" loading="lazy" decoding="async" />
+            <img src="images/package-elite.png" alt="Комплекс элит — 800 000 ₸" width="682" height="1024" loading="lazy" decoding="async" />
           </div>
           <div class="package__body">
             <div class="package__meta"><span>пакет 04</span><b>премиум</b></div>
