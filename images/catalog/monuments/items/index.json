@@ -1,0 +1,562 @@
+[
+  {
+    "id": "m1",
+    "num": 1,
+    "file": "images/catalog/monuments/items/monument-001.jpg",
+    "page": "03b62a8b",
+    "slot": 1
+  },
+  {
+    "id": "m2",
+    "num": 2,
+    "file": "images/catalog/monuments/items/monument-002.jpg",
+    "page": "03b62a8b",
+    "slot": 2
+  },
+  {
+    "id": "m3",
+    "num": 3,
+    "file": "images/catalog/monuments/items/monument-003.jpg",
+    "page": "03b62a8b",
+    "slot": 3
+  },
+  {
+    "id": "m4",
+    "num": 4,
+    "file": "images/catalog/monuments/items/monument-004.jpg",
+    "page": "03b62a8b",
+    "slot": 4
+  },
+  {
+    "id": "m5",
+    "num": 5,
+    "file": "images/catalog/monuments/items/monument-005.jpg",
+    "page": "054fa3db",
+    "slot": 1
+  },
+  {
+    "id": "m6",
+    "num": 6,
+    "file": "images/catalog/monuments/items/monument-006.jpg",
+    "page": "054fa3db",
+    "slot": 2
+  },
+  {
+    "id": "m7",
+    "num": 7,
+    "file": "images/catalog/monuments/items/monument-007.jpg",
+    "page": "054fa3db",
+    "slot": 3
+  },
+  {
+    "id": "m8",
+    "num": 8,
+    "file": "images/catalog/monuments/items/monument-008.jpg",
+    "page": "054fa3db",
+    "slot": 4
+  },
+  {
+    "id": "m9",
+    "num": 9,
+    "file": "images/catalog/monuments/items/monument-009.jpg",
+    "page": "0bebe8ce",
+    "slot": 1
+  },
+  {
+    "id": "m10",
+    "num": 10,
+    "file": "images/catalog/monuments/items/monument-010.jpg",
+    "page": "0bebe8ce",
+    "slot": 2
+  },
+  {
+    "id": "m11",
+    "num": 11,
+    "file": "images/catalog/monuments/items/monument-011.jpg",
+    "page": "13ef3a27",
+    "slot": 1
+  },
+  {
+    "id": "m12",
+    "num": 12,
+    "file": "images/catalog/monuments/items/monument-012.jpg",
+    "page": "13ef3a27",
+    "slot": 2
+  },
+  {
+    "id": "m13",
+    "num": 13,
+    "file": "images/catalog/monuments/items/monument-013.jpg",
+    "page": "156cb801",
+    "slot": 1
+  },
+  {
+    "id": "m14",
+    "num": 14,
+    "file": "images/catalog/monuments/items/monument-014.jpg",
+    "page": "156cb801",
+    "slot": 2
+  },
+  {
+    "id": "m15",
+    "num": 15,
+    "file": "images/catalog/monuments/items/monument-015.jpg",
+    "page": "1e6017e8",
+    "slot": 1
+  },
+  {
+    "id": "m16",
+    "num": 16,
+    "file": "images/catalog/monuments/items/monument-016.jpg",
+    "page": "1e6017e8",
+    "slot": 2
+  },
+  {
+    "id": "m17",
+    "num": 17,
+    "file": "images/catalog/monuments/items/monument-017.jpg",
+    "page": "21b13819",
+    "slot": 1
+  },
+  {
+    "id": "m18",
+    "num": 18,
+    "file": "images/catalog/monuments/items/monument-018.jpg",
+    "page": "21b13819",
+    "slot": 2
+  },
+  {
+    "id": "m19",
+    "num": 19,
+    "file": "images/catalog/monuments/items/monument-019.jpg",
+    "page": "2cbcf5ad",
+    "slot": 1
+  },
+  {
+    "id": "m20",
+    "num": 20,
+    "file": "images/catalog/monuments/items/monument-020.jpg",
+    "page": "2cbcf5ad",
+    "slot": 2
+  },
+  {
+    "id": "m21",
+    "num": 21,
+    "file": "images/catalog/monuments/items/monument-021.jpg",
+    "page": "2db6e3c6",
+    "slot": 1
+  },
+  {
+    "id": "m22",
+    "num": 22,
+    "file": "images/catalog/monuments/items/monument-022.jpg",
+    "page": "2db6e3c6",
+    "slot": 2
+  },
+  {
+    "id": "m23",
+    "num": 23,
+    "file": "images/catalog/monuments/items/monument-023.jpg",
+    "page": "2fc972fe",
+    "slot": 1
+  },
+  {
+    "id": "m24",
+    "num": 24,
+    "file": "images/catalog/monuments/items/monument-024.jpg",
+    "page": "2fc972fe",
+    "slot": 2
+  },
+  {
+    "id": "m25",
+    "num": 25,
+    "file": "images/catalog/monuments/items/monument-025.jpg",
+    "page": "363d8a0b",
+    "slot": 1
+  },
+  {
+    "id": "m26",
+    "num": 26,
+    "file": "images/catalog/monuments/items/monument-026.jpg",
+    "page": "363d8a0b",
+    "slot": 2
+  },
+  {
+    "id": "m27",
+    "num": 27,
+    "file": "images/catalog/monuments/items/monument-027.jpg",
+    "page": "3bf9b3e5",
+    "slot": 1
+  },
+  {
+    "id": "m28",
+    "num": 28,
+    "file": "images/catalog/monuments/items/monument-028.jpg",
+    "page": "3bf9b3e5",
+    "slot": 2
+  },
+  {
+    "id": "m29",
+    "num": 29,
+    "file": "images/catalog/monuments/items/monument-029.jpg",
+    "page": "4ede1442",
+    "slot": 1
+  },
+  {
+    "id": "m30",
+    "num": 30,
+    "file": "images/catalog/monuments/items/monument-030.jpg",
+    "page": "4ede1442",
+    "slot": 2
+  },
+  {
+    "id": "m31",
+    "num": 31,
+    "file": "images/catalog/monuments/items/monument-031.jpg",
+    "page": "51e1e5a1",
+    "slot": 1
+  },
+  {
+    "id": "m32",
+    "num": 32,
+    "file": "images/catalog/monuments/items/monument-032.jpg",
+    "page": "51e1e5a1",
+    "slot": 2
+  },
+  {
+    "id": "m33",
+    "num": 33,
+    "file": "images/catalog/monuments/items/monument-033.jpg",
+    "page": "547a0dbe",
+    "slot": 1
+  },
+  {
+    "id": "m34",
+    "num": 34,
+    "file": "images/catalog/monuments/items/monument-034.jpg",
+    "page": "547a0dbe",
+    "slot": 2
+  },
+  {
+    "id": "m35",
+    "num": 35,
+    "file": "images/catalog/monuments/items/monument-035.jpg",
+    "page": "6a8f25a2",
+    "slot": 1
+  },
+  {
+    "id": "m36",
+    "num": 36,
+    "file": "images/catalog/monuments/items/monument-036.jpg",
+    "page": "6a8f25a2",
+    "slot": 2
+  },
+  {
+    "id": "m37",
+    "num": 37,
+    "file": "images/catalog/monuments/items/monument-037.jpg",
+    "page": "6f9ecc5f",
+    "slot": 1
+  },
+  {
+    "id": "m38",
+    "num": 38,
+    "file": "images/catalog/monuments/items/monument-038.jpg",
+    "page": "6f9ecc5f",
+    "slot": 2
+  },
+  {
+    "id": "m39",
+    "num": 39,
+    "file": "images/catalog/monuments/items/monument-039.jpg",
+    "page": "70443a87",
+    "slot": 1
+  },
+  {
+    "id": "m40",
+    "num": 40,
+    "file": "images/catalog/monuments/items/monument-040.jpg",
+    "page": "70443a87",
+    "slot": 2
+  },
+  {
+    "id": "m41",
+    "num": 41,
+    "file": "images/catalog/monuments/items/monument-041.jpg",
+    "page": "723fc413",
+    "slot": 1
+  },
+  {
+    "id": "m42",
+    "num": 42,
+    "file": "images/catalog/monuments/items/monument-042.jpg",
+    "page": "723fc413",
+    "slot": 2
+  },
+  {
+    "id": "m43",
+    "num": 43,
+    "file": "images/catalog/monuments/items/monument-043.jpg",
+    "page": "73849b5b",
+    "slot": 1
+  },
+  {
+    "id": "m44",
+    "num": 44,
+    "file": "images/catalog/monuments/items/monument-044.jpg",
+    "page": "73849b5b",
+    "slot": 2
+  },
+  {
+    "id": "m45",
+    "num": 45,
+    "file": "images/catalog/monuments/items/monument-045.jpg",
+    "page": "74ad5dc5",
+    "slot": 1
+  },
+  {
+    "id": "m46",
+    "num": 46,
+    "file": "images/catalog/monuments/items/monument-046.jpg",
+    "page": "74ad5dc5",
+    "slot": 2
+  },
+  {
+    "id": "m47",
+    "num": 47,
+    "file": "images/catalog/monuments/items/monument-047.jpg",
+    "page": "74ad5dc5",
+    "slot": 3
+  },
+  {
+    "id": "m48",
+    "num": 48,
+    "file": "images/catalog/monuments/items/monument-048.jpg",
+    "page": "74ad5dc5",
+    "slot": 4
+  },
+  {
+    "id": "m49",
+    "num": 49,
+    "file": "images/catalog/monuments/items/monument-049.jpg",
+    "page": "76039f01",
+    "slot": 1
+  },
+  {
+    "id": "m50",
+    "num": 50,
+    "file": "images/catalog/monuments/items/monument-050.jpg",
+    "page": "76039f01",
+    "slot": 2
+  },
+  {
+    "id": "m51",
+    "num": 51,
+    "file": "images/catalog/monuments/items/monument-051.jpg",
+    "page": "826ec54e",
+    "slot": 1
+  },
+  {
+    "id": "m52",
+    "num": 52,
+    "file": "images/catalog/monuments/items/monument-052.jpg",
+    "page": "826ec54e",
+    "slot": 2
+  },
+  {
+    "id": "m53",
+    "num": 53,
+    "file": "images/catalog/monuments/items/monument-053.jpg",
+    "page": "952e545d",
+    "slot": 1
+  },
+  {
+    "id": "m54",
+    "num": 54,
+    "file": "images/catalog/monuments/items/monument-054.jpg",
+    "page": "952e545d",
+    "slot": 2
+  },
+  {
+    "id": "m55",
+    "num": 55,
+    "file": "images/catalog/monuments/items/monument-055.jpg",
+    "page": "96c66589",
+    "slot": 1
+  },
+  {
+    "id": "m56",
+    "num": 56,
+    "file": "images/catalog/monuments/items/monument-056.jpg",
+    "page": "96c66589",
+    "slot": 2
+  },
+  {
+    "id": "m57",
+    "num": 57,
+    "file": "images/catalog/monuments/items/monument-057.jpg",
+    "page": "9a293659",
+    "slot": 1
+  },
+  {
+    "id": "m58",
+    "num": 58,
+    "file": "images/catalog/monuments/items/monument-058.jpg",
+    "page": "9a293659",
+    "slot": 2
+  },
+  {
+    "id": "m59",
+    "num": 59,
+    "file": "images/catalog/monuments/items/monument-059.jpg",
+    "page": "9a293659",
+    "slot": 3
+  },
+  {
+    "id": "m60",
+    "num": 60,
+    "file": "images/catalog/monuments/items/monument-060.jpg",
+    "page": "a37810ab",
+    "slot": 1
+  },
+  {
+    "id": "m61",
+    "num": 61,
+    "file": "images/catalog/monuments/items/monument-061.jpg",
+    "page": "a37810ab",
+    "slot": 2
+  },
+  {
+    "id": "m62",
+    "num": 62,
+    "file": "images/catalog/monuments/items/monument-062.jpg",
+    "page": "a7be2640",
+    "slot": 1
+  },
+  {
+    "id": "m63",
+    "num": 63,
+    "file": "images/catalog/monuments/items/monument-063.jpg",
+    "page": "a7be2640",
+    "slot": 2
+  },
+  {
+    "id": "m64",
+    "num": 64,
+    "file": "images/catalog/monuments/items/monument-064.jpg",
+    "page": "c034a469",
+    "slot": 1
+  },
+  {
+    "id": "m65",
+    "num": 65,
+    "file": "images/catalog/monuments/items/monument-065.jpg",
+    "page": "c034a469",
+    "slot": 2
+  },
+  {
+    "id": "m66",
+    "num": 66,
+    "file": "images/catalog/monuments/items/monument-066.jpg",
+    "page": "cc8fdf5a",
+    "slot": 1
+  },
+  {
+    "id": "m67",
+    "num": 67,
+    "file": "images/catalog/monuments/items/monument-067.jpg",
+    "page": "cc8fdf5a",
+    "slot": 2
+  },
+  {
+    "id": "m68",
+    "num": 68,
+    "file": "images/catalog/monuments/items/monument-068.jpg",
+    "page": "df747247",
+    "slot": 1
+  },
+  {
+    "id": "m69",
+    "num": 69,
+    "file": "images/catalog/monuments/items/monument-069.jpg",
+    "page": "df747247",
+    "slot": 2
+  },
+  {
+    "id": "m70",
+    "num": 70,
+    "file": "images/catalog/monuments/items/monument-070.jpg",
+    "page": "f2765d68",
+    "slot": 1
+  },
+  {
+    "id": "m71",
+    "num": 71,
+    "file": "images/catalog/monuments/items/monument-071.jpg",
+    "page": "f2765d68",
+    "slot": 2
+  },
+  {
+    "id": "m72",
+    "num": 72,
+    "file": "images/catalog/monuments/items/monument-072.jpg",
+    "page": "f31f6a2a",
+    "slot": 1
+  },
+  {
+    "id": "m73",
+    "num": 73,
+    "file": "images/catalog/monuments/items/monument-073.jpg",
+    "page": "f31f6a2a",
+    "slot": 2
+  },
+  {
+    "id": "m74",
+    "num": 74,
+    "file": "images/catalog/monuments/items/monument-074.jpg",
+    "page": "f365527f",
+    "slot": 1
+  },
+  {
+    "id": "m75",
+    "num": 75,
+    "file": "images/catalog/monuments/items/monument-075.jpg",
+    "page": "f365527f",
+    "slot": 2
+  },
+  {
+    "id": "m76",
+    "num": 76,
+    "file": "images/catalog/monuments/items/monument-076.jpg",
+    "page": "f9eb204f",
+    "slot": 1
+  },
+  {
+    "id": "m77",
+    "num": 77,
+    "file": "images/catalog/monuments/items/monument-077.jpg",
+    "page": "f9eb204f",
+    "slot": 2
+  },
+  {
+    "id": "m78",
+    "num": 78,
+    "file": "images/catalog/monuments/items/monument-078.jpg",
+    "page": "fe2e970c",
+    "slot": 1
+  },
+  {
+    "id": "m79",
+    "num": 79,
+    "file": "images/catalog/monuments/items/monument-079.jpg",
+    "page": "fe2e970c",
+    "slot": 2
+  },
+  {
+    "id": "m80",
+    "num": 80,
+    "file": "images/catalog/monuments/items/monument-080.jpg",
+    "page": "fe2e970c",
+    "slot": 3
+  }
+]
