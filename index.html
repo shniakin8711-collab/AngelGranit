@@ -904,9 +904,10 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
 
-    /* Place maps: cemeteries & morgues */
+    /* Place maps: cemeteries, morgues, churches */
     .cemeteries,
-    .morgues {
+    .morgues,
+    .churches {
       background:
         radial-gradient(ellipse 50% 45% at 10% 0%, rgba(196,18,24,0.08), transparent 55%),
         var(--bg-soft);
@@ -917,8 +918,14 @@
         radial-gradient(ellipse 45% 40% at 90% 10%, rgba(196,18,24,0.07), transparent 55%),
         var(--bg);
     }
+    .churches {
+      background:
+        radial-gradient(ellipse 50% 40% at 50% 0%, rgba(196,18,24,0.09), transparent 55%),
+        var(--bg-soft);
+    }
     .cemeteries .wrap,
-    .morgues .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
+    .morgues .wrap,
+    .churches .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
     .cem-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -1755,6 +1762,7 @@
       <a href="#youtube">YouTube</a>
       <a href="#cemeteries">кладбища</a>
       <a href="#morgues">морги</a>
+      <a href="#churches">церкви</a>
       <a href="#map">карта</a>
       <a href="#share">поделиться</a>
       <a href="#contact">контакты</a>
@@ -2219,6 +2227,24 @@
     </div>
   </section>
 
+  <section class="churches" id="churches" aria-label="Церкви Алматы — отпевание">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">// церкви · отпевание</p>
+        <h2>Вызвать батюшку на дом</h2>
+        <p class="sub">Православные храмы Алматы — адреса и телефоны для заказа отпевания дома, в зале или на кладбище. Позвоните в иконную лавку / дежурному; Александр поможет согласовать выезд 24/7.</p>
+      </header>
+      <div class="cem-layout reveal">
+        <div class="cem-map" id="church-map" role="img" aria-label="Интерактивная карта церквей Алматы"></div>
+        <div class="cem-list" id="church-list" role="list"></div>
+      </div>
+      <p class="cem-note">
+        Источники: mitropolia.kz, сайты приходов. Условия выезда священника уточняйте в храме.
+        Организация православных похорон и отпевания: <a href="tel:+77010567667">+7 701 056 7667</a>.
+      </p>
+    </div>
+  </section>
+
   <section class="share" id="share" aria-label="Поделиться сайтом">
     <div class="wrap">
       <div class="share__box reveal">
@@ -2284,7 +2310,7 @@
     </div>
     <div class="ai-chat__body" id="ai-body"></div>
     <form class="ai-chat__form" id="ai-form">
-      <input type="text" id="ai-input" autocomplete="off" placeholder="Спросите про морги, кладбища, пакеты..." />
+      <input type="text" id="ai-input" autocomplete="off" placeholder="Спросите про отпевание, морги, кладбища..." />
       <button type="submit" class="btn btn--red">Спросить</button>
     </form>
   </div>
@@ -2936,6 +2962,113 @@
         }
       ];
 
+      var CHURCHES = [
+        {
+          id: 'voznesensky',
+          name: 'Вознесенский кафедральный собор',
+          status: 'отпевание · выезд',
+          address: 'ул. Гоголя, 40В · парк 28 панфиловцев',
+          phone: '+7 (727) 273-05-39',
+          phoneHref: 'tel:+77272730539',
+          note: 'Дежурный · алтарь +7 (727) 271-48-59 · согласовать отпевание дома/в храме',
+          lat: 43.2587901,
+          lon: 76.9531126,
+          gis: 'https://2gis.kz/almaty/search/%D0%92%D0%BE%D0%B7%D0%BD%D0%B5%D1%81%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%BE%D0%B1%D0%BE%D1%80',
+          keys: ['вознесенск', 'кафедральн', 'панфилов', 'гоголя']
+        },
+        {
+          id: 'nikolsky',
+          name: 'Никольский собор',
+          status: 'отпевание · выезд',
+          address: 'ул. Байтурсынова, 56/5',
+          phone: '+7 (727) 267-59-10',
+          phoneHref: 'tel:+77272675910',
+          note: 'Дежурный · иконная лавка +7 (727) 267-58-99 · можно заказать требы',
+          lat: 43.2483983,
+          lon: 76.9280900,
+          gis: 'https://2gis.kz/almaty/search/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%BE%D0%B1%D0%BE%D1%80',
+          keys: ['никольск', 'никола', 'байтурсынов']
+        },
+        {
+          id: 'bogoyavlensky',
+          name: 'Свято-Богоявленский храм',
+          status: 'отпевание очное/заочное',
+          address: 'ул. Садовникова, 196',
+          phone: '+7 (707) 640-27-70',
+          phoneHref: 'tel:+77076402770',
+          note: 'Иконная лавка · также +7 (777) 047-66-44, канцелярия +7 (727) 249-96-97 · bogoyavhram.kz',
+          lat: 43.2359676,
+          lon: 76.8672916,
+          gis: 'https://2gis.kz/almaty/search/%D0%91%D0%BE%D0%B3%D0%BE%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D1%85%D1%80%D0%B0%D0%BC',
+          keys: ['богоявленск', 'садовников']
+        },
+        {
+          id: 'sofiysky',
+          name: 'Софийский собор (монастырь)',
+          status: 'отпевание · требы',
+          address: 'ул. Латифа Хамиди, 30 · Иверско-Серафимовский монастырь',
+          phone: '+7 (727) 397-41-05',
+          phoneHref: 'tel:+77273974105',
+          note: 'Собор Веры, Надежды, Любови и матери их Софии',
+          lat: 43.2695889,
+          lon: 76.9586838,
+          gis: 'https://2gis.kz/almaty/search/%D0%A1%D0%BE%D1%84%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%BE%D0%B1%D0%BE%D1%80%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+          keys: ['софийск', 'хамиди', 'иверск', 'серафимов']
+        },
+        {
+          id: 'kazansky',
+          name: 'Казанский собор',
+          status: 'отпевание · выезд',
+          address: 'ул. Халиуллина, 45а',
+          phone: '+7 (727) 234-48-24',
+          phoneHref: 'tel:+77272344824',
+          note: 'Священники: о. Сергий +7 705 290-47-83 · о. Георгий +7 701 727-73-37 · о. Александр +7 777 239-01-04',
+          lat: 43.2652,
+          lon: 76.9788,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%BE%D0%B1%D0%BE%D1%80%20%D0%A5%D0%B0%D0%BB%D0%B8%D1%83%D0%BB%D0%BB%D0%B8%D0%BD%D0%B0',
+          keys: ['казанск', 'халиуллин', 'халиулин']
+        },
+        {
+          id: 'spasitel',
+          name: 'Храм Христа Спасителя',
+          status: 'отпевание · требы',
+          address: 'пр. Райымбека / ул. Ташкентская, 493',
+          phone: '+7 (727) 270-82-77',
+          phoneHref: 'tel:+77272708277',
+          note: 'Также +7 (727) 381-74-90 · собор Рождества Христова',
+          lat: 43.2685,
+          lon: 76.8255,
+          gis: 'https://2gis.kz/almaty/search/%D0%A5%D1%80%D0%B0%D0%BC%20%D0%A5%D1%80%D0%B8%D1%81%D1%82%D0%B0%20%D0%A1%D0%BF%D0%B0%D1%81%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+          keys: ['спасител', 'рождества христов', 'ташкентск', 'акбулак']
+        },
+        {
+          id: 'pokrov',
+          name: 'Храм Покрова Богородицы',
+          status: 'отпевание · требы',
+          address: 'ул. Юных пионеров, 85',
+          phone: '+7 (727) 239-78-37',
+          phoneHref: 'tel:+77272397837',
+          note: 'Также +7 (727) 243-35-45 · Покровско-Всехсвятский храм',
+          lat: 43.3015,
+          lon: 76.8785,
+          gis: 'https://2gis.kz/almaty/search/%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B0%20%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86%D1%8B%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+          keys: ['покров', 'пионеров', 'всехсвят']
+        },
+        {
+          id: 'paraskeva',
+          name: 'Храм Параскевы Пятницы',
+          status: 'отпевание · требы',
+          address: 'ул. Жансугурова, 500В',
+          phone: '+7 (727) 223-68-53',
+          phoneHref: 'tel:+77272236853',
+          note: 'Также +7 (727) 385-07-92 · восточная часть города',
+          lat: 43.2925,
+          lon: 76.9925,
+          gis: 'https://2gis.kz/almaty/search/%D0%9F%D0%B0%D1%80%D0%B0%D1%81%D0%BA%D0%B5%D0%B2%D1%8B%20%D0%9F%D1%8F%D1%82%D0%BD%D0%B8%D1%86%D1%8B%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+          keys: ['параскев', 'пятниц', 'жансугуров']
+        }
+      ];
+
       function placeCard(c) {
         return c.name + '\nАдрес: ' + c.address + '\nТелефон: ' + c.phone + '\nСтатус: ' + c.status + '\n' + c.note + '\n2ГИС: ' + c.gis;
       }
@@ -2949,6 +3082,7 @@
       function cemeteryCard(c) { return placeCard(c); }
       function cemeteryOverview() { return placeOverview(CEMETERIES); }
       function morgueOverview() { return placeOverview(MORGUES); }
+      function churchOverview() { return placeOverview(CHURCHES); }
 
       function findPlaceByQuestion(q, list, extraScorer) {
         var best = null;
@@ -2989,7 +3123,6 @@
         return findPlaceByQuestion(q, MORGUES, function (c, query) {
           var score = 0;
           if (/гпаб|патолого|патологоанатом/.test(query) && c.id.indexOf('gpab') === 0) {
-            /* generic GPAB without department number → boost all lightly; number pins one */
             if (/отделен\w*\s*№?\s*1|гпаб\s*1|калкаман/.test(query) && c.id === 'gpab1') score += 28;
             else if (/отделен\w*\s*№?\s*3|гпаб\s*3|алгабас/.test(query) && c.id === 'gpab3') score += 28;
             else if (/отделен\w*\s*№?\s*4|гпаб\s*4|акан/.test(query) && c.id === 'gpab4') score += 28;
@@ -3003,10 +3136,17 @@
         });
       }
 
+      function findChurchByQuestion(q) {
+        return findPlaceByQuestion(q, CHURCHES, function (c, query) {
+          if (/батюшк|священник|отпеван|треб/.test(query) && /храм|церк|собор/.test(query)) return 6;
+          return 0;
+        });
+      }
+
       var AI_KB = [
         {
           keys: ['привет', 'здравств', 'добрый', 'добро пожаловать', 'hello', 'hi'],
-          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища и морги Алматы.\n\nАгент Александр 24/7: ' + PHONE
+          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища, морги и церкви (вызвать батюшку на отпевание).\n\nАгент Александр 24/7: ' + PHONE
         },
         {
           keys: ['поделить', 'репост', 'близк', 'статус', 'ссылк', 'отправ', 'share', 'рассказать друз'],
@@ -3078,29 +3218,39 @@
           answer: 'Морги и отделения ГПАБ обычно принимают днём, часто пн–пт 08:00–17:00 (у части отделений до 16:45; у Калкамана иногда сб до 14:00).\n\nТочный график лучше уточнить по телефону отделения.\nРегистратура ГПАБ: +7 (727) 383-56-11\nМы забираем тело и организуем похороны в любое время 24/7: ' + PHONE
         },
         {
+          topic: 'church',
+          keys: ['церкви', 'церковь', 'храм', 'собор', 'батюшк', 'священник', 'отпеван', 'вызвать батюш', 'панихид', 'заупокой'],
+          answer: 'Карта церквей Алматы для отпевания — раздел «Церкви» (#churches).\n\nМожно заказать отпевание в храме, дома, в зале или на кладбище — позвоните в иконную лавку / дежурному.\n\nХрамы и телефоны:\n' + churchOverview() + '\n\nСпросите точнее: «Никольский телефон», «вызвать батюшку», «Богоявленский храм».\nАлександр поможет согласовать выезд 24/7: ' + PHONE
+        },
+        {
+          topic: 'church',
+          keys: ['отпевание дома', 'батюшка на дом', 'священник на дом', 'отпеть дома', 'выезд священ', 'на дом для отпеван'],
+          answer: 'Чтобы вызвать батюшку на дом для отпевания:\n\n1) Позвоните в ближайший храм (карта: #churches) — в иконную лавку или дежурному\n2) Согласуйте время, адрес и чин (очное / заочное отпевание)\n3) Подготовьте место: свечи, икона, по возможности крестик усопшего\n\nИли один звонок Александру — организуем священника, транспорт и похороны под ключ:\n' + PHONE + '\nWhatsApp: ' + WA_LINK
+        },
+        {
           topic: 'cemetery',
           keys: ['открыто ли', 'закрыто ли', 'можно ли хоронить', 'новое захоронен', 'подзахоронен', 'родственн'],
           answer: 'По статусу захоронений:\n\n• Центральное — в основном родственные подзахоронения\n• Кенсай-1 — с 2011 закрыто для новых, родственные возможны\n• Кенсай-2, Северное, Батыс, Баганашыл — действующие\n• Еврейское — по правилам общины\n\nТочные условия всегда уточняйте в администрации кладбища или у агента Александра: ' + PHONE + '\nКарта: #cemeteries'
         },
         {
           keys: ['адрес', 'где находит', 'как добрат', 'осетинс', 'карта офис', '2гис офис'],
-          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарта офиса — «Карта». Кладбища — «Кладбища». Морги — «Морги».\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
+          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарты на сайте: офис, кладбища, морги, церкви (#churches).\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
         },
         {
           keys: ['телефон', 'номер', 'связать', 'контакт', 'whatsapp', 'ватсап', 'вацап', 'написать'],
-          answer: 'Контакты агентства:\n\n• Телефон 24/7: ' + PHONE + '\n• Агент: Александр\n• WhatsApp: ' + WA_LINK + '\n• Адрес: ул. Осетинская, 5а, Алматы\n\nТелефоны кладбищ и моргов — на сайте или спросите: «телефон Кенсай», «морг Калкаман», «телефон СМЭ».'
+          answer: 'Контакты агентства:\n\n• Телефон 24/7: ' + PHONE + '\n• Агент: Александр\n• WhatsApp: ' + WA_LINK + '\n• Адрес: ул. Осетинская, 5а, Алматы\n\nСпросите также: «морг Калкаман», «телефон Никольского», «вызвать батюшку».'
         },
         {
           keys: ['время', 'график', 'часов', 'круглосуточ', '24', 'ночью', 'сейчас'],
-          answer: 'Мы работаем круглосуточно — 24/7, без выходных.\n\nАдминистрации кладбищ и моргов обычно принимают днём (часто пн–пт 08:00–17:00). Уточняйте по телефону объекта.\nАлександр: ' + PHONE
+          answer: 'Мы работаем круглосуточно — 24/7, без выходных.\n\nХрамы и морги обычно принимают днём. Выезд батюшки и катафалк — через нас в любое время.\nАлександр: ' + PHONE
+        },
+        {
+          keys: ['религ', 'мусульм', 'ислам', 'христ', 'обряд', 'традиц', 'церковн набор'],
+          answer: 'Учитываем традиции семьи: церковный набор, омовение, отпевание, оформление по обычаю.\n\nПравославное отпевание — раздел «Церкви» (#churches) или мы вызовем батюшку.\nМусульманские захоронения часто на Кенсай / Батыс.\n\nТелефон: ' + PHONE
         },
         {
           keys: ['fpv', 'дрон', 'видео', 'youtube', 'съёмк', 'синематик'],
           answer: 'FPV Studio Black Hearse снимает кинематографичные пролёты и ролики для YouTube.\n\nКанал: https://www.youtube.com/@blackhearsefpv\nПо съёмке напишите Александру в WhatsApp: ' + WA_LINK
-        },
-        {
-          keys: ['религ', 'церков', 'мусульм', 'ислам', 'христ', 'обряд', 'традиц'],
-          answer: 'Учитываем традиции семьи: церковный набор, омовение, оформление по обычаю.\n\nМусульманские захоронения часто на Кенсай / Батыс; христианские и смешанные — Центральное, Рыскулова, Северное; еврейские — Еврейское кладбище.\n\nСкажите агенту, какой обряд нужен — организуем бережно.\nТелефон: ' + PHONE
         },
         {
           keys: ['сколько длится', 'сроки', 'быстр', 'сегодня', 'срочно'],
@@ -3124,6 +3274,7 @@
           .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
           .replace(/#cemeteries/g, '<a href="#cemeteries">#cemeteries</a>')
           .replace(/#morgues/g, '<a href="#morgues">#morgues</a>')
+          .replace(/#churches/g, '<a href="#churches">#churches</a>')
           .replace(/#calc/g, '<a href="#calc">#calc</a>')
           .replace(/(\+7\s*\(?727\)?\s*[\d\-\s]{7,})/g, function (m) {
             var digits = m.replace(/\D/g, '');
@@ -3177,9 +3328,9 @@
           var q = document.createElement('div');
           q.className = 'ai-quick';
           [
+            'Вызвать батюшку',
+            'Церкви Алматы',
             'Морги Алматы',
-            'Морг Калкаман',
-            'Как забрать тело?',
             'Кладбища Алматы',
             'Сколько стоят пакеты?'
           ].forEach(function (label) {
@@ -3198,10 +3349,19 @@
         var q = (question || '').toLowerCase().replace(/ё/g, 'е');
         var cemHit = findCemeteryByQuestion(q);
         var morgueHit = findMorgueByQuestion(q);
+        var churchHit = findChurchByQuestion(q);
         var cemAsk = /кладбищ|некропол|захоронен|похоронить|где хоронят|участок|подзахоронен|могил на|на клад/.test(q);
         var morgueAsk = /морг|патолого|патологоанатом|гпаб|судебн|смэ|калкаман|алгабас|демченко|казыбек|акан сер|жандосов|бухар|жырау|куда везут|тело забрали|забрать тело|выдать тело|из морга|в морг/.test(q);
+        var churchAsk = /церкви|церковь|храм|собор|батюшк|священник|отпеван|панихид|заупокой|вызвать батюш|иконн лавк|вознесенск|никольск|богоявленск|софийск|казанск|спасител|покров|параскев|отпевание дома|на дом для отпеван/.test(q);
 
-        /* Specific morgue only when match is strong enough */
+        if (churchHit && churchHit.score >= 18) {
+          return {
+            answer: placeCard(churchHit.item) +
+              '\n\nКарта церквей: #churches\nВызов батюшки и организация похорон 24/7: ' + PHONE +
+              '\nWhatsApp: ' + WA_LINK
+          };
+        }
+
         if (morgueHit && morgueHit.score >= 18) {
           return {
             answer: placeCard(morgueHit.item) +
@@ -3233,6 +3393,7 @@
         var bestScore = 0;
         var wantsCemetery = cemAsk || /кенсай|батыс|бурундай|баганашыл|рыскулов|северн|еврейск|центральн клад|раимбек|райымбек/.test(q);
         var wantsMorgue = morgueAsk;
+        var wantsChurch = churchAsk;
         AI_KB.forEach(function (item) {
           var score = 0;
           item.keys.forEach(function (k) {
@@ -3240,6 +3401,7 @@
           });
           if (item.topic === 'cemetery' && wantsCemetery) score += 25;
           if (item.topic === 'morgue' && wantsMorgue) score += 30;
+          if (item.topic === 'church' && wantsChurch) score += 30;
           if (score > bestScore) {
             bestScore = score;
             best = item;
@@ -3248,7 +3410,7 @@
         if (best && bestScore > 0) return best;
 
         return {
-          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках, кладбищах и моргах Алматы.\n\nПримеры: «Морги Алматы», «Морг Калкаман», «Как забрать тело?», «Телефон СМЭ».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
+          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках, кладбищах, моргах и церквях Алматы.\n\nПримеры: «Вызвать батюшку», «Церкви Алматы», «Никольский телефон», «Морги Алматы».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
         };
       }
 
@@ -3277,7 +3439,7 @@
           aiStarted = true;
           if (!prompt) {
             addAiMsg(
-              'Здравствуйте. Я ИИ-помощник по ритуальным услугам, кладбищам и моргам Алматы.\n\nСпрашивайте про адреса и телефоны, пакеты, документы — или нажмите быстрый вопрос ниже.\n\nАлександр: ' + PHONE,
+              'Здравствуйте. Я ИИ-помощник по ритуальным услугам, кладбищам, моргам и церквям Алматы.\n\nСпрашивайте про отпевание, вызов батюшки, адреса храмов, пакеты — или нажмите быстрый вопрос ниже.\n\nАлександр: ' + PHONE,
               'bot',
               true
             );
@@ -3418,6 +3580,7 @@
       function initPlaceMaps() {
         initPlaceMap('cem-map', 'cem-list', CEMETERIES);
         initPlaceMap('morgue-map', 'morgue-list', MORGUES);
+        initPlaceMap('church-map', 'church-list', CHURCHES);
       }
 
       if (document.readyState === 'loading') {
