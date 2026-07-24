@@ -2047,6 +2047,7 @@
       <a href="#services">услуги</a>
       <a href="#packages">пакеты</a>
       <a href="#catalog">каталог</a>
+      <a href="#monuments">памятники</a>
       <a href="#calc">калькулятор</a>
       <a href="#showcase">портфолио</a>
       <a href="#youtube">YouTube</a>
@@ -2262,7 +2263,7 @@
       <header class="section-head reveal is-in">
         <p class="eyebrow">// каталог</p>
         <h2>Каталог ритуальных товаров</h2>
-        <p class="sub">Памятники, гробы, кресты, венки, одежда, транспорт и наборы — выберите позицию и закажите у Александра 24/7.</p>
+        <p class="sub">Гробы, кресты, венки, одежда, транспорт и наборы — выберите позицию и закажите у Александра 24/7.</p>
       </header>
       <a class="catalog-banner reveal is-in" href="tel:+77010567667" aria-label="Ритуальные услуги — позвонить">
         <img
@@ -2274,7 +2275,20 @@
           decoding="async"
         />
       </a>
-      <a class="catalog-banner catalog-banner--monuments reveal is-in" href="#catalog-filters" aria-label="Каталог памятников">
+      <div class="catalog-filters" id="catalog-filters" role="tablist" aria-label="Категории каталога"></div>
+      <div class="catalog-grid" id="catalog-grid" role="list"></div>
+      <p class="catalog-note">Цены уточняйте при заказе — зависят от модели и комплектации. Заказ: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>
+    </div>
+  </section>
+
+  <section class="catalog catalog--monuments" id="monuments" aria-label="Каталог памятников">
+    <div class="wrap">
+      <header class="section-head reveal is-in">
+        <p class="eyebrow">// памятники</p>
+        <h2>Каталог памятников</h2>
+        <p class="sub">Гранитные памятники из нашего каталога — изготовление и установка на любом кладбище Алматы.</p>
+      </header>
+      <a class="catalog-banner catalog-banner--monuments reveal is-in" href="tel:+77010567667" aria-label="Заказать памятник">
         <img
           src="images/catalog/monuments/banner-monuments.jpg"
           alt="Каталог гранитных памятников AngelGranit"
@@ -2284,9 +2298,8 @@
           decoding="async"
         />
       </a>
-      <div class="catalog-filters" id="catalog-filters" role="tablist" aria-label="Категории каталога"></div>
-      <div class="catalog-grid" id="catalog-grid" role="list"></div>
-      <p class="catalog-note">Цены уточняйте при заказе — зависят от модели и комплектации. Заказ: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>
+      <div class="catalog-grid" id="monuments-grid" role="list"></div>
+      <p class="catalog-note">Модель и гравировку уточним при заказе. Александр: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>
     </div>
   </section>
 
@@ -3106,14 +3119,16 @@
 
       var CATALOG_CATS = [
         { id: 'all', label: 'Все' },
-        { id: 'monument', label: 'Памятники' },
         { id: 'coffin', label: 'Гробы' },
         { id: 'cross', label: 'Кресты' },
         { id: 'wreath', label: 'Венки' },
         { id: 'clothes', label: 'Одежда' },
         { id: 'transport', label: 'Транспорт' },
-        { id: 'set', label: 'Наборы' }
+        { id: 'set', label: 'Наборы' },
+        { id: 'monument', label: 'Памятники' }
       ];
+
+      var GOODS_CATS = CATALOG_CATS.filter(function (c) { return c.id !== 'monument'; });
 
       var CATALOG = [
         { id: 'c1', cat: 'coffin', name: 'Гроб лакированный «Махагон»', note: 'Открытый вид, белый атлас, фурнитура розовое золото', img: 'images/catalog/coffin-mahogany-open.png', keys: ['махагон', 'лакированн гроб', 'открытый гроб'] },
@@ -3225,7 +3240,7 @@
         { id: 'mon80', cat: 'monument', name: "Памятник №080", note: "Гранитный памятник из каталога · цена по запросу · изготовление и установка", img: "images/catalog/monuments/items/monument-080.jpg", keys: ["памятник 80", "памятник №80", "модель 80", "monument 80"] },
       ];
 
-      var catFilter = 'monument';
+      var catFilter = 'all';
 
       function catalogWaLink(item) {
         var msg = 'Здравствуйте! Хочу заказать из каталога: «' + item.name + '». Уточните цену и наличие.';
@@ -3239,13 +3254,33 @@
           .replace(/</g, '&lt;');
       }
 
+      function buildCatalogCard(item) {
+        var art = document.createElement('article');
+        art.className = 'cat-card';
+        art.setAttribute('role', 'listitem');
+        var title = escapeAttr(item.name);
+        var tag = (CATALOG_CATS.find(function (c) { return c.id === item.cat; }) || {}).label || '';
+        art.innerHTML =
+          '<button type="button" class="cat-card__media" data-full="' + escapeAttr(item.img) + '" data-title="' + title + '" aria-label="Увеличить фото: ' + title + '">' +
+            '<img src="' + escapeAttr(item.img) + '" alt="' + title + '" loading="lazy" decoding="async" width="600" height="750" />' +
+          '</button>' +
+          '<div class="cat-card__body">' +
+            '<span class="cat-card__tag">' + tag + '</span>' +
+            '<h3 class="cat-card__name">' + item.name + '</h3>' +
+            '<p class="cat-card__note">' + item.note + '</p>' +
+            '<div class="cat-card__price">цена по запросу</div>' +
+            '<a class="btn btn--ghost" href="' + catalogWaLink(item) + '" target="_blank" rel="noopener noreferrer">Заказать в WhatsApp</a>' +
+          '</div>';
+        return art;
+      }
+
       function renderCatalog() {
         var grid = document.getElementById('catalog-grid');
         var filters = document.getElementById('catalog-filters');
         if (!grid || !filters) return;
 
         if (!filters.dataset.ready) {
-          CATALOG_CATS.forEach(function (c) {
+          GOODS_CATS.forEach(function (c) {
             var b = document.createElement('button');
             b.type = 'button';
             b.textContent = c.label;
@@ -3264,6 +3299,7 @@
         }
 
         var items = CATALOG.filter(function (item) {
+          if (item.cat === 'monument') return false;
           return catFilter === 'all' || item.cat === catFilter;
         });
 
@@ -3272,25 +3308,22 @@
           grid.innerHTML = '<p class="catalog-empty">В этой категории пока нет позиций.</p>';
           return;
         }
-
         items.forEach(function (item) {
-          var art = document.createElement('article');
-          art.className = 'cat-card';
-          art.setAttribute('role', 'listitem');
-          var title = escapeAttr(item.name);
-          var tag = (CATALOG_CATS.find(function (c) { return c.id === item.cat; }) || {}).label || '';
-          art.innerHTML =
-            '<button type="button" class="cat-card__media" data-full="' + escapeAttr(item.img) + '" data-title="' + title + '" aria-label="Увеличить фото: ' + title + '">' +
-              '<img src="' + escapeAttr(item.img) + '" alt="' + title + '" loading="lazy" decoding="async" width="600" height="750" />' +
-            '</button>' +
-            '<div class="cat-card__body">' +
-              '<span class="cat-card__tag">' + tag + '</span>' +
-              '<h3 class="cat-card__name">' + item.name + '</h3>' +
-              '<p class="cat-card__note">' + item.note + '</p>' +
-              '<div class="cat-card__price">цена по запросу</div>' +
-              '<a class="btn btn--ghost" href="' + catalogWaLink(item) + '" target="_blank" rel="noopener noreferrer">Заказать в WhatsApp</a>' +
-            '</div>';
-          grid.appendChild(art);
+          grid.appendChild(buildCatalogCard(item));
+        });
+      }
+
+      function renderMonumentsCatalog() {
+        var grid = document.getElementById('monuments-grid');
+        if (!grid) return;
+        var items = CATALOG.filter(function (item) { return item.cat === 'monument'; });
+        grid.innerHTML = '';
+        if (!items.length) {
+          grid.innerHTML = '<p class="catalog-empty">Каталог памятников скоро появится.</p>';
+          return;
+        }
+        items.forEach(function (item) {
+          grid.appendChild(buildCatalogCard(item));
         });
       }
 
@@ -3333,6 +3366,7 @@
 
       try {
         renderCatalog();
+        renderMonumentsCatalog();
         initCatalogLightbox();
       } catch (err) {
         console.error('catalog init', err);
@@ -3935,7 +3969,7 @@
           keys: ['памятник', 'памятники', 'каталог памят', 'покажи памятник', 'гранитн памят', 'надгробн памят', 'стела', 'модель памят', 'памятники алмат'],
           answer: 'CATALOG_SHOW',
           cat: 'monument',
-          text: 'Каталог гранитных памятников — фото моделей ниже.\nИзготовление и установка на любом кладбище Алматы.\nПолный раздел: #catalog\nЗаказ: ' + PHONE
+          text: 'Каталог гранитных памятников — фото моделей ниже.\nИзготовление и установка на любом кладбище Алматы.\nПолный раздел: #monuments\nЗаказ: ' + PHONE
         },
         {
           keys: ['цена', 'стоит', 'стоимость', 'прайс', 'сколько', 'пакет', 'комплекс', 'тариф'],
@@ -4155,6 +4189,7 @@
           .replace(/#churches/g, '<a href="#churches">#churches</a>')
           .replace(/#cafes/g, '<a href="#cafes">#cafes</a>')
           .replace(/#catalog/g, '<a href="#catalog">#catalog</a>')
+          .replace(/#monuments/g, '<a href="#monuments">#monuments</a>')
           .replace(/#calc/g, '<a href="#calc">#calc</a>')
           .replace(/(\+7\s*\(?7\d{2}\)?\s*[\d\-\s]{7,})/g, function (m) {
             var digits = m.replace(/\D/g, '');
@@ -4279,21 +4314,23 @@
           aWa.rel = 'noopener noreferrer';
           aWa.textContent = 'WhatsApp';
           var aFull = document.createElement('a');
-          aFull.href = '#catalog';
+          var sectionHash = item.cat === 'monument' ? '#monuments' : '#catalog';
+          aFull.href = sectionHash;
           aFull.textContent = 'На сайте';
           aFull.addEventListener('click', function () {
+            if (item.cat === 'monument') {
+              location.hash = '#monuments';
+              return;
+            }
             catFilter = item.cat;
             renderCatalog();
             var filters = document.getElementById('catalog-filters');
             if (filters) {
               Array.prototype.forEach.call(filters.querySelectorAll('button'), function (x) {
-                x.classList.toggle('is-active', x.dataset.cat === item.cat || (item.cat && x.dataset.cat === item.cat));
-              });
-              // activate correct filter button
-              Array.prototype.forEach.call(filters.querySelectorAll('button'), function (x) {
                 x.classList.toggle('is-active', x.dataset.cat === catFilter);
               });
             }
+            location.hash = '#catalog';
           });
           actions.appendChild(aWa);
           actions.appendChild(aFull);
@@ -4327,15 +4364,16 @@
         });
         var openSite = document.createElement('button');
         openSite.type = 'button';
-        openSite.textContent = 'Открыть #catalog';
+        var openHash = (items[0] && items[0].cat === 'monument') ? '#monuments' : '#catalog';
+        openSite.textContent = 'Открыть ' + openHash;
         openSite.addEventListener('click', function () {
-          location.hash = '#catalog';
+          location.hash = openHash;
         });
         more.appendChild(openSite);
         aiBody.appendChild(more);
 
         if (items.length > list.length) {
-          addAiMsg('Показаны первые ' + list.length + ' из ' + items.length + '. Полный список: #catalog', 'bot');
+          addAiMsg('Показаны первые ' + list.length + ' из ' + items.length + '. Полный список: ' + openHash, 'bot');
         }
         aiBody.scrollTop = aiBody.scrollHeight;
       }
