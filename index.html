@@ -707,6 +707,189 @@
       .package__list { font-size: 0.74rem; }
     }
 
+    /* Catalog */
+    .catalog {
+      background:
+        radial-gradient(ellipse 55% 40% at 50% 0%, rgba(196,18,24,0.1), transparent 55%),
+        var(--bg);
+      border-block: 1px solid var(--line);
+    }
+    .catalog .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
+    .catalog-banner {
+      display: block;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #050505;
+    }
+    .catalog-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 320px;
+      object-position: center;
+    }
+    .catalog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.15rem;
+    }
+    .catalog-filters button {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .catalog-filters button:hover,
+    .catalog-filters button.is-active {
+      color: var(--white);
+      border-color: rgba(196, 18, 24, 0.55);
+      background: var(--red-soft);
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .cat-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .cat-card:hover {
+      border-color: rgba(196, 18, 24, 0.45);
+      box-shadow: 0 0 0 1px rgba(196,18,24,0.12);
+      transform: translateY(-2px);
+    }
+    .cat-card__media {
+      display: block;
+      background: #0a0a0c;
+      border-bottom: 1px solid var(--line);
+      cursor: zoom-in;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+    .cat-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #050505;
+      transition: transform 0.35s ease;
+    }
+    .cat-card:hover .cat-card__media img { transform: scale(1.03); }
+    .cat-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      padding: 0.95rem 1rem 1.1rem;
+      flex: 1;
+    }
+    .cat-card__tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--red-bright);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .cat-card__name {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.25;
+    }
+    .cat-card__note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      flex: 1;
+    }
+    .cat-card__price {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: rgba(236,232,224,0.72);
+    }
+    .cat-card__body .btn { margin-top: 0.35rem; align-self: flex-start; }
+    .catalog-note {
+      margin: 1.1rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .cat-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(0,0,0,0.86);
+      backdrop-filter: blur(6px);
+    }
+    .cat-lightbox.is-open { display: flex; }
+    .cat-lightbox__inner {
+      position: relative;
+      max-width: min(920px, 100%);
+      max-height: 90vh;
+    }
+    .cat-lightbox__inner img {
+      display: block;
+      max-width: 100%;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #050505;
+    }
+    .cat-lightbox__cap {
+      margin: 0.75rem 0 0;
+      text-align: center;
+      color: rgba(236,232,224,0.85);
+      font-size: 0.92rem;
+    }
+    .cat-lightbox__close {
+      position: absolute;
+      top: -0.35rem;
+      right: -0.35rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #111;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    @media (max-width: 960px) {
+      .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .catalog-grid { grid-template-columns: 1fr; }
+      .cat-card__media { aspect-ratio: 1 / 1; }
+    }
+
     /* Showcase */
     .showcase-grid {
       display: grid;
@@ -1764,6 +1947,7 @@
     <nav class="nav__links" aria-label="Навигация">
       <a href="#services">услуги</a>
       <a href="#packages">пакеты</a>
+      <a href="#catalog">каталог</a>
       <a href="#calc">калькулятор</a>
       <a href="#showcase">портфолио</a>
       <a href="#youtube">YouTube</a>
@@ -1973,6 +2157,37 @@
       </div>
     </div>
   </section>
+
+  <section class="catalog" id="catalog" aria-label="Каталог ритуальных товаров">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">// каталог</p>
+        <h2>Каталог ритуальных товаров</h2>
+        <p class="sub">Гробы, кресты, венки, одежда, транспорт и наборы — выберите позицию и закажите у Александра 24/7.</p>
+      </header>
+      <a class="catalog-banner reveal" href="tel:+77010567667" aria-label="Ритуальные услуги — позвонить">
+        <img
+          src="images/catalog/banner-ritual.png"
+          alt="Ритуальные услуги — лилии, свечи и катафалк"
+          width="1024"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <div class="catalog-filters reveal" id="catalog-filters" role="tablist" aria-label="Категории каталога"></div>
+      <div class="catalog-grid reveal" id="catalog-grid" role="list"></div>
+      <p class="catalog-note">Цены уточняйте при заказе — зависят от модели и комплектации. Заказ: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>
+    </div>
+  </section>
+
+  <div class="cat-lightbox" id="cat-lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр фото">
+    <div class="cat-lightbox__inner">
+      <button type="button" class="cat-lightbox__close" id="cat-lightbox-close" aria-label="Закрыть">×</button>
+      <img id="cat-lightbox-img" src="" alt="" />
+      <p class="cat-lightbox__cap" id="cat-lightbox-cap"></p>
+    </div>
+  </div>
 
   <section class="calc" id="calc">
     <div class="wrap">
@@ -2779,6 +2994,140 @@
       /* —— AI funeral assistant —— */
       var WA_LINK = 'https://wa.me/77010567667';
       var PHONE = '+7 701 056 7667';
+
+      var CATALOG_CATS = [
+        { id: 'all', label: 'Все' },
+        { id: 'coffin', label: 'Гробы' },
+        { id: 'cross', label: 'Кресты' },
+        { id: 'wreath', label: 'Венки' },
+        { id: 'clothes', label: 'Одежда' },
+        { id: 'transport', label: 'Транспорт' },
+        { id: 'set', label: 'Наборы' }
+      ];
+
+      var CATALOG = [
+        { id: 'c1', cat: 'coffin', name: 'Гроб лакированный «Махагон»', note: 'Открытый вид, белый атлас, фурнитура розовое золото', img: 'images/catalog/coffin-mahogany-open.png', keys: ['махагон', 'лакированн гроб', 'открытый гроб'] },
+        { id: 'c2', cat: 'coffin', name: 'Гроб чёрный глянец', note: 'Зеркальный лак, бронзовая фурнитура', img: 'images/catalog/coffin-black-gloss.png', keys: ['чёрный гроб', 'черный гроб', 'глянец'] },
+        { id: 'c3', cat: 'coffin', name: 'Гроб премиум «Elegance»', note: 'Тёмный лак, золотые ручки · Premium Collection', img: 'images/catalog/coffin-elegance-premium.png', keys: ['elegance', 'премиум гроб'] },
+        { id: 'c4', cat: 'coffin', name: 'Гроб чёрный с золотом', note: 'Лак, золотые ручки, шоурум-подача', img: 'images/catalog/coffin-black-gold.png', keys: ['золотыми ручками', 'чёрный с золот'] },
+        { id: 'c5', cat: 'coffin', name: 'Гроб «Burgundy Premium»', note: 'Велюр бордо, золотой крест на крышке', img: 'images/catalog/coffin-burgundy-premium.png', keys: ['burgundy', 'бордо гроб', 'велюр гроб'] },
+        { id: 'c6', cat: 'coffin', name: 'Гроб «Classic Elegance»', note: 'Premium Burgundy · розовая панель, распятие', img: 'images/catalog/coffin-classic-elegance.png', keys: ['classic elegance', 'burgundy casket'] },
+        { id: 'c7', cat: 'coffin', name: 'Гроб велюр бордо', note: 'Premium Collection · вертикальная подача', img: 'images/catalog/coffin-velvet-burgundy.png', keys: ['велюр бордо'] },
+        { id: 'c8', cat: 'coffin', name: 'Гроб «Classic Maroon Panel»', note: 'Марон-панель, чёрный кант', img: 'images/catalog/coffin-maroon-panel.png', keys: ['maroon', 'марон'] },
+        { id: 'x1', cat: 'cross', name: 'Крест деревянный с крышей', note: 'Православный восьмиконечный, полированное дерево', img: 'images/catalog/cross-wood-roof.png', keys: ['деревянн крест', 'крест с крышей', 'голубцы'] },
+        { id: 'x2', cat: 'cross', name: 'Крест деревянный тёмный', note: 'С домиком, тёмная морилка', img: 'images/catalog/cross-wood-roof-dark.png', keys: ['тёмный крест', 'темный крест'] },
+        { id: 'x3', cat: 'cross', name: 'Крест кованый с завитками', note: 'Чёрный металл, бронзовые завитки', img: 'images/catalog/cross-iron-scroll.png', keys: ['кован крест', 'металлич крест'] },
+        { id: 'x4', cat: 'cross', name: 'Крест кованый Catalog', note: 'Православный, постамент с шипами', img: 'images/catalog/cross-iron-catalog.png', keys: ['кованный каталог'] },
+        { id: 'x5', cat: 'cross', name: 'Крест деревянный с распятием', note: 'Резьба / гравировка, православный чин', img: 'images/catalog/cross-wood-carved.png', keys: ['распятие крест', 'резной крест'] },
+        { id: 'w1', cat: 'wreath', name: 'Венок белый с лилиями', note: 'Овал, розы и лилии на тёмной основе', img: 'images/catalog/wreath-white-lilies.png', keys: ['белый венок', 'лилии венок'] },
+        { id: 'w2', cat: 'wreath', name: 'Венок сине-белый', note: 'Лилии, зелень, золотой кант', img: 'images/catalog/wreath-blue-white.png', keys: ['синий венок', 'голубой венок'] },
+        { id: 'w3', cat: 'wreath', name: 'Венок красно-белый', note: 'Красные гвоздики, белые лилии и розы', img: 'images/catalog/wreath-red-white.png', keys: ['красный венок'] },
+        { id: 'w4', cat: 'wreath', name: 'Венок Premium розовый', note: 'Premium Floral Collection · стойка', img: 'images/catalog/wreath-pink-premium.png', keys: ['розовый венок', 'premium floral'] },
+        { id: 'w5', cat: 'wreath', name: 'Венок Luxury белый', note: 'Luxury Floral Collection · белые розы', img: 'images/catalog/wreath-white-luxury.png', keys: ['luxury floral', 'белый розовый венок'] },
+        { id: 'o1', cat: 'clothes', name: 'Комплект мужской', note: 'Костюм, рубашка, галстук, бельё, носки', img: 'images/catalog/clothes-men-set.png', keys: ['мужск одежд', 'костюм похорон', 'комплект муж'] },
+        { id: 'o2', cat: 'clothes', name: 'Платье синее с кружевом', note: 'Скромный крой, белый кружевной воротник', img: 'images/catalog/clothes-dress-blue.png', keys: ['платье', 'женск одежд', 'синее платье'] },
+        { id: 'o3', cat: 'clothes', name: 'Костюм и платье', note: 'Мужской костюм и женское траурное платье', img: 'images/catalog/clothes-suit-dress.png', keys: ['траурная одежда', 'костюм и платье'] },
+        { id: 't1', cat: 'transport', name: 'Катафалк Sprinter 24/7', note: 'Mercedes · ритуальные услуги · ' + PHONE, img: 'images/catalog/van-front-ritual.png', keys: ['катафалк', 'sprinter', 'мерседес'] },
+        { id: 't2', cat: 'transport', name: 'Premium Van Collection', note: 'Катафалк и бригада · студийная подача', img: 'images/catalog/van-premium-collection.png', keys: ['premium van', 'транспорт премиум'] },
+        { id: 't3', cat: 'transport', name: 'Катафалк со специалистами', note: 'Выезд 24/7 по Алматы', img: 'images/catalog/van-studio-team.png', keys: ['бригада', 'выезд катафалк'] },
+        { id: 't4', cat: 'transport', name: 'VIP-транспорт', note: 'Премиальная подача катафалка', img: 'images/catalog/van-vip-interior.png', keys: ['vip транспорт', 'vip катафалк'] },
+        { id: 's1', cat: 'set', name: 'Погребальный церковный набор', note: 'Икона, крест, свечи, венчик, молитвы', img: 'images/catalog/set-church-burial.png', keys: ['церковн набор', 'погребальн набор'] },
+        { id: 's2', cat: 'set', name: 'Orthodox Burial Set Classic White', note: 'Покрывало и подушка · модель Classic White', img: 'images/catalog/set-burial-classic-white.png', keys: ['покрывало', 'атлас набор', 'classic white', 'погребальн комплект'] }
+      ];
+
+      var catFilter = 'all';
+
+      function catalogWaLink(item) {
+        var msg = 'Здравствуйте! Хочу заказать из каталога: «' + item.name + '». Уточните цену и наличие.';
+        return WA_LINK + '?text=' + encodeURIComponent(msg);
+      }
+
+      function renderCatalog() {
+        var grid = document.getElementById('catalog-grid');
+        var filters = document.getElementById('catalog-filters');
+        if (!grid || !filters) return;
+
+        if (!filters.dataset.ready) {
+          CATALOG_CATS.forEach(function (c) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = c.label;
+            b.dataset.cat = c.id;
+            if (c.id === 'all') b.classList.add('is-active');
+            b.addEventListener('click', function () {
+              catFilter = c.id;
+              Array.prototype.forEach.call(filters.querySelectorAll('button'), function (x) {
+                x.classList.toggle('is-active', x.dataset.cat === catFilter);
+              });
+              renderCatalog();
+            });
+            filters.appendChild(b);
+          });
+          filters.dataset.ready = '1';
+        }
+
+        grid.innerHTML = '';
+        CATALOG.filter(function (item) {
+          return catFilter === 'all' || item.cat === catFilter;
+        }).forEach(function (item) {
+          var art = document.createElement('article');
+          art.className = 'cat-card';
+          art.setAttribute('role', 'listitem');
+          art.innerHTML =
+            '<button type="button" class="cat-card__media" data-full="' + item.img + '" data-title="' + item.name.replace(/"/g, '&quot;') + '" aria-label="Увеличить фото: ' + item.name.replace(/"/g, '&quot;') + '">' +
+              '<img src="' + item.img + '" alt="' + item.name.replace(/"/g, '&quot;') + '" loading="lazy" decoding="async" width="600" height="750" />' +
+            '</button>' +
+            '<div class="cat-card__body">' +
+              '<span class="cat-card__tag">' + (CATALOG_CATS.find(function (c) { return c.id === item.cat; }) || {}).label + '</span>' +
+              '<h3 class="cat-card__name">' + item.name + '</h3>' +
+              '<p class="cat-card__note">' + item.note + '</p>' +
+              '<div class="cat-card__price">цена по запросу</div>' +
+              '<a class="btn btn--ghost" href="' + catalogWaLink(item) + '" target="_blank" rel="noopener noreferrer">Заказать в WhatsApp</a>' +
+            '</div>';
+          grid.appendChild(art);
+        });
+      }
+
+      function initCatalogLightbox() {
+        var box = document.getElementById('cat-lightbox');
+        var img = document.getElementById('cat-lightbox-img');
+        var cap = document.getElementById('cat-lightbox-cap');
+        var closeBtn = document.getElementById('cat-lightbox-close');
+        if (!box || !img) return;
+
+        function openLb(src, title) {
+          img.src = src;
+          img.alt = title || '';
+          if (cap) cap.textContent = title || '';
+          box.classList.add('is-open');
+          box.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeLb() {
+          box.classList.remove('is-open');
+          box.setAttribute('aria-hidden', 'true');
+          img.src = '';
+          document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', function (e) {
+          var btn = e.target.closest && e.target.closest('.cat-card__media');
+          if (btn) {
+            openLb(btn.getAttribute('data-full'), btn.getAttribute('data-title'));
+          }
+        });
+        if (closeBtn) closeBtn.addEventListener('click', closeLb);
+        box.addEventListener('click', function (e) {
+          if (e.target === box) closeLb();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && box.classList.contains('is-open')) closeLb();
+        });
+      }
+
+      renderCatalog();
+      initCatalogLightbox();
+
       var aiBody = document.getElementById('ai-body');
       var aiChat = document.getElementById('ai-chat');
       var fabAi = document.getElementById('fab-ai');
@@ -3307,7 +3656,7 @@
       var AI_KB = [
         {
           keys: ['привет', 'здравств', 'добрый', 'добро пожаловать', 'hello', 'hi'],
-          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища, морги, церкви (вызвать батюшку) и кафе для поминальных обедов.\n\nАгент Александр 24/7: ' + PHONE
+          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, каталог (гробы, кресты, венки), документы, катафалк, кладбища, морги, церкви и кафе для поминок.\n\nАгент Александр 24/7: ' + PHONE
         },
         {
           keys: ['поделить', 'репост', 'близк', 'статус', 'ссылк', 'отправ', 'share', 'рассказать друз'],
@@ -3316,7 +3665,27 @@
         },
         {
           keys: ['калькулятор', 'смет', 'прайс', 'расчет', 'расчёт', 'посчита'],
-          answer: 'На сайте есть калькулятор стоимости по прайсу: гробы, принадлежности, одежда, венки.\n\nОткройте раздел «Калькулятор», отметьте позиции — итог можно сразу отправить Александру в WhatsApp.\nСсылка: #calc'
+          answer: 'На сайте есть калькулятор стоимости по прайсу: гробы, принадлежности, одежда, венки.\n\nОткройте раздел «Калькулятор», отметьте позиции — итог можно сразу отправить Александру в WhatsApp.\nСсылка: #calc\nКаталог с фото: #catalog'
+        },
+        {
+          topic: 'catalog',
+          keys: ['каталог', 'ассортимент', 'что есть в наличии', 'товары', 'позиции каталог', 'фото гроб', 'выбор гроб', 'какие гробы', 'какие венки', 'какие кресты'],
+          answer: 'Каталог ритуальных товаров — раздел #catalog.\n\nКатегории:\n• Гробы (лак, велюр, премиум)\n• Кресты (дерево, ковка)\n• Венки\n• Одежда\n• Транспорт / катафалк\n• Церковные и погребальные наборы\n\nЦены по запросу. Заказ: ' + PHONE + '\nWhatsApp: ' + WA_LINK
+        },
+        {
+          topic: 'catalog',
+          keys: ['гроб каталог', 'гробы в каталог', 'лакированн гроб', 'велюр гроб', 'заказать гроб'],
+          answer: 'В каталоге (#catalog) есть гробы: лакированные (махагон, чёрный глянец), премиум Elegance, велюр бордо / Classic Elegance / Maroon Panel.\n\nФильтр «Гробы» на сайте. Точную цену скажет Александр: ' + PHONE
+        },
+        {
+          topic: 'catalog',
+          keys: ['крест каталог', 'кресты в каталог', 'деревянн крест', 'кован крест', 'заказать крест'],
+          answer: 'В каталоге (#catalog) — деревянные кресты с крышей и кованые с завитками.\n\nФильтр «Кресты». Заказ: ' + PHONE
+        },
+        {
+          topic: 'catalog',
+          keys: ['венок каталог', 'венки в каталог', 'заказать венок', 'какие венки есть'],
+          answer: 'В каталоге (#catalog) венки: белый с лилиями, сине-белый, красно-белый, Premium розовый, Luxury белый.\n\nФильтр «Венки». Заказ: ' + PHONE
         },
         {
           keys: ['цена', 'стоит', 'стоимость', 'прайс', 'сколько', 'пакет', 'комплекс', 'тариф'],
@@ -3352,7 +3721,7 @@
         },
         {
           keys: ['венок', 'венки', 'цвет', 'лент', 'герлянд'],
-          answer: 'Делаем венки, ленты с надписью, герлянды и ритуальные принадлежности. Доставка и оформление под пакет или отдельно.\n\nПодскажем, что лучше выбрать. WhatsApp: ' + WA_LINK
+          answer: 'Делаем венки, ленты с надписью, герлянды и ритуальные принадлежности. Фото моделей — в каталоге (#catalog).\n\nДоставка и оформление под пакет или отдельно. WhatsApp: ' + WA_LINK
         },
         {
           keys: ['памятник', 'гранит', 'ограда', 'габбро', 'гравиров', 'надгроб'],
@@ -3531,6 +3900,7 @@
           .replace(/#morgues/g, '<a href="#morgues">#morgues</a>')
           .replace(/#churches/g, '<a href="#churches">#churches</a>')
           .replace(/#cafes/g, '<a href="#cafes">#cafes</a>')
+          .replace(/#catalog/g, '<a href="#catalog">#catalog</a>')
           .replace(/#calc/g, '<a href="#calc">#calc</a>')
           .replace(/(\+7\s*\(?7\d{2}\)?\s*[\d\-\s]{7,})/g, function (m) {
             var digits = m.replace(/\D/g, '');
@@ -3585,10 +3955,10 @@
           var q = document.createElement('div');
           q.className = 'ai-quick';
           [
+            'Каталог товаров',
             'Поминки Алматы',
-            'Что такое ас?',
-            'Недорогие поминки',
             'Вызвать батюшку',
+            'Недорогие поминки',
             'Сколько стоят пакеты?'
           ].forEach(function (label) {
             var b = document.createElement('button');
@@ -3608,10 +3978,20 @@
         var morgueHit = findMorgueByQuestion(q);
         var churchHit = findChurchByQuestion(q);
         var cafeHit = findCafeByQuestion(q);
+        var catalogHit = findPlaceByQuestion(q, CATALOG, function () { return 0; });
         var cemAsk = /кладбищ|некропол|захоронен|похоронить|где хоронят|участок|подзахоронен|могил на|на клад/.test(q);
         var morgueAsk = /морг|патолого|патологоанатом|гпаб|судебн|смэ|калкаман|алгабас|демченко|казыбек|акан сер|жандосов|бухар|жырау|куда везут|тело забрали|забрать тело|выдать тело|из морга|в морг/.test(q);
         var churchAsk = /церкви|церковь|храм|собор|батюшк|священник|отпеван|панихид|заупокой|сорокоуст|лития|поминовен|вызвать батюш|пригласить священ|иконн лавк|вознесенск|никольск|богоявленск|софийск|казанск|спасител|покров|параскев|отпевание дома|на дом для отпеван|очное|заочное/.test(q);
         var cafeAsk = /поминки|поминальн|поминальный обед|поминки алмат| ас |^ас$|^ас |банкетн|кафе для поминок|куда на поминки|карта кафе|список кафе|құдай тамақ|кудай тамак|калинка|khan|хан сарай|хансарай|versal|версал|alqa|алқа|алка|углях|кафе gold|голд|жетысу-?2|бесагаш|шмидт|пятилетк|жангельдин|вместимость|с человека|недорогие поминки|дешевые поминки|дешёвые поминки|большой зал|после похорон обед|организовать поминки|забронировать кафе|меню на поминки|алкоголь на поминки|кутья|коливо|7 дней|9 дней|40 дней|сорок дней|годовщин|что такое ас|что такое поминки/.test(q);
+        var catalogAsk = /каталог|ассортимент|товары|какие гробы|какие венки|какие кресты|заказать гроб|заказать венок|заказать крест|церковн набор|погребальн|атлас набор|premium collection|велюр гроб|лакированн гроб|кован крест|деревянн крест/.test(q);
+
+        if (catalogHit && catalogHit.score >= 18) {
+          var ci = catalogHit.item;
+          return {
+            answer: ci.name + '\n' + ci.note + '\nКатегория: ' + ((CATALOG_CATS.find(function (c) { return c.id === ci.cat; }) || {}).label || ci.cat) +
+              '\nЦена: по запросу\nФото в каталоге: #catalog\n\nЗаказ: ' + PHONE + '\nWhatsApp: ' + catalogWaLink(ci)
+          };
+        }
 
         if (/калинка/.test(q) && !/жандосов|рыскулбеков|таугуль|таугүл/.test(q)) {
           var kA = CAFES.find(function (c) { return c.id === 'kalinka1'; });
@@ -3675,6 +4055,7 @@
         var wantsMorgue = morgueAsk;
         var wantsChurch = churchAsk;
         var wantsCafe = cafeAsk;
+        var wantsCatalog = catalogAsk;
         AI_KB.forEach(function (item) {
           var score = 0;
           item.keys.forEach(function (k) {
@@ -3684,6 +4065,7 @@
           if (item.topic === 'morgue' && wantsMorgue) score += 30;
           if (item.topic === 'church' && wantsChurch) score += 30;
           if (item.topic === 'cafe' && wantsCafe) score += 30;
+          if (item.topic === 'catalog' && wantsCatalog) score += 32;
           if (score > bestScore) {
             bestScore = score;
             best = item;
@@ -3692,7 +4074,7 @@
         if (best && bestScore > 0) return best;
 
         return {
-          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках, кладбищах, моргах, церквях и кафе для поминок в Алматы.\n\nПримеры: «Поминки Алматы», «Что такое ас?», «Калинка телефон», «Недорогие поминки», «Вызвать батюшку».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
+          answer: 'Я помогаю с вопросами о похоронах, пакетах, каталоге товаров, документах, транспорте, кладбищах, моргах, церквях и кафе для поминок в Алматы.\n\nПримеры: «Каталог товаров», «Поминки Алматы», «Вызвать батюшку».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
         };
       }
 
@@ -3721,7 +4103,7 @@
           aiStarted = true;
           if (!prompt) {
             addAiMsg(
-              'Здравствуйте. Я ИИ-помощник по ритуальным услугам в Алматы: пакеты, кладбища, морги, церкви и кафе для поминок (ас).\n\nСпрашивайте: «поминки Алматы», «что такое ас», «Калинка телефон», «вызвать батюшку» — или нажмите быстрый вопрос.\n\nАлександр: ' + PHONE,
+              'Здравствуйте. Я ИИ-помощник по ритуальным услугам в Алматы: пакеты, каталог товаров, кладбища, морги, церкви и кафе для поминок.\n\nСпрашивайте: «каталог», «гробы», «поминки Алматы», «вызвать батюшку» — или нажмите быстрый вопрос.\n\nАлександр: ' + PHONE,
               'bot',
               true
             );
