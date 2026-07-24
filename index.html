@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Cpath d='M16 6c-2 3-4 5-4 8a4 4 0 108 0c0-3-2-5-4-8z' fill='none' stroke='%23e8e4dc' stroke-width='1.2'/%3E%3Cpath d='M10 14c-2 1-3 3-2 5M22 14c2 1 3 3 2 5' fill='none' stroke='%23e8e4dc' stroke-width='1'/%3E%3C/svg%3E" type="image/svg+xml" />
 
@@ -903,6 +904,184 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
 
+    /* Cemeteries map */
+    .cemeteries {
+      background:
+        radial-gradient(ellipse 50% 45% at 10% 0%, rgba(196,18,24,0.08), transparent 55%),
+        var(--bg-soft);
+      border-block: 1px solid var(--line);
+    }
+    .cemeteries .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
+    .cem-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .cem-map {
+      min-height: 420px;
+      height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #0a0a0c;
+      z-index: 0;
+    }
+    .cem-map .leaflet-container {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      background: #121214;
+      font-family: var(--font-body);
+    }
+    .cem-map .leaflet-control-attribution {
+      background: rgba(7,7,8,0.82) !important;
+      color: var(--muted);
+      font-size: 0.62rem;
+    }
+    .cem-map .leaflet-control-attribution a { color: var(--red-bright); }
+    .cem-map .leaflet-bar a {
+      background: #111116;
+      color: var(--white);
+      border-bottom-color: var(--line);
+    }
+    .cem-map .leaflet-bar a:hover { background: #1a1a20; color: var(--red-bright); }
+    .cem-pin {
+      width: 18px;
+      height: 18px;
+      margin-left: -9px !important;
+      margin-top: -9px !important;
+      border: 2px solid #f5f2ea;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(196,18,24,0.28);
+    }
+    .cem-pin.is-active {
+      background: var(--red-bright);
+      box-shadow: 0 0 0 6px rgba(228,27,36,0.35);
+      transform: scale(1.15);
+    }
+    .cem-list {
+      display: grid;
+      gap: 0.55rem;
+      max-height: 520px;
+      overflow: auto;
+      padding-right: 0.15rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(196,18,24,0.45) transparent;
+    }
+    .cem-item {
+      display: grid;
+      gap: 0.45rem;
+      width: 100%;
+      margin: 0;
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cem-item:hover,
+    .cem-item.is-active {
+      border-color: rgba(196, 18, 24, 0.5);
+      background: #15151b;
+    }
+    .cem-item__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+    .cem-item__name {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.25;
+    }
+    .cem-item__status {
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--red-bright);
+    }
+    .cem-item__addr,
+    .cem-item__phone {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .cem-item__phone a {
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(236,232,224,0.22);
+    }
+    .cem-item__phone a:hover { color: var(--red-bright); border-color: var(--red-bright); }
+    .cem-item__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.15rem;
+    }
+    .cem-item__actions a {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.28rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .cem-item__actions a:hover {
+      color: var(--white);
+      border-color: rgba(196, 18, 24, 0.45);
+    }
+    .cem-note {
+      margin: 1rem 0 0;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .cem-note a { color: var(--red-bright); }
+    .cem-popup .leaflet-popup-content-wrapper {
+      background: #111116;
+      color: var(--text);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .cem-popup .leaflet-popup-tip { background: #111116; }
+    .cem-popup .leaflet-popup-content {
+      margin: 0.7rem 0.85rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    .cem-popup strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.03em;
+      color: var(--white);
+    }
+    .cem-popup a { color: var(--red-bright); }
+    @media (max-width: 900px) {
+      .cem-layout { grid-template-columns: 1fr; }
+      .cem-map,
+      .cem-map .leaflet-container { min-height: 320px; }
+      .cem-list { max-height: none; }
+    }
+
     /* Map */
     .map-block {
       margin-top: 1.25rem;
@@ -1567,6 +1746,7 @@
       <a href="#calc">калькулятор</a>
       <a href="#showcase">портфолио</a>
       <a href="#youtube">YouTube</a>
+      <a href="#cemeteries">кладбища</a>
       <a href="#map">карта</a>
       <a href="#share">поделиться</a>
       <a href="#contact">контакты</a>
@@ -1995,6 +2175,24 @@
     </div>
   </section>
 
+  <section class="cemeteries" id="cemeteries" aria-label="Кладбища Алматы">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">// кладбища</p>
+        <h2>Карта кладбищ Алматы</h2>
+        <p class="sub">Адреса и телефоны основных некрополей города. Выберите пункт — откроется точка на карте. Помощь с захоронением и памятником: Александр 24/7.</p>
+      </header>
+      <div class="cem-layout reveal">
+        <div class="cem-map" id="cem-map" role="img" aria-label="Интерактивная карта кладбищ Алматы"></div>
+        <div class="cem-list" id="cem-list" role="list"></div>
+      </div>
+      <p class="cem-note">
+        Источники: открытые справочники (2ГИС, Wikipedia, городские каталоги). Телефоны администраций могут меняться — уточняйте на месте.
+        Организация похорон и установка памятников: <a href="tel:+77010567667">+7 701 056 7667</a>.
+      </p>
+    </div>
+  </section>
+
   <section class="share" id="share" aria-label="Поделиться сайтом">
     <div class="wrap">
       <div class="share__box reveal">
@@ -2069,6 +2267,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
   </a>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script>
     (function () {
       var CONFIG = {
@@ -2565,7 +2764,11 @@
         },
         {
           keys: ['адрес', 'где находит', 'как добрат', 'осетинс', 'карта', '2гис', '2gis'],
-          answer: 'Адрес: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарта на сайте в разделе «Карта», либо 2ГИС:\nhttps://2gis.kz/almaty/geo/9430047375176085'
+          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарта офиса и карта кладбищ Алматы — в разделах «Карта» и «Кладбища» на сайте.\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
+        },
+        {
+          keys: ['кладбищ', 'кенсай', 'центральн', 'баганашыл', 'батыс', 'бурундай', 'рыскулов', 'северн', 'еврейск', 'некропол'],
+          answer: 'На сайте есть карта кладбищ Алматы с адресами и телефонами:\n\n• Центральное — пр. Райымбека, 235 · +7 (727) 378-74-29\n• Рыскулова — пр. Рыскулова, 187/182 · +7 (727) 378-74-29\n• Еврейское — пр. Райымбека, 206е · +7 (727) 253-01-01\n• Кенсай-1 / Кенсай-2 · +7 (727) 384-05-05\n• Северное — ул. Бейсебаева, 148 · +7 (727) 383-93-78\n• Батыс (Бурундай) · +7 (727) 397-57-76\n• Баганашыл — Нур Алатау\n\nОткройте раздел «Кладбища» на сайте. Помощь с захоронением и памятником: ' + PHONE
         },
         {
           keys: ['телефон', 'номер', 'связать', 'контакт', 'whatsapp', 'ватсап', 'вацап', 'написать'],
@@ -2750,6 +2953,211 @@
           e.preventDefault();
           askAi(aiInput ? aiInput.value : '');
         });
+      }
+
+      /* ---- Cemetery map (open sources: 2GIS, Wikipedia, city directories) ---- */
+      var CEMETERIES = [
+        {
+          id: 'central',
+          name: 'Центральное кладбище',
+          status: 'подзахоронения',
+          address: 'пр. Райымбека, 235, Алмалинский район',
+          phone: '+7 (727) 378-74-29',
+          phoneHref: 'tel:+77273787429',
+          note: 'Крупнейший некрополь; новые захоронения ограничены',
+          lat: 43.2714968,
+          lon: 76.9058244,
+          gis: 'https://2gis.kz/almaty/search/%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5'
+        },
+        {
+          id: 'ryskulov',
+          name: 'Кладбище на Рыскулова',
+          status: 'городское',
+          address: 'пр. Рыскулова, 187/182',
+          phone: '+7 (727) 378-74-29',
+          phoneHref: 'tel:+77273787429',
+          note: 'Удобный подъезд из центра города',
+          lat: 43.2811098,
+          lon: 76.9012408,
+          gis: 'https://2gis.kz/almaty/search/%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5%20%D0%A0%D1%8B%D1%81%D0%BA%D1%83%D0%BB%D0%BE%D0%B2%D0%B0'
+        },
+        {
+          id: 'jewish',
+          name: 'Еврейское кладбище',
+          status: 'общинное',
+          address: 'пр. Райымбека, 206е',
+          phone: '+7 (727) 253-01-01',
+          phoneHref: 'tel:+77272530101',
+          note: 'Еврейская община Казахстана',
+          lat: 43.2742,
+          lon: 76.9008,
+          gis: 'https://2gis.kz/almaty/search/%D0%95%D0%B2%D1%80%D0%B5%D0%B9%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5'
+        },
+        {
+          id: 'kensai1',
+          name: 'Кенсай-1',
+          status: 'закрыто для новых',
+          address: 'ул. Сарсенбаева, 187 · Медеуский район',
+          phone: '+7 (727) 384-05-05',
+          phoneHref: 'tel:+77273840505',
+          note: 'Мусульманское; с 2011 — в основном родственные',
+          lat: 43.2672959,
+          lon: 76.9951644,
+          gis: 'https://2gis.kz/almaty/firm/9429940000844010'
+        },
+        {
+          id: 'kensai2',
+          name: 'Кенсай-2',
+          status: 'действующее',
+          address: 'восточная часть Алматы, рядом с Кенсай-1',
+          phone: '+7 (727) 384-05-05',
+          phoneHref: 'tel:+77273840505',
+          note: 'Расширение Кенсая с 1998 года',
+          lat: 43.2605891,
+          lon: 77.0080763,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B5%D0%BD%D1%81%D0%B0%D0%B9-2'
+        },
+        {
+          id: 'northern',
+          name: 'Северное кладбище',
+          status: 'действующее',
+          address: 'ул. Бейсебаева, 148 · Турксибский район',
+          phone: '+7 (727) 383-93-78',
+          phoneHref: 'tel:+77273839378',
+          note: 'Пос. Нижняя Пятилетка, левый берег Султан-Карасу',
+          lat: 43.3528,
+          lon: 76.9625,
+          gis: 'https://2gis.kz/almaty/search/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D0%BE%D0%B5%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5'
+        },
+        {
+          id: 'batys',
+          name: 'Батыс (Бурундайское)',
+          status: 'действующее',
+          address: 'пос. Боралдай / Бурундай, ~20 км к северу',
+          phone: '+7 (727) 397-57-76',
+          phoneHref: 'tel:+77273975776',
+          note: 'Западное кладбище «Батыс»',
+          lat: 43.3605962,
+          lon: 76.8723955,
+          gis: 'https://2gis.kz/almaty/search/%D0%91%D0%B0%D1%82%D1%8B%D1%81%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5'
+        },
+        {
+          id: 'baganashyl',
+          name: 'Баганашыл',
+          status: 'действующее',
+          address: 'мкр. Нур Алатау · Бостандыкский район',
+          phone: '+7 701 056 7667',
+          phoneHref: 'tel:+77010567667',
+          note: 'Телефон уточняйте; помощь по захоронению — Александр',
+          lat: 43.1823266,
+          lon: 76.9072663,
+          gis: 'https://2gis.kz/almaty/firm/70000001093048016'
+        }
+      ];
+
+      function initCemeteryMap() {
+        var mapEl = document.getElementById('cem-map');
+        var listEl = document.getElementById('cem-list');
+        if (!mapEl || !listEl || typeof L === 'undefined') return;
+
+        var map = L.map(mapEl, {
+          scrollWheelZoom: false,
+          zoomControl: true
+        }).setView([43.27, 76.94], 11);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a>'
+        }).addTo(map);
+
+        mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+        map.on('mouseout', function () { map.scrollWheelZoom.disable(); });
+
+        var markers = {};
+        var buttons = {};
+        var activeId = null;
+
+        var pinIcon = function (active) {
+          return L.divIcon({
+            className: active ? 'cem-pin is-active' : 'cem-pin',
+            iconSize: [18, 18],
+            iconAnchor: [9, 9]
+          });
+        };
+
+        function selectCemetery(id, openPopup) {
+          activeId = id;
+          Object.keys(buttons).forEach(function (key) {
+            buttons[key].classList.toggle('is-active', key === id);
+          });
+          Object.keys(markers).forEach(function (key) {
+            markers[key].setIcon(pinIcon(key === id));
+          });
+          var item = CEMETERIES.find(function (c) { return c.id === id; });
+          if (!item) return;
+          map.setView([item.lat, item.lon], 14, { animate: true });
+          if (openPopup !== false) markers[id].openPopup();
+          if (buttons[id] && window.matchMedia('(max-width: 900px)').matches) {
+            buttons[id].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+
+        var bounds = [];
+        CEMETERIES.forEach(function (c) {
+          var marker = L.marker([c.lat, c.lon], { icon: pinIcon(false), title: c.name })
+            .addTo(map)
+            .bindPopup(
+              '<strong>' + c.name + '</strong>' +
+              c.address + '<br>' +
+              '<a href="' + c.phoneHref + '">' + c.phone + '</a>',
+              { className: 'cem-popup' }
+            );
+          marker.on('click', function () { selectCemetery(c.id, true); });
+          markers[c.id] = marker;
+          bounds.push([c.lat, c.lon]);
+
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'cem-item';
+          btn.setAttribute('role', 'listitem');
+          btn.setAttribute('aria-label', c.name + ', ' + c.address);
+          btn.innerHTML =
+            '<div class="cem-item__top">' +
+              '<h3 class="cem-item__name">' + c.name + '</h3>' +
+              '<span class="cem-item__status">' + c.status + '</span>' +
+            '</div>' +
+            '<p class="cem-item__addr">' + c.address + '</p>' +
+            '<p class="cem-item__phone">тел. <a href="' + c.phoneHref + '">' + c.phone + '</a></p>' +
+            (c.note ? '<p class="cem-item__addr">' + c.note + '</p>' : '') +
+            '<div class="cem-item__actions">' +
+              '<a href="' + c.phoneHref + '">Позвонить</a>' +
+              '<a href="' + c.gis + '" target="_blank" rel="noopener noreferrer">2ГИС</a>' +
+              '<a href="https://www.google.com/maps/dir/?api=1&destination=' + c.lat + ',' + c.lon + '" target="_blank" rel="noopener noreferrer">Маршрут</a>' +
+            '</div>';
+          btn.addEventListener('click', function (e) {
+            if (e.target.closest('a')) {
+              e.stopPropagation();
+              return;
+            }
+            selectCemetery(c.id, true);
+          });
+          btn.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function (e) { e.stopPropagation(); });
+          });
+          listEl.appendChild(btn);
+          buttons[c.id] = btn;
+        });
+
+        if (bounds.length) map.fitBounds(bounds, { padding: [28, 28], maxZoom: 12 });
+
+        setTimeout(function () { map.invalidateSize(); }, 200);
+        window.addEventListener('resize', function () { map.invalidateSize(); });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCemeteryMap);
+      } else {
+        initCemeteryMap();
       }
     })();
   </script>
