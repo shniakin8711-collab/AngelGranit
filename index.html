@@ -904,10 +904,11 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
 
-    /* Place maps: cemeteries, morgues, churches */
+    /* Place maps: cemeteries, morgues, churches, cafes */
     .cemeteries,
     .morgues,
-    .churches {
+    .churches,
+    .cafes {
       background:
         radial-gradient(ellipse 50% 45% at 10% 0%, rgba(196,18,24,0.08), transparent 55%),
         var(--bg-soft);
@@ -923,9 +924,15 @@
         radial-gradient(ellipse 50% 40% at 50% 0%, rgba(196,18,24,0.09), transparent 55%),
         var(--bg-soft);
     }
+    .cafes {
+      background:
+        radial-gradient(ellipse 45% 40% at 80% 0%, rgba(196,18,24,0.08), transparent 55%),
+        var(--bg);
+    }
     .cemeteries .wrap,
     .morgues .wrap,
-    .churches .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
+    .churches .wrap,
+    .cafes .wrap { width: min(1180px, calc(100% - 2 * var(--pad))); }
     .cem-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -1763,6 +1770,7 @@
       <a href="#cemeteries">кладбища</a>
       <a href="#morgues">морги</a>
       <a href="#churches">церкви</a>
+      <a href="#cafes">поминки</a>
       <a href="#map">карта</a>
       <a href="#share">поделиться</a>
       <a href="#contact">контакты</a>
@@ -2241,6 +2249,24 @@
       <p class="cem-note">
         Источники: mitropolia.kz, сайты приходов. Условия выезда священника уточняйте в храме.
         Организация православных похорон и отпевания: <a href="tel:+77010567667">+7 701 056 7667</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="cafes" id="cafes" aria-label="Кафе для поминальных обедов">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">// поминки · ас</p>
+        <h2>Кафе для поминальных обедов</h2>
+        <p class="sub">Заведения Алматы, где проводят ас и поминальные обеды — адреса и телефоны. Выберите пункт на карте. Александр поможет подобрать зал и меню 24/7.</p>
+      </header>
+      <div class="cem-layout reveal">
+        <div class="cem-map" id="cafe-map" role="img" aria-label="Интерактивная карта кафе для поминок в Алматы"></div>
+        <div class="cem-list" id="cafe-list" role="list"></div>
+      </div>
+      <p class="cem-note">
+        Источники: открытые сайты заведений и каталоги (2ГИС, restoran.kz). Цены и наличие зала уточняйте по телефону.
+        Подбор кафе и организация поминок: <a href="tel:+77010567667">+7 701 056 7667</a>.
       </p>
     </div>
   </section>
@@ -3069,6 +3095,113 @@
         }
       ];
 
+      var CAFES = [
+        {
+          id: 'gold',
+          name: 'Кафе GOLD',
+          status: 'поминки от 3 500 ₸',
+          address: 'мкр. Жетысу-2, дом 11',
+          phone: '+7 747 997 87 32',
+          phoneHref: 'tel:+77479978732',
+          note: 'Также +7 708 971 79 04 · банкет до ~80 человек · поминальные обеды',
+          lat: 43.2221607,
+          lon: 76.8456368,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B0%D1%84%D0%B5%20GOLD%20%D0%96%D0%B5%D1%82%D1%8B%D1%81%D1%83',
+          keys: ['gold', 'голд', 'жетысу']
+        },
+        {
+          id: 'khansaray',
+          name: 'Khan Saray',
+          status: 'ас / поминки от 7 000 ₸',
+          address: 'ул. Толе би, 128',
+          phone: '+7 707 399 09 83',
+          phoneHref: 'tel:+77073990983',
+          note: 'Также +7 707 128 71 28 · спецменю пн–чт · большой и малый зал',
+          lat: 43.2522922,
+          lon: 76.9158429,
+          gis: 'https://2gis.kz/almaty/search/Khan%20Saray%20%D0%A2%D0%BE%D0%BB%D0%B5%20%D0%B1%D0%B8',
+          keys: ['khan', 'хан сарай', 'хансарай', 'толе би']
+        },
+        {
+          id: 'ugli',
+          name: 'Таверна «На Углях»',
+          status: 'ас · поминки · құдай тамақ',
+          address: 'ул. Розыбакиева, 109',
+          phone: '+7 771 593 48 84',
+          phoneHref: 'tel:+77715934884',
+          note: 'Ежедневно 11:00–00:00 · меню под разные традиции · парковка',
+          lat: 43.2295241,
+          lon: 76.8906433,
+          gis: 'https://2gis.kz/almaty/search/%D0%9D%D0%B0%20%D0%A3%D0%B3%D0%BB%D1%8F%D1%85%20%D0%A0%D0%BE%D0%B7%D1%8B%D0%B1%D0%B0%D0%BA%D0%B8%D0%B5%D0%B2%D0%B0',
+          keys: ['углях', 'розыбакиев', 'таверн']
+        },
+        {
+          id: 'kalinka1',
+          name: 'Калинка (Рыскулбекова)',
+          status: 'поминальные обеды',
+          address: 'ул. Рыскулбекова, 31 · мкр. Таугуль',
+          phone: '+7 701 732 98 73',
+          phoneHref: 'tel:+77017329873',
+          note: 'Сеть «Калинка» · также +7 701 952 02 06 · 7 / 9 / 40 дней и год',
+          lat: 43.2055,
+          lon: 76.8485,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%BA%D0%B0%20%D0%A0%D1%8B%D1%81%D0%BA%D1%83%D0%BB%D0%B1%D0%B5%D0%BA%D0%BE%D0%B2%D0%B0',
+          keys: ['калинка', 'рыскулбеков', 'таугуль', 'таугүл']
+        },
+        {
+          id: 'kalinka2',
+          name: 'Калинка (Жандосова)',
+          status: 'поминальные обеды',
+          address: 'ул. Жандосова, 124',
+          phone: '+7 (727) 317-50-99',
+          phoneHref: 'tel:+77273175099',
+          note: 'Филиал сети «Калинка» · уточняйте меню на поминки',
+          lat: 43.2185,
+          lon: 76.8755,
+          gis: 'https://2gis.kz/almaty/search/%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%BA%D0%B0%20%D0%96%D0%B0%D0%BD%D0%B4%D0%BE%D1%81%D0%BE%D0%B2%D0%B0',
+          keys: ['калинка жандосов', 'жандосова 124']
+        },
+        {
+          id: 'versal',
+          name: 'Банкетный зал Versal',
+          status: 'ас / поминки от 7 000 ₸',
+          address: 'п. Нижняя Пятилетка, ул. Шмидта, 1А',
+          phone: '+7 705 288 21 20',
+          phoneHref: 'tel:+77052882120',
+          note: 'Также +7 747 156 72 90 · вместимость до ~350–400 · 09:00–01:00',
+          lat: 43.3485,
+          lon: 76.9585,
+          gis: 'https://2gis.kz/almaty/search/Versal%20%D0%A8%D0%BC%D0%B8%D0%B4%D1%82%D0%B0',
+          keys: ['versal', 'версал', 'шмидт', 'пятилетк']
+        },
+        {
+          id: 'alqa',
+          name: 'Банкетный зал ALQA',
+          status: 'поминальные обеды',
+          address: 'с. Бесагаш, пр. Райымбек батыра, 143/1',
+          phone: '+7 708 022 13 13',
+          phoneHref: 'tel:+77080221313',
+          note: 'Также +7 701 259 19 58 · залы до ~700 человек',
+          lat: 43.2685,
+          lon: 76.7855,
+          gis: 'https://2gis.kz/almaty/search/ALQA%20%D0%91%D0%B5%D1%81%D0%B0%D0%B3%D0%B0%D1%88',
+          keys: ['alqa', 'алқа', 'алка', 'бесагаш']
+        },
+        {
+          id: 'jangeldin',
+          name: 'Зал на Жангельдина, 166',
+          status: 'кафе · поминки',
+          address: 'ул. Жангельдина, 166',
+          phone: '+7 701 056 7667',
+          phoneHref: 'tel:+77010567667',
+          note: 'Подбор и бронь через агента Александра · уточняйте в 2ГИС',
+          lat: 43.2869484,
+          lon: 76.9545123,
+          gis: 'https://2gis.kz/almaty/search/%D0%96%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D1%8C%D0%B4%D0%B8%D0%BD%D0%B0%20166',
+          keys: ['жангельдин', 'жангелдин']
+        }
+      ];
+
       function placeCard(c) {
         return c.name + '\nАдрес: ' + c.address + '\nТелефон: ' + c.phone + '\nСтатус: ' + c.status + '\n' + c.note + '\n2ГИС: ' + c.gis;
       }
@@ -3083,6 +3216,7 @@
       function cemeteryOverview() { return placeOverview(CEMETERIES); }
       function morgueOverview() { return placeOverview(MORGUES); }
       function churchOverview() { return placeOverview(CHURCHES); }
+      function cafeOverview() { return placeOverview(CAFES); }
 
       function findPlaceByQuestion(q, list, extraScorer) {
         var best = null;
@@ -3151,10 +3285,29 @@
         });
       }
 
+      function findCafeByQuestion(q) {
+        return findPlaceByQuestion(q, CAFES, function (c, query) {
+          var score = 0;
+          if (/калинка/.test(query)) {
+            if (/жандосов/.test(query) && c.id === 'kalinka2') score += 28;
+            else if (/рыскулбеков|таугуль|таугүл/.test(query) && c.id === 'kalinka1') score += 28;
+            else if (c.id.indexOf('kalinka') === 0) score += 10;
+          }
+          if (/gold|голд|жетысу/.test(query) && c.id === 'gold') score += 26;
+          if (/khan|хан сарай|хансарай|толе би/.test(query) && c.id === 'khansaray') score += 26;
+          if (/углях|розыбакиев/.test(query) && c.id === 'ugli') score += 26;
+          if (/versal|версал|шмидт|пятилетк/.test(query) && c.id === 'versal') score += 26;
+          if (/alqa|алқа|алка|бесагаш/.test(query) && c.id === 'alqa') score += 26;
+          if (/жангельдин|жангелдин/.test(query) && c.id === 'jangeldin') score += 26;
+          if (/поминки|поминальн| ас |^ас |банкетн/.test(query) && /кафе|зал|ресторан/.test(query)) score += 4;
+          return score;
+        });
+      }
+
       var AI_KB = [
         {
           keys: ['привет', 'здравств', 'добрый', 'добро пожаловать', 'hello', 'hi'],
-          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища, морги и церкви (вызвать батюшку на отпевание).\n\nАгент Александр 24/7: ' + PHONE
+          answer: 'Здравствуйте. Я помощник Black Hearse FPV по ритуальным услугам в Алматы.\n\nМогу рассказать про пакеты, документы, катафалк, зал, памятники, кладбища, морги, церкви (вызвать батюшку) и кафе для поминальных обедов.\n\nАгент Александр 24/7: ' + PHONE
         },
         {
           keys: ['поделить', 'репост', 'близк', 'статус', 'ссылк', 'отправ', 'share', 'рассказать друз'],
@@ -3191,7 +3344,7 @@
         },
         {
           keys: ['что делать', 'умер', 'скончал', 'первая помощ', 'с чего начать', 'куда звонить', 'порядок'],
-          answer: 'Если близкий ушёл из жизни — начните с одного звонка нам.\n\n1) Позвоните Александру: ' + PHONE + ' (24/7)\n2) Мы подскажем документы, морг и как вызвать батюшку на отпевание\n3) Организуем транспорт, зал, венки и захоронение\n\nЦеркви: #churches · Морги: #morgues\nВы не одни — мы рядом в трудную минуту.'
+          answer: 'Если близкий ушёл из жизни — начните с одного звонка нам.\n\n1) Позвоните Александру: ' + PHONE + ' (24/7)\n2) Мы подскажем документы, морг и как вызвать батюшку на отпевание\n3) Организуем транспорт, зал, венки, поминки и захоронение\n\nЦеркви: #churches · Морги: #morgues · Поминки: #cafes\nВы не одни — мы рядом в трудную минуту.'
         },
         {
           keys: ['катафалк', 'транспорт', 'sprinter', 'машин', 'автобус', 'перевоз', 'вывоз из морг', 'из морга', 'в морг'],
@@ -3261,17 +3414,32 @@
           answer: 'Батюшку можно пригласить не только домой, но и в прощальный зал или к месту, где стоит гроб — по согласованию с храмом.\n\nУ нас есть прощальный зал (пакет 150 000 ₸) и мы вызываем священника.\nЦеркви: #churches\nАлександр: ' + PHONE
         },
         {
+          topic: 'cafe',
+          keys: ['поминки', 'поминальн', 'поминальный обед', 'ас алмат', 'куда на поминки', 'кафе для поминок', 'банкетн зал', 'карта кафе', 'список кафе поминок', 'құдай тамақ', 'кудай тамак'],
+          answer: 'Карта кафе Алматы для поминальных обедов (ас) — раздел «Поминки» (#cafes).\n\nЗаведения и телефоны:\n' + cafeOverview() + '\n\nСпросите: «Калинка телефон», «GOLD адрес», «Versal меню».\nПодбор зала 24/7: ' + PHONE
+        },
+        {
+          topic: 'cafe',
+          keys: ['меню на поминки', 'меню ас', 'сколько стоит поминки', 'цена поминок', 'стоимость аса', 'от скольки поминки', 'меню поминок'],
+          answer: 'Цены и меню на поминки зависят от зала и числа гостей — ориентиры на карте (#cafes):\n• GOLD — от ~3 500 ₸\n• Khan Saray / Versal — от ~7 000 ₸\n• Калинка, «На Углях», ALQA — уточняйте по телефону\n\nАлександр подберёт зал и согласует меню: ' + PHONE + '\nWhatsApp: ' + WA_LINK
+        },
+        {
+          topic: 'cafe',
+          keys: ['забронировать кафе', 'заказать поминки', 'организовать поминки', 'подобрать зал', 'банкет на поминки'],
+          answer: 'Чтобы организовать поминальный обед:\n\n1) Выберите кафе на карте (#cafes) или позвоните нам\n2) Согласуйте дату, число гостей и меню (7 / 9 / 40 дней, год)\n3) Мы можем забронировать зал и связать с похоронами\n\nАлександр 24/7: ' + PHONE + '\nWhatsApp: ' + WA_LINK
+        },
+        {
           topic: 'cemetery',
           keys: ['открыто ли', 'закрыто ли', 'можно ли хоронить', 'новое захоронен', 'подзахоронен', 'родственн'],
           answer: 'По статусу захоронений:\n\n• Центральное — в основном родственные подзахоронения\n• Кенсай-1 — с 2011 закрыто для новых, родственные возможны\n• Кенсай-2, Северное, Батыс, Баганашыл — действующие\n• Еврейское — по правилам общины\n\nТочные условия всегда уточняйте в администрации кладбища или у агента Александра: ' + PHONE + '\nКарта: #cemeteries'
         },
         {
           keys: ['адрес', 'где находит', 'как добрат', 'осетинс', 'карта офис', '2гис офис'],
-          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарты на сайте: офис, кладбища, морги, церкви (#churches).\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
+          answer: 'Адрес офиса: ул. Осетинская, 5а, Жетысуский район, Алматы.\n\nКарты на сайте: офис, кладбища, морги, церкви (#churches), поминки (#cafes).\n2ГИС офиса: https://2gis.kz/almaty/geo/9430047375176085'
         },
         {
           keys: ['телефон', 'номер', 'связать', 'контакт', 'whatsapp', 'ватсап', 'вацап', 'написать'],
-          answer: 'Контакты агентства:\n\n• Телефон 24/7: ' + PHONE + '\n• Агент: Александр\n• WhatsApp: ' + WA_LINK + '\n• Адрес: ул. Осетинская, 5а, Алматы\n\nСпросите также: «вызвать батюшку», «телефон Никольского», «морг Калкаман».'
+          answer: 'Контакты агентства:\n\n• Телефон 24/7: ' + PHONE + '\n• Агент: Александр\n• WhatsApp: ' + WA_LINK + '\n• Адрес: ул. Осетинская, 5а, Алматы\n\nСпросите также: «вызвать батюшку», «поминки Алматы», «морг Калкаман».'
         },
         {
           keys: ['время', 'график', 'часов', 'круглосуточ', '24', 'ночью', 'сейчас'],
@@ -3312,6 +3480,7 @@
           .replace(/#cemeteries/g, '<a href="#cemeteries">#cemeteries</a>')
           .replace(/#morgues/g, '<a href="#morgues">#morgues</a>')
           .replace(/#churches/g, '<a href="#churches">#churches</a>')
+          .replace(/#cafes/g, '<a href="#cafes">#cafes</a>')
           .replace(/#calc/g, '<a href="#calc">#calc</a>')
           .replace(/(\+7\s*\(?7\d{2}\)?\s*[\d\-\s]{7,})/g, function (m) {
             var digits = m.replace(/\D/g, '');
@@ -3366,10 +3535,10 @@
           var q = document.createElement('div');
           q.className = 'ai-quick';
           [
+            'Поминки Алматы',
             'Вызвать батюшку',
-            'Что такое отпевание?',
             'Церкви Алматы',
-            'Никольский собор',
+            'Морги Алматы',
             'Сколько стоят пакеты?'
           ].forEach(function (label) {
             var b = document.createElement('button');
@@ -3388,9 +3557,19 @@
         var cemHit = findCemeteryByQuestion(q);
         var morgueHit = findMorgueByQuestion(q);
         var churchHit = findChurchByQuestion(q);
+        var cafeHit = findCafeByQuestion(q);
         var cemAsk = /кладбищ|некропол|захоронен|похоронить|где хоронят|участок|подзахоронен|могил на|на клад/.test(q);
         var morgueAsk = /морг|патолого|патологоанатом|гпаб|судебн|смэ|калкаман|алгабас|демченко|казыбек|акан сер|жандосов|бухар|жырау|куда везут|тело забрали|забрать тело|выдать тело|из морга|в морг/.test(q);
         var churchAsk = /церкви|церковь|храм|собор|батюшк|священник|отпеван|панихид|заупокой|сорокоуст|лития|поминовен|вызвать батюш|пригласить священ|иконн лавк|вознесенск|никольск|богоявленск|софийск|казанск|спасител|покров|параскев|отпевание дома|на дом для отпеван|очное|заочное/.test(q);
+        var cafeAsk = /поминки|поминальн|поминальный обед| ас |^ас |банкетн|кафе для поминок|куда на поминки|карта кафе|құдай тамақ|кудай тамак|калинка|khan|хан сарай|versal|версал|alqa|алқа|углях|кафе gold|голд/.test(q);
+
+        if (cafeHit && cafeHit.score >= 18) {
+          return {
+            answer: placeCard(cafeHit.item) +
+              '\n\nКарта кафе для поминок: #cafes\nПодбор зала и организация 24/7: ' + PHONE +
+              '\nWhatsApp: ' + WA_LINK
+          };
+        }
 
         if (churchHit && churchHit.score >= 18) {
           return {
@@ -3432,6 +3611,7 @@
         var wantsCemetery = cemAsk || /кенсай|батыс|бурундай|баганашыл|рыскулов|северн|еврейск|центральн клад|раимбек|райымбек/.test(q);
         var wantsMorgue = morgueAsk;
         var wantsChurch = churchAsk;
+        var wantsCafe = cafeAsk;
         AI_KB.forEach(function (item) {
           var score = 0;
           item.keys.forEach(function (k) {
@@ -3440,6 +3620,7 @@
           if (item.topic === 'cemetery' && wantsCemetery) score += 25;
           if (item.topic === 'morgue' && wantsMorgue) score += 30;
           if (item.topic === 'church' && wantsChurch) score += 30;
+          if (item.topic === 'cafe' && wantsCafe) score += 30;
           if (score > bestScore) {
             bestScore = score;
             best = item;
@@ -3448,7 +3629,7 @@
         if (best && bestScore > 0) return best;
 
         return {
-          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках, кладбищах, моргах и церквях Алматы.\n\nПримеры: «Вызвать батюшку», «Церкви Алматы», «Никольский телефон», «Морги Алматы».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
+          answer: 'Я помогаю с вопросами о похоронах, пакетах, документах, транспорте, зале, памятниках, кладбищах, моргах, церквях и кафе для поминок в Алматы.\n\nПримеры: «Поминки Алматы», «Вызвать батюшку», «Морги Алматы».\n\nАгент Александр:\n• ' + PHONE + '\n• WhatsApp: ' + WA_LINK
         };
       }
 
@@ -3619,6 +3800,7 @@
         initPlaceMap('cem-map', 'cem-list', CEMETERIES);
         initPlaceMap('morgue-map', 'morgue-list', MORGUES);
         initPlaceMap('church-map', 'church-list', CHURCHES);
+        initPlaceMap('cafe-map', 'cafe-list', CAFES);
       }
 
       if (document.readyState === 'loading') {
