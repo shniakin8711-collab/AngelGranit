@@ -731,6 +731,18 @@
       max-height: 320px;
       object-position: center;
     }
+    .catalog-banner--monuments img {
+      max-height: 280px;
+      object-fit: contain;
+      background: #0a0a0a;
+    }
+    .catalog-empty {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding: 1.25rem 0.5rem;
+      color: var(--muted);
+      text-align: center;
+    }
     .catalog-filters {
       display: flex;
       flex-wrap: wrap;
@@ -2247,12 +2259,12 @@
 
   <section class="catalog" id="catalog" aria-label="Каталог ритуальных товаров">
     <div class="wrap">
-      <header class="section-head reveal">
+      <header class="section-head reveal is-in">
         <p class="eyebrow">// каталог</p>
         <h2>Каталог ритуальных товаров</h2>
         <p class="sub">Памятники, гробы, кресты, венки, одежда, транспорт и наборы — выберите позицию и закажите у Александра 24/7.</p>
       </header>
-      <a class="catalog-banner reveal" href="tel:+77010567667" aria-label="Ритуальные услуги — позвонить">
+      <a class="catalog-banner reveal is-in" href="tel:+77010567667" aria-label="Ритуальные услуги — позвонить">
         <img
           src="images/catalog/banner-ritual.png"
           alt="Ритуальные услуги — лилии, свечи и катафалк"
@@ -2262,8 +2274,18 @@
           decoding="async"
         />
       </a>
-      <div class="catalog-filters reveal" id="catalog-filters" role="tablist" aria-label="Категории каталога"></div>
-      <div class="catalog-grid reveal" id="catalog-grid" role="list"></div>
+      <a class="catalog-banner catalog-banner--monuments reveal is-in" href="#catalog-filters" aria-label="Каталог памятников">
+        <img
+          src="images/catalog/monuments/banner-monuments.jpg"
+          alt="Каталог гранитных памятников AngelGranit"
+          width="900"
+          height="1100"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <div class="catalog-filters" id="catalog-filters" role="tablist" aria-label="Категории каталога"></div>
+      <div class="catalog-grid" id="catalog-grid" role="list"></div>
       <p class="catalog-note">Цены уточняйте при заказе — зависят от модели и комплектации. Заказ: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>
     </div>
   </section>
@@ -3203,11 +3225,18 @@
         { id: 'mon80', cat: 'monument', name: "Памятник №080", note: "Гранитный памятник из каталога · цена по запросу · изготовление и установка", img: "images/catalog/monuments/items/monument-080.jpg", keys: ["памятник 80", "памятник №80", "модель 80", "monument 80"] },
       ];
 
-      var catFilter = 'all';
+      var catFilter = 'monument';
 
       function catalogWaLink(item) {
         var msg = 'Здравствуйте! Хочу заказать из каталога: «' + item.name + '». Уточните цену и наличие.';
         return WA_LINK + '?text=' + encodeURIComponent(msg);
+      }
+
+      function escapeAttr(s) {
+        return String(s || '')
+          .replace(/&/g, '&amp;')
+          .replace(/"/g, '&quot;')
+          .replace(/</g, '&lt;');
       }
 
       function renderCatalog() {
@@ -3221,7 +3250,7 @@
             b.type = 'button';
             b.textContent = c.label;
             b.dataset.cat = c.id;
-            if (c.id === 'all') b.classList.add('is-active');
+            if (c.id === catFilter) b.classList.add('is-active');
             b.addEventListener('click', function () {
               catFilter = c.id;
               Array.prototype.forEach.call(filters.querySelectorAll('button'), function (x) {
@@ -3234,19 +3263,28 @@
           filters.dataset.ready = '1';
         }
 
-        grid.innerHTML = '';
-        CATALOG.filter(function (item) {
+        var items = CATALOG.filter(function (item) {
           return catFilter === 'all' || item.cat === catFilter;
-        }).forEach(function (item) {
+        });
+
+        grid.innerHTML = '';
+        if (!items.length) {
+          grid.innerHTML = '<p class="catalog-empty">В этой категории пока нет позиций.</p>';
+          return;
+        }
+
+        items.forEach(function (item) {
           var art = document.createElement('article');
           art.className = 'cat-card';
           art.setAttribute('role', 'listitem');
+          var title = escapeAttr(item.name);
+          var tag = (CATALOG_CATS.find(function (c) { return c.id === item.cat; }) || {}).label || '';
           art.innerHTML =
-            '<button type="button" class="cat-card__media" data-full="' + item.img + '" data-title="' + item.name.replace(/"/g, '&quot;') + '" aria-label="Увеличить фото: ' + item.name.replace(/"/g, '&quot;') + '">' +
-              '<img src="' + item.img + '" alt="' + item.name.replace(/"/g, '&quot;') + '" loading="lazy" decoding="async" width="600" height="750" />' +
+            '<button type="button" class="cat-card__media" data-full="' + escapeAttr(item.img) + '" data-title="' + title + '" aria-label="Увеличить фото: ' + title + '">' +
+              '<img src="' + escapeAttr(item.img) + '" alt="' + title + '" loading="lazy" decoding="async" width="600" height="750" />' +
             '</button>' +
             '<div class="cat-card__body">' +
-              '<span class="cat-card__tag">' + (CATALOG_CATS.find(function (c) { return c.id === item.cat; }) || {}).label + '</span>' +
+              '<span class="cat-card__tag">' + tag + '</span>' +
               '<h3 class="cat-card__name">' + item.name + '</h3>' +
               '<p class="cat-card__note">' + item.note + '</p>' +
               '<div class="cat-card__price">цена по запросу</div>' +
@@ -3293,8 +3331,16 @@
         });
       }
 
-      renderCatalog();
-      initCatalogLightbox();
+      try {
+        renderCatalog();
+        initCatalogLightbox();
+      } catch (err) {
+        console.error('catalog init', err);
+        var gridFail = document.getElementById('catalog-grid');
+        if (gridFail) {
+          gridFail.innerHTML = '<p class="catalog-empty">Каталог временно недоступен. Заказ по телефону: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>';
+        }
+      }
 
       var aiBody = document.getElementById('ai-body');
       var aiChat = document.getElementById('ai-chat');
