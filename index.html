@@ -919,21 +919,19 @@
     /* Showcase */
     .showcase-grid {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 0.75rem;
-      min-height: 460px;
+      min-height: 420px;
     }
     .shot {
       position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      min-height: 210px;
+      min-height: 320px;
       isolation: isolate;
       background: #000;
     }
-    .shot:first-child { grid-row: 1 / -1; }
     .shot img {
       width: 100%;
       height: 100%;
@@ -957,9 +955,8 @@
     @media (max-width: 800px) {
       .showcase-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: none;
       }
-      .shot:first-child { grid-row: auto; min-height: 280px; }
+      .shot { min-height: 260px; }
     }
 
     /* YouTube */
@@ -2397,10 +2394,6 @@
         <figure class="shot">
           <img src="images/showcase-hearse.png" alt="Чёрный катафалк" width="900" height="1200" loading="lazy" decoding="async" />
           <span>ритуальный транспорт</span>
-        </figure>
-        <figure class="shot">
-          <img src="images/catalog/monuments/banner-monuments.jpg" alt="Каталог гранитных памятников" width="1200" height="900" loading="lazy" decoding="async" />
-          <span>памятники</span>
         </figure>
         <figure class="shot">
           <img src="images/showcase-monument.png" alt="Памятник из чёрного гранита" width="1200" height="900" loading="lazy" decoding="async" />
