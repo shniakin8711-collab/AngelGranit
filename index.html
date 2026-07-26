@@ -973,7 +973,9 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.9rem;
-      max-width: 860px;
+      max-width: 960px;
+      width: 100%;
+      margin-inline: auto;
     }
     .yt-player {
       border: 1px solid var(--line);
@@ -2090,6 +2092,7 @@
         <a class="btn btn--ghost" id="link-wa-hero" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a class="btn btn--ghost" href="#monuments">Памятники</a>
         <a class="btn btn--ghost" href="#packages">Ритуал</a>
+        <a class="btn btn--ghost" href="#youtube">Видео</a>
       </div>
     </div>
   </section>
@@ -2390,12 +2393,12 @@
 
   <section id="showcase">
     <div class="wrap">
-      <header class="section-head reveal">
+      <header class="section-head reveal is-in">
         <p class="eyebrow">// портфолио</p>
         <h2>Память в камне</h2>
         <p class="sub">Катафалк, гранитные памятники и достойное оформление места упокоения.</p>
       </header>
-      <div class="showcase-grid reveal">
+      <div class="showcase-grid reveal is-in">
         <figure class="shot">
           <img src="images/showcase-hearse.png" alt="Чёрный катафалк" width="900" height="1200" loading="lazy" decoding="async" />
           <span>ритуальный транспорт</span>
@@ -2408,20 +2411,19 @@
     </div>
   </section>
 
-  <section class="yt" id="youtube">
+  <section class="yt" id="youtube" aria-label="YouTube — Angel Granit">
     <div class="wrap">
-      <header class="section-head reveal">
+      <header class="section-head reveal is-in">
         <p class="eyebrow">// youtube</p>
-        <h2>Angel Granit</h2>
-        <p class="sub">Видео с канала <a href="https://www.youtube.com/@Blackhearsefpv" target="_blank" rel="noopener noreferrer">BLACK HEARSE FPV</a> — о компании и наших работах.</p>
+        <h2>Видео · Angel Granit</h2>
+        <p class="sub">Ролик с канала <a href="https://www.youtube.com/@Blackhearsefpv" target="_blank" rel="noopener noreferrer">BLACK HEARSE FPV</a>.</p>
       </header>
-      <div class="yt-grid">
-        <article class="yt-player reveal">
+      <div class="yt-grid" style="max-width:960px;margin:0 auto;width:100%">
+        <article class="yt-player reveal is-in">
           <div class="yt-player__frame">
             <iframe
-              src="https://www.youtube.com/embed/sryWmrJC0z4?rel=0"
+              src="https://www.youtube.com/embed/sryWmrJC0z4?rel=0&modestbranding=1"
               title="Angel Granit — YouTube"
-              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
@@ -2429,7 +2431,7 @@
           </div>
           <div class="yt-player__bar">
             <strong>Angel Granit</strong>
-            <a href="https://www.youtube.com/watch?v=sryWmrJC0z4" target="_blank" rel="noopener noreferrer">смотреть на YouTube</a>
+            <a href="https://www.youtube.com/watch?v=sryWmrJC0z4" target="_blank" rel="noopener noreferrer">открыть на YouTube ↗</a>
           </div>
         </article>
       </div>
