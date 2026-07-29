@@ -2075,6 +2075,48 @@
     .footer a { color: var(--red-bright); }
     .footer a:hover { text-decoration: underline; }
 
+    .seo-hub {
+      padding: 3rem 0 2.5rem;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(212, 175, 87, 0.05), transparent 40%);
+    }
+    .seo-hub__grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 720px) {
+      .seo-hub__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 980px) {
+      .seo-hub__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .seo-hub__grid a {
+      display: block;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--text);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .seo-hub__grid a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .seo-hub__grid strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.92rem;
+      color: var(--gold);
+    }
+    .seo-hub__grid span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .seo-hub__more { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.65rem; }
+
     .fab-wa {
       position: fixed;
       right: 1rem;
@@ -2376,6 +2418,7 @@
       <a href="#map">карта</a>
       <a href="#share">поделиться</a>
       <a href="#contact">контакты</a>
+      <a href="seo/">справочник</a>
     </nav>
     <a class="nav__call" href="tel:+77010567667">Позвонить 24/7</a>
   </header>
@@ -2960,11 +3003,36 @@
     </div>
   </section>
 
+  <section class="seo-hub" id="seo-guides" aria-label="Полезные материалы">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">// справочник</p>
+        <h2>Полезные материалы</h2>
+        <p class="sub">Отдельные страницы по ритуальным услугам, памятникам, документам и районам Алматы — чтобы быстрее найти нужный ответ.</p>
+      </header>
+      <div class="seo-hub__grid reveal">
+        <a href="seo/ritualnye-uslugi-almaty/"><strong>Ритуальные услуги</strong><span>Организация похорон 24/7 в Алматы</span></a>
+        <a href="seo/organizaciya-pohoron-almaty/"><strong>Организация похорон</strong><span>Пошаговый план под ключ</span></a>
+        <a href="seo/katafalk-almaty/"><strong>Катафалк Алматы</strong><span>Ритуальный транспорт и маршруты</span></a>
+        <a href="seo/granitnye-pamyatniki/"><strong>Гранитные памятники</strong><span>Изготовление и установка</span></a>
+        <a href="seo/chto-delat-esli-umer-chelovek/"><strong>Если умер человек</strong><span>Памятка первых действий</span></a>
+        <a href="seo/stoimost-pohoron/"><strong>Стоимость похорон</strong><span>Из чего складывается смета</span></a>
+        <a href="seo/ritualnye-uslugi-zhetysuskij-rajon/"><strong>Жетысуский район</strong><span>Выезд агента и локальная помощь</span></a>
+        <a href="seo/faq/"><strong>FAQ</strong><span>Частые вопросы о услугах и ценах</span></a>
+      </div>
+      <div class="seo-hub__more reveal">
+        <a class="btn btn--red" href="seo/">Все 50 материалов</a>
+        <a class="btn btn--ghost" href="seo/kontakty/">Контакты</a>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <strong>AngelGranit</strong>
     Православные памятники · ритуальные услуги · Алматы<br />
     Александр · <a href="https://2gis.kz/almaty/geo/9430047375176085" target="_blank" rel="noopener noreferrer">ул. Осетинская, 5а</a><br />
-    <a href="tel:+77010567667">+7 701 056 7667</a>
+    <a href="tel:+77010567667">+7 701 056 7667</a><br />
+    <a href="seo/">Справочник SEO-страниц</a> · <a href="seo/faq/">FAQ</a> · <a href="sitemap.xml">Sitemap</a>
   </footer>
 
   <button type="button" class="fab-ai" id="fab-ai" aria-label="Открыть помощника по похоронам" aria-expanded="false" aria-controls="ai-chat">

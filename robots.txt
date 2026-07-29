@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Allow: /seo/
 
 Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
