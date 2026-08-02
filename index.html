@@ -134,6 +134,7 @@
           "https://www.youtube.com/@Blackurbanfpv",
           "https://www.youtube.com/@AngelGranit",
           "https://www.youtube.com/watch?v=vUQhJJHAJbI",
+          "https://www.youtube.com/watch?v=sryWmrJC0z4",
           "https://2gis.kz/almaty/geo/9430047375176085"
         ],
         "contactPoint": {
@@ -306,6 +307,17 @@
         "uploadDate": "2026-08-02",
         "contentUrl": "https://www.youtube.com/watch?v=vUQhJJHAJbI",
         "embedUrl": "https://www.youtube.com/embed/vUQhJJHAJbI",
+        "publisher": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#business" }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://shniakin8711-collab.github.io/AngelGranit/#video-angelgranit",
+        "name": "Angel Granit — ритуальные услуги и памятники Алматы",
+        "description": "Первое видео Angel Granit на канале BLACK URBAN FPV: ритуальные услуги, гранитные памятники и катафалк в Алматы. Агент Александр +7 701 056 7667.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/sryWmrJC0z4/hqdefault.jpg",
+        "uploadDate": "2026-05-30",
+        "contentUrl": "https://www.youtube.com/watch?v=sryWmrJC0z4",
+        "embedUrl": "https://www.youtube.com/embed/sryWmrJC0z4",
         "publisher": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#business" }
       }
     ]
@@ -1245,10 +1257,27 @@
     .yt-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.9rem;
+      gap: 1.5rem;
       max-width: 960px;
       width: 100%;
       margin-inline: auto;
+    }
+    @media (min-width: 900px) {
+      .yt-grid--dual {
+        max-width: 1080px;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+      .yt-grid--dual .yt-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+    }
+    .yt-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
     }
     .yt-player {
       border: 1px solid var(--line);
@@ -2766,62 +2795,90 @@
       <header class="section-head reveal is-in">
         <p class="eyebrow">// youtube</p>
         <h2>Видео · BLACK URBAN FPV</h2>
-        <p class="sub">Последний ролик канала <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">BLACK URBAN FPV</a> · <a href="https://www.youtube.com/@AngelGranit" target="_blank" rel="noopener noreferrer">Angel Granit</a>.</p>
+        <p class="sub">Два ролика канала <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">BLACK URBAN FPV</a> · <a href="https://www.youtube.com/@AngelGranit" target="_blank" rel="noopener noreferrer">Angel Granit</a>: последнее и первое брендовое видео.</p>
       </header>
-      <div class="yt-grid" style="max-width:960px;margin:0 auto;width:100%">
-        <article class="yt-player reveal is-in">
-          <div class="yt-player__frame">
-            <iframe
-              src="https://www.youtube.com/embed/vUQhJJHAJbI?rel=0&modestbranding=1"
-              title="Свято-Казанский собор Алматы — FPV съёмка BLACK URBAN FPV / Angel Granit"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+      <div class="yt-grid yt-grid--dual">
+        <div class="yt-block">
+          <article class="yt-player reveal is-in">
+            <div class="yt-player__frame">
+              <iframe
+                src="https://www.youtube.com/embed/vUQhJJHAJbI?rel=0&modestbranding=1"
+                title="Свято-Казанский собор Алматы — FPV съёмка BLACK URBAN FPV / Angel Granit"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="yt-player__bar">
+              <strong>⛪ Свято-Казанский собор</strong>
+              <a href="https://www.youtube.com/watch?v=vUQhJJHAJbI" target="_blank" rel="noopener noreferrer">открыть ↗</a>
+            </div>
+          </article>
+          <div class="yt-seo reveal is-in">
+            <p class="yt-seo__meta">
+              <span>Последнее</span>
+              <span>FPV 4K</span>
+              <span>02.08.2026</span>
+            </p>
+            <h3>Свято-Казанский собор Алматы — съёмка с высоты</h3>
+            <p>
+              Новый ролик <strong>BLACK URBAN FPV</strong> о <strong>Свято-Казанском соборе</strong> (ул. Халиуллина, 45А).
+              FPV-дрон показывает храм и территорию — место отпевания и православных церемоний в Алматы.
+            </p>
+            <p>
+              Нужна помощь с похоронами или памятником?
+              Александр: <a href="tel:+77010567667">+7 701 056 7667</a>
+              · <a href="https://wa.me/77010567667" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+            </p>
           </div>
-          <div class="yt-player__bar">
-            <strong>⛪ Свято-Казанский собор</strong>
-            <a href="https://www.youtube.com/watch?v=vUQhJJHAJbI" target="_blank" rel="noopener noreferrer">открыть на YouTube ↗</a>
-          </div>
-        </article>
-
-        <div class="yt-seo reveal is-in">
-          <p class="yt-seo__meta">
-            <span>FPV 4K</span>
-            <span>Алматы</span>
-            <span>Angel Granit</span>
-            <span>обновлено 02.08.2026</span>
-          </p>
-          <h3>Свято-Казанский собор Алматы — съёмка с высоты</h3>
-          <p>
-            На канале <strong>BLACK URBAN FPV</strong> вышел новый ролик о <strong>Свято-Казанском соборе</strong> в Алматы
-            (ул. Халиуллина, 45А). FPV-дрон показывает архитектуру храма, купола и территорию вокруг — спокойный взгляд
-            на место, где семьи проводят отпевание и православные церемонии.
-          </p>
-          <p>
-            <strong>Angel Granit</strong> помогает организовать ритуальные услуги 24/7: документы, катафалк, венки,
-            вызов батюшки и гранитные памятники. Если нужна помощь с похоронами или установкой памятника в Алматы —
-            агент Александр: <a href="tel:+77010567667">+7 701 056 7667</a>
-            · <a href="https://wa.me/77010567667" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            · <a href="#contact">контакты</a>.
-          </p>
-          <p>
-            Смотрите также канал
-            <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">@Blackurbanfpv</a>
-            и
-            <a href="https://www.youtube.com/@AngelGranit" target="_blank" rel="noopener noreferrer">@AngelGranit</a>
-            — FPV-съёмка храмов, мемориалов и памятных мест Казахстана.
-          </p>
         </div>
 
-        <p class="sub" style="margin-top:0.75rem;text-align:center">
-          Если плеер не открылся —
-          <a href="https://www.youtube.com/watch?v=vUQhJJHAJbI" target="_blank" rel="noopener noreferrer">смотрите видео здесь</a>
-          · канал
-          <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">@Blackurbanfpv</a>
-        </p>
+        <div class="yt-block">
+          <article class="yt-player reveal is-in">
+            <div class="yt-player__frame">
+              <iframe
+                src="https://www.youtube.com/embed/sryWmrJC0z4?rel=0&modestbranding=1"
+                title="Angel Granit — ритуальные услуги и памятники Алматы, BLACK URBAN FPV"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="yt-player__bar">
+              <strong>Angel Granit</strong>
+              <a href="https://www.youtube.com/watch?v=sryWmrJC0z4" target="_blank" rel="noopener noreferrer">открыть ↗</a>
+            </div>
+          </article>
+          <div class="yt-seo reveal is-in">
+            <p class="yt-seo__meta">
+              <span>Первое</span>
+              <span>Angel Granit</span>
+              <span>30.05.2026</span>
+            </p>
+            <h3>Angel Granit — первое видео бренда</h3>
+            <p>
+              Первое брендовое видео на канале: <strong>ритуальные услуги Алматы</strong>, гранитные памятники,
+              катафалк и сопровождение семей 24/7. Знакомство с сервисом Angel Granit и агентом Александром.
+            </p>
+            <p>
+              Смотрите канал
+              <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">@Blackurbanfpv</a>
+              · офис <a href="#contact">ул. Осетинская, 5а</a>
+              · звонок <a href="tel:+77010567667">+7 701 056 7667</a>.
+            </p>
+          </div>
+        </div>
       </div>
+      <p class="sub" style="margin-top:1rem;text-align:center">
+        Если плеер не открылся —
+        <a href="https://www.youtube.com/watch?v=vUQhJJHAJbI" target="_blank" rel="noopener noreferrer">собор</a>
+        ·
+        <a href="https://www.youtube.com/watch?v=sryWmrJC0z4" target="_blank" rel="noopener noreferrer">Angel Granit</a>
+        · канал
+        <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">@Blackurbanfpv</a>
+      </p>
     </div>
   </section>
 
