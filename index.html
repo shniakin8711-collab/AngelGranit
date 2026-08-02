@@ -1257,27 +1257,23 @@
     .yt-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
-      max-width: 960px;
+      gap: 2rem;
       width: 100%;
       margin-inline: auto;
-    }
-    @media (min-width: 900px) {
-      .yt-grid--dual {
-        max-width: 1080px;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-      }
-      .yt-grid--dual .yt-block {
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
-      }
     }
     .yt-block {
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
+      width: 100%;
+    }
+    .yt-block__label {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
     .yt-player {
       border: 1px solid var(--line);
@@ -2839,8 +2835,9 @@
         <h2>Видео · BLACK URBAN FPV</h2>
         <p class="sub">Два ролика канала <a href="https://www.youtube.com/@Blackurbanfpv" target="_blank" rel="noopener noreferrer">BLACK URBAN FPV</a> · <a href="https://www.youtube.com/@AngelGranit" target="_blank" rel="noopener noreferrer">Angel Granit</a>: последнее и первое брендовое видео.</p>
       </header>
-      <div class="yt-grid yt-grid--dual">
-        <div class="yt-block">
+      <div class="yt-grid">
+        <div class="yt-block" id="video-latest">
+          <p class="yt-block__label">Видео 1 · последнее · Свято-Казанский собор</p>
           <article class="yt-player reveal is-in">
             <div class="yt-player__frame" data-yt-embed="vUQhJJHAJbI" data-yt-title="Свято-Казанский собор Алматы — FPV съёмка BLACK URBAN FPV / Angel Granit">
               <button type="button" class="yt-facade" aria-label="Смотреть: Свято-Казанский собор">
@@ -2879,7 +2876,8 @@
           </div>
         </div>
 
-        <div class="yt-block">
+        <div class="yt-block" id="video-first">
+          <p class="yt-block__label">Видео 2 · первое · Angel Granit</p>
           <article class="yt-player reveal is-in">
             <div class="yt-player__frame" data-yt-embed="sryWmrJC0z4" data-yt-title="Angel Granit — ритуальные услуги и памятники Алматы, BLACK URBAN FPV">
               <button type="button" class="yt-facade" aria-label="Смотреть: Angel Granit">
