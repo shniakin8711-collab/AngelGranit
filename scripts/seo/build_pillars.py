@@ -17,6 +17,176 @@ AGENT = "Александр"
 TODAY = date.today().isoformat()
 ROOT = Path(__file__).resolve().parents[2]
 
+# New SEO-only images (do not reuse homepage/gallery assets)
+SEO_IMAGES = {
+    "ritualnye-uslugi-almaty": {
+        "file": "ritualnye-uslugi-almaty.webp",
+        "alt": "Ритуальные услуги в Алматы",
+        "title": "Ритуальные услуги Алматы — AngelGranit",
+    },
+    "organizaciya-pohoron-almaty": {
+        "file": "organizaciya-pohoron-almaty.webp",
+        "alt": "Организация похорон в Алматы",
+        "title": "Организация похорон Алматы",
+    },
+    "ritualny-agent-konsultaciya": {
+        "file": "ritualny-agent-konsultaciya.webp",
+        "alt": "Ритуальный агент консультирует семью в Алматы",
+        "title": "Ритуальный агент Алматы — консультация",
+    },
+    "katafalk-almaty": {
+        "file": "katafalk-almaty.webp",
+        "alt": "Катафалк Алматы",
+        "title": "Современный катафалк Алматы",
+    },
+    "granitnye-pamyatniki-almaty": {
+        "file": "granitnye-pamyatniki-almaty.webp",
+        "alt": "Гранитные памятники Алматы",
+        "title": "Гранитные памятники Алматы",
+    },
+    "memorialny-kompleks-almaty": {
+        "file": "memorialny-kompleks-almaty.webp",
+        "alt": "Мемориальный комплекс в Алматы",
+        "title": "Мемориальный комплекс Алматы",
+    },
+    "ustanovka-pamyatnika-almaty": {
+        "file": "ustanovka-pamyatnika-almaty.webp",
+        "alt": "Установка памятника в Алматы",
+        "title": "Установка памятника Алматы",
+    },
+    "cvety-vozle-pamyatnika": {
+        "file": "cvety-vozle-pamyatnika.webp",
+        "alt": "Цветы возле памятника в Алматы",
+        "title": "Цветы возле памятника",
+    },
+    "alleya-kladbishcha": {
+        "file": "alleya-kladbishcha.webp",
+        "alt": "Аллея кладбища в Алматы",
+        "title": "Аллея кладбища",
+    },
+    "granitnaya-masterskaya": {
+        "file": "granitnaya-masterskaya.webp",
+        "alt": "Гранитная мастерская в Алматы",
+        "title": "Гранитная мастерская AngelGranit",
+    },
+    "hudozhestvennaya-gravirovka": {
+        "file": "hudozhestvennaya-gravirovka.webp",
+        "alt": "Художественная гравировка на граните",
+        "title": "Художественная гравировка памятников",
+    },
+    "memorialny-kompleks-chernyj-granit": {
+        "file": "memorialny-kompleks-chernyj-granit.webp",
+        "alt": "Мемориальный комплекс из черного гранита",
+        "title": "Мемориальный комплекс из чёрного гранита",
+    },
+    "pamyatnik-s-blagoustrojstvom": {
+        "file": "pamyatnik-s-blagoustrojstvom.webp",
+        "alt": "Памятник с благоустройством в Алматы",
+        "title": "Памятник с благоустройством",
+    },
+    "granitnyj-stol-lavochka": {
+        "file": "granitnyj-stol-lavochka.webp",
+        "alt": "Гранитный стол и лавочка для мемориала",
+        "title": "Гранитный стол и лавочка",
+    },
+    "vaza-iz-granita": {
+        "file": "vaza-iz-granita.webp",
+        "alt": "Ваза из гранита для места захоронения",
+        "title": "Ваза из гранита",
+    },
+    "oformlenie-mesta-zahoroneniya": {
+        "file": "oformlenie-mesta-zahoroneniya.webp",
+        "alt": "Оформление места захоронения в Алматы",
+        "title": "Оформление места захоронения",
+    },
+    "professionalnaya-ustanovka-kompleksa": {
+        "file": "professionalnaya-ustanovka-kompleksa.webp",
+        "alt": "Профессиональная установка мемориального комплекса",
+        "title": "Профессиональная установка мемориального комплекса",
+    },
+    "semejnyj-memorial": {
+        "file": "semejnyj-memorial.webp",
+        "alt": "Семейный мемориал из гранита в Алматы",
+        "title": "Семейный мемориал",
+    },
+    "naturalnyj-granit-krupnym-planom": {
+        "file": "naturalnyj-granit-krupnym-planom.webp",
+        "alt": "Натуральный гранит крупным планом",
+        "title": "Натуральный гранит",
+    },
+    "ritualnye-prinadlezhnosti-almaty": {
+        "file": "ritualnye-prinadlezhnosti-almaty.webp",
+        "alt": "Ритуальные принадлежности в Алматы",
+        "title": "Ритуальные принадлежности Алматы",
+    },
+}
+
+# Which SEO images appear on each pillar page (between sections + gallery)
+PAGE_IMAGES = {
+    "ritualnye-uslugi-almaty": [
+        "ritualnye-uslugi-almaty",
+        "ritualny-agent-konsultaciya",
+        "alleya-kladbishcha",
+        "ritualnye-prinadlezhnosti-almaty",
+        "katafalk-almaty",
+        "oformlenie-mesta-zahoroneniya",
+    ],
+    "organizaciya-pohoron-almaty": [
+        "organizaciya-pohoron-almaty",
+        "ritualny-agent-konsultaciya",
+        "katafalk-almaty",
+        "ritualnye-prinadlezhnosti-almaty",
+        "alleya-kladbishcha",
+        "cvety-vozle-pamyatnika",
+    ],
+    "katafalk-almaty": [
+        "katafalk-almaty",
+        "organizaciya-pohoron-almaty",
+        "alleya-kladbishcha",
+        "ritualnye-uslugi-almaty",
+        "ritualny-agent-konsultaciya",
+    ],
+    "pamyatniki-almaty": [
+        "granitnye-pamyatniki-almaty",
+        "ustanovka-pamyatnika-almaty",
+        "cvety-vozle-pamyatnika",
+        "pamyatnik-s-blagoustrojstvom",
+        "naturalnyj-granit-krupnym-planom",
+        "hudozhestvennaya-gravirovka",
+    ],
+    "granitnye-pamyatniki-almaty": [
+        "granitnye-pamyatniki-almaty",
+        "granitnaya-masterskaya",
+        "hudozhestvennaya-gravirovka",
+        "naturalnyj-granit-krupnym-planom",
+        "ustanovka-pamyatnika-almaty",
+        "pamyatnik-s-blagoustrojstvom",
+    ],
+    "memorialnye-kompleksy-almaty": [
+        "memorialny-kompleks-almaty",
+        "memorialny-kompleks-chernyj-granit",
+        "professionalnaya-ustanovka-kompleksa",
+        "semejnyj-memorial",
+        "granitnyj-stol-lavochka",
+        "vaza-iz-granita",
+        "pamyatnik-s-blagoustrojstvom",
+    ],
+    "ritualny-agent-almaty": [
+        "ritualny-agent-konsultaciya",
+        "ritualnye-uslugi-almaty",
+        "organizaciya-pohoron-almaty",
+        "katafalk-almaty",
+        "alleya-kladbishcha",
+    ],
+    "ritualnye-prinadlezhnosti-almaty": [
+        "ritualnye-prinadlezhnosti-almaty",
+        "cvety-vozle-pamyatnika",
+        "oformlenie-mesta-zahoroneniya",
+        "vaza-iz-granita",
+        "organizaciya-pohoron-almaty",
+    ],
+}
+
 PILLARS = [
     {
         "slug": "ritualnye-uslugi-almaty",
@@ -144,11 +314,37 @@ def faq_for(page: dict) -> list[dict]:
     return [{"q": q, "a": a} for q, a in base[:12]]
 
 
+def figure_html(key: str, eager: bool = False) -> str:
+    meta = SEO_IMAGES[key]
+    loading = "eager" if eager else "lazy"
+    fetch = ' fetchpriority="high"' if eager else ""
+    src = f"../images/seo/{meta['file']}"
+    return (
+        f'<figure class="seo-figure">'
+        f'<img src="{src}" alt="{esc(meta["alt"])}" title="{esc(meta["title"])}" '
+        f'width="1600" height="900" loading="{loading}" decoding="async"{fetch} />'
+        f"<figcaption>{esc(meta['alt'])}</figcaption>"
+        f"</figure>"
+    )
+
+
+def gallery_html(keys: list[str]) -> str:
+    items = "\n".join(figure_html(k) for k in keys)
+    return (
+        '<section class="seo-gallery" aria-label="Визуальные материалы">'
+        "<h2>Визуальные материалы</h2>"
+        '<p class="lead">Фотоматериалы для раздела — новые SEO-изображения сервиса AngelGranit.</p>'
+        f'<div class="seo-gallery__grid">{items}</div>'
+        "</section>"
+    )
+
+
 def body_html(page: dict) -> str:
     f = page["focus"]
     sn = page["service"]
     h1 = page["h1"]
     others = ", ".join(f'<a href="../{esc(p["slug"])}/">{esc(p["h1"])}</a>' for p in related_links(page["slug"])[:5])
+    img_keys = PAGE_IMAGES.get(page["slug"], [])
 
     sections = [
         (
@@ -265,10 +461,22 @@ def body_html(page: dict) -> str:
     ]
 
     parts = []
-    for title, paras in sections:
+    insert_at = {0, 2, 4, 7, 10}  # after these section indexes
+    img_i = 0
+    for idx, (title, paras) in enumerate(sections):
         parts.append(f"<h2>{esc(title)}</h2>")
         for p in paras:
             parts.append(f"<p>{esc(p)}</p>")
+        if idx in insert_at and img_i < len(img_keys):
+            parts.append(figure_html(img_keys[img_i], eager=(img_i == 0)))
+            img_i += 1
+    # remaining images go to gallery (at least 2 leftovers ideally)
+    leftover = img_keys[img_i:]
+    if leftover:
+        parts.append(gallery_html(leftover))
+    elif len(img_keys) >= 2:
+        # ensure gallery section still exists with last 2 reused from page set
+        parts.append(gallery_html(img_keys[-2:]))
     return "\n".join(parts)
 
 
@@ -278,6 +486,9 @@ def render(page: dict) -> str:
     faq = faq_for(page)
     article = body_html(page)
     related = related_links(page["slug"])
+    page_imgs = PAGE_IMAGES.get(page["slug"], [])
+    primary_img = SEO_IMAGES[page_imgs[0]] if page_imgs else None
+    primary_img_url = f"{BASE}/images/seo/{primary_img['file']}" if primary_img else f"{BASE}/images/hero-angelgranit.png"
 
     faq_html = "\n".join(
         f"<details><summary>{esc(i['q'])}</summary><p>{esc(i['a'])}</p></details>" for i in faq
@@ -286,6 +497,20 @@ def render(page: dict) -> str:
         f'<a href="../{esc(p["slug"])}/"><strong>{esc(p["h1"])}</strong><span>{esc(p["lead"][:110])}…</span></a>'
         for p in related
     )
+
+    image_objects = [
+        {
+            "@type": "ImageObject",
+            "contentUrl": f"{BASE}/images/seo/{SEO_IMAGES[k]['file']}",
+            "url": f"{BASE}/images/seo/{SEO_IMAGES[k]['file']}",
+            "name": SEO_IMAGES[k]["title"],
+            "description": SEO_IMAGES[k]["alt"],
+            "width": 1600,
+            "height": 900,
+            "encodingFormat": "image/webp",
+        }
+        for k in page_imgs
+    ]
 
     schema = {
         "@context": "https://schema.org",
@@ -333,6 +558,13 @@ def render(page: dict) -> str:
                 "description": desc,
                 "isPartOf": {"@id": f"{BASE}/#website"},
                 "about": {"@id": f"{BASE}/#business"},
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": primary_img_url,
+                    "width": 1600,
+                    "height": 900,
+                },
+                "image": [f"{BASE}/images/seo/{SEO_IMAGES[k]['file']}" for k in page_imgs],
             },
             {
                 "@type": "Service",
@@ -341,6 +573,7 @@ def render(page: dict) -> str:
                 "provider": {"@id": f"{BASE}/#business"},
                 "areaServed": {"@type": "City", "name": "Алматы"},
                 "url": url,
+                "image": primary_img_url,
             },
             {
                 "@type": "BreadcrumbList",
@@ -368,9 +601,9 @@ def render(page: dict) -> str:
                     for i in faq
                 ],
             },
+            *image_objects,
         ],
     }
-
     return f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -387,12 +620,12 @@ def render(page: dict) -> str:
   <meta property="og:url" content="{url}" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
-  <meta property="og:image" content="{BASE}/images/hero-angelgranit.png" />
+  <meta property="og:image" content="{primary_img_url}" />
   <meta property="og:image:alt" content="{esc(page['h1'])} — AngelGranit" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{esc(title)}" />
   <meta name="twitter:description" content="{esc(desc)}" />
-  <meta name="twitter:image" content="{BASE}/images/hero-angelgranit.png" />
+  <meta name="twitter:image" content="{primary_img_url}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="../seo/assets/seo.css" as="style" />
