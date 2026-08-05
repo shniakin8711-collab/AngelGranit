@@ -1,5 +1,13 @@
 User-agent: *
 Allow: /
 Allow: /seo/
+Allow: /ritualnye-uslugi-almaty/
+Allow: /organizaciya-pohoron-almaty/
+Allow: /katafalk-almaty/
+Allow: /pamyatniki-almaty/
+Allow: /granitnye-pamyatniki-almaty/
+Allow: /memorialnye-kompleksy-almaty/
+Allow: /ritualny-agent-almaty/
+Allow: /ritualnye-prinadlezhnosti-almaty/
 
 Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
