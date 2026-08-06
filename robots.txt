@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap-priority.xml
+# Use only the working sitemap (avoid GSC "Couldn't fetch" on missing files)
 Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
-Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap-index.xml
