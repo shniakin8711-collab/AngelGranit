@@ -1,0 +1,17 @@
+# Static AngelGranit site for GitHub Pages.
+# Prevents Jekyll from skipping root config files during build.
+plugins: []
+safe: true
+markdown: kramdown
+include:
+  - .nojekyll
+  - robots.txt
+  - sitemap.xml
+  - sitemap-priority.xml
+  - sitemap-index.xml
+  - googlef328d677d4ee9ef0.html
+exclude:
+  - scripts
+  - .idea
+  - "*.py"
+  - .git
