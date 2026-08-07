@@ -49,6 +49,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
+  <link rel="stylesheet" href="assets/site/nav.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23d4af57'%3EAG%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
 
   <script type="application/ld+json">
@@ -449,6 +450,9 @@
     .nav__links {
       display: flex;
       gap: 1.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 500;
@@ -491,6 +495,20 @@
     }
     @media (max-width: 860px) {
       .nav__links { display: none; }
+      .nav.site-nav .site-nav__toggle { display: inline-flex; }
+      .nav.site-nav.is-open .site-nav__menu.nav__links {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.75rem var(--pad) 1rem;
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 7, 8, 0.98);
+      }
     }
 
     /* Hero — banner shown in full (wide artwork ~2.5:1) */
@@ -2544,29 +2562,45 @@
   </style>
 </head>
 <body>
-  <header class="nav" id="site-nav">
+  <header class="nav site-nav" id="site-nav" data-site-nav>
     <a class="nav__brand" href="#top">
       <strong>AngelGranit</strong>
       <span>AG</span>
     </a>
-    <nav class="nav__links" aria-label="Навигация">
-      <a href="#services">услуги</a>
-      <a href="#packages">пакеты</a>
-      <a href="#catalog">каталог</a>
-      <a href="#monuments">памятники</a>
-      <a href="#calc">калькулятор</a>
-      <a href="#showcase">портфолио</a>
-      <a href="#youtube">youtube</a>
-      <a href="#cemeteries">кладбища</a>
-      <a href="#morgues">морги</a>
-      <a href="#churches">церкви</a>
-      <a href="#cafes">поминки</a>
-      <a href="#map">карта</a>
-      <a href="#share">поделиться</a>
-      <a href="#contact">контакты</a>
-      <a href="ritualnye-uslugi-almaty/">ритуал</a>
-      <a href="seo/">справочник</a>
-    </nav>
+    <button class="site-nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav-menu">Меню</button>
+    <ul class="site-nav__menu nav__links" id="site-nav-menu">
+      <li class="site-nav__item" data-dropdown>
+        <button type="button">Услуги</button>
+        <div class="site-nav__dropdown">
+          <a href="uslugi/">Все услуги</a>
+          <a href="uslugi/ritualnye-uslugi/">Ритуальные услуги</a>
+          <a href="uslugi/organizaciya-pohoron/">Организация похорон</a>
+          <a href="uslugi/pohorony-pod-klyuch/">Похороны под ключ</a>
+          <a href="uslugi/katafalk/">Катафалк</a>
+          <a href="uslugi/perevozka-umershih/">Перевозка умерших</a>
+          <a href="uslugi/pamyatniki/">Памятники</a>
+          <a href="uslugi/granitnye-pamyatniki/">Гранитные памятники</a>
+          <a href="uslugi/mramornye-pamyatniki/">Мраморные памятники</a>
+          <a href="uslugi/musulmanskie-pamyatniki/">Мусульманские памятники</a>
+          <a href="uslugi/memorialnye-kompleksy/">Мемориальные комплексы</a>
+          <a href="uslugi/blagoustrojstvo-mogil/">Благоустройство могил</a>
+          <a href="uslugi/ogrady/">Ограды</a>
+          <a href="uslugi/stoly/">Столы</a>
+          <a href="uslugi/lavochki/">Лавочки</a>
+          <a href="uslugi/cvetniki/">Цветники</a>
+          <a href="uslugi/fotokeramika/">Фотокерамика</a>
+          <a href="uslugi/gravirovka/">Гравировка</a>
+          <a href="uslugi/venki/">Венки</a>
+          <a href="uslugi/ritualnye-prinadlezhnosti/">Ритуальные принадлежности</a>
+        </div>
+      </li>
+      <li><a href="#packages">Цены</a></li>
+      <li><a href="#showcase">Наши работы</a></li>
+      <li><a href="#calc">Калькулятор</a></li>
+      <li><a href="seo/">Статьи</a></li>
+      <li><a href="seo/faq/">FAQ</a></li>
+      <li><a href="kontakty/">Контакты</a></li>
+    </ul>
     <a class="nav__call" href="tel:+77010567667">Позвонить 24/7</a>
   </header>
 
@@ -3350,7 +3384,7 @@
     Ритуальные услуги Алматы · памятники · катафалк<br />
     Александр · <a href="https://2gis.kz/almaty/geo/9430047375176085" target="_blank" rel="noopener noreferrer">ул. Осетинская, 5а</a><br />
     <a href="tel:+77010567667">+7 701 056 7667</a><br />
-    <a href="ritualnye-uslugi-almaty/">Ритуальные услуги</a> · <a href="seo/">Справочник</a> · <a href="seo/faq/">FAQ</a> · <a href="sitemap.xml">Sitemap</a>
+    <a href="uslugi/">Услуги</a> · <a href="kontakty/">Контакты</a> · <a href="seo/">Справочник</a> · <a href="seo/faq/">FAQ</a> · <a href="sitemap.xml">Sitemap</a>
   </footer>
 
   <button type="button" class="fab-ai" id="fab-ai" aria-label="Открыть помощника по похоронам" aria-expanded="false" aria-controls="ai-chat">
@@ -3377,6 +3411,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
   </a>
 
+  <script src="assets/site/nav.js" defer></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script>
     (function () {
