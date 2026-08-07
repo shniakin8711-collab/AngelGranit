@@ -2,3 +2,8 @@
 images/catalog/monuments/items/premium/
 images/catalog/monuments/items/original/
 
+
+__pycache__/
+*.pyc
+.idea/
+
