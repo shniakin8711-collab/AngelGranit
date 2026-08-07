@@ -44,10 +44,24 @@ def ensure_desc(desc: str) -> str:
 
 def related_for(slug: str, n: int = 6) -> list[dict]:
     others = [s for s in SERVICES if s["slug"] != slug]
-    # rotate based on index for variety
     idx = next(i for i, s in enumerate(SERVICES) if s["slug"] == slug)
     rotated = others[idx:] + others[:idx]
     return rotated[:n]
+
+
+def related_articles_html(service_slug: str, n: int = 6) -> str:
+    idx_path = Path(__file__).with_name("articles_index.json")
+    if not idx_path.exists():
+        return '<p class="lead"><a href="../../stati/">Смотреть раздел статей</a></p>'
+    data = json.loads(idx_path.read_text(encoding="utf-8"))
+    matched = [a for a in data if service_slug in a.get("services", [])]
+    if not matched:
+        matched = data[:n]
+    matched = matched[:n]
+    return "\n".join(
+        f'<a href="../../stati/{html.escape(a["slug"])}/"><strong>{html.escape(a["question"])}?</strong><span>Статья</span></a>'
+        for a in matched
+    )
 
 
 def nav_html(depth: int = 1) -> str:
@@ -68,10 +82,24 @@ def nav_html(depth: int = 1) -> str:
 {items}
         </div>
       </li>
+      <li class="site-nav__item" data-dropdown>
+        <button type="button" aria-expanded="false">Статьи</button>
+        <div class="site-nav__dropdown">
+          <a href="{prefix}stati/">Все статьи</a>
+          <a href="{prefix}stati/pervye-shagi/">Первые шаги</a>
+          <a href="{prefix}stati/organizaciya-pohoron/">Организация похорон</a>
+          <a href="{prefix}stati/dokumenty/">Документы</a>
+          <a href="{prefix}stati/transport/">Катафалк и перевозка</a>
+          <a href="{prefix}stati/prinadlezhnosti/">Принадлежности</a>
+          <a href="{prefix}stati/pamyatniki/">Памятники</a>
+          <a href="{prefix}stati/granit-i-gravirovka/">Гранит и гравировка</a>
+          <a href="{prefix}stati/blagoustrojstvo/">Благоустройство</a>
+          <a href="{prefix}stati/tradicii/">Традиции</a>
+          <a href="{prefix}stati/ceny-i-byudzhet/">Цены и бюджет</a>
+        </div>
+      </li>
       <li><a href="{home}#packages">Цены</a></li>
       <li><a href="{home}#showcase">Наши работы</a></li>
-      <li><a href="{prefix}seo/">Статьи</a></li>
-      <li><a href="{prefix}seo/faq/">FAQ</a></li>
       <li><a href="{prefix}kontakty/">Контакты</a></li>
     </ul>
     <a class="site-nav__call" href="tel:{PHONE_TEL}">Позвонить 24/7</a>
@@ -100,6 +128,7 @@ def render_service(page: dict) -> str:
         f'<a href="../{esc(r["slug"])}/"><strong>{esc(r["h1"])}</strong><span>{esc(r["lead"][:120])}…</span></a>'
         for r in related
     )
+    articles_html = related_articles_html(page["slug"])
 
     schema = {
         "@context": "https://schema.org",
@@ -209,6 +238,12 @@ def render_service(page: dict) -> str:
         <h2>Связанные услуги</h2>
         <div class="related-grid">
 {rel_html}
+        </div>
+      </section>
+      <section>
+        <h2>Полезные статьи</h2>
+        <div class="related-grid">
+{articles_html}
         </div>
       </section>
       <div class="page-cta" style="margin-top:2rem">
