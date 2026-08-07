@@ -98,6 +98,19 @@ def nav_html(depth: int = 1) -> str:
           <a href="{prefix}stati/ceny-i-byudzhet/">Цены и бюджет</a>
         </div>
       </li>
+      <li class="site-nav__item" data-dropdown>
+        <button type="button" aria-expanded="false">Районы</button>
+        <div class="site-nav__dropdown">
+          <a href="{prefix}rajony/">Все районы Алматы</a>
+          <a href="{prefix}rajony/zhetysuskij/">Жетысуский</a>
+          <a href="{prefix}rajony/almalinskij/">Алмалинский</a>
+          <a href="{prefix}rajony/auezovskij/">Ауэзовский</a>
+          <a href="{prefix}rajony/bostandykskij/">Бостандыкский</a>
+          <a href="{prefix}naselennye-punkty/">Населённые пункты</a>
+          <a href="{prefix}naselennye-punkty/kaskelen/">Каскелен</a>
+          <a href="{prefix}naselennye-punkty/talgar/">Талгар</a>
+        </div>
+      </li>
       <li><a href="{home}#packages">Цены</a></li>
       <li><a href="{home}#showcase">Наши работы</a></li>
       <li><a href="{prefix}kontakty/">Контакты</a></li>
