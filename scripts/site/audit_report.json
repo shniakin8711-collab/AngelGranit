@@ -1,0 +1,117 @@
+{
+  "pages": 386,
+  "sitemap_urls": 375,
+  "severity": {
+    "info": 18
+  },
+  "stats": {
+    "missing_canonical": 0,
+    "missing_desc": 0,
+    "missing_og": 0,
+    "missing_twitter": 0,
+    "missing_h1": 0,
+    "multi_h1": 0,
+    "bad_desc_len": 0,
+    "imgs_no_alt_attr": 0,
+    "imgs_no_dims": 0,
+    "schema_invalid": 0,
+    "no_favicon": 0,
+    "broken_internal_reported": 0,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0,
+    "duplicate_canonicals": 8
+  },
+  "top_issues": [
+    {
+      "sev": "info",
+      "file": "granitnye-pamyatniki-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/granitnye-pamyatniki-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "katafalk-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/katafalk-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "memorialnye-kompleksy-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/memorialnye-kompleksy-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "organizaciya-pohoron-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/organizaciya-pohoron-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "pamyatniki-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (4): https://shniakin8711-collab.github.io/AngelGranit/pamyatniki-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "ritualny-agent-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/ritualny-agent-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "ritualnye-prinadlezhnosti-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/ritualnye-prinadlezhnosti-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "ritualnye-uslugi-almaty\\index.html",
+      "msg": "Canonical cluster with mirrors (2): https://shniakin8711-collab.github.io/AngelGranit/ritualnye-uslugi-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/granitnye-pamyatniki/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/izgotovlenie-pamyatnikov/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/kak-vybrat-pamyatnik/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/katafalk-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/memorialnye-kompleksy/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/organizaciya-pohoron-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/ritualnye-uslugi-almaty/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/ustanovka-pamyatnikov/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/venki/"
+    },
+    {
+      "sev": "info",
+      "file": "sitemap.xml",
+      "msg": "Mirror excluded from sitemap (ok): https://shniakin8711-collab.github.io/AngelGranit/seo/vyzov-ritualnogo-agenta/"
+    }
+  ],
+  "issue_total": 18
+}

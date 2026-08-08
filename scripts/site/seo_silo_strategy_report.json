@@ -1,0 +1,476 @@
+{
+  "date": "2026-08-08",
+  "base": "https://shniakin8711-collab.github.io/AngelGranit",
+  "clusters": [
+    {
+      "id": "home",
+      "name": "Главная",
+      "hub": "/",
+      "role": "Brand + primary commercial entry: ритуальные услуги Алматы",
+      "priority": 1.0,
+      "traffic": "highest",
+      "supporting": [
+        "uslugi/",
+        "temy/",
+        "klastery/",
+        "kontakty/"
+      ],
+      "articles_cats": [],
+      "anchors": [
+        "#works",
+        "#reviews",
+        "#faq",
+        "#packages",
+        "#production"
+      ],
+      "pillars": [
+        "ritualnye-uslugi-almaty/",
+        "organizaciya-pohoron-almaty/"
+      ]
+    },
+    {
+      "id": "ritualnye-uslugi",
+      "name": "Ритуальные услуги",
+      "hub": "uslugi/ritualnye-uslugi/",
+      "pillar": "ritualnye-uslugi-almaty/",
+      "role": "Core commercial cluster — funerals organization 24/7",
+      "priority": 0.98,
+      "traffic": "highest",
+      "services": [
+        "uslugi/ritualnye-uslugi/",
+        "uslugi/organizaciya-pohoron/",
+        "uslugi/pohorony-pod-klyuch/"
+      ],
+      "supporting": [
+        "ritualnye-uslugi-nedorogo-almaty/",
+        "tseny-ritualnyh-uslug-almaty/",
+        "ritualny-agent-almaty/",
+        "kak-vybrat-ritualnoe-agentstvo/",
+        "pravoslavnye-pohorony-almaty/",
+        "korejskie-pohorony-almaty/",
+        "svetskie-pohorony-almaty/",
+        "proshchalnyj-zal-almaty/",
+        "pominki-almaty/",
+        "pominalnyj-obed-almaty/",
+        "vyzov-batyushki-na-dom-almaty/",
+        "ritualnye-uslugi-almatinskaya-oblast/"
+      ],
+      "articles_cats": [
+        "pervye-shagi",
+        "organizaciya-pohoron",
+        "tradicii",
+        "ceny-i-byudzhet"
+      ]
+    },
+    {
+      "id": "pamyatniki",
+      "name": "Памятники",
+      "hub": "uslugi/pamyatniki/",
+      "pillar": "pamyatniki-almaty/",
+      "role": "Monument manufacturing & install — mid/long-term intent",
+      "priority": 0.95,
+      "traffic": "high",
+      "services": [
+        "uslugi/pamyatniki/",
+        "uslugi/granitnye-pamyatniki/",
+        "uslugi/mramornye-pamyatniki/",
+        "uslugi/musulmanskie-pamyatniki/",
+        "uslugi/gravirovka/",
+        "uslugi/fotokeramika/"
+      ],
+      "supporting": [
+        "granitnye-pamyatniki-almaty/",
+        "kupit-pamyatnik-almaty/",
+        "cena-granitnogo-pamyatnika-almaty/",
+        "pravoslavnye-pamyatniki-almaty/",
+        "epitafii-na-pamyatnik/",
+        "krest-na-mogilu-almaty/"
+      ],
+      "articles_cats": [
+        "pamyatniki",
+        "granit-i-gravirovka"
+      ]
+    },
+    {
+      "id": "memorialnye-kompleksy",
+      "name": "Мемориальные комплексы",
+      "hub": "uslugi/memorialnye-kompleksy/",
+      "pillar": "memorialnye-kompleksy-almaty/",
+      "role": "Premium project silo — full grave site design",
+      "priority": 0.9,
+      "traffic": "medium-high",
+      "services": [
+        "uslugi/memorialnye-kompleksy/",
+        "uslugi/blagoustrojstvo-mogil/",
+        "uslugi/pamyatniki/"
+      ],
+      "supporting": [
+        "memorialnye-kompleksy-almaty/"
+      ],
+      "articles_cats": [
+        "blagoustrojstvo",
+        "pamyatniki"
+      ]
+    },
+    {
+      "id": "blagoustrojstvo",
+      "name": "Благоустройство",
+      "hub": "uslugi/blagoustrojstvo-mogil/",
+      "pillar": null,
+      "role": "Aftercare / site improvement cluster",
+      "priority": 0.88,
+      "traffic": "medium",
+      "services": [
+        "uslugi/blagoustrojstvo-mogil/",
+        "uslugi/ogrady/",
+        "uslugi/stoly/",
+        "uslugi/lavochki/",
+        "uslugi/cvetniki/"
+      ],
+      "supporting": [],
+      "articles_cats": [
+        "blagoustrojstvo"
+      ]
+    },
+    {
+      "id": "katafalk",
+      "name": "Катафалк и перевозка",
+      "hub": "uslugi/katafalk/",
+      "pillar": "katafalk-almaty/",
+      "role": "Urgent transport intent — high conversion",
+      "priority": 0.94,
+      "traffic": "high",
+      "services": [
+        "uslugi/katafalk/",
+        "uslugi/perevozka-umershih/"
+      ],
+      "supporting": [
+        "katafalk-almaty/",
+        "arenda-katafalka-almaty/",
+        "as-almaty/",
+        "gruz-200-almaty/",
+        "gruz-200-avia-almaty/",
+        "gruz-200-avto-almaty/",
+        "gruz-200-dokumenty/"
+      ],
+      "articles_cats": [
+        "transport"
+      ]
+    },
+    {
+      "id": "prinadlezhnosti",
+      "name": "Ритуальные принадлежности",
+      "hub": "uslugi/ritualnye-prinadlezhnosti/",
+      "pillar": "ritualnye-prinadlezhnosti-almaty/",
+      "role": "Goods cluster — coffin, wreaths, cross",
+      "priority": 0.85,
+      "traffic": "medium",
+      "services": [
+        "uslugi/ritualnye-prinadlezhnosti/",
+        "uslugi/venki/"
+      ],
+      "supporting": [
+        "ritualnye-prinadlezhnosti-almaty/",
+        "grob-almaty/",
+        "krest-na-mogilu-almaty/"
+      ],
+      "articles_cats": [
+        "prinadlezhnosti"
+      ]
+    },
+    {
+      "id": "dokumenty",
+      "name": "Документы",
+      "hub": "stati/dokumenty/",
+      "pillar": null,
+      "role": "Informational — captures early research / trust",
+      "priority": 0.82,
+      "traffic": "medium-high",
+      "services": [
+        "uslugi/organizaciya-pohoron/",
+        "uslugi/ritualnye-uslugi/"
+      ],
+      "supporting": [
+        "posobie-na-pogrebenie-almaty/",
+        "gruz-200-dokumenty/"
+      ],
+      "articles_cats": [
+        "dokumenty",
+        "pervye-shagi"
+      ]
+    },
+    {
+      "id": "morg-zal",
+      "name": "Морг и прощальный зал",
+      "hub": "uslugi-morga-almaty/",
+      "pillar": null,
+      "role": "Supporting funeral logistics",
+      "priority": 0.8,
+      "traffic": "medium",
+      "services": [
+        "uslugi/organizaciya-pohoron/",
+        "uslugi/ritualnye-uslugi/"
+      ],
+      "supporting": [
+        "uslugi-morga-almaty/",
+        "holodilnaya-kamera-morg-almaty/",
+        "balzamirovanie-almaty/",
+        "omovenie-usopshogo-almaty/",
+        "proshchalnyj-zal-almaty/",
+        "kopka-mogily-almaty/"
+      ],
+      "articles_cats": [
+        "organizaciya-pohoron",
+        "pervye-shagi"
+      ]
+    },
+    {
+      "id": "kladbishcha",
+      "name": "Кладбища",
+      "hub": "kladbishcha-almaty/",
+      "pillar": null,
+      "role": "Local geo + cemetery intent",
+      "priority": 0.78,
+      "traffic": "medium",
+      "services": [
+        "uslugi/organizaciya-pohoron/",
+        "uslugi/katafalk/",
+        "uslugi/pamyatniki/"
+      ],
+      "supporting": [
+        "kladbishcha-almaty/",
+        "kladbishche-batajskoe-almaty/",
+        "kladbishche-kensaj-almaty/"
+      ],
+      "articles_cats": [
+        "organizaciya-pohoron",
+        "blagoustrojstvo"
+      ]
+    },
+    {
+      "id": "stati",
+      "name": "Полезные статьи",
+      "hub": "stati/",
+      "pillar": null,
+      "role": "Content silo — topical authority & long-tail",
+      "priority": 0.9,
+      "traffic": "high (long-tail)",
+      "services": [
+        "uslugi/"
+      ],
+      "supporting": [
+        "temy/",
+        "seo/"
+      ],
+      "articles_cats": [
+        "pervye-shagi",
+        "organizaciya-pohoron",
+        "dokumenty",
+        "transport",
+        "prinadlezhnosti",
+        "pamyatniki",
+        "granit-i-gravirovka",
+        "blagoustrojstvo",
+        "tradicii",
+        "ceny-i-byudzhet"
+      ]
+    },
+    {
+      "id": "faq-trust",
+      "name": "FAQ / Отзывы / Работы",
+      "hub": "/#faq",
+      "pillar": null,
+      "role": "Trust & UX anchors on homepage (E-E-A-T)",
+      "priority": 0.75,
+      "traffic": "assisted",
+      "services": [],
+      "supporting": [
+        "/#faq",
+        "/#reviews",
+        "/#works",
+        "/#guarantees",
+        "/#why-us",
+        "seo/faq/"
+      ],
+      "articles_cats": []
+    },
+    {
+      "id": "geo",
+      "name": "Районы и населённые пункты",
+      "hub": "rajony/",
+      "pillar": null,
+      "role": "Local SEO silo",
+      "priority": 0.8,
+      "traffic": "medium",
+      "services": [
+        "uslugi/ritualnye-uslugi/",
+        "uslugi/katafalk/",
+        "uslugi/pamyatniki/"
+      ],
+      "supporting": [
+        "naselennye-punkty/",
+        "ritualnye-uslugi-almatinskaya-oblast/"
+      ],
+      "articles_cats": [
+        "pervye-shagi",
+        "organizaciya-pohoron"
+      ]
+    },
+    {
+      "id": "kontakty",
+      "name": "Контакты",
+      "hub": "kontakty/",
+      "pillar": null,
+      "role": "Conversion endpoint — every commercial page links here",
+      "priority": 0.92,
+      "traffic": "brand / direct",
+      "services": [],
+      "supporting": [
+        "kontakty/"
+      ],
+      "articles_cats": []
+    }
+  ],
+  "rules": {
+    "articles": "≥3 услуги, ≥3 статьи, 1 категория, popular, latest",
+    "services": "≥5 статей, ≥3 услуги, главная, отзывы, контакты, popular, latest"
+  },
+  "counts": {
+    "articles_with_silo": 232,
+    "articles_total": 232,
+    "services_with_silo": 19,
+    "services_total": 19,
+    "pages": 386,
+    "orphans": 0,
+    "depth_gt_3": 0
+  },
+  "orphans_sample": [],
+  "deep_pages_sample": [],
+  "important_pages": [
+    {
+      "url": "/",
+      "why": "Главный коммерческий вход, бренд, CWV-критичная страница",
+      "traffic": "highest"
+    },
+    {
+      "url": "/uslugi/ritualnye-uslugi/",
+      "why": "Хаб ядра «ритуальные услуги»",
+      "traffic": "highest"
+    },
+    {
+      "url": "/ritualnye-uslugi-almaty/",
+      "why": "Pillar под главный ключ",
+      "traffic": "highest"
+    },
+    {
+      "url": "/uslugi/organizaciya-pohoron/",
+      "why": "Высокий интент «организация похорон»",
+      "traffic": "high"
+    },
+    {
+      "url": "/uslugi/katafalk/",
+      "why": "Срочный коммерческий запрос",
+      "traffic": "high"
+    },
+    {
+      "url": "/uslugi/pamyatniki/",
+      "why": "Хаб памятников",
+      "traffic": "high"
+    },
+    {
+      "url": "/uslugi/granitnye-pamyatniki/",
+      "why": "Транзакционный mid-funnel",
+      "traffic": "high"
+    },
+    {
+      "url": "/kontakty/",
+      "why": "Конверсионный URL",
+      "traffic": "brand"
+    },
+    {
+      "url": "/stati/",
+      "why": "Контентный хаб long-tail",
+      "traffic": "high"
+    },
+    {
+      "url": "/klastery/",
+      "why": "Карта SILO / внутренний PageRank distributor",
+      "traffic": "assisted"
+    }
+  ],
+  "primary_traffic_clusters": [
+    {
+      "id": "home",
+      "name": "Главная",
+      "hub": "/",
+      "traffic": "highest"
+    },
+    {
+      "id": "ritualnye-uslugi",
+      "name": "Ритуальные услуги",
+      "hub": "uslugi/ritualnye-uslugi/",
+      "traffic": "highest"
+    },
+    {
+      "id": "pamyatniki",
+      "name": "Памятники",
+      "hub": "uslugi/pamyatniki/",
+      "traffic": "high"
+    },
+    {
+      "id": "memorialnye-kompleksy",
+      "name": "Мемориальные комплексы",
+      "hub": "uslugi/memorialnye-kompleksy/",
+      "traffic": "medium-high"
+    },
+    {
+      "id": "katafalk",
+      "name": "Катафалк и перевозка",
+      "hub": "uslugi/katafalk/",
+      "traffic": "high"
+    },
+    {
+      "id": "dokumenty",
+      "name": "Документы",
+      "hub": "stati/dokumenty/",
+      "traffic": "medium-high"
+    },
+    {
+      "id": "stati",
+      "name": "Полезные статьи",
+      "hub": "stati/",
+      "traffic": "high (long-tail)"
+    }
+  ],
+  "hierarchy": {
+    "level_0": [
+      "/"
+    ],
+    "level_1": [
+      "uslugi/",
+      "stati/",
+      "temy/",
+      "klastery/",
+      "kontakty/",
+      "rajony/",
+      "naselennye-punkty/",
+      "seo/",
+      "*pillar-almaty/"
+    ],
+    "level_2": [
+      "uslugi/{slug}/",
+      "stati/{category}/",
+      "stati/{article}/",
+      "rajony/{district}/"
+    ],
+    "level_3": [
+      "naselennye-punkty/{city}/{service}/"
+    ]
+  },
+  "url_policy": {
+    "trailing_slash": true,
+    "lowercase_kebab": true,
+    "canonical": "self except intentional /seo/* mirrors → pillars",
+    "max_recommended_depth": 3
+  }
+}

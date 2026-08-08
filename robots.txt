@@ -1,5 +1,10 @@
+# AngelGranit — crawl policy
 User-agent: *
 Allow: /
 
-# Use only the working sitemap (avoid GSC "Couldn't fetch" on missing files)
+# Build tooling / IDE (not public content)
+Disallow: /scripts/
+Disallow: /.idea/
+
+# Sitemap (absolute)
 Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml

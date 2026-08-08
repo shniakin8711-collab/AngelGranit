@@ -16,7 +16,7 @@ SERVICES = [
         "h1": "Ритуальные услуги в Алматы",
         "lead": "Полный цикл ритуальных услуг в Алматы: от первого звонка до церемонии и последующего оформления места памяти.",
         "focus": "ритуальные услуги Алматы",
-        "seo_link": "../ritualnye-uslugi-almaty/",
+        "seo_link": "../../ritualnye-uslugi-almaty/",
         "seo_label": "Подробный гид: ритуальные услуги Алматы",
         "image": "ritualnye-uslugi-almaty.webp",
         "sections": [
@@ -55,7 +55,7 @@ SERVICES = [
         "h1": "Организация похорон в Алматы",
         "lead": "Пошаговая организация похорон без хаоса: один агент координирует документы, транспорт и церемонию.",
         "focus": "организация похорон Алматы",
-        "seo_link": "../organizaciya-pohoron-almaty/",
+        "seo_link": "../../organizaciya-pohoron-almaty/",
         "seo_label": "Подробный гид: организация похорон",
         "image": "organizaciya-pohoron-almaty.webp",
         "sections": [
@@ -92,7 +92,7 @@ SERVICES = [
         "h1": "Похороны под ключ в Алматы",
         "lead": "Комплекс «под ключ» — когда один исполнитель закрывает организацию похорон целиком и держит единую смету.",
         "focus": "похороны под ключ Алматы",
-        "seo_link": "../seo/pohorony-24-7/",
+        "seo_link": "../../seo/pohorony-24-7/",
         "seo_label": "Материал: похороны 24/7",
         "image": "ritualnye-uslugi-almaty.webp",
         "sections": [
@@ -129,7 +129,7 @@ SERVICES = [
         "h1": "Катафалк в Алматы",
         "lead": "Ритуальный транспорт с аккуратной подачей по согласованному маршруту — по городу и области.",
         "focus": "катафалк Алматы",
-        "seo_link": "../katafalk-almaty/",
+        "seo_link": "../../katafalk-almaty/",
         "seo_label": "Подробный гид: катафалк Алматы",
         "image": "katafalk-almaty.webp",
         "sections": [
@@ -164,7 +164,7 @@ SERVICES = [
         "h1": "Перевозка умерших в Алматы",
         "lead": "Организация перевозки с уважением к семье: понятный маршрут, сроки и сопровождение.",
         "focus": "перевозка умерших Алматы",
-        "seo_link": "../seo/perevozka-umershego/",
+        "seo_link": "../../seo/perevozka-umershego/",
         "seo_label": "Статья: перевозка умершего",
         "image": "katafalk-almaty.webp",
         "sections": [
@@ -199,7 +199,7 @@ SERVICES = [
         "h1": "Памятники в Алматы",
         "lead": "Подбор и установка памятников как часть заботы о памяти — от простой стелы до полного комплекса.",
         "focus": "памятники Алматы",
-        "seo_link": "../pamyatniki-almaty/",
+        "seo_link": "../../pamyatniki-almaty/",
         "seo_label": "Подробный гид: памятники Алматы",
         "image": "granitnye-pamyatniki-almaty.webp",
         "sections": [
@@ -234,7 +234,7 @@ SERVICES = [
         "h1": "Гранитные памятники в Алматы",
         "lead": "Гранит сохраняет форму и читаемость надписи годами — при правильном фундаменте и монтаже.",
         "focus": "гранитные памятники Алматы",
-        "seo_link": "../granitnye-pamyatniki-almaty/",
+        "seo_link": "../../granitnye-pamyatniki-almaty/",
         "seo_label": "Подробный гид: гранитные памятники",
         "image": "granitnye-pamyatniki-almaty.webp",
         "sections": [
@@ -268,7 +268,7 @@ SERVICES = [
         "h1": "Мраморные памятники в Алматы",
         "lead": "Мрамор выбирают за светлый благородный вид. Мы честно объясняем особенности ухода и эксплуатации.",
         "focus": "мраморные памятники Алматы",
-        "seo_link": "../seo/mramornye-pamyatniki/",
+        "seo_link": "../../seo/mramornye-pamyatniki/",
         "seo_label": "Материал: мраморные памятники",
         "image": "naturalnyj-granit-krupnym-planom.webp",
         "sections": [
@@ -303,7 +303,7 @@ SERVICES = [
         "h1": "Мусульманские памятники в Алматы",
         "lead": "Изготовление памятников с учётом мусульманской традиции и пожеланий семьи.",
         "focus": "мусульманские памятники Алматы",
-        "seo_link": "../seo/musulmanskie-pamyatniki/",
+        "seo_link": "../../seo/musulmanskie-pamyatniki/",
         "seo_label": "Материал: мусульманские памятники",
         "image": "semejnyj-memorial.webp",
         "sections": [
@@ -338,7 +338,7 @@ SERVICES = [
         "h1": "Мемориальные комплексы в Алматы",
         "lead": "Единый проект места захоронения: от фундамента до ограды и покрытия.",
         "focus": "мемориальные комплексы Алматы",
-        "seo_link": "../memorialnye-kompleksy-almaty/",
+        "seo_link": "../../memorialnye-kompleksy-almaty/",
         "seo_label": "Подробный гид: мемориальные комплексы",
         "image": "memorialny-kompleks-almaty.webp",
         "sections": [
@@ -373,7 +373,7 @@ SERVICES = [
         "h1": "Благоустройство могил в Алматы",
         "lead": "Аккуратное оформление участка: чистота, геометрия, долговечные материалы.",
         "focus": "благоустройство могил Алматы",
-        "seo_link": "../seo/blagoustrojstvo-mogil/",
+        "seo_link": "../../seo/blagoustrojstvo-mogil/",
         "seo_label": "Материал: благоустройство могил",
         "image": "pamyatnik-s-blagoustrojstvom.webp",
         "sections": [
@@ -407,7 +407,7 @@ SERVICES = [
         "h1": "Ограды на могилу в Алматы",
         "lead": "Ограда завершает вид участка и обозначает границы места памяти.",
         "focus": "ограды на могилу Алматы",
-        "seo_link": "../seo/ogrady/",
+        "seo_link": "../../seo/ogrady/",
         "seo_label": "Материал: ограды",
         "image": "memorialny-kompleks-chernyj-granit.webp",
         "sections": [
@@ -441,7 +441,7 @@ SERVICES = [
         "h1": "Гранитные столы на могилу",
         "lead": "Стол из камня — практичный элемент мемориала для дней поминовения.",
         "focus": "гранитный стол на могилу Алматы",
-        "seo_link": "../seo/stoly-i-lavochki/",
+        "seo_link": "../../seo/stoly-i-lavochki/",
         "seo_label": "Материал: столы и лавочки",
         "image": "granitnyj-stol-lavochka.webp",
         "sections": [
@@ -475,7 +475,7 @@ SERVICES = [
         "h1": "Лавочки на могилу в Алматы",
         "lead": "Лавка рядом с памятником делает место памяти удобнее для семьи.",
         "focus": "лавочка на могилу Алматы",
-        "seo_link": "../seo/stoly-i-lavochki/",
+        "seo_link": "../../seo/stoly-i-lavochki/",
         "seo_label": "Материал: столы и лавочки",
         "image": "granitnyj-stol-lavochka.webp",
         "sections": [
@@ -509,7 +509,7 @@ SERVICES = [
         "h1": "Цветники на могилу в Алматы",
         "lead": "Цветник оформляет пространство у памятника и поддерживает ухоженный вид участка.",
         "focus": "цветник на могилу Алматы",
-        "seo_link": "../seo/blagoustrojstvo-mogil/",
+        "seo_link": "../../seo/blagoustrojstvo-mogil/",
         "seo_label": "Материал: благоустройство",
         "image": "cvety-vozle-pamyatnika.webp",
         "sections": [
@@ -543,7 +543,7 @@ SERVICES = [
         "h1": "Фотокерамика на памятник",
         "lead": "Портрет на керамике — стойкое и аккуратное оформление фотографии на памятнике.",
         "focus": "фотокерамика Алматы",
-        "seo_link": "../seo/portret-na-granite/",
+        "seo_link": "../../seo/portret-na-granite/",
         "seo_label": "Материал: портрет на граните",
         "image": "hudozhestvennaya-gravirovka.webp",
         "sections": [
@@ -577,7 +577,7 @@ SERVICES = [
         "h1": "Гравировка памятников в Алматы",
         "lead": "Читаемая и аккуратная гравировка — портрет, даты, эпитафия и декоративные элементы.",
         "focus": "гравировка памятников Алматы",
-        "seo_link": "../seo/gravirovka/",
+        "seo_link": "../../seo/gravirovka/",
         "seo_label": "Материал: гравировка",
         "image": "hudozhestvennaya-gravirovka.webp",
         "sections": [
@@ -611,7 +611,7 @@ SERVICES = [
         "h1": "Ритуальные венки в Алматы",
         "lead": "Венки и цветочное оформление к прощанию — под формат церемонии и бюджет семьи.",
         "focus": "ритуальные венки Алматы",
-        "seo_link": "../seo/venki/",
+        "seo_link": "../../seo/venki/",
         "seo_label": "Материал: венки",
         "image": "cvety-vozle-pamyatnika.webp",
         "sections": [
@@ -645,7 +645,7 @@ SERVICES = [
         "h1": "Ритуальные принадлежности в Алматы",
         "lead": "Всё необходимое к церемонии — от базового набора до расширенного оформления.",
         "focus": "ритуальные принадлежности Алматы",
-        "seo_link": "../ritualnye-prinadlezhnosti-almaty/",
+        "seo_link": "../../ritualnye-prinadlezhnosti-almaty/",
         "seo_label": "Подробный гид: ритуальные принадлежности",
         "image": "ritualnye-prinadlezhnosti-almaty.webp",
         "sections": [

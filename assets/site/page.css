@@ -99,3 +99,35 @@
 .loc-map .leaflet-container { width: 100%; height: 340px; background: #111116; }
 .loc-map .leaflet-control-attribution { background: rgba(7,7,8,0.85); color: #8e8980; }
 .loc-map .leaflet-control-attribution a { color: #d4af57; }
+
+/* Final optimize: readability + touch + a11y */
+img { max-width: 100%; height: auto; }
+.page-article h3 {
+  margin: 1.35rem 0 0.55rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.05rem;
+  color: #e8d9a8;
+}
+.page-faq summary:focus-visible {
+  outline: 2px solid var(--gold, #d4af57);
+  outline-offset: 2px;
+}
+@media (max-width: 720px) {
+  .btn-site { min-height: 2.75rem; }
+  .page-cta { gap: 0.65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+}
+
+/* SILO linking blocks — reuse related-grid, no redesign */
+.silo-links{margin:2rem 0 1rem}
+.silo-links h2{margin:1.75rem 0 0.75rem;font-family:var(--font-display,Georgia,serif);font-size:1.2rem;color:#d4af57}
+
+.senior-content-expand h2 {
+  margin: 2rem 0 0.75rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.25rem;
+  color: #d4af57;
+}
+.page-footer .page-cta .btn-site { min-height: 2.75rem; }

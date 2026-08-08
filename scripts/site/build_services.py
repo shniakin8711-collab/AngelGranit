@@ -9,6 +9,7 @@ from datetime import date
 from pathlib import Path
 
 from services_data import ADDRESS, AGENT, BASE, PHONE, PHONE_TEL, SERVICES
+from seo_head import icon_links, social_meta
 
 ROOT = Path(__file__).resolve().parents[2]
 USLUGI = ROOT / "uslugi"
@@ -112,7 +113,7 @@ def nav_html(depth: int = 1) -> str:
         </div>
       </li>
       <li><a href="{home}#packages">Цены</a></li>
-      <li><a href="{home}#showcase">Наши работы</a></li>
+      <li><a href="{home}#works">Наши работы</a></li>
       <li><a href="{prefix}kontakty/">Контакты</a></li>
     </ul>
     <a class="site-nav__call" href="tel:{PHONE_TEL}">Позвонить 24/7</a>
@@ -146,6 +147,34 @@ def render_service(page: dict) -> str:
     schema = {
         "@context": "https://schema.org",
         "@graph": [
+            {
+                "@type": "Organization",
+                "@id": f"{BASE}/#organization",
+                "name": "AngelGranit",
+                "url": f"{BASE}/",
+                "logo": f"{BASE}/assets/icons/icon-512.png",
+                "telephone": PHONE_TEL,
+            },
+            {
+                "@type": "WebSite",
+                "@id": f"{BASE}/#website",
+                "url": f"{BASE}/",
+                "name": "AngelGranit",
+                "publisher": {"@id": f"{BASE}/#organization"},
+            },
+            {
+                "@type": ["LocalBusiness", "FuneralHome"],
+                "@id": f"{BASE}/#business",
+                "name": "AngelGranit",
+                "url": f"{BASE}/",
+                "telephone": PHONE_TEL,
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": ADDRESS,
+                    "addressLocality": "Алматы",
+                    "addressCountry": "KZ",
+                },
+            },
             {
                 "@type": "WebPage",
                 "@id": url + "#webpage",
@@ -185,6 +214,10 @@ def render_service(page: dict) -> str:
         ],
     }
 
+    img_webp = img_rel.replace(".png", ".webp").replace(".jpg", ".webp").replace(".jpeg", ".webp")
+    if not img_webp.endswith(".webp"):
+        img_webp = img_rel.rsplit(".", 1)[0] + ".webp" if "." in img_rel else img_rel
+
     return f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -194,18 +227,8 @@ def render_service(page: dict) -> str:
   <meta name="description" content="{esc(desc)}" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="{url}" />
-  <meta name="theme-color" content="#d4af57" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ru_RU" />
-  <meta property="og:site_name" content="AngelGranit" />
-  <meta property="og:url" content="{url}" />
-  <meta property="og:title" content="{esc(title)}" />
-  <meta property="og:description" content="{esc(desc)}" />
-  <meta property="og:image" content="{img}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{esc(title)}" />
-  <meta name="twitter:description" content="{esc(desc)}" />
-  <meta name="twitter:image" content="{img}" />
+{icon_links("../../")}
+{social_meta(title=esc(title), desc=esc(desc), url=url, image=img)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -237,7 +260,10 @@ def render_service(page: dict) -> str:
         </div>
       </header>
       <figure class="page-figure">
-        <img src="{img_rel}" alt="{esc(page["h1"])}" title="{esc(page["h1"])} — AngelGranit" width="1600" height="900" loading="eager" decoding="async" />
+        <picture>
+          <source srcset="{img_webp}" type="image/webp" />
+          <img src="{img_rel}" alt="{esc(page["h1"])}" title="{esc(page["h1"])} — AngelGranit" width="1600" height="900" loading="eager" decoding="async" fetchpriority="high" />
+        </picture>
       </figure>
       <article class="page-article">
 {article}
@@ -318,11 +344,9 @@ def render_hub() -> str:
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{esc(title)}" />
-  <meta property="og:description" content="{esc(desc)}" />
-  <meta property="og:url" content="{url}" />
-  <meta property="og:image" content="{BASE}/images/seo/ritualnye-uslugi-almaty.webp" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+{icon_links("../")}
+{social_meta(title=esc(title), desc=esc(desc), url=url, image=f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../seo/assets/seo.css" />
   <link rel="stylesheet" href="../assets/site/nav.css" />
@@ -378,10 +402,9 @@ def render_kontakty() -> str:
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{esc(title)}" />
-  <meta property="og:description" content="{esc(desc)}" />
-  <meta property="og:url" content="{url}" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+{icon_links("../")}
+{social_meta(title=esc(title), desc=esc(desc), url=url, image=f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../seo/assets/seo.css" />
   <link rel="stylesheet" href="../assets/site/nav.css" />
@@ -472,7 +495,7 @@ def main() -> None:
     kontakty = ROOT / "kontakty"
     kontakty.mkdir(parents=True, exist_ok=True)
     (kontakty / "index.html").write_text(render_kontakty(), encoding="utf-8", newline="\n")
-    update_sitemap()
+    # sitemap is rebuilt by optimize_site / fix_audit_issues
     print("pages", len(SERVICES), "+ hub + kontakty")
 
 

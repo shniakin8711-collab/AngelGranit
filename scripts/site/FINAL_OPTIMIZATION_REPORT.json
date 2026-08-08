@@ -1,0 +1,60 @@
+{
+  "date": "2026-08-08",
+  "pages": 385,
+  "sitemap_urls": 375,
+  "audit_severity": {
+    "info": 18
+  },
+  "audit_stats": {
+    "missing_canonical": 0,
+    "missing_desc": 0,
+    "missing_og": 0,
+    "missing_twitter": 0,
+    "missing_h1": 0,
+    "multi_h1": 0,
+    "bad_desc_len": 0,
+    "imgs_no_alt_attr": 0,
+    "imgs_no_dims": 0,
+    "schema_invalid": 0,
+    "no_favicon": 0,
+    "broken_internal_reported": 0,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0,
+    "duplicate_canonicals": 8
+  },
+  "high_issues": [],
+  "med_issues": [],
+  "optimizations_applied": [
+    "kontakty: clean description",
+    "deduped descriptions on 48 pages",
+    "skip-link/main/referrer on 385 pages",
+    "schema → kontakty/index.html",
+    "schema → temy/index.html",
+    "schema → stati/index.html",
+    "schema → seo/index.html",
+    "schema → stati/blagoustrojstvo/",
+    "schema → stati/ceny-i-byudzhet/",
+    "schema → stati/dokumenty/",
+    "schema → stati/granit-i-gravirovka/",
+    "schema → stati/organizaciya-pohoron/",
+    "schema → stati/pamyatniki/",
+    "schema → stati/pervye-shagi/",
+    "schema → stati/prinadlezhnosti/",
+    "schema → stati/tradicii/",
+    "schema → stati/transport/",
+    "unique H1 on 10 SEO mirrors",
+    "crosslink temy → uslugi/index.html",
+    "crosslink temy → stati/index.html",
+    "crosslink temy → kontakty/index.html",
+    "homepage: extra theme crosslinks",
+    "404: link to temy",
+    "manifest: separate any/maskable icons + id",
+    "seo hub: dedupe twitter + OG title sync",
+    "sitemap rebuilt: 375 URLs"
+  ],
+  "checks": {
+    "no_schema": 0,
+    "no_skip": 0,
+    "broken_internal": 0
+  }
+}

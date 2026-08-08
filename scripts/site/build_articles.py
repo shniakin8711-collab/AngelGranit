@@ -12,6 +12,8 @@ import re
 from datetime import date
 from pathlib import Path
 
+from seo_head import icon_links, social_meta
+
 ROOT = Path(__file__).resolve().parents[2]
 STATI = ROOT / "stati"
 BASE = "https://shniakin8711-collab.github.io/AngelGranit"
@@ -527,16 +529,16 @@ def unique_paragraphs(question: str, cat_name: str, services: list[str], salt: s
 
 
 def faq_for(question: str, services: list[str]) -> list[tuple[str, str]]:
-    s1 = SERVICE_TITLES[services[0]]
+    """Question-specific FAQs (anti-template) for Search Essentials quality."""
+    s1 = SERVICE_TITLES[services[0]] if services else "Ритуальные услуги"
+    q = question.rstrip("?")
     return [
-        (f"С чего начать, если вопрос — «{question}»?", f"Позвоните {PHONE}: агент {AGENT} даст порядок действий под вашу ситуацию."),
-        ("Можно решить это без полного пакета?", "Да. Часто достаточно одной-двух услуг, остальные не обязательны."),
-        (f"Какая услуга ближе всего к теме?", f"Начните со страницы «{s1}», затем посмотрите связанные услуги."),
-        ("Работаете ли круглосуточно?", "Да, AngelGranit принимает заявки 24/7."),
-        ("Можно ли получить ответ в WhatsApp?", "Да, опишите ситуацию — пришлём понятные шаги и ориентиры."),
-        ("Где вы находитесь?", f"Офис: {ADDRESS}, Алматы. Возможен выезд."),
-        ("Сколько это примерно стоит?", "Ориентир зависит от состава. Минимальные ритуальные комплексы — от 150 000 ₸."),
-        ("Нужно ли приезжать в офис?", "Не обязательно. Многие вопросы решаются по телефону."),
+        (f"С чего начать по вопросу «{q}»?", f"Позвоните {PHONE}: агент {AGENT} даст порядок действий под вашу ситуацию в Алматы."),
+        ("Что важно учесть по району и времени?", "Учитывайте район, дорогу и время суток — это влияет на подачу транспорта и тайминг."),
+        (f"Какая услуга ближе всего?", f"Начните со страницы «{s1}», затем посмотрите связанные услуги."),
+        ("Можно ли обойтись без полного пакета?", "Да. Часто достаточно одной-двух позиций — полный пакет не обязателен."),
+        ("Как связаться ночью?", f"AngelGranit принимает заявки 24/7: {PHONE} или WhatsApp."),
+        ("Где офис?", f"Офис: {ADDRESS}, Алматы. Выезд агента возможен."),
     ]
 
 
@@ -643,12 +645,20 @@ def render_article(page: dict, articles: list[dict]) -> str:
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": f"{BASE}/#organization",
+                "name": "AngelGranit",
+                "url": f"{BASE}/",
+            },
+            {
                 "@type": "Article",
                 "headline": page["h1"],
                 "description": page["description"],
                 "dateModified": TODAY,
-                "author": {"@type": "Organization", "name": "AngelGranit"},
+                "author": {"@id": f"{BASE}/#organization"},
+                "publisher": {"@id": f"{BASE}/#organization"},
                 "mainEntityOfPage": url,
+                "image": f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp",
             },
             {
                 "@type": "BreadcrumbList",
@@ -668,6 +678,7 @@ def render_article(page: dict, articles: list[dict]) -> str:
             },
         ],
     }
+    og_img = f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp"
     return f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -676,11 +687,9 @@ def render_article(page: dict, articles: list[dict]) -> str:
   <title>{esc(page["title"])}</title>
   <meta name="description" content="{esc(page["description"])}" />
   <link rel="canonical" href="{url}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{esc(page["title"])}" />
-  <meta property="og:description" content="{esc(page["description"])}" />
-  <meta property="og:url" content="{url}" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+{icon_links("../../")}
+{social_meta(title=esc(page["title"]), desc=esc(page["description"]), url=url, image=og_img, og_type="article")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../seo/assets/seo.css" />
   <link rel="stylesheet" href="../../assets/site/nav.css" />
@@ -759,7 +768,9 @@ def render_category(cat: dict, articles: list[dict]) -> str:
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+{icon_links("../../")}
+{social_meta(title=esc(title), desc=esc(desc), url=url, image=f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../seo/assets/seo.css" />
   <link rel="stylesheet" href="../../assets/site/nav.css" />
@@ -811,7 +822,9 @@ def render_hub(articles: list[dict]) -> str:
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{BASE}/stati/" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+{icon_links("../")}
+{social_meta(title=esc(title), desc=esc(desc), url=f"{BASE}/stati/", image=f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../seo/assets/seo.css" />
   <link rel="stylesheet" href="../assets/site/nav.css" />

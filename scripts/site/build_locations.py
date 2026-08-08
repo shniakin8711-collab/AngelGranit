@@ -8,6 +8,8 @@ import re
 from datetime import date
 from pathlib import Path
 
+from seo_head import icon_links, social_meta
+
 ROOT = Path(__file__).resolve().parents[2]
 BASE = "https://shniakin8711-collab.github.io/AngelGranit"
 PHONE = "+7 701 056 7667"
@@ -210,14 +212,11 @@ def page_shell(title: str, desc: str, url: str, body: str, schema: dict, depth: 
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="KZ-ALA" />
   <meta name="geo.placename" content="Алматы" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="{esc(title)}" />
-  <meta property="og:description" content="{esc(desc)}" />
-  <meta property="og:url" content="{url}" />
-  <meta property="og:image" content="{BASE}/images/seo/ritualnye-uslugi-almaty.webp" />
+{icon_links(css_prefix)}
+{social_meta(title=esc(title), desc=esc(desc), url=url, image=f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{css_prefix}seo/assets/seo.css" />
   <link rel="stylesheet" href="{css_prefix}assets/site/nav.css" />
@@ -300,13 +299,35 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": f"{BASE}/#organization",
+                "name": "AngelGranit",
+                "url": f"{BASE}/",
+                "telephone": PHONE_TEL,
+            },
+            {
+                "@type": "WebSite",
+                "@id": f"{BASE}/#website",
+                "url": f"{BASE}/",
+                "name": "AngelGranit",
+                "publisher": {"@id": f"{BASE}/#organization"},
+            },
+            {
                 "@type": "WebPage",
                 "name": title,
                 "description": desc,
                 "url": url,
+                "isPartOf": {"@id": f"{BASE}/#website"},
                 "about": local_business_schema(place, url, loc["lat"], loc["lng"], desc),
             },
             local_business_schema(place, url, loc["lat"], loc["lng"], desc),
+            {
+                "@type": "Service",
+                "name": f"Ритуальные услуги в {place}",
+                "provider": {"@id": f"{BASE}/#organization"},
+                "areaServed": {"@type": "Place", "name": place},
+                "url": url,
+            },
             {
                 "@type": "BreadcrumbList",
                 "itemListElement": [

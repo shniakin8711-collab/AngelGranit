@@ -1,0 +1,47 @@
+{
+  "date": "2026-08-08",
+  "metrics": {
+    "template_faq_remaining": 0,
+    "service_word_counts": {
+      "blagoustrojstvo-mogil": 500,
+      "cvetniki": 494,
+      "fotokeramika": 494,
+      "granitnye-pamyatniki": 525,
+      "gravirovka": 508,
+      "katafalk": 555,
+      "lavochki": 485,
+      "memorialnye-kompleksy": 513,
+      "mramornye-pamyatniki": 537,
+      "musulmanskie-pamyatniki": 508,
+      "ogrady": 496,
+      "organizaciya-pohoron": 496,
+      "pamyatniki": 555,
+      "perevozka-umershih": 527,
+      "pohorony-pod-klyuch": 482,
+      "ritualny-agent": 519,
+      "ritualnye-prinadlezhnosti": 486,
+      "ritualnye-uslugi": 652,
+      "stoly": 488,
+      "venki": 487
+    },
+    "services_below_450": [],
+    "og_missing_dims": 0,
+    "sitemap_urls": 387,
+    "o_kompanii_exists": true,
+    "keywords_meta_on_home": false,
+    "fonts_async_home": true,
+    "review_schema_home": true
+  },
+  "phases_completed": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J"
+  ]
+}
