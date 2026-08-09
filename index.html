@@ -1002,22 +1002,28 @@
     }
     .with-angel--a::before {
       background-image: url("images/angels/angel-bg-01.webp");
-      width: min(420px, 48vw);
-      height: min(640px, 78%);
-      left: -2%;
-      bottom: -6%;
-      background-position: left bottom;
+      width: min(340px, 38vw);
+      aspect-ratio: 2 / 3;
+      height: auto;
+      left: -1%;
+      bottom: 0;
+      background-position: center bottom;
+      background-size: contain;
       opacity: 0.13;
+      transform: none;
     }
     .with-angel--b::before {
       background-image: url("images/angels/angel-bg-02.webp");
-      width: min(400px, 46vw);
-      height: min(620px, 76%);
-      right: -3%;
-      bottom: -8%;
+      width: min(320px, 36vw);
+      aspect-ratio: 2 / 3;
+      height: auto;
+      right: -1%;
+      bottom: 0;
       left: auto;
-      background-position: right bottom;
+      background-position: center bottom;
+      background-size: contain;
       opacity: 0.12;
+      transform: none;
     }
     .with-angel--wings::before {
       background-image: url("images/angels/angel-bg-wings.webp");
@@ -1033,12 +1039,29 @@
     .with-angel--a.with-angel--soft::before { opacity: 0.08; }
     .with-angel--b.with-angel--soft::before { opacity: 0.08; }
     .with-angel--wings.with-angel--soft::before { opacity: 0.07; }
+    /* Ritual goods catalog — upright angel, right side */
+    #catalog.with-angel::before {
+      background-image: url("images/angels/angel-bg-upright.webp");
+      width: min(240px, 32vw);
+      aspect-ratio: 2 / 3;
+      height: auto;
+      left: auto;
+      right: 2%;
+      bottom: 6%;
+      top: auto;
+      background-position: center bottom;
+      background-size: contain;
+      opacity: 0.11;
+      transform: none;
+      filter: saturate(0.85) brightness(1.05);
+    }
     @media (max-width: 720px) {
       .with-angel--a::before,
-      .with-angel--b::before {
-        width: min(260px, 62vw);
-        height: min(400px, 55%);
-        opacity: 0.08;
+      .with-angel--b::before,
+      #catalog.with-angel::before {
+        width: min(180px, 42vw);
+        opacity: 0.07;
+        bottom: 2%;
       }
       .with-angel--wings::before {
         height: min(220px, 42%);
