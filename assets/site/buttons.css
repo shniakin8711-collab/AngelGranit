@@ -1,0 +1,153 @@
+/* Unified AngelGranit button component */
+.btn-primary,
+.btn-secondary {
+  --btn-gold: #c8a24a;
+  --btn-black: #0b0b0b;
+  --btn-white: #ffffff;
+  --btn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  box-sizing: border-box;
+  min-height: 3.15rem;
+  min-width: 10.5rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background 0.3s var(--btn-ease),
+    border-color 0.3s var(--btn-ease),
+    color 0.3s var(--btn-ease),
+    transform 0.3s var(--btn-ease),
+    box-shadow 0.3s var(--btn-ease);
+}
+
+.btn-primary svg,
+.btn-secondary svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+}
+
+.btn-primary {
+  background: var(--btn-black);
+  border-color: var(--btn-gold);
+  color: var(--btn-white);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--btn-gold);
+  border-color: var(--btn-gold);
+  color: var(--btn-black);
+  transform: scale(1.03);
+  box-shadow: 0 14px 32px rgba(200, 162, 74, 0.32);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.92);
+  color: var(--btn-white);
+  box-shadow: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--btn-white);
+  border-color: var(--btn-white);
+  color: var(--btn-black);
+  transform: scale(1.03);
+  box-shadow: 0 14px 32px rgba(255, 255, 255, 0.14);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--btn-gold);
+  outline-offset: 3px;
+}
+
+.btn-primary.is-block,
+.btn-secondary.is-block,
+.btn-row .btn-primary,
+.btn-row .btn-secondary {
+  width: auto;
+}
+
+.card-price {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0.15rem 0 0.55rem;
+}
+
+.card-price__label {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.card-price__value {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #c8a24a;
+}
+
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .btn-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary {
+    transition: none;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible,
+  .btn-primary:active,
+  .btn-secondary:hover,
+  .btn-secondary:focus-visible,
+  .btn-secondary:active {
+    transform: none;
+  }
+}

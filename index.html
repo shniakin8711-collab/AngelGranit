@@ -58,6 +58,9 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
   <link rel="stylesheet" href="assets/site/nav.css" />
+  <link rel="stylesheet" href="assets/site/buttons.css" />
+  <link rel="stylesheet" href="assets/site/portfolio.css" />
+  <link rel="stylesheet" href="assets/site/why-choose.css" />
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
@@ -560,37 +563,10 @@
     }
     .nav__links a:hover { color: var(--white); }
     .nav__call {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
+      /* visual style from .btn-primary */
+      min-width: 0;
       padding: 0.55rem 0.9rem;
-      border: 1px solid var(--red);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, #e0c36a 0%, var(--red) 55%, #8a6a28 100%);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: #1a1408;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 0 0 0 var(--red-glow);
-      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
-    }
-    .nav__call::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -140%;
-      width: 55%;
-      height: 100%;
-      background: linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.45) 50%, transparent 75%);
-      transform: skewX(-18deg);
-      pointer-events: none;
-      animation: btnShine 3.8s ease-in-out infinite;
-    }
-    .nav__call:hover {
-      background: linear-gradient(180deg, #f0d78a 0%, var(--red-bright) 45%, var(--red) 100%);
-      color: #1a1408;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 0 22px var(--red-glow);
+      font-size: 0.8rem;
     }
     @media (max-width: 860px) {
       .nav__links { display: none; }
@@ -742,87 +718,9 @@
       align-items: center;
       gap: 0.85rem;
     }
-    .hero__btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      min-height: 3.15rem;
-      padding: 0.85rem 1.35rem;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-      color: var(--hero-white);
-      overflow: hidden;
-      isolation: isolate;
-      transition:
-        background 0.4s var(--hero-ease),
-        border-color 0.4s var(--hero-ease),
-        color 0.4s var(--hero-ease),
-        transform 0.4s var(--hero-ease),
-        box-shadow 0.4s var(--hero-ease);
-    }
-    .hero__btn svg {
-      width: 1.05rem;
-      height: 1.05rem;
-      flex: 0 0 auto;
-    }
-    .hero__btn::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.18) 45%, transparent 70%);
-      transform: translateX(-120%);
-      transition: transform 0.55s var(--hero-ease);
-    }
-    .hero__btn:hover {
-      transform: translateY(-3px);
-    }
-    .hero__btn:hover::after {
-      transform: translateX(120%);
-    }
-    .hero__btn:focus-visible {
-      outline: 2px solid var(--hero-gold);
-      outline-offset: 3px;
-    }
-    .hero__btn--call {
-      background: var(--hero-gold);
-      color: #0b0b0b;
-      box-shadow: 0 10px 28px rgba(200, 162, 74, 0.28);
-    }
-    .hero__btn--call:hover {
-      background: #d4b05a;
-      box-shadow: 0 16px 36px rgba(200, 162, 74, 0.38);
-      color: #000;
-    }
-    .hero__btn--wa {
-      border-color: rgba(255, 255, 255, 0.28);
-      background: rgba(26, 26, 26, 0.45);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .hero__btn--wa:hover {
-      border-color: rgba(255, 255, 255, 0.55);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-    }
-    .hero__btn--consult {
-      border-color: rgba(200, 162, 74, 0.55);
-      background: transparent;
-      color: var(--hero-gold);
-    }
-    .hero__btn--consult:hover {
-      background: rgba(200, 162, 74, 0.12);
-      border-color: var(--hero-gold);
-      box-shadow: 0 12px 28px rgba(200, 162, 74, 0.18);
-      color: #e0c074;
-    }
+    .hero__actions .btn-primary,
+    .hero__actions .btn-secondary { flex: 0 1 auto; }
+
     .hero__card {
       position: relative;
       display: flex;
@@ -884,40 +782,8 @@
       box-shadow: 0 0 0 4px rgba(200, 162, 74, 0.15);
       flex: 0 0 auto;
     }
-    .hero__card-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 3rem;
-      margin-top: 0.35rem;
-      padding: 0.8rem 1.25rem;
-      border: 1px solid rgba(200, 162, 74, 0.45);
-      border-radius: 2px;
-      background: rgba(200, 162, 74, 0.14);
-      color: var(--hero-gold);
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition:
-        background 0.4s var(--hero-ease),
-        border-color 0.4s var(--hero-ease),
-        color 0.4s var(--hero-ease),
-        transform 0.4s var(--hero-ease),
-        box-shadow 0.4s var(--hero-ease);
-    }
-    .hero__card-btn:hover {
-      transform: translateY(-2px);
-      background: var(--hero-gold);
-      border-color: var(--hero-gold);
-      color: #0b0b0b;
-      box-shadow: 0 14px 32px rgba(200, 162, 74, 0.28);
-    }
-    .hero__card-btn:focus-visible {
-      outline: 2px solid var(--hero-gold);
-      outline-offset: 3px;
-    }
+    .hero__card .btn-primary { width: 100%; min-width: 0; }
+
     .hero__fade {
       opacity: 0;
       transform: translateY(28px);
@@ -963,7 +829,8 @@
         align-items: stretch;
         width: 100%;
       }
-      .hero__btn { width: 100%; }
+      .hero__actions .btn-primary,
+      .hero__actions .btn-secondary { width: 100%; }
       .hero__card {
         max-width: none;
         border-radius: 14px;
@@ -987,7 +854,7 @@
       --svc-muted: rgba(255, 255, 255, 0.68);
       --svc-ease: cubic-bezier(0.22, 1, 0.36, 1);
       position: relative;
-      padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+      padding: clamp(4.75rem, 11vw, 7.5rem) 0;
       background: var(--svc-bg);
       color: var(--svc-white);
       overflow: hidden;
@@ -1183,99 +1050,25 @@
     @media (min-width: 860px) {
       .svc-cta__actions { justify-content: flex-end; }
     }
-    .svc-cta__btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      min-height: 3.25rem;
-      min-width: 10.5rem;
-      padding: 0.9rem 1.45rem;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-      overflow: hidden;
-      isolation: isolate;
-      transition:
-        transform 0.4s var(--svc-ease),
-        background 0.4s var(--svc-ease),
-        border-color 0.4s var(--svc-ease),
-        color 0.4s var(--svc-ease),
-        box-shadow 0.4s var(--svc-ease);
-    }
-    .svc-cta__btn svg {
-      width: 1.1rem;
-      height: 1.1rem;
-      flex: 0 0 auto;
-    }
-    .svc-cta__btn::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.2) 48%, transparent 75%);
-      transform: translateX(-120%);
-      transition: transform 0.55s var(--svc-ease);
-    }
-    .svc-cta__btn:hover {
-      transform: translateY(-3px);
-    }
-    .svc-cta__btn:hover::after {
-      transform: translateX(120%);
-    }
-    .svc-cta__btn:focus-visible {
-      outline: 2px solid var(--svc-gold);
-      outline-offset: 3px;
-    }
-    .svc-cta__btn--call {
-      background: var(--svc-gold);
-      color: #0b0b0b;
-      box-shadow: 0 12px 30px rgba(200, 162, 74, 0.28);
-    }
-    .svc-cta__btn--call:hover {
-      background: #d4b05a;
-      box-shadow: 0 16px 36px rgba(200, 162, 74, 0.4);
-      color: #000;
-    }
-    .svc-cta__btn--wa {
-      border-color: rgba(255, 255, 255, 0.28);
-      background: rgba(11, 11, 11, 0.45);
-      color: var(--svc-white);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .svc-cta__btn--wa:hover {
-      border-color: rgba(255, 255, 255, 0.55);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
-    }
+    .svc-cta__actions .btn-primary,
+    .svc-cta__actions .btn-secondary { min-width: 10.5rem; }
+
     @media (max-width: 560px) {
       .svc-cta__actions {
         flex-direction: column;
         align-items: stretch;
         width: 100%;
       }
-      .svc-cta__btn {
-        width: 100%;
-        min-width: 0;
-      }
     }
     @media (prefers-reduced-motion: reduce) {
       .svc-card,
       .svc__grid.is-in .svc-card,
       .svc-card:hover,
-      .svc-card:focus-within,
-      .svc-cta__btn:hover {
+      .svc-card:focus-within {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
       }
-      .svc-cta__btn::after { display: none; }
     }
 
     /* Premium monument catalog */
@@ -1287,7 +1080,7 @@
       --pcat-muted: rgba(255, 255, 255, 0.68);
       --pcat-ease: cubic-bezier(0.22, 1, 0.36, 1);
       position: relative;
-      padding: clamp(3.75rem, 8vw, 6.75rem) 0;
+      padding: clamp(4.75rem, 11vw, 7.5rem) 0;
       background: var(--pcat-bg);
       color: var(--pcat-white);
     }
@@ -1491,70 +1284,16 @@
     .pcat-card__meta span {
       color: rgba(255, 255, 255, 0.45);
     }
-    .pcat-card__price {
-      margin: 0 0 0.55rem;
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--pcat-gold);
-    }
     .pcat-card__actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.55rem;
       margin-top: auto;
     }
-    .pcat-card__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.7rem;
-      padding: 0.55rem 0.7rem;
-      border-radius: 3px;
-      border: 1px solid transparent;
-      font-family: var(--font-body);
-      font-size: 0.84rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      cursor: pointer;
-      transition:
-        background 0.35s var(--pcat-ease),
-        border-color 0.35s var(--pcat-ease),
-        color 0.35s var(--pcat-ease),
-        transform 0.35s var(--pcat-ease),
-        box-shadow 0.35s var(--pcat-ease);
-    }
-    .pcat-card__btn--more {
-      border-color: rgba(255, 255, 255, 0.18);
-      background: transparent;
-      color: rgba(255, 255, 255, 0.88);
-    }
-    .pcat-card__btn--calc {
-      background: rgba(200, 162, 74, 0.16);
-      border-color: rgba(200, 162, 74, 0.45);
-      color: var(--pcat-gold);
-    }
-    .pcat-card:hover .pcat-card__btn--more,
-    .pcat-card:focus-within .pcat-card__btn--more {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-    }
-    .pcat-card:hover .pcat-card__btn--calc,
-    .pcat-card:focus-within .pcat-card__btn--calc {
-      background: var(--pcat-gold);
-      border-color: var(--pcat-gold);
-      color: #0b0b0b;
-      box-shadow: 0 10px 24px rgba(200, 162, 74, 0.28);
-    }
-    .pcat-card__btn:hover {
-      transform: translateY(-2px);
-    }
-    .pcat-card__btn:focus-visible {
-      outline: 2px solid var(--pcat-gold);
-      outline-offset: 2px;
-    }
+    .pcat-card__actions { margin-top: auto; }
+    .pcat-card__actions .btn-primary,
+    .pcat-card__actions .btn-secondary { min-width: 0; width: 100%; padding-left: 0.7rem; padding-right: 0.7rem; font-size: 0.84rem; }
+
     .pcat-empty {
       display: none;
       margin: 0 0 1.5rem;
@@ -1592,33 +1331,6 @@
       color: var(--pcat-muted);
       font-size: 0.98rem;
       line-height: 1.65;
-    }
-    .pcat-cta__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 3.2rem;
-      padding: 0.85rem 1.5rem;
-      border: 0;
-      border-radius: 3px;
-      background: var(--pcat-gold);
-      color: #0b0b0b;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(200, 162, 74, 0.28);
-      transition: transform 0.35s var(--pcat-ease), background 0.35s var(--pcat-ease), box-shadow 0.35s var(--pcat-ease);
-    }
-    .pcat-cta__btn:hover {
-      transform: translateY(-3px);
-      background: #d4b05a;
-      box-shadow: 0 16px 36px rgba(200, 162, 74, 0.4);
-    }
-    .pcat-cta__btn:focus-visible {
-      outline: 2px solid var(--pcat-gold);
-      outline-offset: 3px;
     }
 
     .pcat-lightbox {
@@ -1813,23 +1525,8 @@
       outline-offset: 1px;
       border-color: rgba(200, 162, 74, 0.55);
     }
-    .pcat-modal__submit {
-      min-height: 3rem;
-      margin-top: 0.25rem;
-      border: 0;
-      border-radius: 3px;
-      background: var(--pcat-gold);
-      color: #0b0b0b;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s var(--pcat-ease), background 0.3s var(--pcat-ease);
-    }
-    .pcat-modal__submit:hover {
-      transform: translateY(-2px);
-      background: #d4b05a;
-    }
+    .pcat-modal__form .btn-primary { width: 100%; min-width: 0; }
+
     .pcat-modal__note {
       margin: 0.35rem 0 0;
       color: rgba(255, 255, 255, 0.5);
@@ -1847,135 +1544,16 @@
       .pcat-card:hover,
       .pcat-card:focus-within,
       .pcat-card__media img,
-      .pcat-cta__btn,
-      .pcat-modal__dialog {
+            .pcat-modal__dialog {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
       }
     }
 
-    .btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.75rem;
-      padding: 0.65rem 1.15rem;
-      border: 1px solid transparent;
-      border-radius: var(--radius);
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      overflow: hidden;
-      isolation: isolate;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
-      transition: transform 0.2s var(--ease), background 0.2s, border-color 0.2s, box-shadow 0.2s;
-    }
-    .btn::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -140%;
-      width: 55%;
-      height: 100%;
-      background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.5) 48%, rgba(255,255,255,0.12) 58%, transparent 78%);
-      transform: skewX(-18deg);
-      pointer-events: none;
-      z-index: 1;
-      animation: btnShine 3.6s ease-in-out infinite;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:hover::after {
-      animation: btnShineFast 0.85s ease-out 1;
-    }
-    @keyframes btnShine {
-      0%, 55% { left: -140%; }
-      75%, 100% { left: 160%; }
-    }
-    @keyframes btnShineFast {
-      from { left: -140%; }
-      to { left: 160%; }
-    }
-    .btn--red {
-      background: linear-gradient(180deg, #e0c36a 0%, var(--red) 48%, #8a6a28 100%);
-      color: #1a1408;
-      border-color: rgba(212,175,87,0.45);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.35),
-        inset 0 -1px 0 rgba(0,0,0,0.25),
-        0 6px 18px rgba(154,123,47,0.35);
-    }
-    .btn--red:hover {
-      background: linear-gradient(180deg, #f0d78a 0%, var(--red-bright) 45%, var(--red) 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.42),
-        0 0 24px var(--red-glow),
-        0 8px 22px rgba(154,123,47,0.4);
-    }
-    .btn--ghost {
-      border-color: rgba(236,232,224,0.28);
-      background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(7,7,8,0.45));
-      color: var(--white);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.22),
-        inset 0 -1px 0 rgba(0,0,0,0.35);
-    }
-    .btn--ghost:hover {
-      border-color: rgba(236,232,224,0.45);
-      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(7,7,8,0.35));
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 18px rgba(255,255,255,0.06);
-    }
-    .btn--ghost::after {
-      background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.35) 48%, transparent 78%);
-    }
-    .btn--wa {
-      background: linear-gradient(180deg, #2ad18a 0%, #1aa56a 48%, #128c7e 100%);
-      color: #fff;
-      border-color: rgba(255,255,255,0.1);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.35),
-        inset 0 -1px 0 rgba(0,0,0,0.2),
-        0 6px 18px rgba(37,211,102,0.25);
-    }
-    .btn--wa:hover {
-      background: linear-gradient(180deg, #3ae098 0%, var(--wa) 50%, #1aa56a 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.4),
-        0 0 22px rgba(37,211,102,0.35);
-    }
-    .btn--ai,
-    .btn--gold {
-      border-color: #c9a24a !important;
-      background: linear-gradient(180deg, #f0d78a 0%, #d4af57 42%, #9a7b2f 100%) !important;
-      color: #1a1408 !important;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.45),
-        0 0 18px rgba(212,175,87,0.35),
-        0 8px 22px rgba(154,123,47,0.4) !important;
-      animation: aiBtnPulse 2.4s ease-in-out infinite;
-    }
-    .btn--ai:hover,
-    .btn--gold:hover {
-      background: linear-gradient(180deg, #ffe39a 0%, #e0c36a 45%, #b8943f 100%) !important;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.5),
-        0 0 28px rgba(212,175,87,0.55),
-        0 10px 26px rgba(154,123,47,0.5) !important;
-    }
-    @keyframes aiBtnPulse {
-      0%, 100% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 0 0 0 rgba(212,175,87,0), 0 8px 22px rgba(154,123,47,0.4); }
-      50% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 0 0 8px rgba(212,175,87,0.25), 0 8px 26px rgba(154,123,47,0.55); }
-    }
+    /* Legacy .btn* removed — use assets/site/buttons.css (.btn-primary / .btn-secondary) */
 
     @media (prefers-reduced-motion: reduce) {
-      .btn::after,
-      .nav__call::after,
-      .btn--ai { animation: none !important; }
     }
 
     /* Status strip */
@@ -1997,7 +1575,7 @@
     .status a:hover { color: var(--red-bright); }
 
     /* Sections */
-    section { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
+    section { padding: clamp(4.5rem, 10vw, 7rem) 0; }
     .section-head {
       max-width: 36rem;
       margin-bottom: 2rem;
@@ -2027,9 +1605,19 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+      transform: translate3d(0, 22px, 0);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+      will-change: opacity, transform;
     }
+    .reveal.reveal--left { transform: translate3d(-28px, 12px, 0); }
+    .reveal.reveal--right { transform: translate3d(28px, 12px, 0); }
+    .reveal.reveal--zoom { transform: scale(0.94); }
+    .reveal.reveal--scale { transform: scale(0.9) translate3d(0, 16px, 0); }
+    .reveal.reveal--fade { transform: none; }
+    .reveal.reveal--delay-1 { transition-delay: 0.06s; }
+    .reveal.reveal--delay-2 { transition-delay: 0.12s; }
+    .reveal.reveal--delay-3 { transition-delay: 0.18s; }
+    .reveal.reveal--delay-4 { transition-delay: 0.24s; }
     .reveal.is-in { opacity: 1; transform: none; }
 
     /* Dual */
@@ -2297,46 +1885,8 @@
       line-height: 1.55;
       flex: 1;
     }
-    .price-card__from {
-      margin: 0 0 1.15rem;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-      color: #fff;
-    }
-    .price-card__from span {
-      color: rgba(255, 255, 255, 0.45);
-      font-size: 0.78rem;
-      margin-right: 0.35rem;
-    }
-    .price-card__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      align-self: stretch;
-      min-height: 2.85rem;
-      padding: 0.7rem 1.1rem;
-      border: 1px solid transparent;
-      border-radius: 6px;
-      background: #f7f7f5;
-      color: #0b0b0c;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-      transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-    }
-    .price-card__btn:hover {
-      background: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
-    }
-    .price-card__btn:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.6);
-      outline-offset: 3px;
-    }
+    .price-card .card-price { margin-top: auto; }
+    .price-card .btn-primary { width: 100%; min-width: 0; }
     @media (max-width: 900px) {
       .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -2346,7 +1896,6 @@
     @media (prefers-reduced-motion: reduce) {
       .price-card,
       .price-card:hover,
-      .price-card__btn:hover { transform: none; }
     }
 
     /* Packages */
@@ -2462,7 +2011,8 @@
       content: "› ";
       color: var(--red);
     }
-    .package__body .btn { margin-top: auto; align-self: flex-start; }
+    .package__body .btn-primary,
+    .package__body .btn-secondary { margin-top: auto; align-self: flex-start; }
     @media (max-width: 860px) {
       .package { grid-template-columns: 1fr; }
       .package__frame {
@@ -2619,7 +2169,8 @@
       font-size: 0.82rem;
       color: rgba(236,232,224,0.72);
     }
-    .cat-card__body .btn { margin-top: 0.35rem; align-self: flex-start; }
+    .cat-card__body .btn-primary,
+    .cat-card__body .btn-secondary { margin-top: 0.35rem; align-self: flex-start; }
     .catalog-note {
       margin: 1.1rem 0 0;
       font-size: 0.82rem;
@@ -3552,7 +3103,8 @@
       display: grid;
       gap: 0.5rem;
     }
-    .calc-summary__actions .btn {
+    .calc-summary__actions .btn-primary,
+    .calc-summary__actions .btn-secondary {
       width: 100%;
     }
     .calc-picked {
@@ -4118,38 +3670,7 @@
       line-height: 1.55;
       flex: 1;
     }
-    .work-card__price {
-      margin: 0.15rem 0 0;
-      font-family: var(--font-mono);
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      color: #f7f7f5;
-    }
-    .work-card__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      align-self: flex-start;
-      min-height: 2.6rem;
-      margin-top: 0.45rem;
-      padding: 0.55rem 1.05rem;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 2px;
-      background: transparent;
-      color: #f7f7f5;
-      font-family: var(--font-body);
-      font-size: 0.86rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: background 0.35s var(--ease), border-color 0.35s var(--ease), color 0.35s var(--ease);
-    }
-    .work-card__btn:hover,
-    .work-card:hover .work-card__btn {
-      background: #f7f7f5;
-      border-color: #f7f7f5;
-      color: #0b0b0c;
-    }
+    .work-card .btn-secondary { width: 100%; min-width: 0; }
     @keyframes workCardIn {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
@@ -4903,6 +4424,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="assets/site/section-flow.css" />
 </head>
 <body>
   <a class="skip-link" id="skip-to-content" href="#main-content">Перейти к содержанию</a>
@@ -4945,7 +4467,7 @@
       <li><a href="faq/">FAQ</a></li>
       <li><a href="kontakty/">Контакты</a> · <a href="o-kompanii/">О компании</a></li>
     </ul>
-    <a class="nav__call" href="tel:+77010567667">Позвонить 24/7</a>
+    <a class="btn-primary nav__call" href="tel:+77010567667">Позвонить 24/7</a>
     </nav>
   </header>
 
@@ -4977,15 +4499,15 @@
           <li>Гарантия качества</li>
         </ul>
         <div class="hero__actions hero__fade hero__fade--5">
-          <a class="hero__btn hero__btn--call" href="tel:+77010567667">
+          <a class="btn-primary" href="tel:+77010567667">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
             Позвонить
           </a>
-          <a class="hero__btn hero__btn--wa" id="link-wa-hero" href="#" target="_blank" rel="noopener noreferrer">
+          <a class="btn-secondary" id="link-wa-hero" href="#" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
             WhatsApp
           </a>
-          <a class="hero__btn hero__btn--consult" href="#form">Получить консультацию</a>
+          <a class="btn-primary" href="#form">Получить консультацию</a>
         </div>
       </div>
       <aside class="hero__card hero__fade hero__fade--6" aria-label="Быстрая помощь">
@@ -4996,7 +4518,7 @@
           <li>Выезд агента</li>
           <li>Помощь с документами</li>
         </ul>
-        <a class="hero__card-btn" href="#form">Оставить заявку</a>
+        <a class="btn-primary" href="#form">Оставить заявку</a>
       </aside>
     </div>
   </section>
@@ -5097,12 +4619,12 @@
           <h3 class="svc-cta__title">Не знаете, с чего начать?</h3>
           <p class="svc-cta__text">Наш специалист бесплатно проконсультирует вас, поможет подобрать оптимальное решение и ответит на все вопросы.</p>
         </div>
-        <div class="svc-cta__actions">
-          <a class="svc-cta__btn svc-cta__btn--call" href="tel:+77010567667">
+        <div class="svc-cta__actions btn-row">
+          <a class="btn-primary" href="tel:+77010567667">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
             Позвонить
           </a>
-          <a class="svc-cta__btn svc-cta__btn--wa" id="link-wa-services" href="#" target="_blank" rel="noopener noreferrer">
+          <a class="btn-secondary" id="link-wa-services" href="#" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
             WhatsApp
           </a>
@@ -5144,15 +4666,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Чёрный гранит Габбро</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="250000" />
+              <meta itemprop="price" content="500000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 250 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Вертикальный памятник · Габбро">Получить расчет</button>
+              <span class="card-price__value">от 500 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Вертикальный памятник · Габбро">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5168,15 +4691,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Натуральный гранит</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="280000" />
+              <meta itemprop="price" content="650000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 280 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/pamyatniki/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Горизонтальный памятник">Получить расчет</button>
+              <span class="card-price__value">от 650 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/pamyatniki/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Горизонтальный памятник">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5192,15 +4716,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Чёрный гранит</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="300000" />
+              <meta itemprop="price" content="550000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 300 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/musulmanskie-pamyatniki/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Мусульманский памятник">Получить расчет</button>
+              <span class="card-price__value">от 550 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/musulmanskie-pamyatniki/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Мусульманский памятник">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5216,15 +4741,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Гранит</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="650000" />
+              <meta itemprop="price" content="900000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 650 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Двойной памятник">Получить расчет</button>
+              <span class="card-price__value">от 900 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Двойной памятник">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5240,15 +4766,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Под ключ</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
               <meta itemprop="price" content="2500000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 2 500 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Мемориальный комплекс под ключ">Получить расчет</button>
+              <span class="card-price__value">от 2 500 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Мемориальный комплекс под ключ">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5264,15 +4791,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Индивидуальное изготовление</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
               <meta itemprop="price" content="400000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 400 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/ogrady/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Гранитная ограда">Получить расчет</button>
+              <span class="card-price__value">от 400 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/ogrady/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Гранитная ограда">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5288,15 +4816,16 @@
             <ul class="pcat-card__meta">
               <li><span>Состав:</span> Плитка, фундамент, цветник</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
               <meta itemprop="price" content="450000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 450 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/blagoustrojstvo-mogil/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Благоустройство участка">Получить расчет</button>
+              <span class="card-price__value">от 450 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/blagoustrojstvo-mogil/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Благоустройство участка">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5312,15 +4841,16 @@
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Натуральный гранит</li>
             </ul>
-            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span class="card-price__label">Стоимость</span>
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="320000" />
+              <meta itemprop="price" content="500000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 320 000 ₸
-            </p>
-            <div class="pcat-card__actions">
-              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/gravirovka/">Подробнее</a>
-              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Памятник с гравировкой">Получить расчет</button>
+              <span class="card-price__value">от 500 000 ₸</span>
+            </div>
+            <div class="pcat-card__actions btn-row">
+              <a class="btn-secondary" href="uslugi/gravirovka/">Подробнее</a>
+              <button type="button" class="btn-primary" data-pcat-calc="Памятник с гравировкой">Получить расчет</button>
             </div>
           </div>
         </article>
@@ -5331,7 +4861,7 @@
           <h3 class="pcat-cta__title">Не нашли подходящий вариант?</h3>
           <p class="pcat-cta__text">Мы изготовим памятник по вашим размерам, фотографии или индивидуальному проекту.</p>
         </div>
-        <button type="button" class="pcat-cta__btn" id="pcat-open-modal">Рассчитать стоимость</button>
+        <button type="button" class="btn-primary" id="pcat-open-modal">Рассчитать стоимость</button>
       </aside>
     </div>
 
@@ -5381,7 +4911,7 @@
             <label for="pcat-comment">Комментарий</label>
             <textarea id="pcat-comment" name="comment" placeholder="Размеры, кладбище, пожелания по дизайну"></textarea>
           </div>
-          <button type="submit" class="pcat-modal__submit">Получить расчет</button>
+          <button type="submit" class="btn-primary">Получить расчет</button>
           <p class="pcat-modal__note">Заявка откроется в WhatsApp — Александр ответит и уточнит смету.</p>
         </form>
       </div>
@@ -5431,7 +4961,7 @@
                 "offers": {
                   "@type": "Offer",
                   "priceCurrency": "KZT",
-                  "price": "250000",
+                  "price": "500000",
                   "priceValidUntil": "2027-12-31",
                   "availability": "https://schema.org/InStock",
                   "url": "https://shniakin8711-collab.github.io/AngelGranit/#katalog-pamyatnikov"
@@ -5455,7 +4985,7 @@
                 "offers": {
                   "@type": "Offer",
                   "priceCurrency": "KZT",
-                  "price": "650000",
+                  "price": "900000",
                   "priceValidUntil": "2027-12-31",
                   "availability": "https://schema.org/InStock",
                   "url": "https://shniakin8711-collab.github.io/AngelGranit/#katalog-pamyatnikov"
@@ -5479,7 +5009,7 @@
                 "offers": {
                   "@type": "Offer",
                   "priceCurrency": "KZT",
-                  "price": "300000",
+                  "price": "550000",
                   "priceValidUntil": "2027-12-31",
                   "availability": "https://schema.org/InStock",
                   "url": "https://shniakin8711-collab.github.io/AngelGranit/#katalog-pamyatnikov"
@@ -5580,14 +5110,14 @@
           <p class="eyebrow">// ритуал</p>
           <h3>Ритуальные услуги</h3>
           <p>Организация похорон под ключ: документы, транспорт, венки, памятники. Работаем круглосуточно.</p>
-          <a class="btn btn--ghost" href="ritualnye-uslugi-almaty/">Ритуальные услуги</a>
+          <a class="btn-secondary" href="ritualnye-uslugi-almaty/">Ритуальные услуги</a>
         </article>
         <article class="dual__panel">
           <img src="images/showcase-monument.webp" alt="Гранитные памятники Алматы как часть ритуальных услуг AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
           <p class="eyebrow">// гранит</p>
           <h3>Памятники</h3>
           <p>Православные памятники из натурального гранита — изготовление, художественная гравировка и установка по Казахстану.</p>
-          <a class="btn btn--red" href="pamyatniki-almaty/">Памятники Алматы</a>
+          <a class="btn-primary" href="pamyatniki-almaty/">Памятники Алматы</a>
         </article>
       </div>
     </div>
@@ -5685,8 +5215,11 @@
           </div>
           <h3>Памятники</h3>
           <p>Одинарные и фигурные памятники из натурального гранита с установкой.</p>
-          <div class="price-card__from">цена по запросу</div>
-          <a class="price-card__btn" href="#form" data-package="Расчёт: Памятники">Получить расчет</a>
+          <div class="card-price">
+            <span class="card-price__label">Стоимость</span>
+            <span class="card-price__value">от 500 000 ₸</span>
+          </div>
+          <a class="btn-primary" href="#form" data-package="Расчёт: Памятники">Получить расчет</a>
         </article>
         <article class="price-card">
           <div class="price-card__top">
@@ -5701,8 +5234,11 @@
           </div>
           <h3>Мемориальные комплексы</h3>
           <p>Комплексное оформление места: стела, цоколь, цветник и монтаж.</p>
-          <div class="price-card__from"><span>от</span>150 000 ₸</div>
-          <a class="price-card__btn" href="#form" data-package="Расчёт: Мемориальные комплексы">Получить расчет</a>
+          <div class="card-price">
+            <span class="card-price__label">Стоимость</span>
+            <span class="card-price__value">от 2 500 000 ₸</span>
+          </div>
+          <a class="btn-primary" href="#form" data-package="Расчёт: Мемориальные комплексы">Получить расчет</a>
         </article>
         <article class="price-card">
           <div class="price-card__top">
@@ -5717,8 +5253,11 @@
           </div>
           <h3>Благоустройство</h3>
           <p>Выравнивание участка, плитка, уход и аккуратное оформление места.</p>
-          <div class="price-card__from">цена по запросу</div>
-          <a class="price-card__btn" href="#form" data-package="Расчёт: Благоустройство">Получить расчет</a>
+          <div class="card-price">
+            <span class="card-price__label">Стоимость</span>
+            <span class="card-price__value">от 450 000 ₸</span>
+          </div>
+          <a class="btn-primary" href="#form" data-package="Расчёт: Благоустройство">Получить расчет</a>
         </article>
         <article class="price-card">
           <div class="price-card__top">
@@ -5733,8 +5272,11 @@
           </div>
           <h3>Ограды</h3>
           <p>Металлические и гранитные ограждения участка — от простых до сложных.</p>
-          <div class="price-card__from">цена по запросу</div>
-          <a class="price-card__btn" href="#form" data-package="Расчёт: Ограды">Получить расчет</a>
+          <div class="card-price">
+            <span class="card-price__label">Стоимость</span>
+            <span class="card-price__value">от 400 000 ₸</span>
+          </div>
+          <a class="btn-primary" href="#form" data-package="Расчёт: Ограды">Получить расчет</a>
         </article>
         <article class="price-card">
           <div class="price-card__top">
@@ -5748,8 +5290,11 @@
           </div>
           <h3>Цветники</h3>
           <p>Гранитные цветники, которые сохраняют форму и аккуратный вид долгие годы.</p>
-          <div class="price-card__from">цена по запросу</div>
-          <a class="price-card__btn" href="#form" data-package="Расчёт: Цветники">Получить расчет</a>
+          <div class="card-price">
+            <span class="card-price__label">Стоимость</span>
+            <span class="card-price__value">по запросу</span>
+          </div>
+          <a class="btn-primary" href="#form" data-package="Расчёт: Цветники">Получить расчет</a>
         </article>
         <article class="price-card">
           <div class="price-card__top">
@@ -5764,8 +5309,11 @@
           </div>
           <h3>Портреты</h3>
           <p>Фотокерамика и гравированный портрет — точная передача образа на камне.</p>
-          <div class="price-card__from">цена по запросу</div>
-          <a class="price-card__btn" href="#form" data-package="Расчёт: Портреты">Получить расчет</a>
+          <div class="card-price">
+            <span class="card-price__label">Стоимость</span>
+            <span class="card-price__value">портрет от 100 000 ₸ · фотокерамика от 80 000 ₸</span>
+          </div>
+          <a class="btn-primary" href="#form" data-package="Расчёт: Портреты">Получить расчет</a>
         </article>
       </div>
       <div class="section-links reveal">
@@ -5813,7 +5361,7 @@
               <li>Крест деревянный, табличка</li>
               <li>Катафалк и бригада на захоронение</li>
             </ul>
-            <a class="btn btn--ghost" href="#form" data-package="Минимальный комплекс — 150 000 ₸">Выбрать пакет</a>
+            <a class="btn-secondary" href="#form" data-package="Минимальный комплекс — 150 000 ₸">Выбрать пакет</a>
           </div>
         </article>
 
@@ -5832,7 +5380,7 @@
               <li>Омовение по традициям</li>
               <li>Профессиональное бальзамирование</li>
             </ul>
-            <a class="btn btn--ghost" href="#form" data-package="Прощальный зал — 150 000 ₸">Выбрать пакет</a>
+            <a class="btn-secondary" href="#form" data-package="Прощальный зал — 150 000 ₸">Выбрать пакет</a>
           </div>
         </article>
 
@@ -5851,7 +5399,7 @@
               <li>Комплект одежды, омовение</li>
               <li>Катафалк и бригада на захоронение</li>
             </ul>
-            <a class="btn btn--red" href="#form" data-package="Стандарт комплекс — 400 000 ₸">Выбрать пакет</a>
+            <a class="btn-primary" href="#form" data-package="Стандарт комплекс — 400 000 ₸">Выбрать пакет</a>
           </div>
         </article>
 
@@ -5870,7 +5418,7 @@
               <li>Герлянда элит, омовение</li>
               <li>Катафалк и бригада на захоронение</li>
             </ul>
-            <a class="btn btn--red" href="#form" data-package="Комплекс элит — 800 000 ₸">Выбрать пакет</a>
+            <a class="btn-primary" href="#form" data-package="Комплекс элит — 800 000 ₸">Выбрать пакет</a>
           </div>
         </article>
       </div>
@@ -5986,9 +5534,9 @@
                 <strong id="calc-total">0 ₸</strong>
               </div>
               <div class="calc-summary__actions">
-                <button type="button" class="btn btn--red" id="calc-wa">Отправить в WhatsApp</button>
-                <button type="button" class="btn btn--ghost" id="calc-reset">Сбросить</button>
-                <a class="btn btn--ghost" href="tel:+77010567667">Позвонить</a>
+                <button type="button" class="btn-primary" id="calc-wa">Отправить в WhatsApp</button>
+                <button type="button" class="btn-secondary" id="calc-reset">Сбросить</button>
+                <a class="btn-secondary" href="tel:+77010567667">Позвонить</a>
               </div>
             </div>
           </aside>
@@ -6012,8 +5560,8 @@
           <div class="work-card__body">
             <h3>Гранитный памятник</h3>
             <p>Изготовление и установка памятника из натурального гранита с гравировкой.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 500 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6023,8 +5571,8 @@
           <div class="work-card__body">
             <h3>Катафалк</h3>
             <p>Ритуальный транспорт по Алматы и области — подача в согласованное время.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/katafalk/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">по запросу</span></div>
+            <a class="btn-secondary" href="uslugi/katafalk/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6034,8 +5582,8 @@
           <div class="work-card__body">
             <h3>Мемориальный комплекс</h3>
             <p>Комплексное оформление места захоронения: камень, цветник, монтаж.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 2 500 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6045,8 +5593,8 @@
           <div class="work-card__body">
             <h3>Художественная гравировка</h3>
             <p>Портрет и надписи на граните — точная проработка линий и макета.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/gravirovka/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 100 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/gravirovka/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6056,8 +5604,8 @@
           <div class="work-card__body">
             <h3>Благоустройство могил</h3>
             <p>Выравнивание участка, ограда, плитка и аккуратное оформление места.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/blagoustrojstvo-mogil/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 450 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/blagoustrojstvo-mogil/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6067,8 +5615,8 @@
           <div class="work-card__body">
             <h3>Семейный мемориал</h3>
             <p>Двойные и семейные композиции с единым архитектурным решением.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 900 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6078,8 +5626,8 @@
           <div class="work-card__body">
             <h3>Установка комплекса</h3>
             <p>Монтаж на кладбищах Алматы с контролем уровня и фиксации камня.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 2 500 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6089,8 +5637,8 @@
           <div class="work-card__body">
             <h3>Стол и лавочка</h3>
             <p>Гранитные элементы благоустройства для спокойного посещения места.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/stoly/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 400 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/stoly/">Подробнее</a>
           </div>
         </article>
         <article class="work-card">
@@ -6100,8 +5648,8 @@
           <div class="work-card__body">
             <h3>Комплекс под ключ</h3>
             <p>Полный цикл: проект, камень, монтаж и финальная сдача объекта семье.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            <div class="card-price"><span class="card-price__label">Стоимость</span><span class="card-price__value">от 2 500 000 ₸</span></div>
+            <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
           </div>
         </article>
       </div>
@@ -6113,6 +5661,327 @@
         <a href="#gallery">Фотогалерея</a>
         <a href="#production">Как мы производим →</a>
       </div>
+    </div>
+  </section>
+
+  <section class="folio" id="vypolnennye-raboty" aria-labelledby="folio-title">
+    <div class="folio__wrap">
+      <header class="folio__head reveal">
+        <p class="folio__eyebrow">Портфолио</p>
+        <h2 id="folio-title">Наши выполненные работы</h2>
+        <p class="folio__sub">Каждый памятник и мемориальный комплекс изготавливается индивидуально с вниманием к деталям и уважением к памяти близких.</p>
+      </header>
+
+      <div class="folio__grid reveal" id="folio-grid" role="list">
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/catalog/monuments/items/monument-001.webp" data-title="Черный гранит Габбро · 120×60 см · от 500 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/catalog/monuments/items/monument-001.webp" alt="Памятник из чёрного гранита Габбро 120×60 см — выполненная работа AngelGranit" width="900" height="1200" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Черный гранит Габбро</h3>
+              <p class="folio-card__meta">Материал: гранит Габбро · 120×60 см</p>
+              <p class="folio-card__price">от 500 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/memorialny-kompleks-chernyj-granit.webp" data-title="Мемориальный комплекс · 3×4 м · от 2 500 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/memorialny-kompleks-chernyj-granit.webp" alt="Мемориальный комплекс 3×4 м из чёрного гранита — AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Мемориальный комплекс</h3>
+              <p class="folio-card__meta">Материал: чёрный гранит · 3×4 м</p>
+              <p class="folio-card__price">от 2 500 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/semejnyj-memorial.webp" data-title="Двойной памятник · Гранит · от 900 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/semejnyj-memorial.webp" alt="Двойной памятник из гранита — выполненная работа AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Двойной памятник</h3>
+              <p class="folio-card__meta">Материал: гранит</p>
+              <p class="folio-card__price">от 900 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/catalog/monuments/items/monument-012.webp" data-title="Мусульманский памятник · от 550 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/catalog/monuments/items/monument-012.webp" alt="Мусульманский памятник из гранита — AngelGranit Алматы" width="900" height="1200" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Мусульманский памятник</h3>
+              <p class="folio-card__meta">Материал: чёрный гранит</p>
+              <p class="folio-card__price">от 550 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/musulmanskie-pamyatniki/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/catalog/monuments/items/monument-005.webp" data-title="Горизонтальный памятник · от 650 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/catalog/monuments/items/monument-005.webp" alt="Горизонтальный гранитный памятник — выполненная работа AngelGranit" width="900" height="1200" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Горизонтальный памятник</h3>
+              <p class="folio-card__meta">Материал: натуральный гранит · 100×50 см</p>
+              <p class="folio-card__price">от 650 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/pamyatniki/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/granitnye-pamyatniki-almaty.webp" data-title="Вертикальный памятник · от 500 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/granitnye-pamyatniki-almaty.webp" alt="Вертикальный гранитный памятник Алматы — AngelGranit" width="1200" height="800" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Вертикальный памятник</h3>
+              <p class="folio-card__meta">Материал: гранит · 120×60 см</p>
+              <p class="folio-card__price">от 500 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/pamyatnik-s-blagoustrojstvom.webp" data-title="Благоустройство участка · от 450 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/pamyatnik-s-blagoustrojstvom.webp" alt="Благоустройство места захоронения — плитка и цветник AngelGranit" width="1200" height="800" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Благоустройство участка</h3>
+              <p class="folio-card__meta">Плитка, фундамент, цветник</p>
+              <p class="folio-card__price">от 450 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/blagoustrojstvo-mogil/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/granitnyj-stol-lavochka.webp" data-title="Гранитная ограда и лавочка · от 400 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/granitnyj-stol-lavochka.webp" alt="Гранитная ограда, стол и лавочка — работа AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Гранитная ограда</h3>
+              <p class="folio-card__meta">Материал: гранит · индивидуальные размеры</p>
+              <p class="folio-card__price">от 400 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/ogrady/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/professionalnaya-ustanovka-kompleksa.webp" data-title="Установка комплекса · от 2 500 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/professionalnaya-ustanovka-kompleksa.webp" alt="Профессиональная установка мемориального комплекса — AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Установка комплекса</h3>
+              <p class="folio-card__meta">Материал: гранит · монтаж на кладбище</p>
+              <p class="folio-card__price">от 2 500 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/hudozhestvennaya-gravirovka.webp" data-title="Художественная гравировка · портрет от 100 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/hudozhestvennaya-gravirovka.webp" alt="Художественная гравировка портрета на граните — AngelGranit" width="1200" height="800" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Художественная гравировка</h3>
+              <p class="folio-card__meta">Портрет и надписи на граните</p>
+              <p class="folio-card__price">от 100 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/gravirovka/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/memorialny-kompleks-almaty.webp" data-title="Комплекс под ключ · от 2 500 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/memorialny-kompleks-almaty.webp" alt="Мемориальный комплекс под ключ в Алматы — AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Комплекс под ключ</h3>
+              <p class="folio-card__meta">Материал: гранит · проект и монтаж</p>
+              <p class="folio-card__price">от 2 500 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="folio-card" role="listitem" data-folio-item data-full="images/seo/ustanovka-pamyatnika-almaty.webp" data-title="Установка памятника · от 500 000 ₸">
+          <div class="folio-card__media">
+            <img src="images/seo/ustanovka-pamyatnika-almaty.webp" alt="Установка гранитного памятника на кладбище Алматы — AngelGranit" width="1200" height="800" loading="lazy" decoding="async" />
+            <div class="folio-card__overlay">
+              <h3>Установка памятника</h3>
+              <p class="folio-card__meta">Материал: гранит · 120×60 см</p>
+              <p class="folio-card__price">от 500 000 ₸</p>
+              <a class="btn-secondary" href="uslugi/pamyatniki/">Подробнее</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="folio-cta reveal" aria-label="Индивидуальный проект памятника">
+        <div>
+          <h3 class="folio-cta__title">Хотите памятник по индивидуальному проекту?</h3>
+          <p class="folio-cta__text">Изготовим памятник любой сложности по вашему эскизу или фотографии.</p>
+        </div>
+        <div class="folio-cta__actions btn-row">
+          <a class="btn-primary" href="tel:+77010567667">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+            Позвонить
+          </a>
+          <a class="btn-secondary" id="link-wa-folio" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="folio-lightbox" id="folio-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Галерея выполненных работ">
+      <div class="folio-lightbox__inner">
+        <button type="button" class="folio-lightbox__close" id="folio-lightbox-close" aria-label="Закрыть">×</button>
+        <button type="button" class="folio-lightbox__nav folio-lightbox__nav--prev" id="folio-lightbox-prev" aria-label="Предыдущее фото">‹</button>
+        <div class="folio-lightbox__stage" id="folio-lightbox-stage">
+          <img id="folio-lightbox-img" src="" alt="" width="1600" height="1200" decoding="async" />
+        </div>
+        <button type="button" class="folio-lightbox__nav folio-lightbox__nav--next" id="folio-lightbox-next" aria-label="Следующее фото">›</button>
+        <p class="folio-lightbox__cap" id="folio-lightbox-cap"></p>
+      </div>
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "@id": "https://shniakin8711-collab.github.io/AngelGranit/#vypolnennye-raboty",
+      "name": "Наши выполненные работы — AngelGranit",
+      "description": "Портфолио памятников и мемориальных комплексов AngelGranit в Алматы.",
+      "url": "https://shniakin8711-collab.github.io/AngelGranit/#vypolnennye-raboty",
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/images/catalog/monuments/items/monument-001.webp",
+          "name": "Черный гранит Габбро 120×60 см",
+          "description": "Выполненный вертикальный памятник из гранита Габбро.",
+          "width": 900,
+          "height": 1200
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/images/seo/memorialny-kompleks-chernyj-granit.webp",
+          "name": "Мемориальный комплекс 3×4 м",
+          "description": "Мемориальный комплекс из чёрного гранита под ключ.",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/images/seo/semejnyj-memorial.webp",
+          "name": "Двойной памятник из гранита",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/images/catalog/monuments/items/monument-012.webp",
+          "name": "Мусульманский памятник",
+          "width": 900,
+          "height": 1200
+        }
+      ]
+    }
+    </script>
+  </section>
+
+  <section class="whych" id="pochemu-angelgranit" aria-labelledby="whych-title">
+    <div class="whych__wrap">
+      <header class="whych__head reveal">
+        <p class="whych__eyebrow">Почему выбирают нас</p>
+        <h2 id="whych-title">Надежность, качество и уважение к памяти</h2>
+        <p class="whych__sub">Мы сопровождаем клиентов на каждом этапе — от консультации до завершения всех работ.</p>
+      </header>
+
+      <div class="whych__grid reveal" role="list">
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 1.5"/></svg>
+          </div>
+          <h3>Работаем 24/7</h3>
+          <p>Принимаем обращения круглосуточно.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V9l4-4h10l4 4v11"/><path d="M3 20h18"/><path d="M8 20v-5h8v5"/><path d="M7 9h10"/></svg>
+          </div>
+          <h3>Собственное производство</h3>
+          <p>Изготавливаем памятники без посредников.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 12 4l8 14H4z"/><path d="M9.5 13.5h5"/></svg>
+          </div>
+          <h3>Натуральный гранит</h3>
+          <p>Используем качественные материалы.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l3 3v15H7z"/><path d="M15 3v3h3"/><path d="M10 12h6"/><path d="M10 16h6"/><path d="M9.5 8.5 11 10l3-3"/></svg>
+          </div>
+          <h3>Договор и гарантия</h3>
+          <p>Все работы выполняются официально.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M6 19c1.2-3 3.2-4.5 6-4.5s4.8 1.5 6 4.5"/><path d="M16.5 11.5 18 15l2-.5"/><path d="M18 15v3"/></svg>
+          </div>
+          <h3>Опытные мастера</h3>
+          <p>Аккуратная установка и внимание к деталям.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15V9.5A1.5 1.5 0 0 1 4.5 8H14l4 4v3"/><path d="M3 15h15.5a2.5 2.5 0 0 0 0-5H16"/><circle cx="7" cy="15.5" r="1.8"/><circle cx="16.5" cy="15.5" r="1.8"/></svg>
+          </div>
+          <h3>Доставка и монтаж</h3>
+          <p>Доставляем и устанавливаем по Алматы и области.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h11a3 3 0 0 1 3 3v2"/><path d="M4 6v10a2 2 0 0 0 2 2h6l4 3v-5"/><path d="M8 10h6"/><path d="M8 13h4"/></svg>
+          </div>
+          <h3>Бесплатная консультация</h3>
+          <p>Поможем подобрать оптимальное решение.</p>
+        </article>
+
+        <article class="whych-card" role="listitem">
+          <div class="whych-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.8 9H19l-4.2 3.1L16.5 18 12 14.8 7.5 18l1.7-5.9L5 9h5.2L12 3.5z"/></svg>
+          </div>
+          <h3>Индивидуальный подход</h3>
+          <p>Каждый проект разрабатывается с учетом пожеланий семьи.</p>
+        </article>
+      </div>
+
+      <aside class="whych-cta reveal" aria-label="Связаться с AngelGranit">
+        <div>
+          <h3 class="whych-cta__title">Остались вопросы?</h3>
+          <p class="whych-cta__text">Свяжитесь с нами удобным способом. Мы подробно проконсультируем вас и поможем подобрать оптимальное решение.</p>
+        </div>
+        <div class="whych-cta__actions btn-row">
+          <a class="btn-primary" href="tel:+77010567667">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+            Позвонить
+          </a>
+          <a class="btn-secondary" id="link-wa-whych" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -6693,8 +6562,8 @@
               </li>
             </ul>
             <div class="contact-actions">
-              <a class="btn btn--red" href="tel:+77010567667">Позвонить</a>
-              <a class="btn btn--wa" id="link-wa-contact" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="btn-primary" href="tel:+77010567667">Позвонить</a>
+              <a class="btn-secondary" id="link-wa-contact" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -6723,8 +6592,8 @@
               <label for="f-msg">сообщение</label>
               <textarea id="f-msg" name="message" placeholder="Кратко опишите задачу"></textarea>
               <div class="form-actions">
-                <button type="button" class="btn btn--wa" id="btn-wa-prefill">Отправить в WhatsApp</button>
-                <button type="submit" class="btn btn--red">Отправить</button>
+                <button type="button" class="btn-secondary" id="btn-wa-prefill">Отправить в WhatsApp</button>
+                <button type="submit" class="btn-primary">Отправить</button>
               </div>
               <p id="form-status" role="status" aria-live="polite"></p>
             </form>
@@ -6739,8 +6608,8 @@
             <strong>ул. Осетинская, 5а · Жетысуский район · Алматы</strong>
           </div>
           <div class="map-block__actions">
-            <a class="btn btn--ghost" href="https://2gis.kz/almaty/geo/9430047375176085" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a>
-            <a class="btn btn--red" href="https://2gis.kz/almaty/directions/points/|76.961065,43.289921;9430047375176085" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
+            <a class="btn-secondary" href="https://2gis.kz/almaty/geo/9430047375176085" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a>
+            <a class="btn-primary" href="https://2gis.kz/almaty/directions/points/|76.961065,43.289921;9430047375176085" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
           </div>
         </div>
         <div class="map-block__frame">
@@ -6861,10 +6730,10 @@
           </figure>
         </div>
         <div class="share__actions">
-          <button type="button" class="btn btn--gold" data-open-ai data-ai-prompt="Поделиться сайтом с близкими — репост">ИИ: помочь с репостом</button>
-          <button type="button" class="btn btn--gold" id="btn-share-main" data-share>Поделиться сайтом</button>
-          <a class="btn btn--wa" id="link-share-wa" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          <button type="button" class="btn btn--ghost" id="btn-copy-link">Скопировать ссылку</button>
+          <button type="button" class="btn-primary" data-open-ai data-ai-prompt="Поделиться сайтом с близкими — репост">ИИ: помочь с репостом</button>
+          <button type="button" class="btn-primary" id="btn-share-main" data-share>Поделиться сайтом</button>
+          <a class="btn-secondary" id="link-share-wa" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <button type="button" class="btn-secondary" id="btn-copy-link">Скопировать ссылку</button>
         </div>
         <p class="share__note" id="share-status" role="status" aria-live="polite"></p>
       </div>
@@ -6992,14 +6861,14 @@
         <a href="memorialnye-kompleksy-almaty/"><strong>Мемориальные комплексы</strong><span>Проект под ключ</span></a>
       </div>
       <div class="seo-hub__more reveal">
-        <a class="btn btn--red" href="ritualnye-uslugi-almaty/">Ритуальные услуги Алматы</a>
-        <a class="btn btn--ghost" href="temy/">Новые темы (семантика)</a>
-        <a class="btn btn--ghost" href="gruz-200-almaty/">Груз 200</a>
-        <a class="btn btn--ghost" href="tseny-ritualnyh-uslug-almaty/">Цены</a>
-        <a class="btn btn--ghost" href="#works">Наши работы</a>
-        <a class="btn btn--ghost" href="#faq">Частые вопросы</a>
-        <a class="btn btn--ghost" href="seo/">Справочник 50 материалов</a>
-        <a class="btn btn--ghost" href="kontakty/">Контакты</a>
+        <a class="btn-primary" href="ritualnye-uslugi-almaty/">Ритуальные услуги Алматы</a>
+        <a class="btn-secondary" href="temy/">Новые темы (семантика)</a>
+        <a class="btn-secondary" href="gruz-200-almaty/">Груз 200</a>
+        <a class="btn-secondary" href="tseny-ritualnyh-uslug-almaty/">Цены</a>
+        <a class="btn-secondary" href="#works">Наши работы</a>
+        <a class="btn-secondary" href="#faq">Частые вопросы</a>
+        <a class="btn-secondary" href="seo/">Справочник 50 материалов</a>
+        <a class="btn-secondary" href="kontakty/">Контакты</a>
       </div>
     </div>
   </section>
@@ -7050,7 +6919,7 @@
     <div class="ai-chat__body" id="ai-body"></div>
     <form class="ai-chat__form" id="ai-form">
       <input type="text" id="ai-input" autocomplete="off" placeholder="Спросите про отпевание, морги, кладбища..." aria-label="Вопрос помощнику" />
-      <button type="submit" class="btn btn--red">Спросить</button>
+      <button type="submit" class="btn-primary">Спросить</button>
     </form>
   </div>
 
@@ -7068,10 +6937,98 @@
       };
 
       var waUrl = CONFIG.whatsapp + '?text=' + encodeURIComponent('Здравствуйте! AngelGranit — нужна консультация.');
-      ['link-wa-hero', 'link-wa-services', 'link-wa-contact', 'fab-wa'].forEach(function (id) {
+      ['link-wa-hero', 'link-wa-services', 'link-wa-folio', 'link-wa-whych', 'link-wa-contact', 'fab-wa'].forEach(function (id) {
         var el = document.getElementById(id);
         if (el) el.href = waUrl;
       });
+
+      (function initPortfolioLightbox() {
+        var root = document.getElementById('vypolnennye-raboty');
+        if (!root) return;
+        var items = Array.prototype.slice.call(root.querySelectorAll('[data-folio-item]'));
+        var box = document.getElementById('folio-lightbox');
+        var img = document.getElementById('folio-lightbox-img');
+        var cap = document.getElementById('folio-lightbox-cap');
+        var stage = document.getElementById('folio-lightbox-stage');
+        var closeBtn = document.getElementById('folio-lightbox-close');
+        var prevBtn = document.getElementById('folio-lightbox-prev');
+        var nextBtn = document.getElementById('folio-lightbox-next');
+        if (!items.length || !box || !img) return;
+
+        var index = 0;
+        var startX = 0;
+        var deltaX = 0;
+
+        function show(i) {
+          index = (i + items.length) % items.length;
+          var item = items[index];
+          img.style.opacity = '0.4';
+          img.src = item.getAttribute('data-full') || '';
+          img.alt = item.getAttribute('data-title') || '';
+          if (cap) cap.textContent = item.getAttribute('data-title') || '';
+          window.requestAnimationFrame(function () { img.style.opacity = '1'; });
+        }
+
+        function open(i) {
+          show(i);
+          box.classList.add('is-open');
+          box.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          if (closeBtn) closeBtn.focus();
+        }
+
+        function close() {
+          box.classList.remove('is-open');
+          box.setAttribute('aria-hidden', 'true');
+          img.src = '';
+          document.body.style.overflow = '';
+        }
+
+        items.forEach(function (item, i) {
+          item.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            open(i);
+          });
+          item.addEventListener('keydown', function (e) {
+            if (e.target.closest('a')) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              open(i);
+            }
+          });
+          if (!item.hasAttribute('tabindex')) item.setAttribute('tabindex', '0');
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', close);
+        if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
+        box.addEventListener('click', function (e) { if (e.target === box) close(); });
+
+        document.addEventListener('keydown', function (e) {
+          if (!box.classList.contains('is-open')) return;
+          if (e.key === 'Escape') close();
+          if (e.key === 'ArrowLeft') show(index - 1);
+          if (e.key === 'ArrowRight') show(index + 1);
+        });
+
+        var swipeTarget = stage || box;
+        swipeTarget.addEventListener('touchstart', function (e) {
+          if (!box.classList.contains('is-open') || !e.changedTouches.length) return;
+          startX = e.changedTouches[0].clientX;
+          deltaX = 0;
+        }, { passive: true });
+        swipeTarget.addEventListener('touchmove', function (e) {
+          if (!box.classList.contains('is-open') || !e.changedTouches.length) return;
+          deltaX = e.changedTouches[0].clientX - startX;
+        }, { passive: true });
+        swipeTarget.addEventListener('touchend', function () {
+          if (!box.classList.contains('is-open')) return;
+          if (Math.abs(deltaX) < 48) return;
+          if (deltaX > 0) show(index - 1);
+          else show(index + 1);
+          deltaX = 0;
+        }, { passive: true });
+      })();
 
       (function initPremiumCatalog() {
         var root = document.getElementById('katalog-pamyatnikov');
@@ -7311,11 +7268,102 @@
               io.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
         reveals.forEach(function (el) { io.observe(el); });
       } else {
         reveals.forEach(function (el) { el.classList.add('is-in'); });
       }
+
+      (function initSectionFlow() {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var main = document.getElementById('main-content');
+        if (!main) return;
+
+        var blocks = Array.prototype.slice.call(main.children).filter(function (el) {
+          return el.tagName === 'SECTION' || el.classList.contains('status');
+        });
+        var silo = document.querySelector('.silo-links');
+        if (silo) blocks.push(silo);
+
+        var tones = ['flow-tone-1', 'flow-tone-2', 'flow-tone-3', 'flow-tone-4'];
+        var enters = ['flow-enter--fade', 'flow-enter--left', 'flow-enter--zoom', 'flow-enter--right', 'flow-enter--scale'];
+        var dividerTypes = ['gradient', 'line', 'wave', 'glow', 'geo', 'blur', 'orbs'];
+        var glowPlaces = ['tl', 'br', 'tr', 'bl'];
+        var revealMods = ['', 'reveal--left', 'reveal--zoom', 'reveal--right', 'reveal--scale', 'reveal--fade'];
+
+        var waveSvg =
+          '<svg viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">' +
+          '<path fill="currentColor" d="M0,48 C240,80 480,0 720,32 C960,64 1200,16 1440,40 L1440,80 L0,80 Z"></path>' +
+          '</svg>';
+
+        function makeDivider(type) {
+          var el = document.createElement('div');
+          el.className = 'flow-divider flow-divider--' + type;
+          el.setAttribute('aria-hidden', 'true');
+          if (type === 'wave') el.innerHTML = waveSvg;
+          if (type === 'geo') el.innerHTML = '<span></span>';
+          return el;
+        }
+
+        blocks.forEach(function (block, i) {
+          block.classList.add('flow-section', tones[i % tones.length]);
+          if (i === blocks.length - 1) block.classList.add('flow-tone-last');
+
+          if (!block.classList.contains('hero')) {
+            block.classList.add('flow-enter', enters[i % enters.length]);
+
+            if (i % 2 === 1) {
+              var glow = document.createElement('div');
+              glow.className = 'flow-section__glow flow-section__glow--' + glowPlaces[i % glowPlaces.length];
+              glow.setAttribute('aria-hidden', 'true');
+              block.insertBefore(glow, block.firstChild);
+            }
+          }
+
+          if (i > 0) {
+            var prev = blocks[i - 1];
+            var dtype = dividerTypes[(i - 1) % dividerTypes.length];
+            var nextType = dividerTypes[i % dividerTypes.length];
+            if (dtype === nextType) dtype = dividerTypes[(i + 2) % dividerTypes.length];
+            var divider = makeDivider(dtype);
+            if (prev.parentNode === block.parentNode) {
+              block.parentNode.insertBefore(divider, block);
+            } else if (block.parentNode) {
+              block.parentNode.insertBefore(divider, block);
+            }
+          }
+        });
+
+        // Stagger reveal variants without changing content
+        Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function (el, idx) {
+          var mod = revealMods[idx % revealMods.length];
+          if (mod) el.classList.add(mod);
+          el.classList.add('reveal--delay-' + ((idx % 4) + 1));
+        });
+
+        var enterNodes = Array.prototype.slice.call(document.querySelectorAll('.flow-enter'));
+        if (reduce) {
+          enterNodes.forEach(function (el) { el.classList.add('is-in'); });
+          return;
+        }
+
+        if ('IntersectionObserver' in window) {
+          var fio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-in');
+              fio.unobserve(entry.target);
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+          enterNodes.forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.92) el.classList.add('is-in');
+            else fio.observe(el);
+          });
+        } else {
+          enterNodes.forEach(function (el) { el.classList.add('is-in'); });
+        }
+      })();
 
       (function initReviewsCarousel() {
         var root = document.querySelector('[data-reviews-carousel]');
@@ -7996,7 +8044,7 @@
             '<h3 class="cat-card__name">' + item.name + '</h3>' +
             '<p class="cat-card__note">' + item.note + '</p>' +
             '<div class="cat-card__price">цена по запросу</div>' +
-            '<a class="btn btn--ghost" href="' + catalogWaLink(item) + '" target="_blank" rel="noopener noreferrer">Заказать в WhatsApp</a>' +
+            '<a class="btn-secondary" href="' + catalogWaLink(item) + '" target="_blank" rel="noopener noreferrer">Заказать в WhatsApp</a>' +
           '</div>';
         return art;
       }
