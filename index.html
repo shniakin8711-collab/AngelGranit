@@ -1405,6 +1405,7 @@
     .pcat__grid.is-in .pcat-card:nth-child(6) { transition-delay: 0.34s; }
     .pcat__grid.is-in .pcat-card:nth-child(7) { transition-delay: 0.4s; }
     .pcat__grid.is-in .pcat-card:nth-child(8) { transition-delay: 0.46s; }
+    .pcat__grid.is-in .pcat-card:nth-child(9) { transition-delay: 0.52s; }
     .pcat-card.is-hidden {
       display: none;
     }
@@ -1455,6 +1456,28 @@
       gap: 0.55rem;
       padding: 1.2rem 1.2rem 1.3rem;
       flex: 1 1 auto;
+    }
+    .pcat-card__top {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .pcat-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 2.15rem;
+      height: 2.15rem;
+      border-radius: 8px;
+      border: 1px solid rgba(200, 162, 74, 0.32);
+      background: rgba(200, 162, 74, 0.08);
+      color: var(--pcat-gold);
+    }
+    .pcat-card__icon svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      display: block;
     }
     .pcat-card__cat {
       margin: 0;
@@ -5134,21 +5157,24 @@
 
       <div class="pcat__grid reveal" id="pcat-grid" role="list">
         <article class="pcat-card" role="listitem" data-pcat-cat="vertical" itemscope itemtype="https://schema.org/Product">
-          <button type="button" class="pcat-card__media" data-pcat-open="0" aria-label="Открыть фото: Вертикальный памятник из гранита Габбро">
-            <img src="images/catalog/monuments/items/monument-001.webp" alt="Вертикальный памятник из чёрного гранита Габбро — AngelGranit" width="900" height="1200" loading="lazy" decoding="async" itemprop="image" />
+          <button type="button" class="pcat-card__media" data-pcat-open="0" aria-label="Открыть фото: Вертикальный памятник">
+            <img src="images/catalog/pcat/pcat-01-vertical-gabbro.webp" alt="Вертикальный памятник из чёрного гранита Габбро — AngelGranit" width="1024" height="1536" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Вертикальные памятники</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V8l4-5 4 5v13"/><path d="M10 21v-6h4v6"/><path d="M10.5 10h3"/></svg></span>
+              <p class="pcat-card__cat">Вертикальные памятники</p>
+            </div>
             <h3 itemprop="name">Вертикальный памятник</h3>
-            <p class="pcat-card__desc" itemprop="description">Классическая стела с портретом и надписью — сдержанный и торжественный силуэт.</p>
+            <p class="pcat-card__desc" itemprop="description">Классическая стела из чёрного гранита Габбро с портретом и надписью.</p>
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Чёрный гранит Габбро</li>
             </ul>
             <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="250000" />
+              <meta itemprop="price" content="500000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 250 000 ₸
+              от 500 000 ₸
             </p>
             <div class="pcat-card__actions">
               <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
@@ -5158,11 +5184,14 @@
         </article>
 
         <article class="pcat-card" role="listitem" data-pcat-cat="horizontal" itemscope itemtype="https://schema.org/Product">
-          <button type="button" class="pcat-card__media" data-pcat-open="1" aria-label="Открыть фото: Горизонтальный гранитный памятник">
-            <img src="images/catalog/monuments/items/monument-005.webp" alt="Горизонтальный гранитный памятник — AngelGranit Алматы" width="900" height="1200" loading="lazy" decoding="async" itemprop="image" />
+          <button type="button" class="pcat-card__media" data-pcat-open="1" aria-label="Открыть фото: Горизонтальный памятник">
+            <img src="images/catalog/pcat/pcat-02-horizontal.webp" alt="Горизонтальный гранитный памятник — AngelGranit Алматы" width="1024" height="1536" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Горизонтальные памятники</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="8" rx="1.2"/><path d="M7 10V8.5A2.5 2.5 0 0 1 9.5 6h5A2.5 2.5 0 0 1 17 8.5V10"/><path d="M8 14h8"/></svg></span>
+              <p class="pcat-card__cat">Горизонтальные памятники</p>
+            </div>
             <h3 itemprop="name">Горизонтальный памятник</h3>
             <p class="pcat-card__desc" itemprop="description">Широкая композиция для надписи и декоративных элементов на участке.</p>
             <ul class="pcat-card__meta">
@@ -5170,9 +5199,9 @@
             </ul>
             <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="280000" />
+              <meta itemprop="price" content="650000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 280 000 ₸
+              от 650 000 ₸
             </p>
             <div class="pcat-card__actions">
               <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/pamyatniki/">Подробнее</a>
@@ -5183,20 +5212,23 @@
 
         <article class="pcat-card" role="listitem" data-pcat-cat="muslim" itemscope itemtype="https://schema.org/Product">
           <button type="button" class="pcat-card__media" data-pcat-open="2" aria-label="Открыть фото: Мусульманский памятник">
-            <img src="images/catalog/monuments/items/monument-012.webp" alt="Мусульманский памятник из чёрного гранита — AngelGranit" width="900" height="1200" loading="lazy" decoding="async" itemprop="image" />
+            <img src="images/catalog/pcat/pcat-03-muslim.webp" alt="Мусульманский памятник из чёрного гранита — AngelGranit" width="1024" height="1536" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Мусульманские памятники</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 8.5c2.2-1.8 5.2-1.8 7.4 0"/><path d="M8.5 21h7"/><path d="M9 12.5h6"/></svg></span>
+              <p class="pcat-card__cat">Мусульманские памятники</p>
+            </div>
             <h3 itemprop="name">Мусульманский памятник</h3>
-            <p class="pcat-card__desc" itemprop="description">Форма и оформление с учётом традиций — аккуратная гравировка и чистые линии.</p>
+            <p class="pcat-card__desc" itemprop="description">Форма и оформление с учётом традиций — чистые линии и сдержанный силуэт.</p>
             <ul class="pcat-card__meta">
               <li><span>Материал:</span> Чёрный гранит</li>
             </ul>
             <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="300000" />
+              <meta itemprop="price" content="550000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 300 000 ₸
+              от 550 000 ₸
             </p>
             <div class="pcat-card__actions">
               <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/musulmanskie-pamyatniki/">Подробнее</a>
@@ -5207,10 +5239,13 @@
 
         <article class="pcat-card" role="listitem" data-pcat-cat="double" itemscope itemtype="https://schema.org/Product">
           <button type="button" class="pcat-card__media" data-pcat-open="3" aria-label="Открыть фото: Двойной памятник">
-            <img src="images/seo/semejnyj-memorial.webp" alt="Двойной семейный памятник из гранита — AngelGranit" width="1600" height="900" loading="lazy" decoding="async" itemprop="image" />
+            <img src="images/catalog/pcat/pcat-04-double.webp" alt="Двойной семейный памятник из гранита — AngelGranit" width="1024" height="1536" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Двойные памятники</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l4-5 4 5"/><path d="M12 21V9l4-5 4 5v12"/><path d="M6.5 21v-5h3v5"/><path d="M14.5 21v-5h3v5"/></svg></span>
+              <p class="pcat-card__cat">Двойные памятники</p>
+            </div>
             <h3 itemprop="name">Двойной памятник</h3>
             <p class="pcat-card__desc" itemprop="description">Единая композиция для двоих с согласованными пропорциями и надписями.</p>
             <ul class="pcat-card__meta">
@@ -5218,9 +5253,9 @@
             </ul>
             <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="650000" />
+              <meta itemprop="price" content="900000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 650 000 ₸
+              от 900 000 ₸
             </p>
             <div class="pcat-card__actions">
               <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
@@ -5231,10 +5266,13 @@
 
         <article class="pcat-card" role="listitem" data-pcat-cat="complex" itemscope itemtype="https://schema.org/Product">
           <button type="button" class="pcat-card__media" data-pcat-open="4" aria-label="Открыть фото: Мемориальный комплекс">
-            <img src="images/seo/memorialny-kompleks-chernyj-granit.webp" alt="Мемориальный комплекс из чёрного гранита под ключ — AngelGranit" width="1600" height="900" loading="lazy" decoding="async" itemprop="image" />
+            <img src="images/catalog/pcat/pcat-05-complex.webp" alt="Мемориальный комплекс из чёрного гранита под ключ — AngelGranit" width="1536" height="1024" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Мемориальные комплексы</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20V10l7-6 7 6v10"/><path d="M9 20v-5h6v5"/><path d="M10 9.5h4"/></svg></span>
+              <p class="pcat-card__cat">Мемориальные комплексы</p>
+            </div>
             <h3 itemprop="name">Мемориальный комплекс</h3>
             <p class="pcat-card__desc" itemprop="description">Проект под ключ: камень, цветник, монтаж и финальная сдача на кладбище.</p>
             <ul class="pcat-card__meta">
@@ -5255,10 +5293,13 @@
 
         <article class="pcat-card" role="listitem" data-pcat-cat="fence" itemscope itemtype="https://schema.org/Product">
           <button type="button" class="pcat-card__media" data-pcat-open="5" aria-label="Открыть фото: Гранитная ограда">
-            <img src="images/seo/granitnyj-stol-lavochka.webp" alt="Гранитная ограда и элементы благоустройства — AngelGranit" width="1600" height="900" loading="lazy" decoding="async" itemprop="image" />
+            <img src="images/catalog/pcat/pcat-06-fence.webp" alt="Гранитная ограда вокруг места захоронения — AngelGranit" width="1536" height="1024" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Ограды</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V7l2-2 2 2v13"/><path d="M10 20V7l2-2 2 2v13"/><path d="M16 20V7l2-2 2 2v13"/><path d="M4 11h16"/><path d="M4 15h16"/></svg></span>
+              <p class="pcat-card__cat">Ограды</p>
+            </div>
             <h3 itemprop="name">Гранитная ограда</h3>
             <p class="pcat-card__desc" itemprop="description">Индивидуальное изготовление ограды под размеры участка и стиль памятника.</p>
             <ul class="pcat-card__meta">
@@ -5278,15 +5319,18 @@
         </article>
 
         <article class="pcat-card" role="listitem" data-pcat-cat="landscape" itemscope itemtype="https://schema.org/Product">
-          <button type="button" class="pcat-card__media" data-pcat-open="6" aria-label="Открыть фото: Благоустройство места захоронения">
-            <img src="images/seo/pamyatnik-s-blagoustrojstvom.webp" alt="Благоустройство могилы: плитка, фундамент, цветник — AngelGranit" width="1200" height="800" loading="lazy" decoding="async" itemprop="image" />
+          <button type="button" class="pcat-card__media" data-pcat-open="6" aria-label="Открыть фото: Благоустройство участка">
+            <img src="images/catalog/pcat/pcat-07-landscape.webp" alt="Благоустройство могилы: плитка, фундамент, цветник — AngelGranit" width="1536" height="1024" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Благоустройство</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M5 18V12l3-2 3 2 3-2 3 2v6"/><path d="M12 5c1.2 1.4 2 2.8 2 4.2a2 2 0 1 1-4 0C10 7.8 10.8 6.4 12 5z"/></svg></span>
+              <p class="pcat-card__cat">Благоустройство</p>
+            </div>
             <h3 itemprop="name">Благоустройство участка</h3>
             <p class="pcat-card__desc" itemprop="description">Плитка, фундамент, цветник и аккуратное оформление места захоронения.</p>
             <ul class="pcat-card__meta">
-              <li><span>Состав:</span> Плитка, фундамент, цветник</li>
+              <li><span>Материал:</span> Плитка, фундамент, цветник</li>
             </ul>
             <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="KZT" />
@@ -5302,11 +5346,14 @@
         </article>
 
         <article class="pcat-card" role="listitem" data-pcat-cat="vertical" itemscope itemtype="https://schema.org/Product">
-          <button type="button" class="pcat-card__media" data-pcat-open="7" aria-label="Открыть фото: Вертикальный памятник с гравировкой">
-            <img src="images/seo/granitnye-pamyatniki-almaty.webp" alt="Вертикальный гранитный памятник с художественной гравировкой — Алматы" width="1200" height="800" loading="lazy" decoding="async" itemprop="image" />
+          <button type="button" class="pcat-card__media" data-pcat-open="7" aria-label="Открыть фото: Памятник с гравировкой">
+            <img src="images/catalog/pcat/pcat-08-engraving.webp" alt="Художественная гравировка портрета на гранитном памятнике — AngelGranit" width="1024" height="1536" loading="lazy" decoding="async" itemprop="image" />
           </button>
           <div class="pcat-card__body">
-            <p class="pcat-card__cat">Вертикальные памятники</p>
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="1.5"/><circle cx="12" cy="10" r="2.6"/><path d="M8 17c.9-1.8 2.3-2.7 4-2.7s3.1.9 4 2.7"/></svg></span>
+              <p class="pcat-card__cat">Вертикальные памятники</p>
+            </div>
             <h3 itemprop="name">Памятник с гравировкой</h3>
             <p class="pcat-card__desc" itemprop="description">Точная лазерная гравировка портрета и эпитафии на натуральном камне.</p>
             <ul class="pcat-card__meta">
@@ -5314,13 +5361,40 @@
             </ul>
             <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="KZT" />
-              <meta itemprop="price" content="320000" />
+              <meta itemprop="price" content="500000" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              от 320 000 ₸
+              от 500 000 ₸
             </p>
             <div class="pcat-card__actions">
               <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/gravirovka/">Подробнее</a>
               <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Памятник с гравировкой">Получить расчет</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="pcat-card" role="listitem" data-pcat-cat="vertical" itemscope itemtype="https://schema.org/Product">
+          <button type="button" class="pcat-card__media" data-pcat-open="8" aria-label="Открыть фото: Православный памятник">
+            <img src="images/catalog/pcat/pcat-09-orthodox.webp" alt="Православный гранитный памятник с крестом — AngelGranit Алматы" width="1024" height="1536" loading="lazy" decoding="async" itemprop="image" />
+          </button>
+          <div class="pcat-card__body">
+            <div class="pcat-card__top">
+              <span class="pcat-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 9h10"/><path d="M9 13.5h6"/><path d="M8.5 21h7"/></svg></span>
+              <p class="pcat-card__cat">Вертикальные памятники</p>
+            </div>
+            <h3 itemprop="name">Православный памятник</h3>
+            <p class="pcat-card__desc" itemprop="description">Сдержанная композиция с крестом — достоинство формы и чистота камня.</p>
+            <ul class="pcat-card__meta">
+              <li><span>Материал:</span> Чёрный гранит</li>
+            </ul>
+            <p class="pcat-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="KZT" />
+              <meta itemprop="price" content="500000" />
+              <meta itemprop="availability" content="https://schema.org/InStock" />
+              от 500 000 ₸
+            </p>
+            <div class="pcat-card__actions">
+              <a class="pcat-card__btn pcat-card__btn--more" href="uslugi/pamyatniki/">Подробнее</a>
+              <button type="button" class="pcat-card__btn pcat-card__btn--calc" data-pcat-calc="Православный памятник">Получить расчет</button>
             </div>
           </div>
         </article>
