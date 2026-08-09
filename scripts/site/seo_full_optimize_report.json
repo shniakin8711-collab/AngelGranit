@@ -1,0 +1,15 @@
+{
+  "fixes": [
+    "robots.txt updated for Google/Bing/AI crawlers",
+    "llms.txt created for AI systems",
+    "homepage SEO meta + social + JSON-LD image hardened",
+    "seo_head.py upgraded (OG dims + keywords)",
+    "site-wide meta/OG/Twitter/canonical/keywords patched: 398/398 pages",
+    "sitemap.xml rebuilt: 387 URLs"
+  ],
+  "counts": {
+    "pages": 398,
+    "changed": 398,
+    "sitemap": 387
+  }
+}

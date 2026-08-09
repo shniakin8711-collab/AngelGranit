@@ -1,10 +1,46 @@
-# AngelGranit — crawl policy
+# AngelGranit — crawl policy (Google, Bing, AI crawlers)
 User-agent: *
 Allow: /
 
-# Build tooling / IDE (not public content)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Non-public paths
 Disallow: /scripts/
 Disallow: /.idea/
+Disallow: /__pycache__/
 
-# Sitemap (absolute)
+# Absolute sitemap
 Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+
+# AI / LLM context
+# See: https://shniakin8711-collab.github.io/AngelGranit/AI.md
+# See: https://shniakin8711-collab.github.io/AngelGranit/ai/
+# See: https://shniakin8711-collab.github.io/AngelGranit/llms.txt
