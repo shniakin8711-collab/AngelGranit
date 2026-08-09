@@ -113,29 +113,18 @@
 }
 .site-nav__dropdown a:hover { background: rgba(212, 175, 87, 0.1); color: var(--gold); }
 .site-nav__call {
-  /* Uses unified primary button look */
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-height: 3.15rem;
-  min-width: 0;
-  padding: 0.7rem 1.1rem;
-  border: 1px solid #c8a24a;
-  border-radius: 2px;
-  background: #0b0b0b;
-  color: #ffffff;
-  font-family: "Manrope", system-ui, sans-serif;
-  font-size: 0.88rem;
+  min-height: 2.4rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #d4af57;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #e0c36a 0%, #d4af57 55%, #8a6a28 100%);
+  color: #1a1408;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
   text-decoration: none;
-  transition: background 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-.site-nav__call:hover {
-  background: #c8a24a;
-  color: #0b0b0b;
-  transform: scale(1.03);
-  box-shadow: 0 14px 32px rgba(200, 162, 74, 0.32);
 }
 @media (max-width: 960px) {
   .site-nav__toggle { display: inline-flex; align-items: center; }
@@ -187,8 +176,7 @@
 }
 .site-nav a:focus-visible,
 .site-nav button:focus-visible,
-.btn-primary:focus-visible,
-.btn-secondary:focus-visible,
+.btn-site:focus-visible,
 .hub-card:focus-visible,
 .related-grid a:focus-visible {
   outline: 2px solid var(--gold, #d4af57);
