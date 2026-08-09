@@ -3533,152 +3533,6 @@
       border-color: var(--white);
     }
 
-    /* Works catalog */
-    .works-catalog {
-      position: relative;
-      background:
-        radial-gradient(ellipse 70% 50% at 90% 0%, rgba(255, 255, 255, 0.035), transparent 55%),
-        linear-gradient(180deg, #0b0b0d 0%, #08080a 100%);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .works-catalog .section-head h2 {
-      text-transform: none;
-      letter-spacing: 0.02em;
-    }
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.1rem;
-      padding: 0.35rem;
-    }
-    .work-card {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 2px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #15161a 0%, #101114 100%);
-      color: inherit;
-      text-decoration: none;
-      transform: translateY(0) scale(1);
-      transform-origin: center center;
-      transition:
-        transform 0.45s var(--ease),
-        border-color 0.45s var(--ease),
-        box-shadow 0.45s var(--ease);
-      animation: workCardIn 0.8s var(--ease) both;
-    }
-    .work-card:nth-child(1) { animation-delay: 0.05s; }
-    .work-card:nth-child(2) { animation-delay: 0.1s; }
-    .work-card:nth-child(3) { animation-delay: 0.15s; }
-    .work-card:nth-child(4) { animation-delay: 0.2s; }
-    .work-card:nth-child(5) { animation-delay: 0.25s; }
-    .work-card:nth-child(6) { animation-delay: 0.3s; }
-    .work-card:nth-child(7) { animation-delay: 0.35s; }
-    .work-card:nth-child(8) { animation-delay: 0.4s; }
-    .work-card:nth-child(9) { animation-delay: 0.45s; }
-    .work-card:hover,
-    .work-card:focus-within {
-      transform: translateY(-8px) scale(1.02);
-      border-color: rgba(255, 255, 255, 0.28);
-      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
-      z-index: 2;
-    }
-    .work-card__media {
-      position: relative;
-      display: block;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: #0a0a0c;
-    }
-    .work-card__media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.8s var(--ease);
-    }
-    .work-card:hover .work-card__media img,
-    .work-card:focus-within .work-card__media img {
-      transform: scale(1.07);
-    }
-    .work-card__body {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      gap: 0.55rem;
-      padding: 1.15rem 1.15rem 1.25rem;
-    }
-    .work-card__body h3 {
-      margin: 0;
-      font-family: var(--font-display);
-      font-size: clamp(1.02rem, 1.6vw, 1.18rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      line-height: 1.25;
-      color: #f5f5f2;
-    }
-    .work-card__body p {
-      margin: 0;
-      color: rgba(236, 232, 224, 0.62);
-      font-size: 0.9rem;
-      line-height: 1.55;
-      flex: 1;
-    }
-    .work-card__price {
-      margin: 0.15rem 0 0;
-      font-family: var(--font-mono);
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      color: #f7f7f5;
-    }
-    .work-card__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      align-self: flex-start;
-      min-height: 2.6rem;
-      margin-top: 0.45rem;
-      padding: 0.55rem 1.05rem;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 2px;
-      background: transparent;
-      color: #f7f7f5;
-      font-family: var(--font-body);
-      font-size: 0.86rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: background 0.35s var(--ease), border-color 0.35s var(--ease), color 0.35s var(--ease);
-    }
-    .work-card__btn:hover,
-    .work-card:hover .work-card__btn {
-      background: #f7f7f5;
-      border-color: #f7f7f5;
-      color: #0b0b0c;
-    }
-    @keyframes workCardIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 960px) {
-      .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 560px) {
-      .works-grid { grid-template-columns: 1fr; }
-      .work-card__media { aspect-ratio: 16 / 11; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .work-card,
-      .work-card:hover,
-      .work-card:focus-within {
-        animation: none;
-        transform: none;
-      }
-      .work-card__media img { transition: none; }
-    }
 
     /* Photo gallery — masonry */
     .gallery-block {
@@ -5255,124 +5109,6 @@
     </div>
   </section>
 
-  <section id="works" class="works-catalog" aria-label="Наши работы">
-    <div class="wrap" id="showcase">
-      <header class="section-head reveal">
-        <p class="eyebrow">// наши работы</p>
-        <h2>Каталог работ</h2>
-        <p class="sub">Реальные проекты AngelGranit: памятники, комплексы, транспорт и благоустройство — с понятной стоимостью и деталями.</p>
-      </header>
-      <div class="works-grid reveal">
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/showcase-monument.webp" alt="Гранитный памятник — работа AngelGranit в Алматы" width="1200" height="900" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Гранитный памятник</h3>
-            <p>Изготовление и установка памятника из натурального гранита с гравировкой.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/granitnye-pamyatniki/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/showcase-hearse.webp" alt="Катафалк AngelGranit — ритуальный транспорт Алматы" width="900" height="1200" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Катафалк</h3>
-            <p>Ритуальный транспорт по Алматы и области — подача в согласованное время.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/katafalk/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/memorialny-kompleks-chernyj-granit.webp" alt="Мемориальный комплекс из чёрного гранита" width="1600" height="900" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Мемориальный комплекс</h3>
-            <p>Комплексное оформление места захоронения: камень, цветник, монтаж.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/hudozhestvennaya-gravirovka.webp" alt="Художественная гравировка на граните" width="1200" height="800" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Художественная гравировка</h3>
-            <p>Портрет и надписи на граните — точная проработка линий и макета.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/gravirovka/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/pamyatnik-s-blagoustrojstvom.webp" alt="Памятник с благоустройством могилы" width="1200" height="800" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Благоустройство могил</h3>
-            <p>Выравнивание участка, ограда, плитка и аккуратное оформление места.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/blagoustrojstvo-mogil/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/semejnyj-memorial.webp" alt="Семейный мемориал из гранита" width="1600" height="900" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Семейный мемориал</h3>
-            <p>Двойные и семейные композиции с единым архитектурным решением.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/professionalnaya-ustanovka-kompleksa.webp" alt="Профессиональная установка мемориального комплекса" width="1600" height="900" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Установка комплекса</h3>
-            <p>Монтаж на кладбищах Алматы с контролем уровня и фиксации камня.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/granitnyj-stol-lavochka.webp" alt="Гранитный стол и лавочка у памятника" width="1600" height="900" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Стол и лавочка</h3>
-            <p>Гранитные элементы благоустройства для спокойного посещения места.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/stoly/">Подробнее</a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-card__media">
-            <img src="images/seo/memorialny-kompleks-almaty.webp" alt="Мемориальный комплекс Алматы — работа AngelGranit" width="1600" height="900" loading="lazy" decoding="async" />
-          </div>
-          <div class="work-card__body">
-            <h3>Комплекс под ключ</h3>
-            <p>Полный цикл: проект, камень, монтаж и финальная сдача объекта семье.</p>
-            <div class="work-card__price">цена по запросу</div>
-            <a class="work-card__btn" href="uslugi/memorialnye-kompleksy/">Подробнее</a>
-          </div>
-        </article>
-      </div>
-      <div class="section-links reveal">
-        <a href="#monuments">Каталог памятников</a>
-        <a href="nashi-raboty/">Все работы</a>
-        <a href="uslugi/pamyatniki/">Памятники</a>
-        <a href="ceny/">Цены</a>
-        <a href="#gallery">Фотогалерея</a>
-        <a href="#production">Как мы производим →</a>
-      </div>
-    </div>
-  </section>
 
   <section id="gallery" class="gallery-block" aria-label="Фотогалерея">
     <div class="wrap">
@@ -5432,7 +5168,7 @@
         </button>
       </div>
       <div class="section-links reveal">
-        <a href="#works">Каталог работ</a>
+        <a href="nashi-raboty/">Каталог работ</a>
         <a href="nashi-raboty/">Все работы</a>
         <a href="#production">Производство</a>
         <a href="#contact">Заказать</a>
@@ -5498,7 +5234,7 @@
         </div>
       </div>
       <div class="section-links reveal">
-        <a href="#works">Смотреть работы</a>
+        <a href="nashi-raboty/">Смотреть работы</a>
         <a href="#youtube">Видео о бренде</a>
         <a href="granitnye-pamyatniki-almaty/">SEO: гранитные памятники</a>
         <a href="#contact">Заказать изготовление</a>
@@ -5589,7 +5325,7 @@
             </p>
             <p>
               Офис <a href="#contact">ул. Осетинская, 5а</a>
-              · смотрите также <a href="#works">наши работы</a>
+              · смотрите также <a href="nashi-raboty/">наши работы</a>
               и <a href="#why-us">почему выбирают нас</a>.
             </p>
           </div>
@@ -5741,7 +5477,7 @@
         На памятники и комплексы обсуждаем гарантийные условия при заказе.
         Подробности по телефону <a href="tel:+77010567667">+7 701 056 7667</a>
         или на странице <a href="kontakty/">контактов</a>.
-        Смотрите <a href="#works">примеры работ</a> и <a href="#faq">частые вопросы</a>.
+        Смотрите <a href="nashi-raboty/">примеры работ</a> и <a href="#faq">частые вопросы</a>.
       </p>
     </div>
   </section>
@@ -6254,7 +5990,7 @@
         <a class="btn btn--ghost" href="temy/">Новые темы (семантика)</a>
         <a class="btn btn--ghost" href="gruz-200-almaty/">Груз 200</a>
         <a class="btn btn--ghost" href="tseny-ritualnyh-uslug-almaty/">Цены</a>
-        <a class="btn btn--ghost" href="#works">Наши работы</a>
+        <a class="btn btn--ghost" href="nashi-raboty/">Наши работы</a>
         <a class="btn btn--ghost" href="#faq">Частые вопросы</a>
         <a class="btn btn--ghost" href="seo/">Справочник 50 материалов</a>
         <a class="btn btn--ghost" href="kontakty/">Контакты</a>
@@ -6278,7 +6014,7 @@
 <a href="klastery/"><strong>Полная карта кластеров</strong><span>SILO</span></a>
 <a href="kontakty/"><strong>Контакты</strong><span>Связь</span></a>
 <a href="#reviews"><strong>Отзывы</strong><span>Доверие</span></a>
-<a href="#works"><strong>Наши работы</strong><span>Примеры</span></a>
+<a href="nashi-raboty/"><strong>Наши работы</strong><span>Примеры</span></a>
 </div>
 </div>
 </section>
@@ -6288,7 +6024,7 @@
     Ритуальные услуги Алматы · памятники · катафалк<br />
     Александр · <a href="https://2gis.kz/almaty/geo/9430047375176085" target="_blank" rel="noopener noreferrer">ул. Осетинская, 5а</a><br />
     <a href="tel:+77010567667">+7 701 056 7667</a><br />
-    <a href="#works">Работы</a> · <a href="#production">Производство</a> · <a href="#youtube">Видео</a> · <a href="#why-us">Почему мы</a> · <a href="#guarantees">Гарантии</a> · <a href="#reviews">Отзывы</a> · <a href="#faq">FAQ</a><br />
+    <a href="nashi-raboty/">Работы</a> · <a href="#production">Производство</a> · <a href="#youtube">Видео</a> · <a href="#why-us">Почему мы</a> · <a href="#guarantees">Гарантии</a> · <a href="#reviews">Отзывы</a> · <a href="#faq">FAQ</a><br />
     <a href="uslugi/">Услуги</a> · <a href="ceny/">Цены</a> · <a href="nashi-raboty/">Наши работы</a> · <a href="stati/">Статьи</a> · <a href="otzyvy/">Отзывы</a> · <a href="faq/">FAQ</a> · <a href="kontakty/">Контакты</a> · <a href="o-kompanii/">О компании</a> · <a href="ai/">Для ИИ</a> · <a href="AI.md">AI.md</a> · <a href="temy/">Темы</a> · <a href="klastery/">SEO-кластеры</a> · <a href="rajony/">Районы</a> · <a href="naselennye-punkty/">Населённые пункты</a> · <a href="sitemap.xml">Sitemap</a>
   </footer>
 
