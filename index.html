@@ -1831,24 +1831,29 @@
     }
     .packages-banner {
       display: block;
-      width: min(100%, 360px);
-      margin: 0 auto 1.75rem;
+      width: 100%;
+      max-width: none;
+      margin: 0 0 1.75rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       overflow: hidden;
       background: #0a0a0c;
+      aspect-ratio: 21 / 9;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
     .packages-banner:hover {
       border-color: rgba(200, 162, 74, 0.4);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
     }
+    .packages-banner picture,
     .packages-banner img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
-      object-fit: contain;
-      object-position: center center;
+    }
+    .packages-banner img {
+      object-fit: cover;
+      object-position: center 28%;
       background: #050505;
     }
     .packages-stack {
@@ -1971,7 +1976,12 @@
       }
     }
     @media (max-width: 520px) {
-      .packages-banner { width: min(100%, 280px); margin-bottom: 1.35rem; }
+      .packages-banner {
+        aspect-ratio: 16 / 9;
+        margin-bottom: 1.35rem;
+        border-radius: 8px;
+      }
+      .packages-banner img { object-position: center 22%; }
       .packages-stack { gap: 0.85rem; }
       .package:hover { transform: none; }
       .package__name { font-size: 1.02rem; }
