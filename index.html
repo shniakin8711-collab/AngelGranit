@@ -979,6 +979,76 @@
     }
 
 
+
+    /* Soft angel backgrounds for sections */
+    .with-angel {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .with-angel::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.12;
+      filter: saturate(0.9) brightness(0.95);
+    }
+    .with-angel > * {
+      position: relative;
+      z-index: 1;
+    }
+    .with-angel--a::before {
+      background-image: url("images/angels/angel-bg-01.webp");
+      width: min(420px, 48vw);
+      height: min(640px, 78%);
+      left: -2%;
+      bottom: -6%;
+      background-position: left bottom;
+      opacity: 0.13;
+    }
+    .with-angel--b::before {
+      background-image: url("images/angels/angel-bg-02.webp");
+      width: min(400px, 46vw);
+      height: min(620px, 76%);
+      right: -3%;
+      bottom: -8%;
+      left: auto;
+      background-position: right bottom;
+      opacity: 0.12;
+    }
+    .with-angel--wings::before {
+      background-image: url("images/angels/angel-bg-wings.webp");
+      inset: auto 0 0 0;
+      width: 100%;
+      height: min(340px, 55%);
+      background-size: cover;
+      background-position: center bottom;
+      opacity: 0.1;
+      mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 100%);
+    }
+    .with-angel--a.with-angel--soft::before { opacity: 0.08; }
+    .with-angel--b.with-angel--soft::before { opacity: 0.08; }
+    .with-angel--wings.with-angel--soft::before { opacity: 0.07; }
+    @media (max-width: 720px) {
+      .with-angel--a::before,
+      .with-angel--b::before {
+        width: min(260px, 62vw);
+        height: min(400px, 55%);
+        opacity: 0.08;
+      }
+      .with-angel--wings::before {
+        height: min(220px, 42%);
+        opacity: 0.07;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .with-angel::before { opacity: 0.06; }
+    }
+
     /* Premium monument catalog */
     .pcat {
       --pcat-bg: #0b0b0b;
@@ -4167,7 +4237,7 @@
   </section>
 
 
-  <section class="pcat" id="katalog-pamyatnikov" aria-labelledby="pcat-title">
+  <section class="pcat with-angel with-angel--a" id="katalog-pamyatnikov" aria-labelledby="pcat-title">
     <div class="pcat__wrap">
       <header class="pcat__head reveal">
         <p class="pcat__eyebrow">Каталог</p>
@@ -4670,7 +4740,7 @@
     <span>направление: <strong>ритуальные услуги · Алматы</strong></span>
   </div>
 
-  <section id="directions" aria-label="Направления">
+  <section id="directions" aria-label="Направления" class="with-angel with-angel--b with-angel--soft">
     <div class="wrap">
       <div class="dual reveal">
         <article class="dual__panel">
@@ -4691,7 +4761,7 @@
     </div>
   </section>
 
-  <section id="packages">
+  <section id="packages" class="with-angel with-angel--wings">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// пакеты</p>
@@ -4791,7 +4861,7 @@
     </div>
   </section>
 
-  <section class="catalog" id="catalog" aria-label="Каталог ритуальных товаров">
+  <section class="catalog with-angel with-angel--a with-angel--soft" id="catalog" aria-label="Каталог ритуальных товаров">
     <div class="wrap">
       <header class="section-head reveal is-in">
         <p class="eyebrow">// каталог</p>
@@ -4817,7 +4887,7 @@
     </div>
   </section>
 
-  <section class="catalog catalog--monuments" id="monuments" aria-label="Каталог памятников">
+  <section class="catalog catalog--monuments with-angel with-angel--b" id="monuments" aria-label="Каталог памятников">
     <div class="wrap">
       <header class="section-head reveal is-in">
         <p class="eyebrow">// памятники</p>
@@ -4837,7 +4907,7 @@
     </div>
   </div>
 
-  <section class="calc" id="calc">
+  <section class="calc with-angel with-angel--wings with-angel--soft" id="calc">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// калькулятор</p>
@@ -4912,7 +4982,7 @@
   </section>
 
 
-  <section id="gallery" class="gallery-block" aria-label="Фотогалерея">
+  <section id="gallery" class="gallery-block with-angel with-angel--a" aria-label="Фотогалерея">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// галерея</p>
@@ -4992,7 +5062,7 @@
     </div>
   </div>
 
-  <section id="production" aria-label="Производство">
+  <section id="production" aria-label="Производство" class="with-angel with-angel--b with-angel--soft">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// производство</p>
@@ -5044,7 +5114,7 @@
     </div>
   </section>
 
-  <section class="yt" id="youtube" aria-label="Видео AngelGranit">
+  <section class="yt with-angel with-angel--wings" id="youtube" aria-label="Видео AngelGranit">
     <div class="wrap">
       <header class="section-head reveal is-in">
         <p class="eyebrow">// видео</p>
@@ -5142,7 +5212,7 @@
     </div>
   </section>
 
-  <section id="why-us" class="benefits" aria-label="Наши преимущества">
+  <section id="why-us" class="benefits with-angel with-angel--a" aria-label="Наши преимущества">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// преимущества</p>
@@ -5250,7 +5320,7 @@
     </div>
   </section>
 
-  <section id="guarantees" aria-label="Гарантии">
+  <section id="guarantees" aria-label="Гарантии" class="with-angel with-angel--b with-angel--soft">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// гарантии</p>
@@ -5284,7 +5354,7 @@
     </div>
   </section>
 
-  <section id="reviews" class="reviews-modern" aria-label="Отзывы">
+  <section id="reviews" class="reviews-modern with-angel with-angel--wings with-angel--soft" aria-label="Отзывы">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// отзывы</p>
@@ -5357,7 +5427,7 @@
     </div>
   </section>
 
-  <section id="faq" class="faq-block" aria-label="Часто задаваемые вопросы">
+  <section id="faq" class="faq-block with-angel with-angel--a with-angel--soft" aria-label="Часто задаваемые вопросы">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// faq</p>
@@ -5452,7 +5522,7 @@
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="contact with-angel with-angel--b" id="contact">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// контакты</p>
@@ -5553,7 +5623,7 @@
   </section>
 
 
-  <section class="share" id="share" aria-label="Поделиться сайтом">
+  <section class="share with-angel with-angel--wings with-angel--soft" id="share" aria-label="Поделиться сайтом">
     <div class="wrap">
       <div class="share__box reveal">
         <p class="eyebrow">// поделиться</p>
@@ -5596,7 +5666,7 @@
     </div>
   </section>
 
-<section class="seo-longform" id="seo-ritualnye-uslugi" aria-label="Ритуальные услуги Алматы — подробный гид">
+<section class="seo-longform with-angel with-angel--a with-angel--soft" id="seo-ritualnye-uslugi" aria-label="Ритуальные услуги Алматы — подробный гид">
   <div class="wrap">
     <header class="section-head reveal">
       <p class="eyebrow">// ритуальные услуги алматы</p>
@@ -5699,7 +5769,7 @@
   </div>
 </section>
 
-  <section class="seo-hub" id="seo-guides" aria-label="Полезные материалы">
+  <section class="seo-hub with-angel with-angel--b with-angel--soft" id="seo-guides" aria-label="Полезные материалы">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">// справочник</p>
@@ -5732,7 +5802,7 @@
 
   
 <!-- silo-architecture:start -->
-<section class="silo-links" aria-label="Перелинковка SILO">
+<section class="with-angel with-angel--wings with-angel--soft silo-links" aria-label="Перелинковка SILO">
 <div class="page-wrap--wide" style="margin:2rem auto">
 <h2 style="color:#d4af57;font-family:Cinzel,Georgia,serif">Тематические направления</h2>
 <p class="lead" style="color:#8e8980">Кластеры сайта: от ритуальных услуг и катафалка до памятников и статей.</p>
