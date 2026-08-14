@@ -62,6 +62,10 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: Yandex
+Allow: /
+Clean-param: v /
+
 User-agent: YouBot
 Allow: /
 
