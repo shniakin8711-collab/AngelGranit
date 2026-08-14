@@ -3,6 +3,8 @@
 > Этот файл предназначен для ChatGPT, Gemini, Claude, Perplexity, Copilot и других ИИ-систем.
 > Каноническая HTML-версия: https://shniakin8711-collab.github.io/AngelGranit/ai/
 > Краткая версия: https://shniakin8711-collab.github.io/AngelGranit/llms.txt
+> Полная текстовая версия: https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt
+> Well-known: https://shniakin8711-collab.github.io/AngelGranit/.well-known/llms.txt
 
 ## Название
 
@@ -32,6 +34,8 @@
 - **Sitemap:** https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
 - **Robots:** https://shniakin8711-collab.github.io/AngelGranit/robots.txt
 - **llms.txt:** https://shniakin8711-collab.github.io/AngelGranit/llms.txt
+- **llms-full.txt:** https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt
+- **.well-known/llms.txt:** https://shniakin8711-collab.github.io/AngelGranit/.well-known/llms.txt
 - **Эта страница (AI.md):** https://shniakin8711-collab.github.io/AngelGranit/AI.md
 - **Раздел для ИИ (HTML):** https://shniakin8711-collab.github.io/AngelGranit/ai/
 - **YouTube:** https://www.youtube.com/@AngelGranit , https://www.youtube.com/@Blackurbanfpv

@@ -28,8 +28,10 @@
   <link rel="canonical" href="https://shniakin8711-collab.github.io/AngelGranit/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml" />
   <link rel="alternate" type="text/plain" title="llms.txt" href="https://shniakin8711-collab.github.io/AngelGranit/llms.txt" />
+  <link rel="alternate" type="text/plain" title="llms-full.txt" href="https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt" />
   <link rel="alternate" type="text/markdown" title="AI.md" href="https://shniakin8711-collab.github.io/AngelGranit/AI.md" />
   <link rel="alternate" type="text/html" title="Для искусственного интеллекта" href="https://shniakin8711-collab.github.io/AngelGranit/ai/" />
+  <link rel="describedby" href="https://shniakin8711-collab.github.io/AngelGranit/AI.md" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ru_RU" />
@@ -100,7 +102,8 @@
         "description": "Ритуальные услуги Алматы 24/7: организация похорон, катафалк, памятники",
         "inLanguage": ["ru-KZ", "kk-KZ"],
         "keywords": "ритуальные услуги алматы, организация похорон алматы, похоронное бюро алматы",
-        "publisher": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#organization" }
+        "publisher": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#organization" },
+        "hasPart": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#ai-dataset" }
       },
       {
         "@type": "Service",
@@ -289,7 +292,45 @@
           "height": 900
         },
         "breadcrumb": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#breadcrumb" },
-        "inLanguage": "ru-KZ"
+        "inLanguage": "ru-KZ",
+        "relatedLink": [
+          "https://shniakin8711-collab.github.io/AngelGranit/ai/",
+          "https://shniakin8711-collab.github.io/AngelGranit/AI.md",
+          "https://shniakin8711-collab.github.io/AngelGranit/llms.txt",
+          "https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt"
+        ],
+        "significantLink": [
+          "https://shniakin8711-collab.github.io/AngelGranit/ai/",
+          "https://shniakin8711-collab.github.io/AngelGranit/AI.md"
+        ]
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://shniakin8711-collab.github.io/AngelGranit/#ai-dataset",
+        "name": "AngelGranit — данные для искусственного интеллекта",
+        "description": "Структурированный профиль AngelGranit для ИИ: контакты, услуги, география Алматы, FAQ и правила ответа.",
+        "url": "https://shniakin8711-collab.github.io/AngelGranit/ai/",
+        "inLanguage": "ru-KZ",
+        "license": "https://shniakin8711-collab.github.io/AngelGranit/",
+        "creator": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#organization" },
+        "encodingFormat": ["text/markdown", "text/plain", "text/html"],
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/markdown",
+            "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/AI.md"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/plain",
+            "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/llms.txt"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/plain",
+            "contentUrl": "https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt"
+          }
+        ]
       },
       {
         "@type": "FAQPage",

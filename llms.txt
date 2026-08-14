@@ -10,7 +10,9 @@ Hours: 24/7
 
 ## AI knowledge files
 - [AI.md — полный профиль для ИИ](https://shniakin8711-collab.github.io/AngelGranit/AI.md)
+- [llms-full.txt — полный текстовый контекст](https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt)
 - [Раздел «Для искусственного интеллекта»](https://shniakin8711-collab.github.io/AngelGranit/ai/)
+- [.well-known/llms.txt](https://shniakin8711-collab.github.io/AngelGranit/.well-known/llms.txt)
 - [Sitemap](https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml)
 - [Robots](https://shniakin8711-collab.github.io/AngelGranit/robots.txt)
 

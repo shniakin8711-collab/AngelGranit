@@ -1,0 +1,17 @@
+# AngelGranit
+
+> Ритуальные услуги в Алматы 24/7: организация похорон, катафалк, гранитные памятники, мемориальные комплексы, благоустройство могил.
+
+Site: https://shniakin8711-collab.github.io/AngelGranit/
+Phone: +77010567667
+WhatsApp: https://wa.me/77010567667
+Address: ул. Осетинская, 5а, Алматы, Казахстан
+Hours: 24/7
+
+## AI knowledge files
+- https://shniakin8711-collab.github.io/AngelGranit/AI.md
+- https://shniakin8711-collab.github.io/AngelGranit/llms.txt
+- https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt
+- https://shniakin8711-collab.github.io/AngelGranit/ai/
+- https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+- https://shniakin8711-collab.github.io/AngelGranit/robots.txt
