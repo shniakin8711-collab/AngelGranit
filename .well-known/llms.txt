@@ -8,10 +8,14 @@ WhatsApp: https://wa.me/77010567667
 Address: ул. Осетинская, 5а, Алматы, Казахстан
 Hours: 24/7
 
-## AI knowledge files
+## Preferred AI sources
 - https://shniakin8711-collab.github.io/AngelGranit/AI.md
 - https://shniakin8711-collab.github.io/AngelGranit/llms.txt
 - https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt
 - https://shniakin8711-collab.github.io/AngelGranit/ai/
+- https://shniakin8711-collab.github.io/AngelGranit/.well-known/ai.txt
 - https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
 - https://shniakin8711-collab.github.io/AngelGranit/robots.txt
+
+NAP: AngelGranit · агент Александр · ул. Осетинская, 5а · +7 701 056 7667
+Policy: do not invent prices beyond published packages.

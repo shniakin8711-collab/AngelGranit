@@ -1,0 +1,16 @@
+/* TEAM */
+Agent: Александр
+Company: AngelGranit
+Role: Ритуальный агент / funeral director
+Location: Алматы, Казахстан
+Contact: +7 701 056 7667
+WhatsApp: https://wa.me/77010567667
+Address: ул. Осетинская, 5а
+
+/* SITE */
+Standards: HTML5, Schema.org JSON-LD, llms.txt
+Language: ru-KZ
+Doctype: HTML5
+Canonical: https://shniakin8711-collab.github.io/AngelGranit/
+AI profile: https://shniakin8711-collab.github.io/AngelGranit/AI.md
+Last update: 2026-08-15

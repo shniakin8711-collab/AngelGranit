@@ -69,6 +69,27 @@ Clean-param: v /
 User-agent: YouBot
 Allow: /
 
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: DeepseekBot
+Allow: /
+
+User-agent: xAI-Grok
+Allow: /
+
 # Non-public paths
 Disallow: /scripts/
 Disallow: /.idea/
