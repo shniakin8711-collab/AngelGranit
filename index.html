@@ -1111,7 +1111,7 @@
 
 
 
-    /* Clean upright white angels — left + right only */
+    /* Tender ivory angels on the dark granite background */
     .with-angel {
       position: relative;
       isolation: isolate;
@@ -1128,46 +1128,44 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center bottom;
-      width: min(300px, 34vw);
-      height: min(460px, 78%);
-      opacity: 0.22;
-      filter: brightness(1.08);
-      -webkit-mask-image: radial-gradient(ellipse 70% 82% at 50% 58%, #000 48%, transparent 82%);
-      mask-image: radial-gradient(ellipse 70% 82% at 50% 58%, #000 48%, transparent 82%);
+      width: min(210px, 24vw);
+      height: min(520px, 88%);
+      opacity: 0.17;
+      filter: brightness(0.94) contrast(0.92) saturate(0.55);
     }
     .with-angel > * {
       position: relative;
       z-index: 1;
     }
     .with-angel::before {
-      background-image: url("images/angels/angel-clean-left.webp?v=1");
-      left: -2%;
+      background-image: url("images/angels/angel-clean-left.webp?v=2");
+      left: 0;
       bottom: 0;
     }
     .with-angel::after {
-      background-image: url("images/angels/angel-clean-right.webp?v=1");
-      right: -2%;
+      background-image: url("images/angels/angel-clean-right.webp?v=2");
+      right: 0;
       left: auto;
       bottom: 0;
     }
     .with-angel--soft::before,
-    .with-angel--soft::after { opacity: 0.16; }
+    .with-angel--soft::after { opacity: 0.12; }
     .with-angel--a::before,
     .with-angel--b::before,
     .with-angel--wings::before {
-      background-image: url("images/angels/angel-clean-left.webp?v=1");
+      background-image: url("images/angels/angel-clean-left.webp?v=2");
       background-size: contain;
       background-position: center bottom;
-      width: min(300px, 34vw);
-      height: min(460px, 78%);
-      left: -2%;
+      width: min(210px, 24vw);
+      height: min(520px, 88%);
+      left: 0;
       right: auto;
       bottom: 0;
       top: auto;
-      inset: auto auto 0 -2%;
-      opacity: 0.22;
-      mask-image: radial-gradient(ellipse 70% 82% at 50% 58%, #000 48%, transparent 82%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 82% at 50% 58%, #000 48%, transparent 82%);
+      inset: auto auto 0 0;
+      opacity: 0.17;
+      mask-image: none;
+      -webkit-mask-image: none;
     }
     .with-angel--a::after,
     .with-angel--b::after,
@@ -1177,19 +1175,19 @@
       z-index: 0;
       pointer-events: none;
       background-color: transparent;
-      background-image: url("images/angels/angel-clean-right.webp?v=1");
+      background-image: url("images/angels/angel-clean-right.webp?v=2");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center bottom;
-      width: min(300px, 34vw);
-      height: min(460px, 78%);
-      right: -2%;
+      width: min(210px, 24vw);
+      height: min(520px, 88%);
+      right: 0;
       left: auto;
       bottom: 0;
-      opacity: 0.22;
-      filter: brightness(1.08);
-      -webkit-mask-image: radial-gradient(ellipse 70% 82% at 50% 58%, #000 48%, transparent 82%);
-      mask-image: radial-gradient(ellipse 70% 82% at 50% 58%, #000 48%, transparent 82%);
+      opacity: 0.17;
+      filter: brightness(0.94) contrast(0.92) saturate(0.55);
+      mask-image: none;
+      -webkit-mask-image: none;
     }
     .with-angel--wings {
       background-image: none;
@@ -1199,20 +1197,20 @@
     }
     #catalog.with-angel::before,
     #catalog.with-angel::after {
-      width: min(260px, 30vw);
-      height: min(400px, 70%);
-      opacity: 0.2;
+      width: min(180px, 22vw);
+      height: min(440px, 78%);
+      opacity: 0.14;
     }
     #catalog.with-angel::before {
-      background-image: url("images/angels/angel-clean-left.webp?v=1");
-      left: -1%;
+      background-image: url("images/angels/angel-clean-left.webp?v=2");
+      left: 0;
       right: auto;
       bottom: 2%;
-      inset: auto auto 2% -1%;
+      inset: auto auto 2% 0;
     }
     #catalog.with-angel::after {
-      background-image: url("images/angels/angel-clean-right.webp?v=1");
-      right: -1%;
+      background-image: url("images/angels/angel-clean-right.webp?v=2");
+      right: 0;
       left: auto;
       bottom: 2%;
     }
@@ -1226,21 +1224,21 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center bottom;
-      width: min(240px, 28vw);
-      height: min(360px, 58%);
-      opacity: 0.14;
-      filter: brightness(1.12);
-      -webkit-mask-image: radial-gradient(ellipse 68% 80% at 50% 55%, #000 45%, transparent 80%);
-      mask-image: radial-gradient(ellipse 68% 80% at 50% 55%, #000 45%, transparent 80%);
+      width: min(170px, 20vw);
+      height: min(400px, 62%);
+      opacity: 0.11;
+      filter: brightness(0.92) contrast(0.9) saturate(0.5);
+      mask-image: none;
+      -webkit-mask-image: none;
     }
     .hero.with-angel-hero::before {
-      background-image: url("images/angels/angel-clean-left.webp?v=1");
-      left: -2%;
-      bottom: 3%;
+      background-image: url("images/angels/angel-clean-left.webp?v=2");
+      left: 1%;
+      bottom: 4%;
     }
     .hero.with-angel-hero::after {
-      background-image: url("images/angels/angel-clean-right.webp?v=1");
-      right: -2%;
+      background-image: url("images/angels/angel-clean-right.webp?v=2");
+      right: 1%;
       left: auto;
       bottom: 4%;
     }
@@ -1255,20 +1253,20 @@
       .with-angel--wings::after,
       #catalog.with-angel::before,
       #catalog.with-angel::after {
-        width: min(160px, 40vw);
-        height: min(250px, 48%);
-        opacity: 0.14;
+        width: min(110px, 28vw);
+        height: min(260px, 46%);
+        opacity: 0.1;
       }
       .hero.with-angel-hero::before,
       .hero.with-angel-hero::after {
-        width: min(120px, 32vw);
-        height: min(190px, 40%);
-        opacity: 0.1;
+        width: min(88px, 24vw);
+        height: min(180px, 36%);
+        opacity: 0.08;
       }
     }
     @media (prefers-reduced-motion: reduce) {
       .with-angel::before,
-      .with-angel::after { opacity: 0.12; }
+      .with-angel::after { opacity: 0.1; }
     }
 
     /* Premium monument catalog */
