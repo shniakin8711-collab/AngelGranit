@@ -7,9 +7,11 @@ HTML: https://shniakin8711-collab.github.io/AngelGranit/ai/
 
 ## Название
 
-- Юридическое / бренд: AngelGranit
+- Юридическое наименование: ИП Шнякина Н.
+- ИИН: 610104402461
+- Бренд: AngelGranit
 - Альтернативные названия: Ангел Гранит, Angel Granit, АнгелГранит
-- Тип организации: ритуальная служба / funeral home / LocalBusiness
+- Тип организации: ритуальная служба / funeral home / LocalBusiness (ИП)
 - Агент: Александр
 
 ## Город

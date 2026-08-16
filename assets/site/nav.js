@@ -63,4 +63,15 @@
     if (!el.getAttribute("rel")) el.setAttribute("rel", "noopener noreferrer");
     if (!el.getAttribute("target")) el.setAttribute("target", "_blank");
   });
+
+  if (!window.__agPdLoader) {
+    window.__agPdLoader = true;
+    var navScript = document.querySelector('script[src*="nav.js"]');
+    var pd = document.createElement("script");
+    pd.src = navScript && navScript.src
+      ? navScript.src.replace(/nav\.js(\?.*)?$/, "pd-consent.js")
+      : "assets/site/pd-consent.js";
+    pd.defer = true;
+    document.head.appendChild(pd);
+  }
 })();

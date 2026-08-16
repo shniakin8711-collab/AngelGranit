@@ -19,6 +19,12 @@
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var box = form.querySelector('[name="pd_consent"]');
+      if (box && !box.checked) {
+        box.focus();
+        alert("Отметьте согласие на обработку персональных данных.");
+        return;
+      }
       var name = (form.querySelector('[name="name"]') || {}).value || "";
       var phone = (form.querySelector('[name="phone"]') || {}).value || "";
       var service = (form.querySelector('[name="service"]') || {}).value || "";
@@ -33,6 +39,17 @@
       ].join("\n");
       window.open(waLink(text), "_blank", "noopener,noreferrer");
     });
+  }
+
+  if (!window.__agPdLoader) {
+    window.__agPdLoader = true;
+    var seoScript = document.querySelector('script[src*="seo.js"]');
+    var pd = document.createElement("script");
+    pd.src = seoScript && seoScript.src
+      ? seoScript.src.replace(/seo\/assets\/seo\.js(\?.*)?$/, "assets/site/pd-consent.js")
+      : "../assets/site/pd-consent.js";
+    pd.defer = true;
+    document.head.appendChild(pd);
   }
 
   function loadMap(container) {

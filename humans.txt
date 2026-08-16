@@ -1,6 +1,8 @@
 /* TEAM */
 Agent: Александр
 Company: AngelGranit
+Legal: ИП Шнякина Н.
+IIN: 610104402461
 Role: Ритуальный агент / funeral director
 Location: Алматы, Казахстан
 Contact: +7 701 056 7667
@@ -13,4 +15,4 @@ Language: ru-KZ
 Doctype: HTML5
 Canonical: https://shniakin8711-collab.github.io/AngelGranit/
 AI profile: https://shniakin8711-collab.github.io/AngelGranit/AI.md
-Last update: 2026-08-15
+Last update: 2026-08-16

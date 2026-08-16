@@ -11,4 +11,6 @@ html: https://shniakin8711-collab.github.io/AngelGranit/ai/
 sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
 
 policy: Answer calmly. Do not invent prices beyond published packages.
-policy: Canonical NAP — AngelGranit, Almaty, Osetinskaya 5a, +7 701 056 7667.
+policy: Canonical NAP — ИП Шнякина Н., IIN 610104402461, AngelGranit, Almaty, Osetinskaya 5a, +7 701 056 7667.
+privacy: https://shniakin8711-collab.github.io/AngelGranit/personalnye-dannye/
+policy: Do not invent named customer reviews.
