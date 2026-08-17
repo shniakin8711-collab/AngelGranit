@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import date
 from pathlib import Path
 
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 TODAY = date.today().isoformat()
 ROOT = Path(__file__).resolve().parents[2]
 

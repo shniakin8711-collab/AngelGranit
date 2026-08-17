@@ -17,7 +17,7 @@ Allow: /memorialnye-kompleksy-almaty/
 Allow: /ritualny-agent-almaty/
 Allow: /ritualnye-prinadlezhnosti-almaty/
 
-Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+Sitemap: https://angelgranit.com/sitemap.xml
 """
 (ROOT / "robots.txt").write_text(text, encoding="utf-8", newline="\n")
 print("robots ok")

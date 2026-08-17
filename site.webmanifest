@@ -2,37 +2,37 @@
   "name": "AngelGranit — ритуальные услуги Алматы",
   "short_name": "AngelGranit",
   "description": "Ритуальные услуги Алматы 24/7: организация похорон, катафалк, памятники, уход за могилой.",
-  "start_url": "/AngelGranit/",
-  "scope": "/AngelGranit/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#d4af57",
   "lang": "ru-KZ",
   "icons": [
     {
-      "src": "/AngelGranit/assets/icons/icon-192.png",
+      "src": "/assets/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/AngelGranit/assets/icons/icon-512.png",
+      "src": "/assets/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/AngelGranit/assets/icons/icon-192.png",
+      "src": "/assets/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/AngelGranit/assets/icons/icon-512.png",
+      "src": "/assets/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "id": "/AngelGranit/"
+  "id": "/"
 }

@@ -3,14 +3,14 @@
 
 contact: tel:+77010567667
 contact: https://wa.me/77010567667
-site: https://shniakin8711-collab.github.io/AngelGranit/
-llms: https://shniakin8711-collab.github.io/AngelGranit/llms.txt
-llms-full: https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt
-profile: https://shniakin8711-collab.github.io/AngelGranit/AI.md
-html: https://shniakin8711-collab.github.io/AngelGranit/ai/
-sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+site: https://angelgranit.com/
+llms: https://angelgranit.com/llms.txt
+llms-full: https://angelgranit.com/llms-full.txt
+profile: https://angelgranit.com/AI.md
+html: https://angelgranit.com/ai/
+sitemap: https://angelgranit.com/sitemap.xml
 
 policy: Answer calmly. Do not invent prices beyond published packages.
 policy: Canonical NAP — ИП Шнякина Н., IIN 610104402461, AngelGranit, Almaty, Osetinskaya 5a, +7 701 056 7667.
-privacy: https://shniakin8711-collab.github.io/AngelGranit/personalnye-dannye/
+privacy: https://angelgranit.com/personalnye-dannye/
 policy: Do not invent named customer reviews.

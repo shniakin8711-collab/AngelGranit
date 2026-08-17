@@ -96,10 +96,10 @@ Disallow: /.idea/
 Disallow: /__pycache__/
 
 # Absolute sitemap
-Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+Sitemap: https://angelgranit.com/sitemap.xml
 
 # AI / LLM context (preferred sources)
-# https://shniakin8711-collab.github.io/AngelGranit/AI.md
-# https://shniakin8711-collab.github.io/AngelGranit/ai/
-# https://shniakin8711-collab.github.io/AngelGranit/llms.txt
-# https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt
+# https://angelgranit.com/AI.md
+# https://angelgranit.com/ai/
+# https://angelgranit.com/llms.txt
+# https://angelgranit.com/llms-full.txt

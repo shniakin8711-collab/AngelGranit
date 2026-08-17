@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Metadata and unique outlines for 50 AngelGranit SEO pages."""
 
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 PHONE = "+7 701 056 7667"
 PHONE_TEL = "+77010567667"
 ADDRESS = "ул. Осетинская, 5а"

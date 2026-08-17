@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 SKIP_DIRS = {".git", ".idea", "scripts", "node_modules", "__pycache__", "assets"}
 
 

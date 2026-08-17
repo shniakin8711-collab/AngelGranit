@@ -463,7 +463,7 @@ def update_sitemap() -> None:
 
     # remove old uslugi/kontakty entries then inject after first url block end
     text = re.sub(
-        r"\s*<url>\s*<loc>https://shniakin8711-collab\.github\.io/AngelGranit/(?:uslugi(?:/[^<]*)?|kontakty)/</loc>[\s\S]*?</url>",
+        r"\s*<url>\s*<loc>https://angelgranit\.com/(?:uslugi(?:/[^<]*)?|kontakty)/</loc>[\s\S]*?</url>",
         "",
         text,
     )

@@ -1,10 +1,11 @@
-# Static AngelGranit site for GitHub Pages.
+# Static AngelGranit site for GitHub Pages (custom domain angelgranit.com).
 # Prevents Jekyll from skipping root config files during build.
 plugins: []
 safe: true
 markdown: kramdown
 include:
   - .nojekyll
+  - CNAME
   - robots.txt
   - sitemap.xml
   - sitemap-priority.xml

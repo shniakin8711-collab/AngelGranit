@@ -2,7 +2,7 @@
 """SEO SILO clusters for AngelGranit — thematic architecture (no design)."""
 from __future__ import annotations
 
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 
 # Popular money / intent services (link equity targets)
 POPULAR_SERVICES = [

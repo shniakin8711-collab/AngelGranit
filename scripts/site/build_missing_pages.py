@@ -12,7 +12,7 @@ from missing_pages_data import ADDRESS, AGENT, MISSING_PAGES, PHONE
 from seo_head import icon_links, social_meta
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 PHONE_TEL = "+77010567667"
 TODAY = date.today().isoformat()
 IMG_BASE = f"{BASE}/images/seo"

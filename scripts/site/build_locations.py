@@ -11,7 +11,7 @@ from pathlib import Path
 from seo_head import icon_links, social_meta
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 PHONE = "+7 701 056 7667"
 PHONE_TEL = "+77010567667"
 ADDRESS = "ул. Осетинская, 5а"
@@ -491,7 +491,7 @@ def update_sitemap() -> None:
     path = ROOT / "sitemap.xml"
     text = path.read_text(encoding="utf-8") if path.exists() else '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n'
     text = re.sub(
-        r"\s*<url>\s*<loc>https://shniakin8711-collab\.github\.io/AngelGranit/(?:rajony|naselennye-punkty)(?:/[^<]*)?/?</loc>[\s\S]*?</url>",
+        r"\s*<url>\s*<loc>https://angelgranit\.com/(?:rajony|naselennye-punkty)(?:/[^<]*)?/?</loc>[\s\S]*?</url>",
         "",
         text,
     )

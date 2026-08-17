@@ -42,7 +42,7 @@ def patch(path: Path) -> bool:
         # add twitter if missing
         text = re.sub(
             r'(<meta property="og:image"[^>]*>)',
-            r'\1\n  <meta name="twitter:card" content="summary_large_image" />\n  <meta name="twitter:image" content="https://shniakin8711-collab.github.io/AngelGranit/images/hero-angelgranit.webp" />',
+            r'\1\n  <meta name="twitter:card" content="summary_large_image" />\n  <meta name="twitter:image" content="https://angelgranit.com/images/hero-angelgranit.webp" />',
             text,
             count=1,
         )

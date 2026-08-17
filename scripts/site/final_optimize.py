@@ -11,7 +11,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 TODAY = date.today().isoformat()
 SKIP_DIRS = {".git", ".idea", "scripts", "node_modules", "__pycache__", "assets"}
 PHONE = "+7 701 056 7667"

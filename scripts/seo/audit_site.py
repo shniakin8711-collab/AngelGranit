@@ -22,7 +22,7 @@ def check_local_encoding():
 
 
 def check_live():
-    url = "https://shniakin8711-collab.github.io/AngelGranit/ritualnye-uslugi-almaty/"
+    url = "https://angelgranit.com/ritualnye-uslugi-almaty/"
     with urllib.request.urlopen(url, timeout=30) as r:
         data = r.read()
         ctype = r.headers.get("Content-Type", "")

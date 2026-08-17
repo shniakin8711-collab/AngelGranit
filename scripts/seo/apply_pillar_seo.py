@@ -96,17 +96,17 @@ def patch_index() -> None:
 
     # Schema: FuneralHome -> LocalBusiness + FuneralHome, add Organization, strengthen keywords
     html = html.replace(
-        '"@type": "FuneralHome",\n        "@id": "https://shniakin8711-collab.github.io/AngelGranit/#business",',
-        '"@type": ["LocalBusiness", "FuneralHome"],\n        "@id": "https://shniakin8711-collab.github.io/AngelGranit/#business",',
+        '"@type": "FuneralHome",\n        "@id": "https://angelgranit.com/#business",',
+        '"@type": ["LocalBusiness", "FuneralHome"],\n        "@id": "https://angelgranit.com/#business",',
         1,
     )
     if '"@type": "Organization"' not in html:
         org = """      {
         "@type": "Organization",
-        "@id": "https://shniakin8711-collab.github.io/AngelGranit/#organization",
+        "@id": "https://angelgranit.com/#organization",
         "name": "AngelGranit",
-        "url": "https://shniakin8711-collab.github.io/AngelGranit/",
-        "logo": "https://shniakin8711-collab.github.io/AngelGranit/images/hero-angelgranit.png",
+        "url": "https://angelgranit.com/",
+        "logo": "https://angelgranit.com/images/hero-angelgranit.png",
         "telephone": "+77010567667",
         "sameAs": [
           "https://www.youtube.com/@Blackurbanfpv",
@@ -120,8 +120,8 @@ def patch_index() -> None:
             1,
         )
         html = html.replace(
-            '"publisher": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#business" }',
-            '"publisher": { "@id": "https://shniakin8711-collab.github.io/AngelGranit/#organization" }',
+            '"publisher": { "@id": "https://angelgranit.com/#business" }',
+            '"publisher": { "@id": "https://angelgranit.com/#organization" }',
             1,
         )
 
@@ -326,7 +326,7 @@ Allow: /memorialnye-kompleksy-almaty/
 Allow: /ritualny-agent-almaty/
 Allow: /ritualnye-prinadlezhnosti-almaty/
 
-Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+Sitemap: https://angelgranit.com/sitemap.xml
 """
     (ROOT / "robots.txt").write_text(text, encoding="utf-8", newline="\n")
     print("robots.txt updated")

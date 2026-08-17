@@ -13,7 +13,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 TODAY = date.today().isoformat()
 PHONE = "+7 701 056 7667"
 PHONE_TEL = "+77010567667"
@@ -64,7 +64,7 @@ Disallow: /scripts/
 Disallow: /.idea/
 
 # Sitemap (absolute)
-Sitemap: https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml
+Sitemap: https://angelgranit.com/sitemap.xml
 """
     safe_write(ROOT / "robots.txt", robots)
     log("A", "robots.txt refreshed")

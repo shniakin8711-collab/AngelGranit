@@ -13,6 +13,6 @@ Address: ул. Осетинская, 5а
 Standards: HTML5, Schema.org JSON-LD, llms.txt
 Language: ru-KZ
 Doctype: HTML5
-Canonical: https://shniakin8711-collab.github.io/AngelGranit/
-AI profile: https://shniakin8711-collab.github.io/AngelGranit/AI.md
+Canonical: https://angelgranit.com/
+AI profile: https://angelgranit.com/AI.md
 Last update: 2026-08-16

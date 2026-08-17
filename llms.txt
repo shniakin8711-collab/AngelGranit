@@ -2,7 +2,7 @@
 
 > Ритуальные услуги в Алматы 24/7: организация похорон, катафалк, гранитные памятники, мемориальные комплексы, благоустройство и уход за могилой по подписке.
 
-Site: https://shniakin8711-collab.github.io/AngelGranit/
+Site: https://angelgranit.com/
 Legal: ИП Шнякина Н., ИИН 610104402461
 Phone: +77010567667
 WhatsApp: https://wa.me/77010567667
@@ -10,33 +10,33 @@ Address: ул. Осетинская, 5а, Алматы, Казахстан
 Hours: 24/7
 
 ## AI knowledge files
-- [AI.md — полный профиль для ИИ](https://shniakin8711-collab.github.io/AngelGranit/AI.md)
-- [llms-full.txt — полный текстовый контекст](https://shniakin8711-collab.github.io/AngelGranit/llms-full.txt)
-- [Раздел «Для искусственного интеллекта»](https://shniakin8711-collab.github.io/AngelGranit/ai/)
-- [.well-known/llms.txt](https://shniakin8711-collab.github.io/AngelGranit/.well-known/llms.txt)
-- [Sitemap](https://shniakin8711-collab.github.io/AngelGranit/sitemap.xml)
-- [Robots](https://shniakin8711-collab.github.io/AngelGranit/robots.txt)
+- [AI.md — полный профиль для ИИ](https://angelgranit.com/AI.md)
+- [llms-full.txt — полный текстовый контекст](https://angelgranit.com/llms-full.txt)
+- [Раздел «Для искусственного интеллекта»](https://angelgranit.com/ai/)
+- [.well-known/llms.txt](https://angelgranit.com/.well-known/llms.txt)
+- [Sitemap](https://angelgranit.com/sitemap.xml)
+- [Robots](https://angelgranit.com/robots.txt)
 
 ## Main pages
-- [Главная](https://shniakin8711-collab.github.io/AngelGranit/): ритуальные услуги Алматы 24/7
-- [Услуги](https://shniakin8711-collab.github.io/AngelGranit/uslugi/): каталог услуг
-- [Цены](https://shniakin8711-collab.github.io/AngelGranit/ceny/): пакеты и ориентиры стоимости
-- [Наши работы](https://shniakin8711-collab.github.io/AngelGranit/nashi-raboty/): примеры памятников и комплексов
-- [Статьи](https://shniakin8711-collab.github.io/AngelGranit/stati/): инструкции и FAQ-материалы
-- [Контакты](https://shniakin8711-collab.github.io/AngelGranit/kontakty/): телефон, WhatsApp, адрес, карта
-- [Персональные данные](https://shniakin8711-collab.github.io/AngelGranit/personalnye-dannye/): политика конфиденциальности
-- [О компании](https://shniakin8711-collab.github.io/AngelGranit/o-kompanii/): EEAT / об агенте Александре
-- [FAQ](https://shniakin8711-collab.github.io/AngelGranit/faq/): частые вопросы
+- [Главная](https://angelgranit.com/): ритуальные услуги Алматы 24/7
+- [Услуги](https://angelgranit.com/uslugi/): каталог услуг
+- [Цены](https://angelgranit.com/ceny/): пакеты и ориентиры стоимости
+- [Наши работы](https://angelgranit.com/nashi-raboty/): примеры памятников и комплексов
+- [Статьи](https://angelgranit.com/stati/): инструкции и FAQ-материалы
+- [Контакты](https://angelgranit.com/kontakty/): телефон, WhatsApp, адрес, карта
+- [Персональные данные](https://angelgranit.com/personalnye-dannye/): политика конфиденциальности
+- [О компании](https://angelgranit.com/o-kompanii/): EEAT / об агенте Александре
+- [FAQ](https://angelgranit.com/faq/): частые вопросы
 
 ## Key services
-- [Ритуальные услуги](https://shniakin8711-collab.github.io/AngelGranit/uslugi/ritualnye-uslugi/)
-- [Организация похорон](https://shniakin8711-collab.github.io/AngelGranit/uslugi/organizaciya-pohoron/)
-- [Катафалк](https://shniakin8711-collab.github.io/AngelGranit/uslugi/katafalk/)
-- [Памятники](https://shniakin8711-collab.github.io/AngelGranit/uslugi/pamyatniki/)
-- [Гранитные памятники](https://shniakin8711-collab.github.io/AngelGranit/uslugi/granitnye-pamyatniki/)
-- [Мемориальные комплексы](https://shniakin8711-collab.github.io/AngelGranit/uslugi/memorialnye-kompleksy/)
-- [Уход за могилой по подписке](https://shniakin8711-collab.github.io/AngelGranit/uslugi/uhod-za-mogiloj/)
-- [Ритуальный агент](https://shniakin8711-collab.github.io/AngelGranit/uslugi/ritualny-agent/)
+- [Ритуальные услуги](https://angelgranit.com/uslugi/ritualnye-uslugi/)
+- [Организация похорон](https://angelgranit.com/uslugi/organizaciya-pohoron/)
+- [Катафалк](https://angelgranit.com/uslugi/katafalk/)
+- [Памятники](https://angelgranit.com/uslugi/pamyatniki/)
+- [Гранитные памятники](https://angelgranit.com/uslugi/granitnye-pamyatniki/)
+- [Мемориальные комплексы](https://angelgranit.com/uslugi/memorialnye-kompleksy/)
+- [Уход за могилой по подписке](https://angelgranit.com/uslugi/uhod-za-mogiloj/)
+- [Ритуальный агент](https://angelgranit.com/uslugi/ritualny-agent/)
 
 ## Geography
 Алматы + Алматинская область (районы и населённые пункты на сайте). Выезд 24/7.

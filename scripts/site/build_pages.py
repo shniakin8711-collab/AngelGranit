@@ -16,7 +16,7 @@ from pathlib import Path
 from seo_head import icon_links, social_meta
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://shniakin8711-collab.github.io/AngelGranit"
+BASE = "https://angelgranit.com"
 PHONE = "+7 701 056 7667"
 PHONE_TEL = "+77010567667"
 ADDRESS = "ул. Осетинская, 5а"
