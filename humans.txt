@@ -15,4 +15,4 @@ Language: ru-KZ
 Doctype: HTML5
 Canonical: https://angelgranit.com/
 AI profile: https://angelgranit.com/AI.md
-Last update: 2026-08-16
+Last update: 2026-08-18

@@ -36,55 +36,107 @@
   <link rel="stylesheet" href="../assets/site/nav.css" />
   <link rel="stylesheet" href="../assets/site/page.css" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "AboutPage",
-        "@id": "https://angelgranit.com/o-kompanii/#webpage",
-        "url": "https://angelgranit.com/o-kompanii/",
-        "name": "О компании AngelGranit",
-        "description": "Ритуальные услуги Алматы 24/7: организация похорон, катафалк, памятники.",
-        "about": {"@id": "https://angelgranit.com/#business"}
-      },
-      {
-        "@type": ["LocalBusiness", "FuneralHome"],
-        "@id": "https://angelgranit.com/#business",
-        "name": "AngelGranit",
-        "legalName": "ИП Шнякина Н.",
-        "taxID": "610104402461",
-        "url": "https://angelgranit.com/",
-        "telephone": "+77010567667",
-        "image": "https://angelgranit.com/images/hero-angelgranit.webp",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "ул. Осетинская, 5а",
-          "addressLocality": "Алматы",
-          "addressCountry": "KZ"
-        },
-        "geo": {"@type": "GeoCoordinates", "latitude": 43.289921, "longitude": 76.961065},
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
-        "priceRange": "₸₸₸",
-        "areaServed": [{"@type": "City", "name": "Алматы"}, {"@type": "AdministrativeArea", "name": "Алматинская область"}],
-        "sameAs": [
-          "https://www.youtube.com/@AngelGranit",
-          "https://www.youtube.com/@Blackurbanfpv"
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://angelgranit.com/"},
-          {"@type": "ListItem", "position": 2, "name": "О компании", "item": "https://angelgranit.com/o-kompanii/"}
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://angelgranit.com/#organization",
+      "name": "AngelGranit",
+      "legalName": "ИП Шнякина Н.",
+      "taxID": "610104402461",
+      "url": "https://angelgranit.com/",
+      "telephone": "+77010567667",
+      "sameAs": [
+        "https://www.youtube.com/@AngelGranit",
+        "https://2gis.kz/almaty/geo/9430047375176085"
+      ]
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://angelgranit.com/o-kompanii/#webpage",
+      "url": "https://angelgranit.com/o-kompanii/",
+      "name": "О компании AngelGranit",
+      "description": "Ритуальные услуги Алматы 24/7: организация похорон, катафалк, памятники.",
+      "about": {
+        "@id": "https://angelgranit.com/#business"
       }
-    ]
-  }
+    },
+    {
+      "@type": [
+        "LocalBusiness",
+        "FuneralHome"
+      ],
+      "@id": "https://angelgranit.com/#business",
+      "name": "AngelGranit",
+      "legalName": "ИП Шнякина Н.",
+      "taxID": "610104402461",
+      "url": "https://angelgranit.com/",
+      "telephone": "+77010567667",
+      "image": "https://angelgranit.com/images/hero-angelgranit.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Осетинская, 5а",
+        "addressLocality": "Алматы",
+        "addressCountry": "KZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.289921,
+        "longitude": 76.961065
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "priceRange": "₸₸₸",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Алматы"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Алматинская область"
+        }
+      ],
+      "sameAs": [
+        "https://www.youtube.com/@AngelGranit",
+        "https://www.youtube.com/@Blackurbanfpv",
+        "https://2gis.kz/almaty/geo/9430047375176085"
+      ],
+      "hasMap": "https://2gis.kz/almaty/geo/9430047375176085",
+      "openingHours": "Mo-Su 00:00-24:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://angelgranit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "О компании",
+          "item": "https://angelgranit.com/o-kompanii/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -110,7 +162,7 @@
       </nav>
       <header class="page-hero">
         <h1>О компании AngelGranit</h1>
-        <p class="lead">Ритуальные услуги в Алматы 24/7: организация похорон, катафалк, памятники и благоустройство — с одним координатором для семьи.</p>
+        <p class="lead">AngelGranit — ритуальная служба и гранитная мастерская в Алматы. Оператор: ИП Шнякина Н. (ИИН 610104402461). На линии агент Александр, 24/7. Офис ул. Осетинская, 5а. Памятники изготавливаем сами; ночью принимаем звонки и выезжаем по городу.</p>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить +7 701 056 7667</a>
           <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -118,13 +170,13 @@
         </div>
       </header>
       <article class="page-article">
-        <h2>Кто мы</h2>
-        <p>AngelGranit — ритуальная служба и гранитная мастерская в Алматы. Агент Александр принимает обращения круглосуточно и помогает выстроить порядок действий без давления «обязательным» премиум-пакетом.</p>
-        <p>Мы совмещаем организацию прощания и последующее оформление места памяти: от катафалка до гранитного памятника и благоустройства.</p>
-        <h2>Как работаем</h2>
-        <p>После звонка уточняем обстоятельства, район и пожелания семьи. Составляем понятный план и ориентир по бюджету. В день церемонии держим единый тайминг. После похорон остаёмся на связи по памятникам и уходу за участком.</p>
+        <h2>Кто оператор и кто на линии</h2>
+        <p>Юридически услугу оказывает ИП Шнякина Н., ИИН 610104402461. Бренд на сайте — AngelGranit. Агент Александр принимает обращения круглосуточно и помогает выстроить порядок действий без давления «обязательным» премиум-пакетом.</p>
+        <p>Мы совмещаем организацию прощания и последующее оформление места памяти: от катафалка до гранитного памятника и благоустройства. Гранит обрабатываем на своём производстве, не перепродаём чужой камень «с витрины».</p>
+        <h2>Как работаем ночью</h2>
+        <p>После звонка уточняем обстоятельства, район и пожелания семьи. Составляем понятный план и ориентир по бюджету. Ночью и в выходные тот же номер: +7 701 056 7667. В день церемонии держим единый тайминг. После похорон остаёмся на связи по памятникам и уходу за участком.</p>
         <h2>Реквизиты</h2>
-        <p>Оператор: ИП Шнякина Н., ИИН 610 104 402 461. Офис: ул. Осетинская, 5а, Алматы. Режим приёма заявок: 24/7. Карта и маршрут — на <a href="../kontakty/">странице контактов</a>. Политика обработки данных: <a href="../personalnye-dannye/">конфиденциальность</a>.</p>
+        <p>Оператор: ИП Шнякина Н., ИИН 610104402461. Офис: ул. Осетинская, 5а, Алматы. Режим приёма заявок: 24/7. Карта и маршрут — на <a href="../kontakty/">странице контактов</a>. Политика обработки данных: <a href="../personalnye-dannye/">конфиденциальность</a>.</p>
         <h2>Адрес и режим</h2>
         <p>Офис: ул. Осетинская, 5а, Алматы. Заявки принимаем круглосуточно.</p>
         <h2>Доказательства работы</h2>

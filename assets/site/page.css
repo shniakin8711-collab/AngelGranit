@@ -43,6 +43,20 @@
   font-size: 1.25rem; color: #d4af57;
 }
 .page-article p { margin: 0 0 1rem; color: rgba(245,240,230,0.88); line-height: 1.75; }
+.page-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+.page-article th, .page-article td {
+  border: 1px solid rgba(236,232,224,0.12);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  color: rgba(245,240,230,0.9);
+}
+.page-article th { color: #d4af57; font-weight: 600; background: #111116; }
+.page-article ol { margin: 0 0 1.25rem; padding-left: 1.25rem; color: rgba(245,240,230,0.88); line-height: 1.7; }
 .page-faq details {
   border: 1px solid rgba(236,232,224,0.1);
   border-radius: 4px; padding: 0.85rem 1rem; margin: 0 0 0.55rem; background: #111116;
