@@ -94,6 +94,7 @@ Allow: /
 Disallow: /scripts/
 Disallow: /.idea/
 Disallow: /__pycache__/
+Disallow: /CNAME
 
 # Absolute sitemap
 Sitemap: https://angelgranit.com/sitemap.xml

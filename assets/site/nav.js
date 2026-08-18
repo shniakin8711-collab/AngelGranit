@@ -1,4 +1,8 @@
 (function () {
+  if (location.protocol === "http:") {
+    location.replace("https://angelgranit.com" + location.pathname + location.search + location.hash);
+    return;
+  }
   function qs(sel, root) { return (root || document).querySelector(sel); }
   function qsa(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
