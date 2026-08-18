@@ -238,27 +238,28 @@ def page_shell(title: str, desc: str, url: str, body: str, schema: dict, depth: 
 """
 
 
-def local_business_schema(name: str, url: str, lat: float, lng: float, desc: str) -> dict:
+def canonical_business() -> dict:
     return {
         "@type": ["LocalBusiness", "FuneralHome"],
-        "@id": url + "#localbusiness",
-        "name": f"AngelGranit — {name}",
-        "image": f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp",
-        "url": url,
+        "@id": f"{BASE}/#business",
+        "name": "AngelGranit",
+        "legalName": "ИП Шнякина Н.",
+        "taxID": "610104402461",
+        "url": f"{BASE}/",
         "telephone": PHONE_TEL,
-        "priceRange": "₸₸₸",
-        "description": desc,
         "address": {
             "@type": "PostalAddress",
             "streetAddress": ADDRESS,
             "addressLocality": "Алматы",
-            "addressRegion": "Алматы",
             "addressCountry": "KZ",
         },
-        "geo": {"@type": "GeoCoordinates", "latitude": lat, "longitude": lng},
+        "geo": {"@type": "GeoCoordinates", "latitude": OFFICE_LAT, "longitude": OFFICE_LNG},
         "openingHours": "Mo-Su 00:00-24:00",
-        "areaServed": {"@type": "Place", "name": name},
-        "parentOrganization": {"@id": f"{BASE}/#organization"},
+        "sameAs": [
+            "https://www.youtube.com/@AngelGranit",
+            "https://2gis.kz/almaty/geo/9430047375176085",
+        ],
+        "hasMap": "https://2gis.kz/almaty/geo/9430047375176085",
     }
 
 
@@ -302,9 +303,16 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
                 "@type": "Organization",
                 "@id": f"{BASE}/#organization",
                 "name": "AngelGranit",
+                "legalName": "ИП Шнякина Н.",
+                "taxID": "610104402461",
                 "url": f"{BASE}/",
                 "telephone": PHONE_TEL,
+                "sameAs": [
+                    "https://www.youtube.com/@AngelGranit",
+                    "https://2gis.kz/almaty/geo/9430047375176085",
+                ],
             },
+            canonical_business(),
             {
                 "@type": "WebSite",
                 "@id": f"{BASE}/#website",
@@ -318,13 +326,12 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
                 "description": desc,
                 "url": url,
                 "isPartOf": {"@id": f"{BASE}/#website"},
-                "about": local_business_schema(place, url, loc["lat"], loc["lng"], desc),
+                "about": {"@id": f"{BASE}/#business"},
             },
-            local_business_schema(place, url, loc["lat"], loc["lng"], desc),
             {
                 "@type": "Service",
                 "name": f"Ритуальные услуги в {place}",
-                "provider": {"@id": f"{BASE}/#organization"},
+                "provider": {"@id": f"{BASE}/#business"},
                 "areaServed": {"@type": "Place", "name": place},
                 "url": url,
             },
@@ -385,7 +392,7 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
       </nav>
       <header class="page-hero">
         <h1>{esc(h1)}</h1>
-        <p class="lead">Выезд ритуального агента, организация похорон, катафалк и памятники для семей в {esc(kind_word)} {esc(place)}.</p>
+        <p class="lead">AngelGranit — ритуальные услуги в {esc(place)} 24/7: выезд агента и катафалк. {esc(landmarks.capitalize())}. Офис ул. Осетинская, 5а, агент Александр, +7 701 056 7667.</p>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:{PHONE_TEL}">Позвонить {esc(PHONE)}</a>
           <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
