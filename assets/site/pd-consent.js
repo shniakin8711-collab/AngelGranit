@@ -15,11 +15,30 @@
     var href = pdHref();
     var label = document.createElement("label");
     label.className = "pd-consent";
-    label.style.cssText = "display:flex;gap:.5rem;align-items:flex-start;margin:0.75rem 0;font-size:0.82rem;line-height:1.4;color:#9a907e;";
-    label.innerHTML =
-      '<input type="checkbox" name="pd_consent" value="1" required style="width:auto;margin-top:.2rem;flex-shrink:0" />' +
-      '<span>Согласен на обработку персональных данных (имя, телефон) и на связь через WhatsApp (серверы вне РК). ' +
-      '<a href="' + href + '">Политика конфиденциальности</a></span>';
+    label.style.cssText =
+      "display:flex;gap:.5rem;align-items:flex-start;margin:0.75rem 0;font-size:0.82rem;line-height:1.4;color:#9a907e;";
+
+    var input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = "pd_consent";
+    input.value = "1";
+    input.required = true;
+    input.style.cssText = "width:auto;margin-top:.2rem;flex-shrink:0";
+
+    var span = document.createElement("span");
+    span.appendChild(
+      document.createTextNode(
+        "Согласен на обработку персональных данных (имя, телефон) и на связь через WhatsApp (серверы вне РК). "
+      )
+    );
+    var a = document.createElement("a");
+    a.href = href;
+    a.textContent = "Политика конфиденциальности";
+    span.appendChild(a);
+
+    label.appendChild(input);
+    label.appendChild(span);
+
     var actions = form.querySelector(".form-actions, .pcat-modal__submit");
     if (actions && actions.parentNode === form) form.insertBefore(label, actions);
     else if (actions && actions.classList.contains("pcat-modal__submit")) form.insertBefore(label, actions);
@@ -51,8 +70,11 @@
       if (footer.querySelector("[data-pd-link]")) return;
       var p = document.createElement("p");
       p.style.cssText = "margin:.7rem 0 0;font-size:.82rem;";
-      p.innerHTML =
-        '<a data-pd-link href="' + href + '">Политика конфиденциальности</a>';
+      var a = document.createElement("a");
+      a.setAttribute("data-pd-link", "");
+      a.href = href;
+      a.textContent = "Политика конфиденциальности";
+      p.appendChild(a);
       footer.appendChild(p);
     });
   }

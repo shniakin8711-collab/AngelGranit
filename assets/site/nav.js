@@ -68,6 +68,14 @@
     if (!el.getAttribute("target")) el.setAttribute("target", "_blank");
   });
 
+  // Harden external links: noopener/noreferrer on blank targets
+  qsa('a[target="_blank"]', document).forEach(function (el) {
+    var rel = (el.getAttribute("rel") || "").toLowerCase();
+    if (rel.indexOf("noopener") === -1 || rel.indexOf("noreferrer") === -1) {
+      el.setAttribute("rel", "noopener noreferrer");
+    }
+  });
+
   if (!window.__agPdLoader) {
     window.__agPdLoader = true;
     var navScript = document.querySelector('script[src*="nav.js"]');

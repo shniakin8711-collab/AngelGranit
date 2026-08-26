@@ -95,9 +95,13 @@ Disallow: /scripts/
 Disallow: /.idea/
 Disallow: /__pycache__/
 Disallow: /CNAME
+Disallow: /.git/
 
 # Absolute sitemap
 Sitemap: https://angelgranit.com/sitemap.xml
+
+# Security contact
+# https://angelgranit.com/.well-known/security.txt
 
 # AI / LLM context (preferred sources)
 # https://angelgranit.com/AI.md

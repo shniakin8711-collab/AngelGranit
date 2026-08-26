@@ -1,0 +1,6 @@
+Contact: https://angelgranit.com/kontakty/
+Contact: tel:+77010567667
+Expires: 2027-08-26T00:00:00.000Z
+Preferred-Languages: ru, kk
+Canonical: https://angelgranit.com/.well-known/security.txt
+Policy: https://angelgranit.com/personalnye-dannye/

@@ -56,21 +56,25 @@
     if (!container || container.dataset.loaded === "1") return;
     var lat = container.dataset.lat || "43.289921";
     var lng = container.dataset.lng || "76.961065";
+    if (!/^-?\d+(\.\d+)?$/.test(String(lat)) || !/^-?\d+(\.\d+)?$/.test(String(lng))) {
+      lat = "43.289921";
+      lng = "76.961065";
+    }
     var q = encodeURIComponent("ул. Осетинская, 5а, Алматы");
     var iframe = document.createElement("iframe");
     iframe.title = "Карта Google — офис AngelGranit, ул. Осетинская, 5а, Алматы";
     iframe.loading = "lazy";
-    iframe.referrerPolicy = "no-referrer-when-downgrade";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.allowFullscreen = true;
     iframe.src =
       "https://maps.google.com/maps?q=" +
-      lat +
+      encodeURIComponent(lat) +
       "," +
-      lng +
+      encodeURIComponent(lng) +
       "(" +
       q +
       ")&z=16&output=embed";
-    container.innerHTML = "";
+    while (container.firstChild) container.removeChild(container.firstChild);
     container.appendChild(iframe);
     container.dataset.loaded = "1";
   }
