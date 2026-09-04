@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="ru-KZ">
 <head>
-  <!-- deploy-bump: 2026-08-08-final-optimize -->
+  <!-- deploy-bump: 2026-09-05-homepage-url -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ритуальные услуги Алматы 24/7 | Организация похорон | AngelGranit</title>
@@ -27,12 +27,17 @@
   <meta name="geo.placename" content="Алматы" />
   <meta name="geo.position" content="43.2900708;76.9611345" />
   <meta name="ICBM" content="43.2900708, 76.9611345" />
-  <meta name="ICBM" content="43.289921, 76.961065" />
   <link rel="canonical" href="https://angelgranit.com/" />
+  <link rel="home" href="https://angelgranit.com/" />
   <script>
-    if (location.protocol === "http:") {
-      location.replace("https://angelgranit.com" + location.pathname + location.search + location.hash);
-    }
+    (function () {
+      var host = location.hostname;
+      var path = location.pathname;
+      if (location.protocol === "http:" || host === "www.angelgranit.com" || path === "/index.html") {
+        var cleanPath = path === "/index.html" ? "/" : path;
+        location.replace("https://angelgranit.com" + cleanPath + location.search + location.hash);
+      }
+    })();
   </script>
   <link rel="alternate" hreflang="ru-KZ" href="https://angelgranit.com/" />
   <link rel="alternate" hreflang="ru" href="https://angelgranit.com/" />
@@ -142,7 +147,13 @@
         "inLanguage": "ru-KZ",
         "keywords": "ритуальные услуги алматы, организация похорон алматы, похоронное бюро алматы",
         "publisher": { "@id": "https://angelgranit.com/#organization" },
-        "hasPart": { "@id": "https://angelgranit.com/#ai-dataset" }
+        "about": { "@id": "https://angelgranit.com/#business" },
+        "mainEntity": { "@id": "https://angelgranit.com/#webpage" },
+        "hasPart": { "@id": "https://angelgranit.com/#ai-dataset" },
+        "potentialAction": {
+          "@type": "ReadAction",
+          "target": "https://angelgranit.com/"
+        }
       },
       {
         "@type": "Service",
@@ -203,6 +214,7 @@
         "logo": "https://angelgranit.com/assets/icons/icon-512.png",
         "description": "Ритуальные услуги Алматы 24/7: организация похорон под ключ, гранитные памятники, катафалк, благоустройство и уход за могилой по подписке. Сайт angelgranit.com, юрлицо ИП Шнякина Н. (ИИН 610104402461) и карточка Google Maps «ИП.Шнякина Н» — одна сущность.",
         "telephone": "+77010567667",
+        "mainEntityOfPage": { "@id": "https://angelgranit.com/#webpage" },
         "employee": { "@id": "https://angelgranit.com/#person-alexander" },
         "slogan": "Ритуальные услуги Алматы 24/7",
         "knowsLanguage": ["ru", "kk"],
@@ -382,15 +394,17 @@
         ]
       },
       {
-        "@type": "WebPage",
+        "@type": ["WebPage", "CollectionPage"],
         "@id": "https://angelgranit.com/#webpage",
         "url": "https://angelgranit.com/",
-        "name": "Ритуальные услуги Алматы 24/7 | AngelGranit",
-        "description": "Ритуальные услуги в Алматы круглосуточно: организация похорон, катафалк, памятники, уход за могилой.",
+        "name": "Ритуальные услуги Алматы 24/7 | Организация похорон | AngelGranit",
+        "headline": "Ритуальные услуги Алматы 24/7",
+        "description": "Ритуальные услуги в Алматы круглосуточно: организация похорон, катафалк, памятники, уход за могилой. ИП Шнякина Н., агент Александр.",
         "isPartOf": { "@id": "https://angelgranit.com/#website" },
         "about": { "@id": "https://angelgranit.com/#business" },
         "mainEntity": { "@id": "https://angelgranit.com/#business" },
         "publisher": { "@id": "https://angelgranit.com/#organization" },
+        "isFamilyFriendly": true,
         "speakable": {
           "@type": "SpeakableSpecification",
           "cssSelector": [".hero__title", ".hero__lead", "#faq", "#grave-care"]
@@ -404,17 +418,22 @@
         "breadcrumb": { "@id": "https://angelgranit.com/#breadcrumb" },
         "inLanguage": "ru-KZ",
         "datePublished": "2025-01-01",
-        "dateModified": "2026-08-18",
+        "dateModified": "2026-09-05",
+        "significantLink": [
+          "https://angelgranit.com/uslugi/ritualnye-uslugi/",
+          "https://angelgranit.com/uslugi/organizaciya-pohoron/",
+          "https://angelgranit.com/uslugi/katafalk/",
+          "https://angelgranit.com/uslugi/granitnye-pamyatniki/",
+          "https://angelgranit.com/ceny/",
+          "https://angelgranit.com/kontakty/"
+        ],
         "relatedLink": [
+          "https://angelgranit.com/otzyvy/",
+          "https://angelgranit.com/nashi-raboty/",
+          "https://angelgranit.com/uslugi/uhod-za-mogiloj/",
           "https://angelgranit.com/ai/",
           "https://angelgranit.com/AI.md",
-          "https://angelgranit.com/llms.txt",
-          "https://angelgranit.com/llms-full.txt",
-          "https://angelgranit.com/uslugi/uhod-za-mogiloj/"
-        ],
-        "significantLink": [
-          "https://angelgranit.com/ai/",
-          "https://angelgranit.com/AI.md"
+          "https://angelgranit.com/llms.txt"
         ]
       },
       {
