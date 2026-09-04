@@ -1,3 +1,6 @@
+Entity graph: angelgranit.com = ИП Шнякина Н. (IIN 610104402461) = Google Maps «ИП.Шнякина Н» CID 873491989368322768 (https://www.google.com/maps?cid=873491989368322768) = 2GIS https://2gis.kz/almaty/geo/9430047375176085.
+Coordinates: 43.2900708, 76.9611345
+
 # AngelGranit — llms-full.txt (полный контекст для ИИ)
 
 Этот файл — полный текстовый профиль компании для ChatGPT, Gemini, Claude, Perplexity, Copilot и других ИИ.
@@ -27,7 +30,7 @@ HTML: https://angelgranit.com/ai/
 - Адрес: ул. Осетинская, 5а, Алматы
 - Режим работы: круглосуточно, 24/7 (включая ночь и выходные)
 - Карта 2GIS: https://2gis.kz/almaty/geo/9430047375176085
-- Координаты: 43.289921, 76.961065
+- Координаты: 43.2900708, 76.9611345
 
 ## Сайт
 

@@ -177,9 +177,9 @@ def patch_articles(articles: list[dict]) -> int:
             break
 
         hub_links = [
-            (f"{p}stati/{cat}/", f"Категория: {meta['name']}", "Главная страница категории"),
-            (f"{p}stati/", "Все статьи", "Раздел статей"),
-            (f"{p}klastery/", "Все разделы", "Разделы и услуги"),
+            (f"{p}stati/{cat}/", meta["name"], "Категория"),
+            (f"{p}stati/", "Все статьи", "Статьи"),
+            (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
         ]
 
         block = "\n".join(
@@ -188,7 +188,7 @@ def patch_articles(articles: list[dict]) -> int:
                 grid(svc_links),
                 "<h2>Похожие статьи</h2>",
                 grid(art_links[:6]),
-                "<h2>Раздел и навигация</h2>",
+                "<h2>Ещё по теме</h2>",
                 grid(hub_links + trust_links(depth)[:3]),
                 popular_block(depth, 5),
                 latest_articles_block(depth, articles, 5, exclude=a["slug"]),
@@ -233,7 +233,7 @@ def patch_services(articles: list[dict]) -> int:
         ]
         nav_links = trust_links(depth) + [
             (f"{p}uslugi/", "Каталог услуг", "Все услуги"),
-            (f"{p}klastery/", "Все разделы", "Разделы сайта"),
+            (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
         ]
         # pillar if exists
         for c in CLUSTERS:
@@ -278,7 +278,7 @@ def patch_themes(articles: list[dict]) -> int:
         for s in svc[:5]:
             label = s.strip("/").split("/")[-1]
             title = SERVICE_TITLES.get(label, label.replace("-", " ").title())
-            svc_links.append((p + s, title, "Услуга кластера"))
+            svc_links.append((p + s, title, "Услуга"))
         # articles from cluster cats
         arts: list[dict] = []
         for cat in cluster.get("articles_cats", []):
@@ -297,9 +297,9 @@ def patch_themes(articles: list[dict]) -> int:
         else:
             hub_href = p + hub
         nav = [
-            (hub_href, f"Раздел: {cluster['name']}", "Основной раздел"),
-            (f"{p}klastery/", "Все разделы", "Карта"),
-            (f"{p}temy/", "Тематические страницы", "Темы"),
+            (hub_href, cluster["name"], "Основное"),
+            (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
+            (f"{p}stati/", "Статьи", "Полезные материалы"),
         ] + trust_links(depth)
 
         block = "\n".join(
@@ -308,7 +308,7 @@ def patch_themes(articles: list[dict]) -> int:
                 grid(svc_links),
                 "<h2>Похожие статьи</h2>",
                 grid(art_links),
-                "<h2>Навигация по кластеру</h2>",
+                "<h2>Полезные ссылки</h2>",
                 grid(nav),
                 popular_block(depth, 5),
                 latest_articles_block(depth, articles, 5),
@@ -352,12 +352,12 @@ def patch_hubs(articles: list[dict]) -> int:
                         for a in articles[:8]
                     ]
                 ),
-                "<h2>Кластеры и доверие</h2>",
+                "<h2>Полезные разделы</h2>",
                 grid(
                     [
-                        (f"{p}klastery/", "Все разделы", "Разделы сайта"),
-                        (f"{p}stati/", "Статьи", "База знаний"),
-                        (f"{p}temy/", "Темы", "Посадочные"),
+                        (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
+                        (f"{p}stati/", "Статьи", "Полезные материалы"),
+                        (f"{p}seo/", "Полезные гиды", "Ответы по темам"),
                     ]
                     + trust_links(depth)
                 ),
@@ -379,7 +379,7 @@ def patch_hubs(articles: list[dict]) -> int:
                         for c, m in CAT_META.items()
                     ]
                 ),
-                grid(trust_links(1) + [(pfx(1) + "klastery/", "Все разделы", "Карта")]),
+                grid(trust_links(1) + [(pfx(1) + "klastery/", "Карта сайта", "Все услуги и статьи")]),
             ]
         ),
     )
@@ -406,11 +406,11 @@ def patch_hubs(articles: list[dict]) -> int:
                     "<h2>Все статьи категории</h2>",
                     grid(art_links),
                     popular_block(depth, 5),
-                    "<h2>Навигация</h2>",
+                    "<h2>Полезные ссылки</h2>",
                     grid(
                         [
-                            (f"{p}stati/", "Все статьи", "Раздел"),
-                            (f"{p}klastery/", "Все разделы", "Карта"),
+                            (f"{p}stati/", "Все статьи", "Статьи"),
+                            (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
                         ]
                         + trust_links(depth)
                     ),
@@ -434,7 +434,7 @@ def patch_hubs(articles: list[dict]) -> int:
                             (f"{p}uslugi/ritualnye-uslugi/", "Ритуальные услуги", "Услуга"),
                             (f"{p}uslugi/katafalk/", "Катафалк", "Услуга"),
                             (f"{p}uslugi/pamyatniki/", "Памятники", "Услуга"),
-                            (f"{p}klastery/", "Все разделы", "Карта"),
+                            (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
                         ]
                         + trust_links(depth)
                     ),
@@ -455,9 +455,9 @@ def patch_hubs(articles: list[dict]) -> int:
                                 latest_articles_block(depth, articles, 5),
                                 grid(
                                     [
-                                        (f"{p}{folder}/", "К списку", "Хабы"),
+                                        (f"{p}{folder}/", "К списку", "Обзор"),
                                         (f"{p}uslugi/ritualnye-uslugi/", "Ритуальные услуги", "Услуга"),
-                                        (f"{p}klastery/", "Все разделы", "Карта"),
+                                        (f"{p}klastery/", "Карта сайта", "Все услуги и статьи"),
                                     ]
                                     + trust_links(depth)
                                 ),
@@ -476,7 +476,7 @@ def patch_hubs(articles: list[dict]) -> int:
                     popular_block(depth, 6),
                     latest_articles_block(depth, articles, 6),
                     grid(
-                        [(pfx(depth) + "klastery/", "Все разделы", "Карта")]
+                        [(pfx(depth) + "klastery/", "Карта сайта", "Все услуги и статьи")]
                         + trust_links(depth)
                     ),
                 ]
@@ -534,8 +534,8 @@ def write_klastery_page(articles: list[dict]) -> None:
   <meta charset="UTF-8" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Разделы сайта AngelGranit | Алматы</title>
-  <meta name="description" content="Разделы AngelGranit: ритуальные услуги, памятники, катафалк, статьи и районы Алматы. Удобная навигация для семей." />
+  <title>Карта сайта AngelGranit | Алматы</title>
+  <meta name="description" content="Карта сайта AngelGranit: ритуальные услуги, памятники, катафалк, статьи и районы Алматы." />
   <link rel="canonical" href="{BASE}/klastery/" />
   <meta name="robots" content="noindex, follow" />
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
@@ -544,12 +544,12 @@ def write_klastery_page(articles: list[dict]) -> None:
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:url" content="{BASE}/klastery/" />
-  <meta property="og:title" content="Разделы сайта AngelGranit | Алматы" />
-  <meta property="og:description" content="Разделы AngelGranit: ритуальные услуги, памятники, катафалк, статьи и районы Алматы." />
+  <meta property="og:title" content="Карта сайта AngelGranit | Алматы" />
+  <meta property="og:description" content="Карта сайта AngelGranit: ритуальные услуги, памятники, катафалк, статьи и районы Алматы." />
   <meta property="og:image" content="{BASE}/images/hero-angelgranit.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Разделы сайта AngelGranit" />
-  <meta name="twitter:description" content="Навигация по разделам помощи семьям." />
+  <meta name="twitter:title" content="Карта сайта AngelGranit" />
+  <meta name="twitter:description" content="Все основные направления помощи семьям в Алматы." />
   <meta name="twitter:image" content="{BASE}/images/hero-angelgranit.webp" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../seo/assets/seo.css" />
@@ -559,9 +559,9 @@ def write_klastery_page(articles: list[dict]) -> None:
   {{
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Все разделы AngelGranit",
+    "name": "Карта сайта AngelGranit",
     "url": "{BASE}/klastery/",
-    "description": "Тематическая карта сайта ритуальных услуг AngelGranit в Алматы",
+    "description": "Карта сайта ритуальных услуг AngelGranit в Алматы",
     "isPartOf": {{"@type": "WebSite", "url": "{BASE}/"}}
   }}
   </script>
@@ -574,7 +574,6 @@ def write_klastery_page(articles: list[dict]) -> None:
     <ul class="site-nav__menu" id="site-nav-menu">
       <li><a href="../uslugi/">Услуги</a></li>
       <li><a href="../stati/">Статьи</a></li>
-      <li><a href="../temy/">Темы</a></li>
       <li><a href="../kontakty/">Контакты</a></li>
     </ul>
     <a class="site-nav__call" href="tel:+77010567667">Позвонить 24/7</a>
@@ -584,12 +583,12 @@ def write_klastery_page(articles: list[dict]) -> None:
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <ol>
           <li><a href="../">Главная</a></li>
-          <li aria-current="page">Все разделы</li>
+          <li aria-current="page">Карта сайта</li>
         </ol>
       </nav>
       <header class="page-hero">
-        <h1>Разделы сайта AngelGranit</h1>
-        <p class="lead">Сайт разделён на тематические кластеры: у каждого есть главная страница, услуги, статьи и перелинковка. Так проще людям и понятнее поисковым системам.</p>
+        <h1>Карта сайта AngelGranit</h1>
+        <p class="lead">Все основные направления в одном месте: ритуальные услуги, катафалк, памятники, статьи и районы Алматы.</p>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить +7 701 056 7667</a>
           <a class="btn-site btn-site--ghost" href="../uslugi/">Услуги</a>
@@ -621,38 +620,29 @@ def write_klastery_page(articles: list[dict]) -> None:
 # ── homepage & sitemap wiring ────────────────────────────────────────────────
 
 def wire_homepage() -> None:
+    """Homepage stays human-facing: no silo jargon block, no AI footer links."""
     p = ROOT / "index.html"
     t = p.read_text(encoding="utf-8")
-    if "klastery/" not in t:
-        t = t.replace(
-            '<a href="temy/">Темы</a>',
-            '<a href="temy/">Темы</a> · <a href="klastery/">Разделы сайта</a>',
-            1,
-        )
-    # inject compact silo block before footer if missing
-    if MARKER_START not in t:
-        block = "\n".join(
-            [
-                '<div class="page-wrap--wide" style="margin:2rem auto">',
-                "<h2 style=\"color:#d4af57;font-family:Cinzel,Georgia,serif\">Тематические направления</h2>",
-                '<p class="lead" style="color:#8e8980">Кластеры сайта: от ритуальных услуг и катафалка до памятников и статей.</p>',
-                grid(
-                    [
-                        ("uslugi/ritualnye-uslugi/", "Ритуальные услуги", "Кластер"),
-                        ("uslugi/pamyatniki/", "Памятники", "Кластер"),
-                        ("uslugi/katafalk/", "Катафалк", "Кластер"),
-                        ("uslugi/blagoustrojstvo-mogil/", "Благоустройство", "Кластер"),
-                        ("stati/", "Статьи", "Кластер"),
-                        ("klastery/", "Все разделы сайта", "Разделы"),
-                        ("kontakty/", "Контакты", "Связь"),
-                        ("#reviews", "Отзывы", "Доверие"),
-                        ("#works", "Наши работы", "Примеры"),
-                    ]
-                ),
-                "</div>",
-            ]
-        )
-        t = inject_before_footer(t, block)
+    # Strip legacy jargon if a regen reappears
+    t = re.sub(
+        r'\s*<a class="btn btn--ghost" href="temy/">Новые темы \(семантика\)</a>',
+        "",
+        t,
+    )
+    t = t.replace(
+        '<a class="btn btn--ghost" href="seo/">Справочник 50 материалов</a>',
+        '<a class="btn btn--ghost" href="seo/">Полезные гиды</a>',
+    )
+    for junk in (
+        ' · <a href="ai/">Для ИИ</a>',
+        ' · <a href="AI.md">AI.md</a>',
+        ' · <a href="llms.txt">llms.txt</a>',
+        ' · <a href="temy/">Темы</a>',
+        ' · <a href="klastery/">Разделы сайта</a>',
+        ' · <a href="sitemap.xml">Sitemap</a>',
+    ):
+        t = t.replace(junk, "")
+    # Do not re-inject silo block on homepage (seo-hub already covers navigation)
     safe_write(p, t)
 
 

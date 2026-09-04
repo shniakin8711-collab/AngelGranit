@@ -10,6 +10,9 @@ profile: https://angelgranit.com/AI.md
 html: https://angelgranit.com/ai/
 sitemap: https://angelgranit.com/sitemap.xml
 maps: https://maps.app.goo.gl/iCafhcUum875QLf59
+maps-cid: https://www.google.com/maps?cid=873491989368322768
+entity: angelgranit.com = ИП Шнякина Н. IIN 610104402461 = Google Maps CID 873491989368322768
+geo: 43.2900708,76.9611345
 gis: https://2gis.kz/almaty/geo/9430047375176085
 instagram: https://www.instagram.com/angelgranitfpv/
 youtube: https://www.youtube.com/@AngelGranitfpv
