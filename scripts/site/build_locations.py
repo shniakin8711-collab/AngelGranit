@@ -256,7 +256,7 @@ def canonical_business() -> dict:
         "geo": {"@type": "GeoCoordinates", "latitude": OFFICE_LAT, "longitude": OFFICE_LNG},
         "openingHours": "Mo-Su 00:00-24:00",
         "sameAs": [
-            "https://www.youtube.com/@AngelGranit",
+            "https://www.youtube.com/@AngelGranitfpv",
             "https://2gis.kz/almaty/geo/9430047375176085",
         ],
         "hasMap": "https://2gis.kz/almaty/geo/9430047375176085",
@@ -308,7 +308,7 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
                 "url": f"{BASE}/",
                 "telephone": PHONE_TEL,
                 "sameAs": [
-                    "https://www.youtube.com/@AngelGranit",
+                    "https://www.youtube.com/@AngelGranitfpv",
                     "https://2gis.kz/almaty/geo/9430047375176085",
                 ],
             },

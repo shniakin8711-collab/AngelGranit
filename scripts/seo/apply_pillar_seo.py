@@ -109,8 +109,8 @@ def patch_index() -> None:
         "logo": "https://angelgranit.com/images/hero-angelgranit.png",
         "telephone": "+77010567667",
         "sameAs": [
-          "https://www.youtube.com/@Blackurbanfpv",
-          "https://www.youtube.com/@AngelGranit"
+          "https://www.youtube.com/@AngelGranitfpv",
+          "https://www.youtube.com/@AngelGranitfpv"
         ]
       },
 """

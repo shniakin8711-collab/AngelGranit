@@ -285,8 +285,8 @@ def phase_c_about_and_reviews() -> None:
         "priceRange": "₸₸₸",
         "areaServed": [{{"@type": "City", "name": "Алматы"}}, {{"@type": "AdministrativeArea", "name": "Алматинская область"}}],
         "sameAs": [
-          "https://www.youtube.com/@AngelGranit",
-          "https://www.youtube.com/@Blackurbanfpv"
+          "https://www.youtube.com/@AngelGranitfpv",
+          "https://www.youtube.com/@AngelGranitfpv"
         ]
       }},
       {{

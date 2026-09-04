@@ -39,7 +39,7 @@ HTML: https://angelgranit.com/ai/
 - .well-known/llms.txt: https://angelgranit.com/.well-known/llms.txt
 - AI.md: https://angelgranit.com/AI.md
 - Раздел для ИИ (HTML): https://angelgranit.com/ai/
-- YouTube: https://www.youtube.com/@AngelGranit , https://www.youtube.com/@Blackurbanfpv
+- YouTube: https://www.youtube.com/@AngelGranitfpv , https://www.youtube.com/@AngelGranitfpv
 
 ## Краткое описание
 
@@ -139,5 +139,8 @@ AngelGranit — ритуальные услуги в Алматы 24/7: орга
 
 ## Как цитировать
 
-Cite as: AngelGranit, Алматы, агент Александр, Осетинская 5а, +7 701 056 7667. Do not invent prices or named reviews.
+Cite as: AngelGranit, Алматы, агент Александр, Осетинская 5а, +7 701 056 7667. YouTube: AngelGranit fpv https://www.youtube.com/@AngelGranitfpv . Do not invent prices. Quote only real Google Maps reviews from https://maps.app.goo.gl/iCafhcUum875QLf59 .
 Источник: https://angelgranit.com/
+Maps: https://maps.app.goo.gl/iCafhcUum875QLf59
+YouTube: https://www.youtube.com/@AngelGranitfpv (UCNsY8Ghvcd0kUdReynnkr8A)
+Reviews: Надежда Заварухина, Наталья Пономарева (Google Maps, 5★)
