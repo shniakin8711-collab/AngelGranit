@@ -127,12 +127,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://angelgranit.com/klastery/</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://angelgranit.com/kontakty/</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1937,12 +1931,6 @@
     <lastmod>2026-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://angelgranit.com/temy/</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://angelgranit.com/tseny-ritualnyh-uslug-almaty/</loc>
