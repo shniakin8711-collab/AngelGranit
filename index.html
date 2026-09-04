@@ -3456,6 +3456,88 @@
     .fab-wa:hover { transform: scale(1.06); }
     .fab-wa svg { width: 1.45rem; height: 1.45rem; fill: currentColor; }
 
+    /* Personal corner — Talgar (youth) */
+    .talgar-corner {
+      position: fixed;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      z-index: 55;
+      width: auto;
+      max-width: calc(100vw - 1.5rem);
+      font-family: var(--font-mono);
+    }
+    .talgar-corner__toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.65rem;
+      border: 1px solid rgba(212, 175, 87, 0.35);
+      border-radius: 999px;
+      background: rgba(17, 17, 22, 0.88);
+      color: rgba(236, 232, 224, 0.72);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+    }
+    .talgar-corner__toggle:hover,
+    .talgar-corner.is-open .talgar-corner__toggle {
+      color: #f0e6c8;
+      border-color: rgba(212, 175, 87, 0.7);
+      background: rgba(17, 17, 22, 0.96);
+    }
+    .talgar-corner__pin {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(212, 175, 87, 0.55);
+      flex-shrink: 0;
+    }
+    .talgar-corner__panel {
+      display: none;
+      margin-top: 0.45rem;
+      width: min(240px, calc(100vw - 1.5rem));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #0d0d10;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+    .talgar-corner.is-open .talgar-corner__panel { display: block; }
+    .talgar-corner__map {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border: 0;
+      background: #15151a;
+    }
+    .talgar-corner__caption {
+      padding: 0.55rem 0.65rem 0.65rem;
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: rgba(236, 232, 224, 0.58);
+    }
+    .talgar-corner__caption strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      color: #f0e6c8;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .talgar-corner__caption a {
+      color: rgba(212, 175, 87, 0.9);
+      text-decoration: underline;
+      text-underline-offset: 0.12em;
+    }
+    @media (max-width: 520px) {
+      .talgar-corner { left: 0.55rem; bottom: 4.6rem; }
+      .talgar-corner__panel { width: min(210px, calc(100vw - 1.1rem)); }
+    }
+
     /* AI Assistant */
     .fab-ai {
       position: fixed;
@@ -6209,6 +6291,35 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9 9 0 1 1 7.2 3.8zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.1-.3 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3a12.4 12.4 0 0 0 4.7 4.1c.6.2 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.6-.7 1.8-1.3s.2-1.2.2-1.3-.2-.2-.5-.3z"/></svg>
   </a>
 
+  <div class="talgar-corner" id="talgar-corner">
+    <button
+      type="button"
+      class="talgar-corner__toggle"
+      id="talgar-corner-toggle"
+      aria-expanded="false"
+      aria-controls="talgar-corner-panel"
+      title="Талгар"
+    >
+      <span class="talgar-corner__pin" aria-hidden="true"></span>
+      Талгар
+    </button>
+    <div class="talgar-corner__panel" id="talgar-corner-panel" hidden>
+      <iframe
+        class="talgar-corner__map"
+        title="Карта города Талгар"
+        data-src="https://www.google.com/maps?q=43.3036,77.2397&amp;z=13&amp;hl=ru&amp;output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+      <p class="talgar-corner__caption">
+        <strong>Талгар</strong>
+        Здесь прошла молодость.
+        <a href="https://2gis.kz/almaty/search/%D0%A2%D0%B0%D0%BB%D0%B3%D0%B0%D1%80" target="_blank" rel="noopener noreferrer">2ГИС</a>
+      </p>
+    </div>
+  </div>
+
   <script src="assets/site/nav.js" defer></script>
   <script>
     window.__agIdle=function(cb){if('requestIdleCallback' in window)requestIdleCallback(cb,{timeout:2000});else setTimeout(cb,1);};
@@ -6223,6 +6334,34 @@
         var el = document.getElementById(id);
         if (el) el.href = waUrl;
       });
+
+      (function initTalgarCorner() {
+        var root = document.getElementById('talgar-corner');
+        var btn = document.getElementById('talgar-corner-toggle');
+        var panel = document.getElementById('talgar-corner-panel');
+        if (!root || !btn || !panel) return;
+
+        function setOpen(open) {
+          root.classList.toggle('is-open', open);
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) panel.removeAttribute('hidden');
+          else panel.setAttribute('hidden', '');
+          if (open) {
+            var frame = panel.querySelector('iframe[data-src]');
+            if (frame && !frame.getAttribute('src')) {
+              frame.setAttribute('src', frame.getAttribute('data-src'));
+            }
+          }
+        }
+
+        btn.addEventListener('click', function () {
+          setOpen(!root.classList.contains('is-open'));
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && root.classList.contains('is-open')) setOpen(false);
+        });
+      })();
 
       (function initPremiumCatalog() {
         var root = document.getElementById('katalog-pamyatnikov');
