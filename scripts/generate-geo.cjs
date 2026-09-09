@@ -130,9 +130,11 @@ function pageHtml(page) {
         `<a href="${esc(l.href)}"><strong>${esc(l.title)}</strong><span>${esc(l.sub || "")}</span></a>`
     )
     .join("\n        ");
+  const moreLabel = page.moreLabel || "Полная страница (канон)";
   const more = page.more
-    ? `<p class="geo-more">Подробнее: <a href="${esc(page.more)}">${esc(page.more.replace(/^\.\.\//, "/"))}</a></p>`
+    ? `<p class="geo-more"><strong>${esc(moreLabel)}:</strong> <a href="${esc(page.more)}">${esc(page.more.replace(/^\.\.\//, "/"))}</a></p>`
     : "";
+  const role = `<p class="geo-role">Это <strong>краткий GEO-ответ</strong> для людей и ИИ — не дубль SEO и не замена коммерческой услуги. Для заказа смотрите канон ниже.</p>`;
 
   return `<!DOCTYPE html>
 <html lang="ru">
@@ -183,6 +185,12 @@ function pageHtml(page) {
     .geo-faq__item { margin: 0 0 1rem; }
     .geo-faq__item h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
     .geo-more { margin-top: 1.25rem; }
+    .geo-role {
+      margin: 0 0 1rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #9a9aa3;
+    }
   </style>
   <script type="application/ld+json">
 ${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2)}
@@ -211,8 +219,9 @@ ${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2)
         </ol>
       </nav>
       <header class="page-hero">
-        <p class="eyebrow" style="margin:0 0 0.5rem;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.75">GEO · ${esc(page.cluster || "")}</p>
+        <p class="eyebrow" style="margin:0 0 0.5rem;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.75">GEO · краткий ответ · ${esc(page.cluster || "")}</p>
         <h1>${esc(page.h1)}</h1>
+        ${role}
         <p class="geo-answer" data-speakable>${esc(page.answer)}</p>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить +7 701 056 7667</a>
@@ -372,8 +381,8 @@ ${JSON.stringify(listLd, null, 2)}
         </ol>
       </nav>
       <header class="page-hero">
-        <h1>GEO · ответы для людей и ИИ</h1>
-        <p class="lead">50 кратких канонических ответов AngelGranit для ChatGPT, Claude, Gemini и Perplexity. Полные услуги — в <a href="../uslugi/">каталоге</a>. Источник истины: <a href="../AI.md">AI.md</a>, <a href="../llms.txt">llms.txt</a>, <a href="../ai/">/ai/</a>.</p>
+        <h1>GEO · краткие ответы (не дубль SEO)</h1>
+        <p class="lead">50 кратких канонических ответов AngelGranit для ChatGPT, Claude, Gemini и Perplexity. <strong>Не дублируют</strong> коммерческий каталог <a href="../uslugi/">/uslugi/</a> и SEO-лендинги <a href="../seo/">/seo/</a>: здесь только answer-first + ссылка на канон. Источник истины: <a href="../AI.md">AI.md</a>, <a href="../llms.txt">llms.txt</a>, <a href="../ai/">/ai/</a>.</p>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить +7 701 056 7667</a>
           <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
