@@ -100,6 +100,10 @@ Disallow: /.git/
 # Absolute sitemap
 Sitemap: https://angelgranit.com/sitemap.xml
 
+# IndexNow (Bing + partners) — key file at site root
+# https://angelgranit.com/c593bf749008c91d834f592f72c23c05.txt
+# Submit: node scripts/submit-indexnow.cjs
+
 # Security contact
 # https://angelgranit.com/.well-known/security.txt
 
