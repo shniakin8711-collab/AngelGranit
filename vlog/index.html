@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="alternate" type="text/plain" title="llms.txt" href="https://angelgranit.com/llms.txt" />
+  <link rel="alternate" type="text/plain" title="llms-full.txt" href="https://angelgranit.com/llms-full.txt" />
+  <link rel="alternate" type="text/markdown" title="AI.md" href="https://angelgranit.com/AI.md" />
+  <link rel="alternate" type="text/html" title="Для искусственного интеллекта" href="https://angelgranit.com/ai/" />
+  <link rel="describedby" href="https://angelgranit.com/AI.md" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://wa.me https://api.whatsapp.com; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://maps.google.com https://www.google.com; connect-src 'self' https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://unpkg.com; upgrade-insecure-requests" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Влог AngelGranit fpv — Алматы с воздуха · GoPro и FPV</title>
+  <meta name="description" content="Влог AngelGranit fpv: спокойные кадры Алматы с селфи-дрона и GoPro — Кок-Тобе, Свято-Казанский собор, бренд AngelGranit. Канал @AngelGranitfpv." />
+  <meta name="keywords" content="angelgranit fpv, влог алматы, youtube angelgranit, fpv алматы, кок-тобе, свято-казанский собор" />
+  <link rel="canonical" href="https://angelgranit.com/vlog/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#d4af57" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:alt" content="Влог AngelGranit fpv — Алматы с воздуха" />
+  <meta property="og:site_name" content="AngelGranit — ритуальные услуги Алматы" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:url" content="https://angelgranit.com/vlog/" />
+  <meta property="og:title" content="Влог AngelGranit fpv — Алматы с воздуха" />
+  <meta property="og:description" content="Серия «Алматы с воздуха»: GoPro и селфи-дрон / FPV. YouTube @AngelGranitfpv. Ритуальная служба AngelGranit, Алматы." />
+  <meta property="og:image" content="https://angelgranit.com/images/hero-angelgranit.webp" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="408" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Влог AngelGranit fpv — Алматы с воздуха" />
+  <meta name="twitter:description" content="Серия «Алматы с воздуха»: GoPro и селфи-дрон / FPV. YouTube @AngelGranitfpv." />
+  <meta name="twitter:image" content="https://angelgranit.com/images/hero-angelgranit.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../seo/assets/seo.css" />
+  <link rel="stylesheet" href="../assets/site/nav.css" />
+  <link rel="stylesheet" href="../assets/site/page.css" />
+  <style>
+    .vlog-ep { margin: 2rem 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(212,175,87,0.18); }
+    .vlog-ep:last-of-type { border-bottom: 0; }
+    .vlog-ep__meta { margin: 0 0 0.35rem; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: #d4af57; font-family: ui-monospace, monospace; }
+    .vlog-ep__cam { margin: 0 0 0.75rem; font-size: 0.85rem; color: #9a9aa3; }
+    .vlog-frame { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,87,0.22); }
+    .vlog-facade { position: absolute; inset: 0; margin: 0; padding: 0; border: 0; cursor: pointer; background: #000; display: grid; place-items: center; }
+    .vlog-facade img { width: 100%; height: 100%; object-fit: cover; opacity: 0.88; }
+    .vlog-facade__play { position: absolute; width: 4.2rem; height: 3rem; border-radius: 0.75rem; background: #ff0033; box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+    .vlog-facade__play::before { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%); border-style: solid; border-width: 0.55rem 0 0.55rem 0.95rem; border-color: transparent transparent transparent #fff; }
+    .vlog-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .vlog-soon { display: grid; gap: 0.75rem; margin: 1.5rem 0; }
+    @media (min-width: 720px) { .vlog-soon { grid-template-columns: 1fr 1fr; } }
+    .vlog-soon div { padding: 1rem; border: 1px dashed rgba(212,175,87,0.28); border-radius: 8px; }
+    .vlog-soon strong { display: block; color: #d4af57; margin-bottom: 0.25rem; }
+    .vlog-soon span { font-size: 0.9rem; color: #9a9aa3; }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://angelgranit.com/#organization",
+      "name": "AngelGranit",
+      "legalName": "ИП Шнякина Н.",
+      "taxID": "610104402461",
+      "url": "https://angelgranit.com/",
+      "telephone": "+77010567667",
+      "sameAs": [
+        "https://www.youtube.com/@AngelGranitfpv",
+        "https://www.google.com/maps?cid=873491989368322768",
+        "https://maps.app.goo.gl/iCafhcUum875QLf59",
+        "https://2gis.kz/almaty/geo/9430047375176085"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://angelgranit.com/vlog/#webpage",
+      "url": "https://angelgranit.com/vlog/",
+      "name": "Влог AngelGranit fpv — Алматы с воздуха",
+      "description": "Серия влога на YouTube AngelGranit fpv: GoPro и селфи-дрон / FPV. Кок-Тобе, Свято-Казанский собор, бренд AngelGranit.",
+      "isPartOf": { "@id": "https://angelgranit.com/#website" },
+      "about": { "@id": "https://angelgranit.com/#youtube-channel" },
+      "inLanguage": "ru-KZ"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://angelgranit.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Влог", "item": "https://angelgranit.com/vlog/" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://angelgranit.com/vlog/#episodes",
+      "name": "Алматы с воздуха · AngelGranit fpv",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://www.youtube.com/watch?v=uzMbIOt2xJc", "name": "Эпизод 01 · Кок-Тобе" },
+        { "@type": "ListItem", "position": 2, "url": "https://www.youtube.com/watch?v=vUQhJJHAJbI", "name": "Эпизод 02 · Свято-Казанский собор" },
+        { "@type": "ListItem", "position": 3, "url": "https://www.youtube.com/watch?v=sryWmrJC0z4", "name": "Эпизод 03 · Angel Granit" }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-nav" data-site-nav>
+    <a class="site-nav__brand" href="../"><strong>AngelGranit</strong><span>AG</span></a>
+    <button class="site-nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav-menu">Меню</button>
+    <ul class="site-nav__menu" id="site-nav-menu">
+      <li><a href="../uslugi/">Услуги</a></li>
+      <li><a href="../nashi-raboty/">Работы</a></li>
+      <li><a href="../#youtube">Влог</a></li>
+      <li><a href="../otzyvy/">Отзывы</a></li>
+      <li><a href="../kontakty/">Контакты</a></li>
+    </ul>
+    <a class="site-nav__call" href="tel:+77010567667">Позвонить 24/7</a>
+  </header>
+  <main id="main-content" class="page-main">
+    <div class="page-wrap">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol>
+          <li><a href="../">Главная</a></li>
+          <li aria-current="page">Влог</li>
+        </ol>
+      </nav>
+      <header class="page-hero">
+        <h1>Влог · Алматы с воздуха</h1>
+        <p class="lead">Спокойные кадры города, храмов и мест памяти. Снимаем на селфи-дрон и GoPro, публикуем на YouTube <a href="https://www.youtube.com/@AngelGranitfpv" target="_blank" rel="noopener noreferrer">AngelGranit fpv</a> — чтобы было понятнее, кто рядом, когда нужна помощь. Оператор: ИП Шнякина Н., агент Александр.</p>
+        <div class="page-cta">
+          <a class="btn-site btn-site--gold" href="https://www.youtube.com/@AngelGranitfpv" target="_blank" rel="noopener noreferrer">Смотреть канал</a>
+          <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn-site btn-site--ghost" href="../uslugi/">К услугам</a>
+        </div>
+      </header>
+      <article class="page-article">
+        <section class="vlog-ep" id="ep-01">
+          <p class="vlog-ep__meta">Эпизод 01 · место памяти</p>
+          <p class="vlog-ep__cam">Селфи-дрон · FPV</p>
+          <h2>Кок-Тобе · воздух над местом памяти</h2>
+          <div class="vlog-frame" data-yt-embed="uzMbIOt2xJc" data-yt-title="Kok Tobe cemetery — AngelGranit fpv">
+            <button type="button" class="vlog-facade" aria-label="Смотреть эпизод 01">
+              <img src="https://i.ytimg.com/vi/uzMbIOt2xJc/hqdefault.jpg" alt="Превью: Кок-Тобе — AngelGranit fpv" width="480" height="360" loading="lazy" decoding="async" />
+              <span class="vlog-facade__play" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p>Уважительный облёт места памяти в Алматы. Нужна помощь с <a href="../uslugi/blagoustrojstvo-mogil/">благоустройством</a> или <a href="../uslugi/uhod-za-mogiloj/">уходом за могилой</a>? Александр: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>
+          <p><a href="https://www.youtube.com/watch?v=uzMbIOt2xJc" target="_blank" rel="noopener noreferrer">Открыть на YouTube ↗</a> · <a href="../#vlog-koktobe">На главной</a></p>
+        </section>
+
+        <section class="vlog-ep" id="ep-02">
+          <p class="vlog-ep__meta">Эпизод 02 · храм и путь семьи</p>
+          <p class="vlog-ep__cam">Селфи-дрон · FPV</p>
+          <h2>Свято-Казанский собор · путь прощания</h2>
+          <div class="vlog-frame" data-yt-embed="vUQhJJHAJbI" data-yt-title="Свято-Казанский собор — AngelGranit fpv">
+            <button type="button" class="vlog-facade" aria-label="Смотреть эпизод 02">
+              <img src="https://i.ytimg.com/vi/vUQhJJHAJbI/hqdefault.jpg" alt="Превью: Свято-Казанский собор — AngelGranit fpv" width="480" height="360" loading="lazy" decoding="async" />
+              <span class="vlog-facade__play" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p>Ориентир для семей: отпевание и маршрут прощания. Помощь с <a href="../uslugi/organizaciya-pohoron/">организацией похорон</a> и <a href="../pravoslavnye-pohorony-almaty/">православными похоронами</a>.</p>
+          <p><a href="https://www.youtube.com/watch?v=vUQhJJHAJbI" target="_blank" rel="noopener noreferrer">Открыть на YouTube ↗</a> · <a href="../#vlog-kazansky">На главной</a></p>
+        </section>
+
+        <section class="vlog-ep" id="ep-03">
+          <p class="vlog-ep__meta">Эпизод 03 · кто мы</p>
+          <p class="vlog-ep__cam">Бренд · микс камер</p>
+          <h2>Angel Granit · лицо службы</h2>
+          <div class="vlog-frame" data-yt-embed="sryWmrJC0z4" data-yt-title="Angel Granit — AngelGranit fpv">
+            <button type="button" class="vlog-facade" aria-label="Смотреть эпизод 03">
+              <img src="https://i.ytimg.com/vi/sryWmrJC0z4/hqdefault.jpg" alt="Превью: Angel Granit — AngelGranit fpv" width="480" height="360" loading="lazy" decoding="async" />
+              <span class="vlog-facade__play" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p><a href="../uslugi/ritualnye-uslugi/">Ритуальные услуги</a>, <a href="../uslugi/granitnye-pamyatniki/">гранитные памятники</a>, <a href="../uslugi/katafalk/">катафалк</a>. Подробнее — <a href="../o-kompanii/">о компании</a> и <a href="../kontakty/">контакты</a>.</p>
+          <p><a href="https://www.youtube.com/watch?v=sryWmrJC0z4" target="_blank" rel="noopener noreferrer">Открыть на YouTube ↗</a> · <a href="../#vlog-brand">На главной</a></p>
+        </section>
+
+        <h2>Следующие эпизоды</h2>
+        <div class="vlog-soon" aria-label="Планируемые эпизоды">
+          <div><strong>04 · GoPro · Мастерская гранита</strong><span>Скоро → <a href="../uslugi/granitnye-pamyatniki/">памятники</a></span></div>
+          <div><strong>05 · FPV · Катафалк</strong><span>Скоро → <a href="../uslugi/katafalk/">катафалк</a></span></div>
+          <div><strong>06 · GoPro · Установка</strong><span>С разрешения семьи → <a href="../nashi-raboty/">работы</a></span></div>
+          <div><strong>07 · FPV · Районы</strong><span>Скоро → <a href="../rajony/">районы</a></span></div>
+        </div>
+        <p>Instagram: <a href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer">@angelgranitfpv</a>. Не путать с чужими каналами «FPV Angel» — наш ID: UCNsY8Ghvcd0kUdReynnkr8A.</p>
+      </article>
+      <div class="related-grid">
+        <a href="../#youtube"><strong>Блок на главной</strong><span>/#youtube</span></a>
+        <a href="../nashi-raboty/"><strong>Наши работы</strong><span>Фото</span></a>
+        <a href="../kontakty/"><strong>Контакты</strong><span>24/7</span></a>
+      </div>
+    </div>
+  </main>
+  <section class="silo-links" aria-label="Полезные разделы">
+    <h2>Популярные услуги</h2>
+    <div class="related-grid">
+      <a href="../uslugi/ritualnye-uslugi/"><strong>Ритуальные услуги</strong><span>Каталог</span></a>
+      <a href="../uslugi/organizaciya-pohoron/"><strong>Организация похорон</strong><span>Помощь</span></a>
+      <a href="../uslugi/katafalk/"><strong>Катафалк</strong><span>Транспорт</span></a>
+      <a href="../uslugi/granitnye-pamyatniki/"><strong>Гранитные памятники</strong><span>Производство</span></a>
+    </div>
+  </section>
+  <footer class="page-footer">
+    <strong>AngelGranit</strong>
+    Александр · ул. Осетинская, 5а · <a href="tel:+77010567667">+7 701 056 7667</a>
+    <div class="page-cta" style="justify-content:center;margin-top:1rem">
+      <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить</a>
+      <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a class="btn-site btn-site--ghost" href="../o-kompanii/">О компании</a>
+      <a class="btn-site btn-site--ghost" href="../kontakty/">Контакты</a>
+    </div>
+  </footer>
+  <script src="../assets/site/nav.js" defer></script>
+  <script>
+    document.querySelectorAll('[data-yt-embed]').forEach(function (box) {
+      var btn = box.querySelector('.vlog-facade');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var id = box.getAttribute('data-yt-embed') || '';
+        var title = box.getAttribute('data-yt-title') || 'YouTube video';
+        if (!/^[A-Za-z0-9_-]{6,20}$/.test(id)) return;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&modestbranding=1';
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        box.textContent = '';
+        box.appendChild(iframe);
+      });
+    });
+  </script>
+</body>
+</html>
