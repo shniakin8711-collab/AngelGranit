@@ -45,10 +45,23 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://angelgranit.com/#organization",
+      "name": "AngelGranit",
+      "legalName": "ИП Шнякина Н.",
+      "taxID": "610104402461",
+      "url": "https://angelgranit.com/",
+      "telephone": "+77010567667"
+    },
+    {
       "@type": "CollectionPage",
-      "name": "Услуги AngelGranit в Алматы | Ритуал, памятники, катафалк",
-      "description": "Все услуги AngelGranit в Алматы: ритуальные услуги, похороны, катафалк, памятники, благоустройство. 24/7. AngelGranit, ул. Осетинская, 5а, +7 701 056 7667.",
-      "url": "https://angelgranit.com/uslugi/"
+      "@id": "https://angelgranit.com/uslugi/#webpage",
+      "name": "Услуги AngelGranit в Алматы",
+      "description": "Все услуги AngelGranit в Алматы: ритуальные услуги, похороны, катафалк, памятники, благоустройство. 24/7.",
+      "url": "https://angelgranit.com/uslugi/",
+      "isPartOf": { "@id": "https://angelgranit.com/#website" },
+      "about": { "@id": "https://angelgranit.com/#business" },
+      "inLanguage": "ru-KZ"
     },
     {
       "@type": "BreadcrumbList",
@@ -148,9 +161,19 @@
       <header class="page-hero">
         <h1>Услуги AngelGranit в Алматы</h1>
         <p class="lead">Ритуальные услуги, организация похорон, катафалк, памятники и благоустройство — выберите направление.</p>
+        <div class="citability" data-speakable>
+          <strong>Кто · что · где</strong>
+          <ul>
+            <li><strong>AngelGranit</strong> — ритуальная служба и гранитная мастерская (ИП Шнякина Н., ИИН 610104402461).</li>
+            <li><strong>Услуги:</strong> организация похорон, катафалк, гранитные памятники, мемориальные комплексы, благоустройство и уход за могилой.</li>
+            <li><strong>Где:</strong> Алматы и область · офис ул. Осетинская, 5а · агент Александр 24/7.</li>
+            <li><strong>Связь:</strong> <a href="tel:+77010567667">+7 701 056 7667</a> · WhatsApp · <a href="../kontakty/">контакты</a> · кратко для ИИ — <a href="../geo/">/geo/</a>.</li>
+          </ul>
+        </div>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить +7 701 056 7667</a>
           <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn-site btn-site--ghost" href="../geo/">GEO-ответы</a>
         </div>
       </header>
       <div class="hub-grid">
@@ -219,7 +242,7 @@
 <!-- silo-architecture:end -->
   <footer class="page-footer">
     <strong>AngelGranit</strong>
-    Александр · ул. Осетинская, 5а<a href="tel:+77010567667">+7 701 056 7667</a>
+    Александр · ул. Осетинская, 5а · <a href="tel:+77010567667">+7 701 056 7667</a>
     <div class="page-cta" style="justify-content:center;margin-top:1rem">
       <a class="btn-site btn-site--gold" href="tel:+77010567667">Позвонить</a>
       <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>

@@ -18,6 +18,18 @@
   line-height: 1.2;
 }
 .page-hero .lead { color: var(--muted, #8e8980); margin: 0 0 1.25rem; }
+.citability {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--gold, #d4af57);
+  background: rgba(212, 175, 87, 0.06);
+  color: var(--muted, #8e8980);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.citability strong { color: #f7efd8; font-weight: 600; }
+.citability ul { margin: 0.65rem 0 0; padding-left: 1.1rem; }
+.citability li { margin: 0.25rem 0; }
 .page-cta { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0 0 1.5rem; }
 .btn-site {
   display: inline-flex; align-items: center; justify-content: center;
