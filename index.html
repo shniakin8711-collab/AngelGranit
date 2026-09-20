@@ -4409,13 +4409,12 @@
       .guar-strip { grid-template-columns: 1fr; }
     }
 
-    /* Reviews carousel — glassmorphism */
+    /* Reviews — Google Maps style on dark theme */
     .reviews-modern {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 58%),
-        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(255, 255, 255, 0.03), transparent 50%),
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 58%),
         linear-gradient(180deg, #0c0c0e 0%, #08080a 100%);
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -4426,12 +4425,12 @@
     }
     .reviews-carousel {
       position: relative;
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto;
     }
     .reviews-carousel__viewport {
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: 10px;
     }
     .reviews-carousel__track {
       display: flex;
@@ -4442,78 +4441,124 @@
     .reviews-carousel__track.is-instant {
       transition: none;
     }
-    .review-card {
+    .review-card.gmaps-review {
       position: relative;
       flex: 0 0 100%;
       width: 100%;
       max-width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      min-height: 280px;
-      padding: 1.75rem 1.55rem 1.5rem;
+      gap: 0.85rem;
+      min-height: 0;
+      padding: 1.15rem 1.2rem 1rem;
       margin: 0;
       box-sizing: border-box;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 14px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-      backdrop-filter: blur(22px) saturate(150%);
-      -webkit-backdrop-filter: blur(22px) saturate(150%);
-      box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      background: #141416;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
       color: inherit;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
-    .review-card__stars {
-      display: inline-flex;
-      gap: 0.22rem;
-      color: #f0e6c8;
-      filter: drop-shadow(0 0 8px rgba(240, 230, 200, 0.25));
+    .gmaps-review__head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
     }
-    .review-card__stars svg {
-      width: 1.05rem;
-      height: 1.05rem;
-      display: block;
-    }
-    .review-card__quote {
-      margin: 0;
-      flex: 1;
-      font-size: clamp(1rem, 2vw, 1.12rem);
-      line-height: 1.7;
-      color: rgba(247, 247, 245, 0.92);
-    }
-    .review-card__quote::before {
-      content: "“";
-      display: block;
-      margin-bottom: 0.45rem;
-      font-family: var(--font-display);
-      font-size: 2rem;
+    .gmaps-review__avatar {
+      flex: 0 0 auto;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-body, system-ui, sans-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--avatar-bg, #4285f4);
       line-height: 1;
-      color: rgba(255, 255, 255, 0.35);
+      user-select: none;
     }
-    .review-card__meta {
+    .gmaps-review__who {
+      min-width: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
-      padding-top: 0.95rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 0.86rem;
+      gap: 0.28rem;
     }
-    .review-card__meta strong {
-      font-family: var(--font-display);
-      letter-spacing: 0.04em;
-      text-transform: none;
-      color: #fff;
+    .gmaps-review__name {
+      font-family: var(--font-body, system-ui, sans-serif);
       font-size: 0.98rem;
       font-weight: 600;
+      color: #f1f3f4;
+      letter-spacing: 0;
+      text-transform: none;
     }
-    .review-card__meta span { color: rgba(236, 232, 224, 0.58); }
-    .review-card__meta a {
-      color: rgba(247, 247, 245, 0.78);
+    .gmaps-review__stars {
+      display: inline-flex;
+      gap: 0.1rem;
+      color: #fbbc04;
+    }
+    .gmaps-review__stars svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      display: block;
+    }
+    .gmaps-review__source {
+      margin: 0;
+      font-size: 0.78rem;
+      color: rgba(236, 232, 224, 0.55);
+      line-height: 1.35;
+    }
+    .gmaps-review__source a {
+      color: rgba(247, 247, 245, 0.72);
+      text-decoration: none;
+    }
+    .gmaps-review__source a:hover {
+      color: #8ab4f8;
       text-decoration: underline;
-      text-underline-offset: 0.15em;
+      text-underline-offset: 0.12em;
     }
-    .review-card__meta a:hover { color: #fff; }
+    .gmaps-review__text {
+      margin: 0;
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: rgba(247, 247, 245, 0.9);
+    }
+    .gmaps-review__text::before { content: none; }
+    .gmaps-review__foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem 0.65rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.78rem;
+      color: rgba(236, 232, 224, 0.55);
+    }
+    .gmaps-review__google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(247, 247, 245, 0.78);
+    }
+    .gmaps-review__google-badge svg {
+      width: 1rem;
+      height: 1rem;
+      display: block;
+      flex-shrink: 0;
+    }
+    .gmaps-review__foot a {
+      color: rgba(247, 247, 245, 0.72);
+      text-decoration: none;
+    }
+    .gmaps-review__foot a:hover {
+      color: #8ab4f8;
+      text-decoration: underline;
+      text-underline-offset: 0.12em;
+    }
     .reviews-carousel__controls {
       display: flex;
       align-items: center;
@@ -4529,8 +4574,6 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       color: #f7f7f5;
       cursor: pointer;
       transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
@@ -4565,7 +4608,7 @@
     }
     .reviews-carousel__dot.is-active {
       width: 1.35rem;
-      background: #f7f7f5;
+      background: #fbbc04;
     }
     .reviews-carousel__dot:focus-visible {
       outline: 2px solid rgba(255, 255, 255, 0.55);
@@ -5989,33 +6032,53 @@
       <div class="reviews-carousel reveal" data-reviews-carousel>
         <div class="reviews-carousel__viewport">
           <div class="reviews-carousel__track" data-reviews-track>
-            <article class="review-card">
-              <div class="review-card__stars" aria-label="Оценка 5 из 5">
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-              </div>
-              <p class="review-card__quote">AngelGranit.com огромное спасибо агенту Александру за профессиональную организацию похорон все было сделано с большим уважением. Сопровождал на всех этапах морг кладбище захоронение памятник оградка и цена очень не дорого рекомендую Александра как ответственный агент и человек.</p>
-              <div class="review-card__meta">
-                <strong>Надежда Заварухина</strong>
-                <span>Google Maps · <a href="https://maps.app.goo.gl/iCafhcUum875QLf59" target="_blank" rel="noopener noreferrer">ИП Шнякина Н.</a></span>
-              </div>
+            <article class="review-card gmaps-review">
+              <header class="gmaps-review__head">
+                <span class="gmaps-review__avatar" style="--avatar-bg:#4285f4" aria-hidden="true">Н</span>
+                <div class="gmaps-review__who">
+                  <strong class="gmaps-review__name">Надежда Заварухина</strong>
+                  <div class="gmaps-review__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                  </div>
+                  <p class="gmaps-review__source"><a href="https://maps.app.goo.gl/iCafhcUum875QLf59" target="_blank" rel="noopener noreferrer">Google</a> · Maps</p>
+                </div>
+              </header>
+              <p class="gmaps-review__text">AngelGranit.com огромное спасибо агенту Александру за профессиональную организацию похорон все было сделано с большим уважением. Сопровождал на всех этапах морг кладбище захоронение памятник оградка и цена очень не дорого рекомендую Александра как ответственный агент и человек.</p>
+              <footer class="gmaps-review__foot">
+                <span class="gmaps-review__google-badge">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC04" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  Опубликовано в Google
+                </span>
+                <a href="https://maps.app.goo.gl/iCafhcUum875QLf59" target="_blank" rel="noopener noreferrer">ИП Шнякина Н.</a>
+              </footer>
             </article>
-            <article class="review-card">
-              <div class="review-card__stars" aria-label="Оценка 5 из 5">
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
-              </div>
-              <p class="review-card__quote">Хочу выразить благодарность Ип Шнякина и лично ритуальному агенту Александру за профессиональную и ответственную работу Александр внимательно отнёсся ко всем вопросам помог с организацией и оформлением необходимых услуг все объяснил и был на связи. Работа выполнена качественно спокойно и без лишних переживаний для семьи.</p>
-              <div class="review-card__meta">
-                <strong>Наталья Пономарева</strong>
-                <span>Google Maps · <a href="https://maps.app.goo.gl/iCafhcUum875QLf59" target="_blank" rel="noopener noreferrer">ИП Шнякина Н.</a></span>
-              </div>
+            <article class="review-card gmaps-review">
+              <header class="gmaps-review__head">
+                <span class="gmaps-review__avatar" style="--avatar-bg:#34a853" aria-hidden="true">Н</span>
+                <div class="gmaps-review__who">
+                  <strong class="gmaps-review__name">Наталья Пономарева</strong>
+                  <div class="gmaps-review__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.35 4.76 5.25.76-3.8 3.7.9 5.22L10 13.58 5.3 16.04l.9-5.22-3.8-3.7 5.25-.76L10 1.6z"/></svg>
+                  </div>
+                  <p class="gmaps-review__source"><a href="https://maps.app.goo.gl/iCafhcUum875QLf59" target="_blank" rel="noopener noreferrer">Google</a> · Maps</p>
+                </div>
+              </header>
+              <p class="gmaps-review__text">Хочу выразить благодарность Ип Шнякина и лично ритуальному агенту Александру за профессиональную и ответственную работу Александр внимательно отнёсся ко всем вопросам помог с организацией и оформлением необходимых услуг все объяснил и был на связи. Работа выполнена качественно спокойно и без лишних переживаний для семьи.</p>
+              <footer class="gmaps-review__foot">
+                <span class="gmaps-review__google-badge">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC04" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  Опубликовано в Google
+                </span>
+                <a href="https://maps.app.goo.gl/iCafhcUum875QLf59" target="_blank" rel="noopener noreferrer">ИП Шнякина Н.</a>
+              </footer>
             </article>
           </div>
         </div>
