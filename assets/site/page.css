@@ -49,6 +49,12 @@
   margin: 0 0 1.75rem; border: 1px solid rgba(236,232,224,0.1); border-radius: 4px; overflow: hidden;
 }
 .page-figure img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.page-figure--portrait img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  background: #15151a;
+}
 .page-article h2 {
   margin: 2rem 0 0.75rem;
   font-family: var(--font-display, Georgia, serif);
