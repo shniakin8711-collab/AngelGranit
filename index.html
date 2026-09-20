@@ -9,7 +9,7 @@
   <meta name="keywords" content="ритуальные услуги алматы, организация похорон алматы, памятники алматы, катафалк алматы, angelgranit, похороны под ключ алматы, уход за могилой алматы, ритуальные услуги в алматы 24/7" />
   <meta name="author" content="AngelGranit · Александр" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://wa.me https://api.whatsapp.com; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://maps.google.com https://www.google.com; connect-src 'self' https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://unpkg.com; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://wa.me https://api.whatsapp.com; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://music.yandex.kz https://music.yandex.ru https://maps.google.com https://www.google.com; connect-src 'self' https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://unpkg.com; upgrade-insecure-requests" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -3632,18 +3632,35 @@
     .talgar-corner__panel {
       display: none;
       margin-top: 0.45rem;
-      width: min(240px, calc(100vw - 1.5rem));
+      width: min(280px, calc(100vw - 1.5rem));
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
       background: #0d0d10;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      max-height: min(78vh, 640px);
+      overflow-y: auto;
     }
     .talgar-corner.is-open .talgar-corner__panel { display: block; }
+    .talgar-corner__photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      background: #15151a;
+    }
+    .talgar-corner__player {
+      display: block;
+      width: 100%;
+      height: 152px;
+      border: 0;
+      background: #15151a;
+    }
     .talgar-corner__map {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 9;
       border: 0;
       background: #15151a;
     }
@@ -3669,7 +3686,7 @@
     }
     @media (max-width: 520px) {
       .talgar-corner { left: 0.55rem; bottom: 4.6rem; }
-      .talgar-corner__panel { width: min(210px, calc(100vw - 1.1rem)); }
+      .talgar-corner__panel { width: min(260px, calc(100vw - 1.1rem)); }
     }
 
     /* AI Assistant */
@@ -6561,6 +6578,26 @@
       Талгар
     </button>
     <div class="talgar-corner__panel" id="talgar-corner-panel" hidden>
+      <picture>
+        <source srcset="images/locations/talgar-molodost.webp" type="image/webp" />
+        <img
+          class="talgar-corner__photo"
+          src="images/locations/talgar-molodost.png"
+          alt="Талгар — кадр, который напоминает о молодости"
+          width="575"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <iframe
+        class="talgar-corner__player"
+        title="Limp Bizkit — Dad Vibes (Яндекс Музыка)"
+        data-src="https://music.yandex.ru/iframe/#track/92133060/19078802"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="encrypted-media; fullscreen; autoplay"
+      ></iframe>
       <iframe
         class="talgar-corner__map"
         title="Карта города Талгар"
@@ -6571,7 +6608,11 @@
       ></iframe>
       <p class="talgar-corner__caption">
         <strong>Талгар</strong>
-        Здесь прошла молодость.
+        Здесь прошла молодость. Саундтрек: Limp Bizkit — Dad Vibes.
+        <a href="https://music.yandex.kz/album/19078802/track/92133060" target="_blank" rel="noopener noreferrer">Яндекс Музыка</a>
+        ·
+        <a href="naselennye-punkty/talgar/">страница Талгар</a>
+        ·
         <a href="https://2gis.kz/almaty/search/%D0%A2%D0%B0%D0%BB%D0%B3%D0%B0%D1%80" target="_blank" rel="noopener noreferrer">2ГИС</a>
       </p>
     </div>
@@ -6604,10 +6645,11 @@
           if (open) panel.removeAttribute('hidden');
           else panel.setAttribute('hidden', '');
           if (open) {
-            var frame = panel.querySelector('iframe[data-src]');
-            if (frame && !frame.getAttribute('src')) {
-              frame.setAttribute('src', frame.getAttribute('data-src'));
-            }
+            panel.querySelectorAll('iframe[data-src]').forEach(function (frame) {
+              if (!frame.getAttribute('src')) {
+                frame.setAttribute('src', frame.getAttribute('data-src'));
+              }
+            });
           }
         }
 
