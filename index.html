@@ -3963,230 +3963,216 @@
     }
 
 
-    /* Photo gallery — masonry */
-    .gallery-block {
+    /* Instagram / Reels block (replaces photo gallery) */
+    .ig-block {
       position: relative;
       background:
-        radial-gradient(ellipse 70% 50% at 20% 0%, rgba(255, 255, 255, 0.04), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 80% 0%, rgba(225, 48, 108, 0.08), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 10% 100%, rgba(131, 58, 180, 0.07), transparent 50%),
         linear-gradient(180deg, #0b0b0d 0%, #08080a 100%);
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
-    .gallery-block .section-head h2 {
+    .ig-block .section-head h2 {
       text-transform: none;
       letter-spacing: 0.02em;
     }
-    .gallery-masonry {
-      column-count: 3;
-      column-gap: 0.9rem;
-      padding: 0.25rem;
-    }
-    .gallery-item {
-      break-inside: avoid;
-      -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
-      margin: 0 0 0.9rem;
-      position: relative;
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #101114;
-      cursor: zoom-in;
-      color: inherit;
-      text-align: left;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
-    }
-    .gallery-masonry.is-in .gallery-item,
-    .gallery-masonry:not(.reveal) .gallery-item {
-      animation: galleryRise 0.75s var(--ease) forwards;
-    }
-    .gallery-masonry.is-in .gallery-item:nth-child(1),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(1) { animation-delay: 0.04s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(2),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(2) { animation-delay: 0.08s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(3),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(3) { animation-delay: 0.12s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(4),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(4) { animation-delay: 0.16s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(5),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(5) { animation-delay: 0.2s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(6),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(6) { animation-delay: 0.24s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(7),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(7) { animation-delay: 0.28s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(8),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(8) { animation-delay: 0.32s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(9),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(9) { animation-delay: 0.36s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(10),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(10) { animation-delay: 0.4s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(11),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(11) { animation-delay: 0.44s; }
-    .gallery-masonry.is-in .gallery-item:nth-child(12),
-    .gallery-masonry:not(.reveal) .gallery-item:nth-child(12) { animation-delay: 0.48s; }
-    .gallery-item:hover {
-      border-color: rgba(255, 255, 255, 0.28);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-    }
-    .gallery-item img {
-      display: block;
-      width: 100%;
-      height: auto;
-      vertical-align: middle;
-      transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
-    }
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      filter: brightness(1.06);
-    }
-    .gallery-item--tall img { aspect-ratio: 3 / 4; object-fit: cover; width: 100%; height: auto; }
-    .gallery-item--wide img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; height: auto; }
-    .gallery-item--square img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; height: auto; }
-    .gallery-item__cap {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 1.4rem 0.9rem 0.85rem;
-      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.78));
-      color: rgba(247, 247, 245, 0.92);
-      font-size: 0.82rem;
-      letter-spacing: 0.02em;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
-      pointer-events: none;
-    }
-    .gallery-item:hover .gallery-item__cap,
-    .gallery-item:focus-visible .gallery-item__cap {
-      opacity: 1;
-      transform: none;
-    }
-    .gallery-item:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.55);
-      outline-offset: 3px;
-    }
-    @keyframes galleryRise {
-      to { opacity: 1; transform: none; }
-    }
-    @media (max-width: 900px) {
-      .gallery-masonry { column-count: 2; }
-    }
-    @media (max-width: 560px) {
-      .gallery-masonry { column-count: 1; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .gallery-item {
-        animation: none;
-        opacity: 1;
-        transform: none;
-      }
-      .gallery-item img,
-      .gallery-item:hover img { transition: none; transform: none; }
-    }
-
-    .gallery-lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 1300;
+    .ig-profile {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
-      padding: 1.25rem;
-      background: rgba(4, 4, 6, 0.72);
-      backdrop-filter: blur(16px) saturate(120%);
-      -webkit-backdrop-filter: blur(16px) saturate(120%);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.35s var(--ease), visibility 0.35s var(--ease);
+      gap: 1rem 1.25rem;
+      padding: 1.15rem 1.2rem;
+      margin: 0 0 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background: #121214;
     }
-    .gallery-lightbox.is-open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
+    .ig-profile__avatar-ring {
+      flex: 0 0 auto;
+      width: 4.5rem;
+      height: 4.5rem;
+      padding: 2px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     }
-    .gallery-lightbox__inner {
-      position: relative;
-      max-width: min(1100px, 100%);
-      max-height: 90vh;
-      transform: scale(0.94) translateY(12px);
-      opacity: 0;
-      transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
-    }
-    .gallery-lightbox.is-open .gallery-lightbox__inner {
-      transform: none;
-      opacity: 1;
-    }
-    .gallery-lightbox__inner img {
-      display: block;
-      max-width: 100%;
-      max-height: 78vh;
-      width: auto;
-      height: auto;
-      margin: 0 auto;
-      object-fit: contain;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-      background: #0a0a0c;
-    }
-    .gallery-lightbox__cap {
-      margin: 0.85rem 0 0;
-      text-align: center;
-      color: rgba(247, 247, 245, 0.85);
-      font-size: 0.95rem;
-    }
-    .gallery-lightbox__close,
-    .gallery-lightbox__nav {
-      position: absolute;
+    .ig-profile__avatar {
       display: grid;
       place-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid #0b0b0d;
+      background: #1a1a1e;
+      color: #f7f7f5;
+      font-family: var(--font-display, Georgia, serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .ig-profile__meta {
+      flex: 1 1 12rem;
+      min-width: 0;
+    }
+    .ig-profile__meta strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #f7f7f5;
+      font-weight: 600;
+    }
+    .ig-profile__meta span {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.88rem;
+      color: rgba(236, 232, 224, 0.62);
+      line-height: 1.45;
+    }
+    .ig-profile__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+    .ig-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .ig-btn--primary {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+    }
+    .ig-btn--ghost {
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #ece8e0;
+      background: transparent;
+    }
+    .ig-btn--ghost:hover { border-color: #d4af57; color: #d4af57; }
+    .ig-reels {
+      display: flex;
+      gap: 0.85rem;
+      overflow-x: auto;
+      padding: 0.15rem 0.1rem 0.85rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .ig-reel {
+      flex: 0 0 auto;
+      width: min(46vw, 168px);
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #101114;
+      transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    @media (min-width: 720px) {
+      .ig-reel { width: 180px; }
+    }
+    .ig-reel:hover {
+      border-color: rgba(225, 48, 108, 0.45);
+      transform: translateY(-3px);
+    }
+    .ig-reel:focus-visible {
+      outline: 2px solid #e1306c;
+      outline-offset: 3px;
+    }
+    .ig-reel__media {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      background: #0a0a0c;
+      overflow: hidden;
+    }
+    .ig-reel__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ig-reel__play {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+      pointer-events: none;
+    }
+    .ig-reel__play span {
       width: 2.6rem;
       height: 2.6rem;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #f7f7f5;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
     }
-    .gallery-lightbox__close:hover,
-    .gallery-lightbox__nav:hover {
-      background: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.4);
+    .ig-reel__play svg { width: 1rem; height: 1rem; margin-left: 2px; }
+    .ig-reel__top {
+      position: absolute;
+      top: 0.55rem;
+      left: 0.55rem;
+      right: 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      z-index: 1;
+      pointer-events: none;
     }
-    .gallery-lightbox__close {
-      top: -0.35rem;
-      right: -0.35rem;
-      font-size: 1.25rem;
-      line-height: 1;
-      z-index: 2;
+    .ig-reel__top-av {
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+      display: grid;
+      place-items: center;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
     }
-    .gallery-lightbox__nav {
-      top: 50%;
-      transform: translateY(-50%);
+    .ig-reel__top-name {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     }
-    .gallery-lightbox__nav--prev { left: -0.4rem; }
-    .gallery-lightbox__nav--next { right: -0.4rem; }
-    .gallery-lightbox__nav svg {
-      width: 1rem;
-      height: 1rem;
+    .ig-reel__foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      padding: 0.55rem 0.65rem 0.65rem;
+      font-size: 0.72rem;
+      color: rgba(236, 232, 224, 0.7);
     }
-    @media (max-width: 700px) {
-      .gallery-lightbox__nav--prev { left: 0.35rem; }
-      .gallery-lightbox__nav--next { right: 0.35rem; }
-      .gallery-lightbox__close { top: 0.35rem; right: 0.35rem; }
+    .ig-reel__foot strong {
+      display: block;
+      color: #f1f3f4;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
     }
+    .ig-reel__icons {
+      display: inline-flex;
+      gap: 0.45rem;
+      color: rgba(247, 247, 245, 0.75);
+    }
+    .ig-reel__icons svg { width: 0.95rem; height: 0.95rem; }
     @media (prefers-reduced-motion: reduce) {
-      .gallery-lightbox,
-      .gallery-lightbox__inner { transition: none; }
+      .ig-reel:hover { transform: none; }
     }
 
     .prod-layout {
@@ -4766,6 +4752,7 @@
       </li>
       <li><a href="ceny/">Цены</a></li>
       <li><a href="nashi-raboty/">Наши работы</a></li>
+      <li><a href="#instagram">Instagram</a></li>
       <li><a href="#youtube">Влог</a></li>
       <li class="site-nav__item" data-dropdown>
         <button type="button" aria-expanded="false">Статьи</button>
@@ -5581,85 +5568,123 @@
   </section>
 
 
-  <section id="gallery" class="gallery-block with-angel with-angel--a" aria-label="Фотогалерея">
+  <section id="instagram" class="ig-block with-angel with-angel--a" aria-label="Instagram AngelGranit">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="eyebrow">// галерея</p>
-        <h2>Фотогалерея работ</h2>
-        <p class="sub">Памятники, комплексы и производство — нажмите на фото, чтобы открыть на весь экран.</p>
+        <p class="eyebrow">// instagram</p>
+        <h2>Instagram · @angelgranitfpv</h2>
+        <p class="sub">Reels и короткие ролики — в Instagram. Превью ниже ведут в профиль <a href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer">@angelgranitfpv</a>; полный каталог работ — на сайте.</p>
       </header>
-      <div class="gallery-masonry reveal" data-gallery>
-        <button type="button" class="gallery-item gallery-item--wide" data-gallery-item data-full="images/showcase-monument.webp" data-title="Гранитный памятник">
-          <img src="images/showcase-monument.webp" alt="Гранитный памятник — работа AngelGranit" width="1200" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Гранитный памятник</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--tall" data-gallery-item data-full="images/showcase-hearse.webp" data-title="Катафалк AngelGranit">
-          <img src="images/showcase-hearse.webp" alt="Катафалк AngelGranit" width="900" height="1200" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Катафалк</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--wide" data-gallery-item data-full="images/seo/memorialny-kompleks-chernyj-granit.webp" data-title="Мемориальный комплекс">
-          <img src="images/seo/memorialny-kompleks-chernyj-granit.webp" alt="Мемориальный комплекс из чёрного гранита" width="1600" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Мемориальный комплекс</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--square" data-gallery-item data-full="images/seo/hudozhestvennaya-gravirovka.webp" data-title="Художественная гравировка">
-          <img src="images/seo/hudozhestvennaya-gravirovka.webp" alt="Художественная гравировка на граните" width="1200" height="800" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Гравировка</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--wide" data-gallery-item data-full="images/seo/semejnyj-memorial.webp" data-title="Семейный мемориал">
-          <img src="images/seo/semejnyj-memorial.webp" alt="Семейный мемориал" width="1600" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Семейный мемориал</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--tall" data-gallery-item data-full="images/seo/pamyatnik-s-blagoustrojstvom.webp" data-title="Благоустройство могилы">
-          <img src="images/seo/pamyatnik-s-blagoustrojstvom.webp" alt="Памятник с благоустройством" width="1200" height="800" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Благоустройство</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--wide" data-gallery-item data-full="images/seo/professionalnaya-ustanovka-kompleksa.webp" data-title="Установка комплекса">
-          <img src="images/seo/professionalnaya-ustanovka-kompleksa.webp" alt="Профессиональная установка комплекса" width="1600" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Установка</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--square" data-gallery-item data-full="images/seo/naturalnyj-granit-krupnym-planom.webp" data-title="Натуральный гранит">
-          <img src="images/seo/naturalnyj-granit-krupnym-planom.webp" alt="Натуральный гранит крупным планом" width="1200" height="800" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Натуральный гранит</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--wide" data-gallery-item data-full="images/seo/granitnyj-stol-lavochka.webp" data-title="Стол и лавочка">
-          <img src="images/seo/granitnyj-stol-lavochka.webp" alt="Гранитный стол и лавочка" width="1600" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Стол и лавочка</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--tall" data-gallery-item data-full="images/seo/granitnaya-masterskaya.webp" data-title="Гранитная мастерская">
-          <img src="images/seo/granitnaya-masterskaya.webp" alt="Гранитная мастерская AngelGranit" width="1400" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Мастерская</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--wide" data-gallery-item data-full="images/seo/oformlenie-mesta-zahoroneniya.webp" data-title="Оформление места захоронения">
-          <img src="images/seo/oformlenie-mesta-zahoroneniya.webp" alt="Оформление места захоронения" width="1600" height="900" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Оформление места</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--square" data-gallery-item data-full="images/seo/cvety-vozle-pamyatnika.webp" data-title="Цветы у памятника">
-          <img src="images/seo/cvety-vozle-pamyatnika.webp" alt="Цветы у памятника" width="1200" height="800" loading="lazy" decoding="async" />
-          <span class="gallery-item__cap">Цветы у памятника</span>
-        </button>
+
+      <div class="ig-profile reveal">
+        <div class="ig-profile__avatar-ring" aria-hidden="true">
+          <div class="ig-profile__avatar">AG</div>
+        </div>
+        <div class="ig-profile__meta">
+          <strong>angelgranitfpv</strong>
+          <span>AngelGranit · Алматы · Reels, FPV и работы в камне</span>
+        </div>
+        <div class="ig-profile__actions">
+          <a class="ig-btn ig-btn--primary" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer">Открыть Instagram</a>
+          <a class="ig-btn ig-btn--ghost" href="nashi-raboty/">Каталог работ</a>
+        </div>
       </div>
+
+      <div class="ig-reels reveal" role="list">
+        <a class="ig-reel" role="listitem" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram — гранитный памятник">
+          <div class="ig-reel__media">
+            <div class="ig-reel__top"><span class="ig-reel__top-av">AG</span><span class="ig-reel__top-name">angelgranitfpv</span></div>
+            <img src="images/showcase-monument.webp" alt="Гранитный памятник AngelGranit" width="480" height="854" loading="lazy" decoding="async" />
+            <div class="ig-reel__play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></span></div>
+          </div>
+          <div class="ig-reel__foot">
+            <div><strong>Памятник</strong>Instagram</div>
+            <span class="ig-reel__icons" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+          </div>
+        </a>
+        <a class="ig-reel" role="listitem" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram — катафалк">
+          <div class="ig-reel__media">
+            <div class="ig-reel__top"><span class="ig-reel__top-av">AG</span><span class="ig-reel__top-name">angelgranitfpv</span></div>
+            <img src="images/showcase-hearse.webp" alt="Катафалк AngelGranit" width="480" height="854" loading="lazy" decoding="async" />
+            <div class="ig-reel__play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></span></div>
+          </div>
+          <div class="ig-reel__foot">
+            <div><strong>Катафалк</strong>Instagram</div>
+            <span class="ig-reel__icons" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+          </div>
+        </a>
+        <a class="ig-reel" role="listitem" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram — мемориальный комплекс">
+          <div class="ig-reel__media">
+            <div class="ig-reel__top"><span class="ig-reel__top-av">AG</span><span class="ig-reel__top-name">angelgranitfpv</span></div>
+            <img src="images/seo/memorialny-kompleks-chernyj-granit.webp" alt="Мемориальный комплекс" width="480" height="854" loading="lazy" decoding="async" />
+            <div class="ig-reel__play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></span></div>
+          </div>
+          <div class="ig-reel__foot">
+            <div><strong>Комплекс</strong>Instagram</div>
+            <span class="ig-reel__icons" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+          </div>
+        </a>
+        <a class="ig-reel" role="listitem" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram — гравировка">
+          <div class="ig-reel__media">
+            <div class="ig-reel__top"><span class="ig-reel__top-av">AG</span><span class="ig-reel__top-name">angelgranitfpv</span></div>
+            <img src="images/seo/hudozhestvennaya-gravirovka.webp" alt="Художественная гравировка" width="480" height="854" loading="lazy" decoding="async" />
+            <div class="ig-reel__play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></span></div>
+          </div>
+          <div class="ig-reel__foot">
+            <div><strong>Гравировка</strong>Instagram</div>
+            <span class="ig-reel__icons" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+          </div>
+        </a>
+        <a class="ig-reel" role="listitem" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram — мастерская">
+          <div class="ig-reel__media">
+            <div class="ig-reel__top"><span class="ig-reel__top-av">AG</span><span class="ig-reel__top-name">angelgranitfpv</span></div>
+            <img src="images/seo/granitnaya-masterskaya.webp" alt="Гранитная мастерская" width="480" height="854" loading="lazy" decoding="async" />
+            <div class="ig-reel__play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></span></div>
+          </div>
+          <div class="ig-reel__foot">
+            <div><strong>Мастерская</strong>Instagram</div>
+            <span class="ig-reel__icons" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+          </div>
+        </a>
+        <a class="ig-reel" role="listitem" href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram — благоустройство">
+          <div class="ig-reel__media">
+            <div class="ig-reel__top"><span class="ig-reel__top-av">AG</span><span class="ig-reel__top-name">angelgranitfpv</span></div>
+            <img src="images/seo/pamyatnik-s-blagoustrojstvom.webp" alt="Благоустройство могилы" width="480" height="854" loading="lazy" decoding="async" />
+            <div class="ig-reel__play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></span></div>
+          </div>
+          <div class="ig-reel__foot">
+            <div><strong>Благоустройство</strong>Instagram</div>
+            <span class="ig-reel__icons" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
       <div class="section-links reveal">
+        <a href="https://www.instagram.com/angelgranitfpv/" target="_blank" rel="noopener noreferrer">Instagram @angelgranitfpv</a>
         <a href="nashi-raboty/">Каталог работ</a>
-        <a href="nashi-raboty/">Все работы</a>
-        <a href="#production">Производство</a>
+        <a href="#youtube">Влог · YouTube</a>
         <a href="#contact">Заказать</a>
       </div>
     </div>
   </section>
-
-  <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фотогалереи">
-    <div class="gallery-lightbox__inner">
-      <button type="button" class="gallery-lightbox__close" id="gallery-lightbox-close" aria-label="Закрыть">×</button>
-      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="gallery-lightbox-prev" aria-label="Предыдущее фото">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M10.2 3.2 5.4 8l4.8 4.8 1.2-1.2L7.8 8l3.6-3.6z"/></svg>
-      </button>
-      <img id="gallery-lightbox-img" src="" alt="" width="1600" height="900" decoding="async" />
-      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" id="gallery-lightbox-next" aria-label="Следующее фото">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M5.8 3.2 4.6 4.4 8.2 8l-3.6 3.6 1.2 1.2L10.6 8z"/></svg>
-      </button>
-      <p class="gallery-lightbox__cap" id="gallery-lightbox-cap"></p>
-    </div>
-  </div>
 
   <section id="production" aria-label="Производство" class="with-angel with-angel--b with-angel--soft">
     <div class="wrap">
@@ -6495,7 +6520,7 @@
     Ритуальные услуги Алматы · памятники · катафалк<br />
     Александр · <a href="https://2gis.kz/almaty/geo/9430047375176085" target="_blank" rel="noopener noreferrer">ул. Осетинская, 5а</a><br />
     <a href="tel:+77010567667">+7 701 056 7667</a><br />
-    <a href="nashi-raboty/">Работы</a> · <a href="#production">Производство</a> · <a href="#youtube">Влог</a> · <a href="vlog/">Серия</a> · <a href="geo/">GEO</a> · <a href="#why-us">Почему мы</a> · <a href="#guarantees">Гарантии</a> · <a href="#reviews">Отзывы</a> · <a href="#faq">FAQ</a><br />
+    <a href="nashi-raboty/">Работы</a> · <a href="#instagram">Instagram</a> · <a href="#production">Производство</a> · <a href="#youtube">Влог</a> · <a href="vlog/">Серия</a> · <a href="geo/">GEO</a> · <a href="#why-us">Почему мы</a> · <a href="#guarantees">Гарантии</a> · <a href="#reviews">Отзывы</a> · <a href="#faq">FAQ</a><br />
     <a href="uslugi/">Услуги</a> · <a href="uslugi/uhod-za-mogiloj/">Уход за могилой</a> · <a href="ceny/">Цены</a> · <a href="nashi-raboty/">Наши работы</a> · <a href="stati/">Статьи</a> · <a href="otzyvy/">Отзывы</a> · <a href="faq/">FAQ</a> · <a href="kontakty/">Контакты</a> · <a href="o-kompanii/">О компании</a> · <a href="personalnye-dannye/">Персональные данные</a> · <a href="rajony/">Районы</a> · <a href="naselennye-punkty/">Населённые пункты</a>
   </footer>
 
@@ -7643,64 +7668,6 @@
           gridFail.innerHTML = '<p class="catalog-empty">Каталог временно недоступен. Заказ по телефону: <a href="tel:+77010567667">+7 701 056 7667</a>.</p>';
         }
       }
-
-      (function initGalleryLightbox() {
-        var root = document.querySelector('[data-gallery]');
-        var box = document.getElementById('gallery-lightbox');
-        var img = document.getElementById('gallery-lightbox-img');
-        var cap = document.getElementById('gallery-lightbox-cap');
-        var closeBtn = document.getElementById('gallery-lightbox-close');
-        var prevBtn = document.getElementById('gallery-lightbox-prev');
-        var nextBtn = document.getElementById('gallery-lightbox-next');
-        if (!root || !box || !img) return;
-
-        var items = Array.prototype.slice.call(root.querySelectorAll('[data-gallery-item]'));
-        var index = 0;
-
-        function show(i) {
-          index = (i + items.length) % items.length;
-          var item = items[index];
-          var src = item.getAttribute('data-full');
-          var title = item.getAttribute('data-title') || '';
-          img.src = src;
-          img.alt = title;
-          if (cap) cap.textContent = title;
-        }
-
-        function open(i) {
-          show(i);
-          box.classList.add('is-open');
-          box.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-          if (closeBtn) closeBtn.focus();
-        }
-
-        function close() {
-          box.classList.remove('is-open');
-          box.setAttribute('aria-hidden', 'true');
-          img.src = '';
-          document.body.style.overflow = '';
-        }
-
-        items.forEach(function (item, i) {
-          item.addEventListener('click', function () { open(i); });
-        });
-
-        if (closeBtn) closeBtn.addEventListener('click', close);
-        if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
-        if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
-
-        box.addEventListener('click', function (e) {
-          if (e.target === box) close();
-        });
-
-        document.addEventListener('keydown', function (e) {
-          if (!box.classList.contains('is-open')) return;
-          if (e.key === 'Escape') close();
-          if (e.key === 'ArrowLeft') show(index - 1);
-          if (e.key === 'ArrowRight') show(index + 1);
-        });
-      })();
 
       var aiBody = document.getElementById('ai-body');
       var aiChat = document.getElementById('ai-chat');
