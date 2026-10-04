@@ -30,6 +30,18 @@ GitHub Pages **не позволяет** задать в коде репозит
    - Рекомендуется **HSTS** (минимум `max-age=31536000; includeSubDomains`) после стабильного HTTPS.
 4. В коде и метаданных используйте только `https://angelgranit.com` (без `http://`).
 
+## Подтверждение сайта в Яндекс Вебмастере (HTML-файл)
+
+1. В [Вебмастере](https://webmaster.yandex.ru/) → сайт `angelgranit.com` → **Подтверждение прав** → способ **HTML-файл**.
+2. Скопируйте **имя файла** (например `yandex_ab12cd34.html`) и **код** из строки `Verification: …`.
+3. В корне репозитория создайте файл:
+
+```bash
+python scripts/site/create_yandex_verification.py yandex_XXXXX.html XXXXX
+```
+
+4. Закоммитьте файл в **корень** репозитория (рядом с `index.html`), задеployьте Pages и нажмите **Проверить** в Вебмастере. URL: `https://angelgranit.com/yandex_XXXXX.html`.
+
 ## SEO после деплоя
 
 - Google Search Console / Яндекс Вебмастер: переотправить `https://angelgranit.com/sitemap.xml`, запросить переобход главной и ключевых money-URL.
