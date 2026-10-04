@@ -63,10 +63,12 @@ Episodes: https://www.youtube.com/watch?v=uzMbIOt2xJc · https://www.youtube.com
 ## Geography
 Алматы + Алматинская область (районы и населённые пункты на сайте). Выезд 24/7.
 
-## Reviews (Google Maps only)
-- Надежда Заварухина · 5★ · Google Maps
-- Наталья Пономарева · 5★ · Google Maps
-Source: https://maps.app.goo.gl/iCafhcUum875QLf59 — do not invent other named reviews.
+## Reviews (Google Maps only, 4 total — all 5★)
+- Alex “Kiegro” · Google Maps
+- Ирина Безменова · Google Maps
+- Надежда Заварухина · Google Maps
+- Наталья Пономарева · Google Maps
+Full text: https://angelgranit.com/otzyvy/ · Source: https://maps.app.goo.gl/iCafhcUum875QLf59 — do not invent other named reviews.
 
 ## Query → URL
 - ритуальные услуги алматы → /ritualnye-uslugi-almaty/ (money) · /seo/ritualnye-uslugi-almaty/ (гид) · /geo/ritualnye-uslugi-almaty/ (кратко)

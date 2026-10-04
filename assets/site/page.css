@@ -182,6 +182,12 @@
   height: 0.95rem;
   display: block;
 }
+.gmaps-review__date {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .gmaps-review__source {
   margin: 0;
   font-size: 0.78rem;
