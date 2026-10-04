@@ -718,69 +718,11 @@ def polish_seo_hub() -> None:
 # ── sitemap ──────────────────────────────────────────────────────────────────
 
 def rebuild_sitemap() -> int:
-    urls: list[tuple[str, str]] = [(f"{BASE}/", "1.0")]
+    from sitemap_utils import rebuild_sitemap as _rebuild
 
-    def add(loc: str, pr: str) -> None:
-        urls.append((loc, pr))
-
-    # all index.html except intentional mirrors & assets
-    for p in ROOT.rglob("index.html"):
-        if any(x in SKIP_DIRS for x in p.parts):
-            continue
-        rel = p.parent.relative_to(ROOT).as_posix()
-        loc = f"{BASE}/" if rel == "." else f"{BASE}/{rel}/"
-
-        # skip SEO mirrors that canonicalize away
-        if rel.startswith("seo/") and rel != "seo":
-            html = p.read_text(encoding="utf-8", errors="replace")
-            m = re.search(r'rel="canonical" href="([^"]+)"', html)
-            self_url = loc
-            if m and m.group(1).rstrip("/") != self_url.rstrip("/"):
-                continue
-
-        parts = [] if rel == "." else rel.split("/")
-        if not parts:
-            pr = "1.0"
-        elif parts[0] == "uslugi":
-            pr = "0.95" if len(parts) == 1 else "0.9"
-        elif parts[0] == "stati":
-            pr = "0.9" if len(parts) == 1 else ("0.85" if len(parts) == 2 else "0.75")
-        elif parts[0] in {"rajony", "naselennye-punkty"}:
-            pr = "0.85" if len(parts) == 1 else "0.8"
-        elif parts[0] == "kontakty":
-            pr = "0.9"
-        elif parts[0] == "seo":
-            pr = "0.7"
-        elif parts[0] == "temy":
-            pr = "0.9"
-        else:
-            pr = "0.85"
-        add(loc, pr)
-
-    seen = set()
-    out = []
-    for loc, pr in urls:
-        if loc not in seen:
-            seen.add(loc)
-            out.append((loc, pr))
-
-    lines = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ]
-    for loc, pr in out:
-        lines += [
-            "  <url>",
-            f"    <loc>{loc}</loc>",
-            f"    <lastmod>{TODAY}</lastmod>",
-            "    <changefreq>weekly</changefreq>",
-            f"    <priority>{pr}</priority>",
-            "  </url>",
-        ]
-    lines.append("</urlset>")
-    safe_write(ROOT / "sitemap.xml", "\n".join(lines) + "\n")
-    record(f"sitemap rebuilt: {len(out)} URLs")
-    return len(out)
+    n = _rebuild()
+    record(f"sitemap rebuilt: {n} URLs")
+    return n
 
 
 # ── validation report ────────────────────────────────────────────────────────

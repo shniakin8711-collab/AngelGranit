@@ -23,10 +23,7 @@ const DEFAULT_URLS = [
   `https://${HOST}/otzyvy/`,
   `https://${HOST}/nashi-raboty/`,
   `https://${HOST}/vlog/`,
-  `https://${HOST}/geo/`,
-  `https://${HOST}/ai/`,
-  `https://${HOST}/AI.md`,
-  `https://${HOST}/llms.txt`,
+  `https://${HOST}/ritualnye-uslugi-almaty/`,
   `https://${HOST}/sitemap.xml`,
 ];
 

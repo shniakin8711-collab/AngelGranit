@@ -495,27 +495,9 @@ def render_hub(kind: str) -> str:
 
 
 def update_sitemap() -> None:
-    path = ROOT / "sitemap.xml"
-    text = path.read_text(encoding="utf-8") if path.exists() else '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n'
-    text = re.sub(
-        r"\s*<url>\s*<loc>https://angelgranit\.com/(?:rajony|naselennye-punkty)(?:/[^<]*)?/?</loc>[\s\S]*?</url>",
-        "",
-        text,
-    )
-    blocks = []
-    for folder, items, pr in (
-        ("rajony", DISTRICTS, "0.85"),
-        ("naselennye-punkty", SETTLEMENTS, "0.8"),
-    ):
-        blocks.append(
-            f"  <url>\n    <loc>{BASE}/{folder}/</loc>\n    <lastmod>{TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>"
-        )
-        for it in items:
-            blocks.append(
-                f"  <url>\n    <loc>{BASE}/{folder}/{it['slug']}/</loc>\n    <lastmod>{TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{pr}</priority>\n  </url>"
-            )
-    text = text.replace("</urlset>", "\n".join(blocks) + "\n</urlset>")
-    path.write_text(text, encoding="utf-8", newline="\n")
+    from sitemap_utils import rebuild_sitemap
+
+    rebuild_sitemap()
 
 
 def main() -> None:

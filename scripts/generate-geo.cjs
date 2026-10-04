@@ -152,7 +152,7 @@ function pageHtml(page) {
   <title>${esc(page.title)}</title>
   <meta name="description" content="${esc(page.description)}" />
   <link rel="canonical" href="${url}" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="robots" content="noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="KZ-ALA" />
   <meta name="geo.placename" content="${esc(page.placename || "Алматы")}" />
   <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
@@ -331,7 +331,7 @@ function hubHtml() {
   <title>${esc(data.hub.title)}</title>
   <meta name="description" content="${esc(data.hub.description)}" />
   <link rel="canonical" href="https://angelgranit.com/geo/" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="robots" content="noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="../site.webmanifest" />
   <meta name="theme-color" content="#d4af57" />
@@ -418,35 +418,8 @@ for (const page of data.pages) {
   fs.writeFileSync(path.join(dir, "index.html"), pageHtml(page), "utf8");
 }
 
-// Patch sitemap: remove old /geo/ entries then append
-const sitemapPath = path.join(ROOT, "sitemap.xml");
-let sitemap = fs.readFileSync(sitemapPath, "utf8");
-sitemap = sitemap.replace(/\s*<url>\s*<loc>https:\/\/angelgranit\.com\/geo\/[^<]*<\/loc>[\s\S]*?<\/url>/g, "");
-
-const geoUrls = [
-  { loc: "https://angelgranit.com/geo/", priority: "0.90" },
-  ...data.pages.map((p) => ({
-    loc: `https://angelgranit.com/geo/${p.slug}/`,
-    priority: "0.75",
-  })),
-];
-
-const geoBlock = geoUrls
-  .map(
-    (u) => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${u.priority}</priority>
-  </url>`
-  )
-  .join("\n");
-
-if (!sitemap.includes("</urlset>")) {
-  console.error("sitemap.xml missing </urlset>");
-  process.exit(1);
-}
-sitemap = sitemap.replace("</urlset>", `${geoBlock}\n</urlset>`);
-fs.writeFileSync(sitemapPath, sitemap, "utf8");
-
-console.log("Generated hub +", data.pages.length, "GEO pages and updated sitemap.xml");
+console.log(
+  "Generated hub +",
+  data.pages.length,
+  "GEO pages (noindex; sitemap: python scripts/site/rebuild_sitemap via sitemap_utils)"
+);

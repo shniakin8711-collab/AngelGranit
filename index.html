@@ -4774,7 +4774,7 @@
         <button type="button" class="pcat__filter" data-pcat-filter="cvetnik" aria-pressed="false">Цветники</button>
       </div>
 
-      <p class="pcat-empty" id="pcat-empty" role="status">В этой категории пока нет позиций. Выберите другой фильтр.</p>
+      <p class="pcat-empty" id="pcat-empty" role="status" hidden>В этой категории пока нет позиций. Выберите другой фильтр.</p>
 
       <div class="pcat__grid reveal" id="pcat-grid" role="list">
         <article class="pcat-card" role="listitem" data-pcat-cat="vertical">
@@ -6500,7 +6500,12 @@
             card.classList.toggle('is-hidden', !match);
             if (match) visible += 1;
           });
-          if (empty) empty.classList.toggle('is-visible', visible === 0);
+          if (empty) {
+            var showEmpty = visible === 0;
+            empty.classList.toggle('is-visible', showEmpty);
+            if (showEmpty) empty.removeAttribute('hidden');
+            else empty.setAttribute('hidden', '');
+          }
         }
 
         filters.forEach(function (btn) {
@@ -6514,6 +6519,8 @@
             applyFilter(key);
           });
         });
+
+        applyFilter('all');
 
         var lightbox = document.getElementById('pcat-lightbox');
         var stage = document.getElementById('pcat-lightbox-stage');

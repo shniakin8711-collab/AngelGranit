@@ -328,60 +328,14 @@ Hours: 24/7
 
 
 def rebuild_sitemap(paths: list[Path]) -> int:
-    # Prefer self-canonical indexable pages; include homepage + hubs with higher priority
-    high = {
-        f"{BASE}/": 1.0,
-        f"{BASE}/uslugi/": 0.95,
-        f"{BASE}/ceny/": 0.9,
-        f"{BASE}/nashi-raboty/": 0.9,
-        f"{BASE}/stati/": 0.9,
-        f"{BASE}/kontakty/": 0.9,
-        f"{BASE}/faq/": 0.85,
-        f"{BASE}/otzyvy/": 0.85,
-        f"{BASE}/o-kompanii/": 0.85,
-        f"{BASE}/klastery/": 0.8,
-        f"{BASE}/temy/": 0.8,
-    }
-    urls: list[tuple[str, float]] = []
-    seen = set()
-    for path in paths:
-        if path.name == "404.html":
-            continue
-        html = path.read_text(encoding="utf-8")
-        robots = (get_meta(html, "robots") or "").lower()
-        if "noindex" in robots:
-            continue
-        canon = get_canonical(html) or page_url(path)
-        # Skip mirrors that canonicalize away from this URL path (seo consolidation)
-        self_url = page_url(path)
-        rel = path.relative_to(ROOT).as_posix()
-        if rel.startswith("seo/") and canon.rstrip("/") != self_url.rstrip("/"):
-            continue
-        if canon in seen:
-            continue
-        seen.add(canon)
-        pri = high.get(canon, 0.7 if "/uslugi/" in canon or "/stati/" in canon else 0.65)
-        if any(x in canon for x in ("-almaty", "/rajony/", "/naselennye-punkty/")):
-            pri = max(pri, 0.75)
-        urls.append((canon, pri))
+    import sys
 
-    urls.sort(key=lambda x: (0 if x[0] == f"{BASE}/" else 1, x[0]))
-    lines = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ]
-    for loc, pri in urls:
-        lines.append("  <url>")
-        lines.append(f"    <loc>{xml_escape(loc)}</loc>")
-        lines.append(f"    <lastmod>{TODAY}</lastmod>")
-        lines.append("    <changefreq>weekly</changefreq>")
-        lines.append(f"    <priority>{pri:.2f}</priority>")
-        lines.append("  </url>")
-    lines.append("</urlset>")
-    lines.append("")
-    safe_write(ROOT / "sitemap.xml", "\n".join(lines))
-    log(f"sitemap.xml rebuilt: {len(urls)} URLs")
-    return len(urls)
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from sitemap_utils import rebuild_sitemap as _rebuild
+
+    n = _rebuild()
+    log(f"sitemap.xml rebuilt: {n} URLs")
+    return n
 
 
 HOME_KEYWORDS = (
