@@ -16,6 +16,38 @@ if (!Array.isArray(data.pages) || data.pages.length !== 50) {
   process.exit(1);
 }
 
+/** Slugs of sibling pages under /geo/<slug>/ */
+const GEO_SLUGS = new Set(data.pages.map((p) => p.slug));
+
+/**
+ * Manifest hrefs are written for /geo/ (one level up). Leaf pages live at /geo/<slug>/ —
+ * site-root links need ../../, sibling GEO pages ../<slug>/ or bare slug.
+ */
+function hrefForGeoLeaf(href) {
+  if (!href || /^(https?:|\/|#|tel:|mailto:|data:)/i.test(href)) return href;
+  if (href.startsWith("./")) href = href.slice(2);
+  if (!href.startsWith("../")) {
+    return href.startsWith("../") ? href : `../${href}`;
+  }
+  const rest = href.slice(3);
+  const firstSeg = rest.split(/[/?#]/)[0];
+  if (GEO_SLUGS.has(firstSeg)) return href;
+  return `../${href}`;
+}
+
+function hrefDisplayFromLeaf(href) {
+  const fixed = hrefForGeoLeaf(href);
+  if (/^https?:\/\//i.test(fixed)) return fixed;
+  let p = fixed;
+  while (p.startsWith("../")) p = p.slice(3);
+  if (p.startsWith("/")) return p;
+  const trimmed = p.replace(/^\//, "");
+  const firstSeg = trimmed.split(/[/?#]/)[0];
+  const isGeoSibling = GEO_SLUGS.has(firstSeg) && /^[^/]+\/?$/.test(trimmed);
+  if (isGeoSibling) return `/geo/${trimmed}`;
+  return `/${trimmed}`;
+}
+
 function esc(s) {
   return String(s)
     .replace(/&/g, "&amp;")
@@ -125,14 +157,14 @@ function pageHtml(page) {
     )
     .join("\n        ");
   const links = (page.links || [])
-    .map(
-      (l) =>
-        `<a href="${esc(l.href)}"><strong>${esc(l.title)}</strong><span>${esc(l.sub || "")}</span></a>`
-    )
+    .map((l) => {
+      const h = hrefForGeoLeaf(l.href);
+      return `<a href="${esc(h)}"><strong>${esc(l.title)}</strong><span>${esc(l.sub || "")}</span></a>`;
+    })
     .join("\n        ");
   const moreLabel = page.moreLabel || "Полная страница (канон)";
   const more = page.more
-    ? `<p class="geo-more"><strong>${esc(moreLabel)}:</strong> <a href="${esc(page.more)}">${esc(page.more.replace(/^\.\.\//, "/"))}</a></p>`
+    ? `<p class="geo-more"><strong>${esc(moreLabel)}:</strong> <a href="${esc(hrefForGeoLeaf(page.more))}">${esc(hrefDisplayFromLeaf(page.more))}</a></p>`
     : "";
   const role = `<p class="geo-role">Это <strong>краткий GEO-ответ</strong> для людей и ИИ — не дубль SEO и не замена коммерческой услуги. Для заказа смотрите канон ниже.</p>`;
 
