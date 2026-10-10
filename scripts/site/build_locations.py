@@ -202,7 +202,16 @@ def map_block(lat: float, lng: float, label: str, map_id: str) -> str:
 """
 
 
-def page_shell(title: str, desc: str, url: str, body: str, schema: dict, depth: int) -> str:
+def page_shell(
+    title: str,
+    desc: str,
+    url: str,
+    body: str,
+    schema: dict,
+    depth: int,
+    *,
+    geo_placename: str = "Алматы",
+) -> str:
     css_prefix = "../" * depth
     return f"""<!DOCTYPE html>
 <html lang="ru">
@@ -214,7 +223,7 @@ def page_shell(title: str, desc: str, url: str, body: str, schema: dict, depth: 
   <link rel="canonical" href="{url}" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="KZ-ALA" />
-  <meta name="geo.placename" content="Алматы" />
+  <meta name="geo.placename" content="{esc(geo_placename)}" />
 {icon_links(css_prefix)}
 {social_meta(title=esc(title), desc=esc(desc), url=url, image=f"{BASE}/images/seo/ritualnye-uslugi-almaty.webp")}
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -268,12 +277,21 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
     folder = "rajony" if is_district else "naselennye-punkty"
     place = loc["name"]
     short = loc.get("short", place)
-    title = f"Ритуальные услуги в {place}, Алматы | AngelGranit"
-    desc = ensure_desc(
-        f"Ритуальные услуги в {place}: организация похорон, катафалк, памятники. Выезд 24/7, агент {AGENT}."
-    )
+    if is_district:
+        title = f"Ритуальные услуги — {short} район Алматы | AngelGranit"
+        h1 = f"Ритуальные услуги в {short} районе Алматы"
+        desc = ensure_desc(
+            f"Ритуальные услуги в {short} районе Алматы: организация похорон, катафалк, памятники. Выезд 24/7, агент {AGENT}."
+        )
+        geo_placename = f"{short} район, Алматы"
+    else:
+        title = f"Ритуальные услуги в {place}, Алматы | AngelGranit"
+        h1 = f"Ритуальные услуги в {place}"
+        desc = ensure_desc(
+            f"Ритуальные услуги в {place}: организация похорон, катафалк, памятники. Выезд 24/7, агент {AGENT}."
+        )
+        geo_placename = f"{place}, Алматы"
     url = f"{BASE}/{folder}/{loc['slug']}/"
-    h1 = f"Ритуальные услуги в {place}"
     svc = "\n".join(
         f'<a href="../../uslugi/{esc(slug)}/"><strong>{esc(title_)}</strong><span>Заказать в {esc(short)}</span></a>'
         for slug, title_ in SERVICE_LINKS
@@ -295,6 +313,23 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
     landmarks = loc.get("landmarks", loc.get("about", ""))
     travel = loc["travel"]
     kind_word = "районе" if is_district else "населённом пункте"
+    district_extras = ""
+    if is_district:
+        slug = loc["slug"]
+        district_extras = f"""
+      <section>
+        <h2>Подробный SEO-гид по району</h2>
+        <p>Развёрнутый справочник (canonical указывает на эту страницу): <a href="../../seo/ritualnye-uslugi-{esc(slug)}-rajon/">ритуальные услуги — {esc(short)} район</a>.</p>
+      </section>"""
+        svc = svc + f"""
+        <a href="../../geo/{esc(slug)}/"><strong>Кратко для ИИ</strong><span>GEO-ответ по району</span></a>
+        <a href="../../seo/ritualnye-uslugi-{esc(slug)}-rajon/"><strong>SEO-гид</strong><span>Длинный справочник</span></a>"""
+
+    hero_lead = (
+        f"Ритуальные услуги в {esc(short)} районе Алматы 24/7: {esc(landmarks)}. {esc(travel.capitalize())}. AngelGranit, агент {esc(AGENT)}, {esc(ADDRESS)}, {esc(PHONE)}."
+        if is_district
+        else f"AngelGranit — ритуальные услуги в {esc(place)} 24/7: выезд агента и катафалк. {esc(landmarks.capitalize())}. Офис {esc(ADDRESS)}, агент {esc(AGENT)}, {esc(PHONE)}."
+    )
 
     schema = {
         "@context": "https://schema.org",
@@ -392,7 +427,7 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
       </nav>
       <header class="page-hero">
         <h1>{esc(h1)}</h1>
-        <p class="lead">AngelGranit — ритуальные услуги в {esc(place)} 24/7: выезд агента и катафалк. {esc(landmarks.capitalize())}. Офис ул. Осетинская, 5а, агент Александр, +7 701 056 7667.</p>
+        <p class="lead">{hero_lead}</p>
         <div class="page-cta">
           <a class="btn-site btn-site--gold" href="tel:{PHONE_TEL}">Позвонить {esc(PHONE)}</a>
           <a class="btn-site btn-site--wa" href="#" data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -412,9 +447,9 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
       </article>
       {map_block(loc["lat"], loc["lng"], place, f"map-{loc['slug']}")}
       <section>
-        <h2>Услуги для {esc(short)}</h2>
+        <h2>Услуги для {esc(short if is_district else place)}</h2>
         <div class="related-grid">{svc}</div>
-      </section>
+      </section>{district_extras}
       <section>
         <h2>Полезные статьи</h2>
         <div class="related-grid">{articles}</div>
@@ -440,7 +475,7 @@ def render_location(kind: str, loc: dict, peers: list[dict]) -> str:
     </div>
   </main>
 """
-    return page_shell(title, desc, url, body, schema, 2)
+    return page_shell(title, desc, url, body, schema, 2, geo_placename=geo_placename)
 
 
 def render_hub(kind: str) -> str:

@@ -810,7 +810,9 @@ for key, slug_part, name, geo in DISTRICTS:
         "lead": f"Выезжаем в {name} район Алматы круглосуточно: организация похорон, транспорт и консультация по памятникам.",
         "focus": f"обслуживание {name} района",
         "district_name": name,
+        "district_slug": slug_part,
         "district_geo": geo,
+        "canonical_url": f"{BASE}/rajony/{slug_part}/",
         "keywords_natural": [f"ритуальные услуги {name} район", f"похороны {name}"],
         "topics": [
             (f"Как мы работаем в {name} районе", "district_work"),

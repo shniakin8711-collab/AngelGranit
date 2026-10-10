@@ -36,6 +36,10 @@ def abs_url(slug: str | None = None) -> str:
     return f"{BASE}/seo/{slug}/"
 
 
+def page_canonical_url(page: dict) -> str:
+    return (page.get("canonical_url") or "").strip() or abs_url(page["slug"])
+
+
 def related_cards(page) -> str:
     items = []
     for slug in page.get("related_slugs", []):
@@ -80,13 +84,14 @@ def reviews_html() -> str:
 
 
 def schema_json(page) -> str:
-    page_url = abs_url(page["slug"])
+    page_url = page_canonical_url(page)
+    seo_url = abs_url(page["slug"])
     faq = build_faq(page)
     cat_name = CATEGORIES.get(page["category"], "Раздел")
     graph = [
         {
             "@type": "WebPage",
-            "@id": page_url + "#webpage",
+            "@id": seo_url + "#webpage",
             "url": page_url,
             "name": page["title"],
             "description": page["description"],
@@ -117,7 +122,7 @@ def schema_json(page) -> str:
         },
         {
             "@type": "Service",
-            "@id": page_url + "#service",
+            "@id": seo_url + "#service",
             "name": page["service_name"],
             "description": page["description"],
             "provider": {"@id": BASE + "/#business"},
@@ -126,7 +131,7 @@ def schema_json(page) -> str:
         },
         {
             "@type": "BreadcrumbList",
-            "@id": page_url + "#breadcrumb",
+            "@id": seo_url + "#breadcrumb",
             "itemListElement": [
                 {
                     "@type": "ListItem",
@@ -150,13 +155,13 @@ def schema_json(page) -> str:
                     "@type": "ListItem",
                     "position": 4,
                     "name": page["h1"],
-                    "item": page_url,
+                    "item": seo_url,
                 },
             ],
         },
         {
             "@type": "FAQPage",
-            "@id": page_url + "#faq",
+            "@id": seo_url + "#faq",
             "mainEntity": [
                 {
                     "@type": "Question",
@@ -188,6 +193,12 @@ def render_page(page) -> tuple[str, int]:
     title, desc = ensure_meta(page)
     article = article_html(page)
     body_words = word_count(article + page["lead"] + page["h1"])
+    canon = page_canonical_url(page)
+    rajony_note = ""
+    if page.get("district_slug"):
+        rs = esc(page["district_slug"])
+        rajony_note = f"""
+        <p class="hero__lead">Каноническая локальная страница: <a href="{HOME_FROM_PAGE}rajony/{rs}/">/rajony/{rs}/</a> (индекс Google). Этот URL — развёрнутый SEO-гид.</p>"""
 
     html_out = f"""<!DOCTYPE html>
 <html lang="ru">
@@ -198,7 +209,7 @@ def render_page(page) -> tuple[str, int]:
   <meta name="description" content="{esc(desc)}" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
-  <link rel="canonical" href="{abs_url(page['slug'])}" />
+  <link rel="canonical" href="{canon}" />
   <meta name="author" content="AngelGranit · {AGENT}" />
   <meta name="geo.region" content="KZ-ALA" />
   <meta name="geo.placename" content="Алматы" />
@@ -207,7 +218,7 @@ def render_page(page) -> tuple[str, int]:
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content="AngelGranit — ритуальные услуги Алматы" />
-  <meta property="og:url" content="{abs_url(page['slug'])}" />
+  <meta property="og:url" content="{canon}" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:image" content="{BASE}/images/hero-angelgranit.png" />
@@ -253,7 +264,7 @@ def render_page(page) -> tuple[str, int]:
       <header class="hero">
         <p class="hero__kicker">{esc(cat)} · Алматы · 24/7</p>
         <h1>{esc(page['h1'])}</h1>
-        <p class="hero__lead">{esc(page['lead'])}</p>
+        <p class="hero__lead">{esc(page['lead'])}</p>{rajony_note}
         <div class="hero__cta">
           <a class="btn btn--gold" href="tel:{PHONE_TEL}">Позвонить {esc(PHONE)}</a>
           <a class="btn btn--wa" href="#" data-wa-default target="_blank" rel="noopener noreferrer">WhatsApp</a>
